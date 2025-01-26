@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=3 format=3 uid="uid://he3fi3w1rn4e"]
 
+[ext_resource type="Script" path="res://scripts/jack_control.gd" id="1_bofyj"]
 [ext_resource type="PackedScene" uid="uid://cm5hedf25enbl" path="res://scenes/jack.tscn" id="1_puarp"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Jack" parent="." instance=ExtResource("1_puarp")]
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_bofyj")
+
+[node name="Jack" parent="Node2D" instance=ExtResource("1_puarp")]
+
+[node name="Jack2" parent="Node2D" instance=ExtResource("1_puarp")]
+position = Vector2(-76, -58)
