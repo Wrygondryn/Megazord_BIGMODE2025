@@ -1,16 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=4 format=3 uid="uid://he3fi3w1rn4e"]
 
-[ext_resource type="Script" path="res://scripts/jack_control.gd" id="1_bofyj"]
+[ext_resource type="Script" path="res://scripts/player_control.gd" id="1_bofyj"]
 [ext_resource type="PackedScene" uid="uid://cm5hedf25enbl" path="res://scenes/jack.tscn" id="1_puarp"]
+[ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
 
 [node name="Game" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Jacks and Sockets" type="Node2D" parent="."]
 script = ExtResource("1_bofyj")
 
-[node name="Jack" parent="Node2D" instance=ExtResource("1_puarp")]
+[node name="Sockets" type="Node2D" parent="Jacks and Sockets"]
 
-[node name="Jack2" parent="Node2D" instance=ExtResource("1_puarp")]
+[node name="Socket" parent="Jacks and Sockets/Sockets" instance=ExtResource("3_y3a8c")]
+position = Vector2(-153, 137)
+
+[node name="Socket2" parent="Jacks and Sockets/Sockets" instance=ExtResource("3_y3a8c")]
+position = Vector2(140, 137)
+
+[node name="Jacks" type="Node2D" parent="Jacks and Sockets"]
+
+[node name="Jack" parent="Jacks and Sockets/Jacks" instance=ExtResource("1_puarp")]
+
+[node name="Jack2" parent="Jacks and Sockets/Jacks" instance=ExtResource("1_puarp")]
 position = Vector2(-76, -58)
+
+[node name="Camera2D" type="Camera2D" parent="."]

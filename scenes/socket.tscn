@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dchbk5yutlhiu"]
+
+[ext_resource type="Texture2D" uid="uid://ce3p5lt78rvlk" path="res://assets/circle.png" id="1_18u3d"]
+
+[node name="Socket" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_18u3d")

@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var line: Line2D = $Line2D
+var in_socket := false
+var socket_position: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta: float) -> void:
