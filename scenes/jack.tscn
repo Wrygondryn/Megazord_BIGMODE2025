@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/jack.gd" id="1_vsrur"]
 
 [node name="Jack" type="Node2D"]
+z_index = 1
 script = ExtResource("1_vsrur")
 
 [node name="Line2D" type="Line2D" parent="."]

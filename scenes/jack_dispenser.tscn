@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://kwregxsookrk"]
+
+[sub_resource type="Gradient" id="Gradient_jy2w2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nkiax"]
+gradient = SubResource("Gradient_jy2w2")
+fill_from = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qabc"]
+size = Vector2(22, 64)
+
+[node name="JackDispenser" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.345, 1)
+texture = SubResource("GradientTexture2D_nkiax")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6qabc")
