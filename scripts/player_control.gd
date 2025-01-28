@@ -7,33 +7,53 @@ const JACK_SCENE = preload("res://scenes/jack.tscn")
 @onready var jack_dispensers: Node2D = $JackDispensers
 
 #TODO: Replace bools with state enum?
-var held_jack: Node2D
-var currently_holding_jack := false
+var held_jack: Node2D = null
 var mouse_to_jack_centre: Vector2
+
 
 func hold_jack(jack: Node2D):
 	held_jack = jack
-	currently_holding_jack = true
 	mouse_to_jack_centre = jack.transform.origin - get_local_mouse_position()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	process_jack_selection()
 	
-	if currently_holding_jack:
+	if held_jack != null:
 		handle_held_jack()
 	else:
 		process_jack_dispenser()
 			
-	if Input.is_action_just_released("left_click"):
-		currently_holding_jack = false
-		
-func process_jack_selection():
-	var mouse_pos = get_local_mouse_position()
+	if Input.is_action_just_released("left_click"): 
+		if held_jack != null:
+			var intersecting_socket = socket_intersecting_jack(held_jack)
+			if intersecting_socket != null:
+				held_jack.plug_into(intersecting_socket)
+			elif held_jack.plugged_socket != null:
+				held_jack.unplug()
+				
+		held_jack = null
+
+
+func socket_intersecting_jack(jack: Node2D) -> Node2D:
+	var result: Node2D = null
+	var found_intersecting_socket := false
+	for socket in sockets.get_children():
+		var mouse_pos = get_local_mouse_position()
+		var intersecting_socket = mouse_pos.distance_to(socket.global_position) < socket.radius() + jack.radius()
+		if !socket.plugged && intersecting_socket:
+			found_intersecting_socket = true
+			result = socket
+			break
 	
-	if !currently_holding_jack:
+	return result
+
+func process_jack_selection():
+	if held_jack == null:
 		#Detect is player is about to select a jack
 		#TODO: Cache transforms if perfomance is a problem
+		var mouse_pos = get_local_mouse_position()
 		for i in range(jacks.get_child_count()):
 			var jack = jacks.get_child(i)
 			var radius = jack.radius()
@@ -43,21 +63,12 @@ func process_jack_selection():
 				hold_jack(jack)
 				
 func handle_held_jack():
-	var mouse_pos = get_local_mouse_position()
-	
-	#Snap to socket
-	var intersecting_socket_pos: Vector2
-	var found_intersecting_socket := false
-	for socket in sockets.get_children():
-		if  mouse_pos.distance_to(socket.global_position) < socket.radius() + held_jack.radius():
-			found_intersecting_socket = true
-			intersecting_socket_pos = socket.global_position
-			break
-			
-	if found_intersecting_socket:
-		held_jack.transform.origin = intersecting_socket_pos
+	var intersecting_socket := socket_intersecting_jack(held_jack)
+	if intersecting_socket != null:
+		held_jack.transform.origin = intersecting_socket.global_position
 	else: 
 		#TODO: Smoothing/Easing
+		var mouse_pos = get_local_mouse_position()
 		held_jack.transform.origin = mouse_pos + mouse_to_jack_centre
 		
 func process_jack_dispenser():
