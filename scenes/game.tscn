@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=5 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/player_control.gd" id="1_bofyj"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
+[ext_resource type="PackedScene" uid="uid://cm5hedf25enbl" path="res://scenes/jack.tscn" id="4_ojb0u"]
 [ext_resource type="PackedScene" uid="uid://kwregxsookrk" path="res://scenes/jack_dispenser.tscn" id="4_whl4r"]
 
 [node name="Game" type="Node2D"]
@@ -22,5 +23,8 @@ position = Vector2(-153, 137)
 position = Vector2(140, 137)
 
 [node name="Jacks" type="Node2D" parent="JacksAndSockets"]
+
+[node name="BoosterJack" parent="JacksAndSockets/Jacks" instance=ExtResource("4_ojb0u")]
+charge = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -1,5 +1,7 @@
 extends Node2D
 
+@export_range(0, 10, 1, "or_greater") var charge: int = 1
+
 @onready var line: Line2D = $Line2D
 @onready var sprite: Sprite2D = $Sprite2D
 

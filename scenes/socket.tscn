@@ -10,3 +10,11 @@ script = ExtResource("1_k01id")
 modulate = Color(0, 1, 0, 1)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("1_18u3d")
+
+[node name="ChargeDisplay_TEMP" type="Label" parent="."]
+offset_left = 30.0
+offset_top = -11.0
+offset_right = 52.0
+offset_bottom = 12.0
+text = "0"
+horizontal_alignment = 1
