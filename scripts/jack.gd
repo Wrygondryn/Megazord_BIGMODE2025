@@ -3,7 +3,7 @@ extends Node2D
 @onready var line: Line2D = $Line2D
 @onready var sprite: Sprite2D = $Sprite2D
 
-var plugged_socket: Node2D = null
+var connected_socket: Node2D = null
 var end_point := Vector2(0.0, 0.0) 
 
 
@@ -12,15 +12,7 @@ func radius() -> float:
 
 func set_end_point(global_point: Vector2):
 	end_point = global_point
-	
-func plug_into(socket: Node2D):
-	plugged_socket = socket
-	socket.plugged = true
-	
-func unplug():
-	plugged_socket.plugged = false
-	plugged_socket = null
-	
+
 func _ready():
 	line.points[1] = to_local(end_point)
 
