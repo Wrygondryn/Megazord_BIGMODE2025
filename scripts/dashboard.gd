@@ -1,7 +1,5 @@
 extends Node2D
 
-const JACK_SCENE = preload("res://scenes/jack.tscn")
-
 @onready var sockets: Node2D = $Sockets
 @onready var jacks: Node2D = $Jacks
 @onready var jack_dispensers: Node2D = $JackDispensers
@@ -130,9 +128,8 @@ func process_jack_dispenser():
 		var dispenser_interect_rect = dispenser.get_node("Area2D/CollisionShape2D").shape.get_rect()
 		dispenser_interect_rect.position = dispenser.global_position - dispenser_interect_rect.size / 2.0
 		if dispenser_interect_rect.has_point(mouse_pos) and Input.is_action_just_pressed("left_click"):
-			var new_jack = JACK_SCENE.instantiate()
+			var new_jack = dispenser.new_jack()
 			new_jack.global_position = mouse_pos
-			new_jack.set_end_point(dispenser.global_position)
 			jacks.add_child(new_jack)
 			hold_jack(new_jack)
 
@@ -168,8 +165,10 @@ func display_powers():
 		socket.power_display_temp.text = str(power)
 
 func recalculate_module_cooldowns():
-	var total_power = jacks.get_children().reduce(
-		func (acc: float, jack: Node2D) -> float: return acc + jack.power,
+	var total_power = connections.reduce(
+		func (acc: float, connection: JackSocketConnection) -> float: 
+			var power = instance_from_id(connection.jack_instance_id).power 
+			return acc + power,
 		0.0
 	)
 	

@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=8 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_bofyj"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
-[ext_resource type="PackedScene" uid="uid://cm5hedf25enbl" path="res://scenes/jack.tscn" id="4_ojb0u"]
 [ext_resource type="PackedScene" uid="uid://kwregxsookrk" path="res://scenes/jack_dispenser.tscn" id="4_whl4r"]
 [ext_resource type="PackedScene" uid="uid://3y3al18ah6ax" path="res://scenes/chargable_module.tscn" id="5_llxl5"]
 [ext_resource type="Resource" uid="uid://08ag4xompugm" path="res://resources/test_module.tres" id="6_7nf4m"]
+[ext_resource type="PackedScene" uid="uid://b72fg5qff5dt2" path="res://scenes/mechazord.tscn" id="7_huf8d"]
+[ext_resource type="PackedScene" uid="uid://bimy4xj03log8" path="res://scenes/kaiju.tscn" id="8_r0r2j"]
 
 [node name="Game" type="Node2D"]
 
@@ -14,32 +15,47 @@ script = ExtResource("1_bofyj")
 
 [node name="JackDispensers" type="Node2D" parent="Dashboard"]
 
-[node name="JackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
+[node name="WeakJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
+position = Vector2(-132, 60)
+
+[node name="MedJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
+position = Vector2(-132, 140)
+power = 3
+colour = Color(1, 1, 0, 1)
+
+[node name="StrongJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
+position = Vector2(-132, 220)
+power = 5
+colour = Color(1, 0, 0, 1)
 
 [node name="Sockets" type="Node2D" parent="Dashboard"]
 
 [node name="Socket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-153, 137)
+position = Vector2(38, 41)
 module = NodePath("../../ChargableModules/ChargableModule")
 
 [node name="Socket2" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(140, 137)
+position = Vector2(35, 93)
 module = NodePath("../../ChargableModules/ChargableModule2")
 
 [node name="Jacks" type="Node2D" parent="Dashboard"]
 
-[node name="BoosterJack" parent="Dashboard/Jacks" instance=ExtResource("4_ojb0u")]
-position = Vector2(-113, 0)
-power = 4
-
 [node name="ChargableModules" type="Node2D" parent="Dashboard"]
 
 [node name="ChargableModule" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
-position = Vector2(-61, 138)
+position = Vector2(130, 42)
 module_data = ExtResource("6_7nf4m")
 
 [node name="ChargableModule2" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
-position = Vector2(236, 139)
+position = Vector2(131, 95)
 module_data = ExtResource("6_7nf4m")
 
+[node name="Battle" type="Node2D" parent="."]
+
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Mechazord" parent="." instance=ExtResource("7_huf8d")]
+position = Vector2(279, -158)
+
+[node name="Kaiju" parent="." instance=ExtResource("8_r0r2j")]
+position = Vector2(-271, -162)
