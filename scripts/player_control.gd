@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 			release_held_jack()
 		held_jack = null
 		
-	display_charges()
+	display_powers()
 
 
 func is_connected_by_id(jack_or_socket_id: int) -> bool:
@@ -74,8 +74,11 @@ func connection_from_id(jack_or_socket_id: int) -> JackSocketConnection:
 func disconnect_jack(jack_instance_id: int) -> bool:
 	for i in range(len(connections)):
 		if jack_instance_id == connections[i].jack_instance_id:
+			var socket := instance_from_id(connections[i].socket_instance_id)
 			assert(arr_swap_remove(connections, i))
+			
 			return true
+	
 	return false
 
 func socket_intersecting_jack(jack: Node2D) -> Node2D:
@@ -149,15 +152,33 @@ func release_held_jack():
 	if should_connect_held_jack:
 		var new_connection := JackSocketConnection.new(held_jack.get_instance_id(), intersecting_socket.get_instance_id())
 		connections.append(new_connection)
+	
+	recalculate_module_cooldowns()
 
 #TODO: If performance tanks because of this, figure out a way for us not to have 
 #to iterate through children each iteration of outer loop (i.e., make map from 
 #connection to socket.jack O(1) or O(log(n)) or something)
-func display_charges():
+func display_powers():
 	for i in range(sockets.get_child_count()):
-		sockets.get_child(i).charge_display_temp.text = "0"
+		sockets.get_child(i).power_display_temp.text = "0"
 	
 	for connection in connections:
-		var charge = instance_from_id(connection.jack_instance_id).charge
-		var socket = instance_from_id(connection.socket_instance_id)
-		socket.charge_display_temp.text = str(charge)
+		var power = instance_from_id(connection.jack_instance_id).power
+		var socket := instance_from_id(connection.socket_instance_id)
+		socket.power_display_temp.text = str(power)
+
+func recalculate_module_cooldowns():
+	var total_power = jacks.get_children().reduce(
+		func (acc: float, jack: Node2D) -> float: return acc + jack.power,
+		0.0
+	)
+	
+	for i in range(sockets.get_child_count()):
+		sockets.get_child(i).module.set_proportional_charge_rate(0.0)
+		
+	for connection in connections:
+		var power = instance_from_id(connection.jack_instance_id).power
+		var socket := instance_from_id(connection.socket_instance_id)
+		#TODO: Figure out a way to not have to mutate state between objects, it seems very
+		#easy to mess up and leak bugs
+		socket.module.set_proportional_charge_rate(power / total_power)

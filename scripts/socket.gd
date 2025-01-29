@@ -1,7 +1,9 @@
 extends Node2D
 
+@export var module: Module
+
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var charge_display_temp: Label = $ChargeDisplay_TEMP
+@onready var power_display_temp: Label = $PowerDisplay_TEMP
 
 var connected_jack: Node2D = null
 
