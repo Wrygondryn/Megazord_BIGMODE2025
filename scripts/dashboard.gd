@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 	if held_jack != null:
 		handle_held_jack()
 	else:
-		process_jack_dispenser()
+		process_jack_retrieval()
 			
 	if Input.is_action_just_released("left_click"): 
 		if held_jack != null:
@@ -119,7 +119,7 @@ func handle_held_jack():
 		var mouse_pos = get_local_mouse_position()
 		held_jack.transform.origin = mouse_pos + mouse_to_jack_centre
 		
-func process_jack_dispenser():
+func process_jack_retrieval():
 	var mouse_pos = get_local_mouse_position()
 	
 	#Detect if we clicked on a jack dispenser
@@ -149,6 +149,12 @@ func release_held_jack():
 	if should_connect_held_jack:
 		var new_connection := JackSocketConnection.new(held_jack.get_instance_id(), intersecting_socket.get_instance_id())
 		connections.append(new_connection)
+	else:
+		for jack_dispenser in jack_dispensers.get_children():
+			var dispenser_rect = jack_dispenser.get_node("Area2D/CollisionShape2D").shape.get_rect()
+			dispenser_rect.position = jack_dispenser.global_position - dispenser_rect.size / 2.0
+			if dispenser_rect.has_point(held_jack.end_point) && dispenser_rect.has_point(held_jack.global_position):
+				jacks.remove_child(held_jack) 
 	
 	recalculate_module_cooldowns()
 

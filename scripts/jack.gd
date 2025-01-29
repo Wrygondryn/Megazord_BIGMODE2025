@@ -5,7 +5,6 @@ extends Node2D
 @onready var line: Line2D = $Line2D
 @onready var sprite: Sprite2D = $Sprite2D
 
-var connected_socket: Node2D = null
 var end_point := Vector2(0.0, 0.0) 
 
 var colour: Color = Color.BLACK

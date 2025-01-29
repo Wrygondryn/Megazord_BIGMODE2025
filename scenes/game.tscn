@@ -31,7 +31,7 @@ colour = Color(1, 0, 0, 1)
 [node name="Sockets" type="Node2D" parent="Dashboard"]
 
 [node name="Socket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(38, 41)
+position = Vector2(35, 41)
 module = NodePath("../../ChargableModules/ChargableModule")
 
 [node name="Socket2" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
@@ -43,7 +43,7 @@ module = NodePath("../../ChargableModules/ChargableModule2")
 [node name="ChargableModules" type="Node2D" parent="Dashboard"]
 
 [node name="ChargableModule" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
-position = Vector2(130, 42)
+position = Vector2(131, 42)
 module_data = ExtResource("6_7nf4m")
 
 [node name="ChargableModule2" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
