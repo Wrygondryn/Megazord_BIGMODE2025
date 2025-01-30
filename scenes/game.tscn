@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=9 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_bofyj"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
@@ -8,10 +8,6 @@
 [ext_resource type="Script" path="res://scripts/battle.gd" id="6_bwiir"]
 [ext_resource type="PackedScene" uid="uid://b72fg5qff5dt2" path="res://scenes/mechazord.tscn" id="7_huf8d"]
 [ext_resource type="PackedScene" uid="uid://bimy4xj03log8" path="res://scenes/kaiju.tscn" id="8_r0r2j"]
-[ext_resource type="Script" path="res://scripts/kaiju.gd" id="9_gbvrl"]
-[ext_resource type="Script" path="res://scripts/module_data.gd" id="10_4sgxy"]
-[ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/test_kaiju_module.tres" id="11_1ysnf"]
-[ext_resource type="Resource" uid="uid://bujn1bqqbiw68" path="res://resources/test_kaiju_module2.tres" id="12_svg5n"]
 
 [node name="Game" type="Node2D"]
 
@@ -66,7 +62,5 @@ scale = Vector2(0.785, 0.785)
 [node name="Kaiju" parent="Battle" instance=ExtResource("8_r0r2j")]
 position = Vector2(217, -322)
 scale = Vector2(0.8, 0.8)
-script = ExtResource("9_gbvrl")
-modules = Array[ExtResource("10_4sgxy")]([ExtResource("11_1ysnf"), ExtResource("12_svg5n")])
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bimy4xj03log8"]
+[gd_scene load_steps=6 format=3 uid="uid://bimy4xj03log8"]
 
+[ext_resource type="Script" path="res://scripts/kaiju.gd" id="1_h5lc8"]
 [ext_resource type="Texture2D" uid="uid://ccck2r0agp2o0" path="res://assets/dummy_kaiju.png" id="1_hft5c"]
+[ext_resource type="Script" path="res://scripts/module_data.gd" id="2_mlru2"]
 [ext_resource type="PackedScene" uid="uid://dk7mb70mb5rp2" path="res://scenes/body_part.tscn" id="2_nclt7"]
+[ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/test_kaiju_module.tres" id="3_3gsc7"]
 
 [node name="Kaiju" type="Node2D"]
 scale = Vector2(1.5, 1.5)
+script = ExtResource("1_h5lc8")
+modules = Array[ExtResource("2_mlru2")]([ExtResource("3_3gsc7")])
 
 [node name="ShieldDisplay_TEMP" type="Label" parent="."]
 offset_left = -193.334
@@ -18,6 +23,7 @@ horizontal_alignment = 2
 
 [node name="Head" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(-2, 110.667)
+hp = 200.0
 
 [node name="Sprite2D" parent="BodyParts/Head" index="0"]
 modulate = Color(1, 0.713726, 0.670588, 1)
@@ -31,6 +37,7 @@ offset_bottom = -117.333
 
 [node name="LeftArm" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(-146, 99)
+hp = 100.0
 
 [node name="Sprite2D" parent="BodyParts/LeftArm" index="0"]
 position = Vector2(-12.2308, 13.9089)
@@ -45,6 +52,7 @@ offset_bottom = 13.0
 
 [node name="RightArm" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(182, 99)
+hp = 100.0
 
 [node name="Sprite2D" parent="BodyParts/RightArm" index="0"]
 position = Vector2(-12.2308, 13.9089)
@@ -59,6 +67,7 @@ offset_bottom = 13.0
 
 [node name="Torso" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(1, 199)
+hp = 300.0
 
 [node name="Sprite2D" parent="BodyParts/Torso" index="0"]
 scale = Vector2(0.710938, 182)
@@ -69,6 +78,7 @@ offset_bottom = -32.0
 
 [node name="Pelvis" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(1, 343)
+hp = 200.0
 
 [node name="Sprite2D" parent="BodyParts/Pelvis" index="0"]
 scale = Vector2(0.5625, 92.0001)
@@ -79,6 +89,7 @@ offset_bottom = -16.0
 
 [node name="LeftLeg" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(-122, 451)
+hp = 150.0
 
 [node name="Sprite2D" parent="BodyParts/LeftLeg" index="0"]
 scale = Vector2(0.351562, 182)
@@ -89,6 +100,7 @@ offset_bottom = -56.0
 
 [node name="RightLeg" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(124, 451)
+hp = 150.0
 
 [node name="Sprite2D" parent="BodyParts/RightLeg" index="0"]
 scale = Vector2(0.351562, 182)

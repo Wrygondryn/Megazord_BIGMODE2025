@@ -23,8 +23,8 @@ func queue_action_from_module(module: ModuleData):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	mechazord.victory.connect(_on_mechazord_victory)
+	kaiju.victory.connect(_on_kaiju_victory)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -35,25 +35,15 @@ func _process(delta: float) -> void:
 	for action in action_queue:
 		match action.target:
 			ModuleData.ActionTarget.MECHAZORD:
-				apply_damage(mechazord, action.damage)
+				kaiju.damage_target(mechazord, action.damage)
 			ModuleData.ActionTarget.KAIJU:
-				apply_damage(kaiju, action.damage)
+				mechazord.damage_target(kaiju, action.damage)
 	action_queue.clear()
+
+func _on_kaiju_victory():
+	print("You Lose!")
+	game_over = true
 	
-	if mechazord.hp <= 0.0:
-		mechazord.hp = 0.0
-		print("You Lose!")
-		game_over = true
-		
-	if kaiju.hp <= 0.0:
-		kaiju.hp = 0.0
-		print("You Win!")
-		game_over = true
-
-
-#TODO: Move into mechazord/kaiju script?
-func apply_damage(target: Node2D, damage: float) -> void:
-	var shield_damage = min(target.shield, damage)
-	var hp_damage = damage - shield_damage
-	target.shield = max(target.shield - shield_damage, 0.0)
-	target.hp = max(target.hp - hp_damage, 0.0)
+func _on_mechazord_victory():
+	print("You Win!")
+	game_over = true
