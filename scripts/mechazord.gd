@@ -1,10 +1,12 @@
 extends Node2D
 
+@export_range(0.0, 1000.0, 1.0, "or_greater", "hide_slider") var shield: float = 200.0
+
 @onready var body_parts: Node2D = $BodyParts
 @onready var shield_display_temp: Label = $ShieldDisplay_TEMP
+@onready var one_second_timer: Timer = $OneSecondTimer
 
 var hp: float = 500.0
-var shield: float = 200.0
 
 
 signal victory
@@ -50,6 +52,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	shield = max(shield - Helpers.DEFAULT_SHIELD_DRAIN_PER_SEC * delta, 0.0)
+	shield = max(shield * (1.0 - Helpers.SHIELD_DRAIN_FRAC_PER_SEC * delta), 0.0)
+	if shield < 1.0:
+		shield = 0.0
 	
 	shield_display_temp.text = "Shield - %.0f" % shield

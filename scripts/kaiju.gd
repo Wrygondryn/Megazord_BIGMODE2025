@@ -1,13 +1,13 @@
 extends Node2D
 
 @export var modules: Array[ModuleData]
+@export_range(0.0, 1000.0, 1.0, "or_greater", "hide_slider") var shield: float = 200.0
 
 @onready var battle: Node2D = %Battle
 @onready var body_parts: Node2D = $BodyParts
 @onready var shield_display_temp: Label = $ShieldDisplay_TEMP
 
 var hp: float = 500.0
-var shield: float = 200.0
 
 var charges: Array[float]
 
@@ -45,7 +45,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	assert(len(charges) == len(modules))
 	
-	shield = max(shield - Helpers.DEFAULT_SHIELD_DRAIN_PER_SEC * delta, 0.0)
+	shield = max(shield * (1.0 - Helpers.SHIELD_DRAIN_FRAC_PER_SEC * delta), 0.0) 
 	
 	for i in range(len(charges)):
 		charges[i] += Helpers.KAIJU_DEFAULT_CHARGE_PER_SEC * delta
