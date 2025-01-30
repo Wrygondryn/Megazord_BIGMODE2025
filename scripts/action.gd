@@ -4,6 +4,7 @@ class_name Action
 var kind: Helpers.ActionKind
 var damage: float
 var heal: float
+var pierces: bool
 var target: Helpers.GigaTarget
 var body_part: Helpers.BodyPart
 		
@@ -11,12 +12,14 @@ func _init(
 	kind: Helpers.ActionKind, 
 	damage: float, 
 	heal: float, 
+	pierces: bool,
 	target: Helpers.GigaTarget, 
 	body_part: Helpers.BodyPart
 ):
 	self.kind = kind
 	self.damage = damage
 	self.heal = heal
+	self.pierces = pierces
 	self.target = target
 	self.body_part = body_part
 
@@ -31,6 +34,7 @@ static func from_module_data(module: ModuleData):
 		module.action_kind, 
 		module.damage, 
 		module.heal, 
+		module.pierces, 
 		module.giga_target, 
 		module.target_body_part
 	)

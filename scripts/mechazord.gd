@@ -11,13 +11,13 @@ var hp: float = 500.0
 
 signal victory
 
-func damage_target(target: Node2D, damage: float) -> void:
+func damage_target(target: Node2D, damage: float, pierces: bool) -> void:
 	# print(name + " dealt " + str(damage) + " damage to " + str(target.name))
 	
-	var shield_damage = min(target.shield, damage)
+	var shield_damage = min(target.shield, damage) if !pierces else 0.0
 	target.shield = max(target.shield - shield_damage, 0.0)
 	
-	if target.shield < damage:
+	if target.shield < damage || pierces:
 		var valid_target_indices = []
 		for i in range(target.body_parts.get_child_count()):
 			if target.body_parts.get_child(i).hp > 0.0:

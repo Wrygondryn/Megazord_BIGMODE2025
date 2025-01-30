@@ -29,9 +29,9 @@ func _process(delta: float) -> void:
 			Helpers.ActionKind.ATTACK:
 				match action.target:
 					Helpers.GigaTarget.MECHAZORD:
-						kaiju.damage_target(mechazord, action.damage)
+						kaiju.damage_target(mechazord, action.damage, action.pierces)
 					Helpers.GigaTarget.KAIJU:
-						mechazord.damage_target(kaiju, action.damage)
+						mechazord.damage_target(kaiju, action.damage, action.pierces)
 				
 			Helpers.ActionKind.REPAIR:
 				#TODO: Allow for Kaiju healing if need be
