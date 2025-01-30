@@ -1,9 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://b72fg5qff5dt2"]
+[gd_scene load_steps=3 format=3 uid="uid://b72fg5qff5dt2"]
 
+[ext_resource type="Script" path="res://scripts/mechazord.gd" id="1_6b4sr"]
 [ext_resource type="Texture2D" uid="uid://dqx24uuscef21" path="res://assets/dummy_mech.png" id="1_f1ark"]
 
 [node name="Mechazord" type="Node2D"]
+script = ExtResource("1_6b4sr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.623819, 1, 0.593899, 1)
 texture = ExtResource("1_f1ark")
+
+[node name="HPDisplay_TEMP" type="Label" parent="."]
+offset_left = 88.0
+offset_top = -72.0
+offset_right = 178.0
+offset_bottom = -49.0
+text = "HP - 000"
+horizontal_alignment = 2
+
+[node name="ShieldDisplay_TEMP" type="Label" parent="."]
+offset_left = 88.0
+offset_top = -40.0
+offset_right = 178.0
+offset_bottom = -17.0
+text = "Shield - 000"

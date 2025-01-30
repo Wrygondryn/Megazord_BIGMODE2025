@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=13 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_bofyj"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
 [ext_resource type="PackedScene" uid="uid://kwregxsookrk" path="res://scenes/jack_dispenser.tscn" id="4_whl4r"]
 [ext_resource type="PackedScene" uid="uid://3y3al18ah6ax" path="res://scenes/chargable_module.tscn" id="5_llxl5"]
-[ext_resource type="Resource" uid="uid://08ag4xompugm" path="res://resources/test_module.tres" id="6_7nf4m"]
+[ext_resource type="Resource" uid="uid://08ag4xompugm" path="res://resources/test_mecha_module.tres" id="6_7nf4m"]
+[ext_resource type="Script" path="res://scripts/battle.gd" id="6_bwiir"]
 [ext_resource type="PackedScene" uid="uid://b72fg5qff5dt2" path="res://scenes/mechazord.tscn" id="7_huf8d"]
 [ext_resource type="PackedScene" uid="uid://bimy4xj03log8" path="res://scenes/kaiju.tscn" id="8_r0r2j"]
+[ext_resource type="Script" path="res://scripts/kaiju.gd" id="9_gbvrl"]
+[ext_resource type="Script" path="res://scripts/module_data.gd" id="10_4sgxy"]
+[ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/test_kaiju_module.tres" id="11_1ysnf"]
+[ext_resource type="Resource" uid="uid://bujn1bqqbiw68" path="res://resources/test_kaiju_module2.tres" id="12_svg5n"]
 
 [node name="Game" type="Node2D"]
 
@@ -51,11 +56,15 @@ position = Vector2(131, 95)
 module_data = ExtResource("6_7nf4m")
 
 [node name="Battle" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_bwiir")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Mechazord" parent="." instance=ExtResource("7_huf8d")]
+[node name="Mechazord" parent="Battle" instance=ExtResource("7_huf8d")]
 position = Vector2(279, -158)
 
-[node name="Kaiju" parent="." instance=ExtResource("8_r0r2j")]
+[node name="Kaiju" parent="Battle" instance=ExtResource("8_r0r2j")]
 position = Vector2(-271, -162)
+script = ExtResource("9_gbvrl")
+modules = Array[ExtResource("10_4sgxy")]([ExtResource("11_1ysnf"), ExtResource("12_svg5n")])
+
+[node name="Camera2D" type="Camera2D" parent="."]

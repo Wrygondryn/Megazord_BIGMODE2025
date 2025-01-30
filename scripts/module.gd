@@ -4,6 +4,7 @@ class_name Module
 @export var module_data: ModuleData
 
 @onready var charge_bar: Sprite2D = $ChargeBar
+@onready var battle: Node2D = %Battle
 
 var charge: float = 0.0
 var charge_rate: float = 0.0
@@ -21,7 +22,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	charge += charge_rate * delta
 	#TODO: Charge decay
-	if charge >= module_data.charge_capacity || charge <= 0.0:
+	if charge >= module_data.charge_capacity:
+		battle.queue_action_from_module(module_data)
+		charge = 0.0
+		
+	if charge <= 0.0:
 		charge = 0.0
 	
 	var frac_charged = charge / module_data.charge_capacity

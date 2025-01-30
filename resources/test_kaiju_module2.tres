@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://bujn1bqqbiw68"]
+
+[ext_resource type="Script" path="res://scripts/module_data.gd" id="1_e0q00"]
+
+[resource]
+script = ExtResource("1_e0q00")
+charge_capacity = 20.0
+damage = 100.0
+target = 0

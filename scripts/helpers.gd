@@ -1,3 +1,4 @@
 extends Node
 
 const MAX_CHARGE_PER_SEC = 50
+const KAIJU_DEFAULT_CHARGE_PER_SEC = 25
