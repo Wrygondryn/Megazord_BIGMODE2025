@@ -23,7 +23,8 @@ horizontal_alignment = 2
 
 [node name="Head" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(-2, 110.667)
-hp = 200.0
+kind = 0
+max_hp = 200.0
 
 [node name="Sprite2D" parent="BodyParts/Head" index="0"]
 modulate = Color(1, 0.713726, 0.670588, 1)
@@ -37,7 +38,8 @@ offset_bottom = -117.333
 
 [node name="LeftArm" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(-146, 99)
-hp = 100.0
+kind = 1
+max_hp = 100.0
 
 [node name="Sprite2D" parent="BodyParts/LeftArm" index="0"]
 position = Vector2(-12.2308, 13.9089)
@@ -52,7 +54,8 @@ offset_bottom = 13.0
 
 [node name="RightArm" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(182, 99)
-hp = 100.0
+kind = 2
+max_hp = 100.0
 
 [node name="Sprite2D" parent="BodyParts/RightArm" index="0"]
 position = Vector2(-12.2308, 13.9089)
@@ -67,7 +70,8 @@ offset_bottom = 13.0
 
 [node name="Torso" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(1, 199)
-hp = 300.0
+kind = 3
+max_hp = 300.0
 
 [node name="Sprite2D" parent="BodyParts/Torso" index="0"]
 scale = Vector2(0.710938, 182)
@@ -78,7 +82,8 @@ offset_bottom = -32.0
 
 [node name="Pelvis" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(1, 343)
-hp = 200.0
+kind = 4
+max_hp = 200.0
 
 [node name="Sprite2D" parent="BodyParts/Pelvis" index="0"]
 scale = Vector2(0.5625, 92.0001)
@@ -89,7 +94,8 @@ offset_bottom = -16.0
 
 [node name="LeftLeg" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(-122, 451)
-hp = 150.0
+kind = 5
+max_hp = 150.0
 
 [node name="Sprite2D" parent="BodyParts/LeftLeg" index="0"]
 scale = Vector2(0.351562, 182)
@@ -100,7 +106,8 @@ offset_bottom = -56.0
 
 [node name="RightLeg" parent="BodyParts" instance=ExtResource("2_nclt7")]
 position = Vector2(124, 451)
-hp = 150.0
+kind = 6
+max_hp = 150.0
 
 [node name="Sprite2D" parent="BodyParts/RightLeg" index="0"]
 scale = Vector2(0.351562, 182)

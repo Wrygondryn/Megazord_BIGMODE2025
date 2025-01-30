@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_udql3")
-charge_capacity = 50.0
+charge_capacity = 25.0
 damage = 30.0
-target = 0
+heal = 0.0
+giga_target = 0
+target_body_part = 7

@@ -1,17 +1,22 @@
 extends Resource
 class_name ModuleData
 
-#TODO: Allow for specification of body part?
-enum ActionTarget { 
-	MECHAZORD,
-	KAIJU
-}
 
+#TODO: Have some sort of subclassing to separate stats that don't go together (e.g., damage and
+#heal). It's not important rn but might be in the future
 @export_range(1.0, 500000.0, 1.0, "or_greater", "hide_slider") var charge_capacity: float
 @export_range(0.0, 1000.0, 1.0, "or_greater", "hide_slider") var damage: float
-@export var target: ActionTarget
+@export_range(0.0, 1000.0, 1.0, "or_greater", "hide_slider") var heal: float
+@export var giga_target: Helpers.GigaTarget
+@export var target_body_part: Helpers.BodyPart
 
-func _init(charge_capacity = 100.0, damage := 0.0, target := ActionTarget.KAIJU):
+func _init(
+	charge_capacity = 100.0, 
+	damage := 0.0, 
+	giga_target := Helpers.GigaTarget.KAIJU, 
+	target_body_part := Helpers.BodyPart.ANY
+):
 	self.charge_capacity = charge_capacity
 	self.damage = damage
-	self.target = target
+	self.giga_target = giga_target
+	self.target_body_part = target_body_part

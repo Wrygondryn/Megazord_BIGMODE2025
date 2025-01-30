@@ -31,6 +31,17 @@ func damage_target(target: Node2D, damage: float) -> void:
 		var body_part_hp = target.body_parts.get_child(body_part_index).hp
 		target.body_parts.get_child(body_part_index).hp = max(body_part_hp - hp_damage, 0.0)
 
+func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
+	#TODO: Properly handle BodyPart.ANY
+	if body_part_kind == Helpers.BodyPart.ANY: return
+	#assert(body_part != Helpers.BodyPart.ANY)
+	#print("Healed %.0f of %d's HP" % [heal, body_part])
+	
+	for i in range(body_parts.get_child_count()):
+		var body_part = body_parts.get_child(i)
+		if body_part.kind == body_part_kind:
+			body_part.hp = min(body_part.max_hp, body_part.hp + heal)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	charge += charge_rate * delta
 	#TODO: Charge decay
 	if charge >= module_data.charge_capacity:
-		battle.queue_action_from_module(module_data)
+		battle.queue_action(Action.from_module_data(module_data))
 		charge = 0.0
 		
 	if charge <= 0.0:

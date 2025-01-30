@@ -6,4 +6,6 @@
 script = ExtResource("1_dvjsb")
 charge_capacity = 50.0
 damage = 25.0
-target = 1
+heal = 0.0
+giga_target = 1
+target_body_part = 7

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=10 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_bofyj"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://3y3al18ah6ax" path="res://scenes/chargable_module.tscn" id="5_llxl5"]
 [ext_resource type="Resource" uid="uid://08ag4xompugm" path="res://resources/test_mecha_module.tres" id="6_7nf4m"]
 [ext_resource type="Script" path="res://scripts/battle.gd" id="6_bwiir"]
+[ext_resource type="Resource" uid="uid://6xs0ooprjwlw" path="res://resources/repair_module.tres" id="6_mdk4p"]
 [ext_resource type="PackedScene" uid="uid://b72fg5qff5dt2" path="res://scenes/mechazord.tscn" id="7_huf8d"]
 [ext_resource type="PackedScene" uid="uid://bimy4xj03log8" path="res://scenes/kaiju.tscn" id="8_r0r2j"]
 
@@ -33,23 +34,37 @@ colour = Color(1, 0, 0, 1)
 
 [node name="Socket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
 position = Vector2(35, 257)
-module = NodePath("../../ChargableModules/ChargableModule")
+module = NodePath("../../ChargableModules/AttackModule")
+
+[node name="Sprite2D" parent="Dashboard/Sockets/Socket" index="0"]
+modulate = Color(1, 0, 0, 1)
 
 [node name="Socket2" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
 position = Vector2(35, 309)
-module = NodePath("../../ChargableModules/ChargableModule2")
+module = NodePath("../../ChargableModules/AttackModule2")
+
+[node name="Sprite2D" parent="Dashboard/Sockets/Socket2" index="0"]
+modulate = Color(1, 0, 0, 1)
+
+[node name="Socket3" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
+position = Vector2(35, 365)
+module = NodePath("../../ChargableModules/HeadRepairModule")
 
 [node name="Jacks" type="Node2D" parent="Dashboard"]
 
 [node name="ChargableModules" type="Node2D" parent="Dashboard"]
 
-[node name="ChargableModule" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
+[node name="AttackModule" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
 position = Vector2(131, 258)
 module_data = ExtResource("6_7nf4m")
 
-[node name="ChargableModule2" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
+[node name="AttackModule2" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
 position = Vector2(131, 311)
 module_data = ExtResource("6_7nf4m")
+
+[node name="HeadRepairModule" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
+position = Vector2(131, 367)
+module_data = ExtResource("6_mdk4p")
 
 [node name="Battle" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -64,3 +79,7 @@ position = Vector2(217, -322)
 scale = Vector2(0.8, 0.8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[editable path="Dashboard/Sockets/Socket"]
+[editable path="Dashboard/Sockets/Socket2"]
+[editable path="Dashboard/Sockets/Socket3"]

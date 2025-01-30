@@ -36,7 +36,6 @@ func damage_target(target: Node2D, damage: float) -> void:
 		var body_part_hp = target.body_parts.get_child(body_part_index).hp
 		target.body_parts.get_child(body_part_index).hp = max(body_part_hp - hp_damage, 0.0)
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(len(modules)):
@@ -52,7 +51,7 @@ func _process(delta: float) -> void:
 		charges[i] += Helpers.KAIJU_DEFAULT_CHARGE_PER_SEC * delta
 		
 		if charges[i] >= modules[i].charge_capacity:
-			battle.queue_action_from_module(modules[i])
+			battle.queue_action(Action.from_module_data(modules[i]))
 			charges[i] = 0.0  
 	
 	shield_display_temp.text = "Shield - %.0f" % shield

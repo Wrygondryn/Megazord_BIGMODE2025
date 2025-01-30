@@ -1,14 +1,4 @@
 extends Node2D
-
-#TODO: Add on additional properties when need be like condition, animation, etc.
-class Action:
-	var damage: float
-	var target: ModuleData.ActionTarget
-	
-	func _init(damage: float, target: ModuleData.ActionTarget):
-		self.damage = damage
-		self.target = target
-	
 	
 @onready var mechazord: Node2D = $Mechazord
 @onready var kaiju: Node2D = $Kaiju
@@ -17,8 +7,8 @@ var game_over := false
 var action_queue: Array[Action]
 
 
-func queue_action_from_module(module: ModuleData):
-	action_queue.append(Action.new(module.damage, module.target))
+func queue_action(action: Action):
+	action_queue.append(action)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,9 +24,13 @@ func _process(delta: float) -> void:
 	#NOTE: Mechazord and Kaiju actions can happen simultaneously, so make sure to check for that
 	for action in action_queue:
 		match action.target:
-			ModuleData.ActionTarget.MECHAZORD:
+			Helpers.GigaTarget.MECHAZORD:
 				kaiju.damage_target(mechazord, action.damage)
-			ModuleData.ActionTarget.KAIJU:
+				#TODO: This line is janky af, refactor action/module data to have subclassing
+				#(ideally would be tagged union or some sort of algebraic type but to
+				#my knowldge unfortunately GDScript doesn't have that)
+				mechazord.repair_body_part(action.heal, action.body_part)
+			Helpers.GigaTarget.KAIJU:
 				mechazord.damage_target(kaiju, action.damage)
 	action_queue.clear()
 
