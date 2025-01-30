@@ -6,8 +6,7 @@ class_name ModuleData
 #TODO: Have some sort of subclassing to separate stats that don't go together (e.g., damage and
 #heal). It's not important rn but might be in the future
 @export var action_kind: Helpers.ActionKind
-@export_range(0.0, 1000.0, 1.0, "or_greater", "hide_slider") var damage: float
-@export_range(0.0, 1000.0, 1.0, "or_greater", "hide_slider") var heal: float
+@export_range(0.0, 1000.0, 1.0, "or_greater", "hide_slider") var amount: float
 @export var pierces: bool
 @export var giga_target: Helpers.GigaTarget
 @export var target_body_part: Helpers.BodyPart
@@ -17,15 +16,13 @@ class_name ModuleData
 func _init(
 	action_kind := Helpers.ActionKind.ATTACK,
 	charge_capacity = 100.0, 
-	damage := 0.0,
-	heal := 0.0,
+	amount := 0.0,
 	pierces := false, 
 	giga_target := Helpers.GigaTarget.KAIJU, 
 	target_body_part := Helpers.BodyPart.ANY
 ):
 	self.action_kind = action_kind
-	self.damage = damage
-	self.heal = heal
+	self.amount = amount
 	self.pierces = pierces
 	self.giga_target = giga_target
 	self.target_body_part = target_body_part

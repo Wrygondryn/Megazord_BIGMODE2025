@@ -24,20 +24,27 @@ func _process(delta: float) -> void:
 	#NOTE: Mechazord and Kaiju actions can happen simultaneously, so make sure to check for that when
 	#animations get integrated
 	for action in action_queue:
-		print("kind: %d, heal: %d" % [action.kind, action.heal])
 		match action.kind:
 			Helpers.ActionKind.ATTACK:
 				match action.target:
 					Helpers.GigaTarget.MECHAZORD:
-						kaiju.damage_target(mechazord, action.damage, action.pierces)
+						kaiju.damage_target(mechazord, action.amount, action.pierces)
 					Helpers.GigaTarget.KAIJU:
-						mechazord.damage_target(kaiju, action.damage, action.pierces)
+						mechazord.damage_target(kaiju, action.amount, action.pierces)
 				
 			Helpers.ActionKind.REPAIR:
 				#TODO: Allow for Kaiju healing if need be
 				assert(action.target == Helpers.GigaTarget.MECHAZORD)
-				mechazord.repair_body_part(action.heal, action.body_part)
+				mechazord.repair_body_part(action.amount, action.body_part)
+				
+			Helpers.ActionKind.SHIELD_GAIN:
+				match action.target:
+					Helpers.GigaTarget.MECHAZORD:
+						mechazord.gain_shield(action.amount)
+					Helpers.GigaTarget.KAIJU:
+						kaiju.gain_shield(action.amount)
 	
+	#TODO: Remove once animations are a thing
 	action_queue.clear()
 
 func _on_kaiju_victory():

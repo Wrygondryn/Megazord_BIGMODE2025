@@ -44,6 +44,9 @@ func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
 		if body_part.kind == body_part_kind:
 			body_part.hp = min(body_part.max_hp, body_part.hp + heal)
 
+func gain_shield(shield_gained: float):
+	shield += shield_gained
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

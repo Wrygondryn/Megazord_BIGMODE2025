@@ -2,23 +2,20 @@ class_name Action
 
 #TODO: Add on additional properties when need be like condition, animation, etc.
 var kind: Helpers.ActionKind
-var damage: float
-var heal: float
+var amount: float
 var pierces: bool
 var target: Helpers.GigaTarget
 var body_part: Helpers.BodyPart
 		
 func _init(
 	kind: Helpers.ActionKind, 
-	damage: float, 
-	heal: float, 
+	amount: float, 
 	pierces: bool,
 	target: Helpers.GigaTarget, 
 	body_part: Helpers.BodyPart
 ):
 	self.kind = kind
-	self.damage = damage
-	self.heal = heal
+	self.amount = amount
 	self.pierces = pierces
 	self.target = target
 	self.body_part = body_part
@@ -32,8 +29,7 @@ func _init(
 static func from_module_data(module: ModuleData):
 	return Action.new(
 		module.action_kind, 
-		module.damage, 
-		module.heal, 
+		module.amount, 
 		module.pierces, 
 		module.giga_target, 
 		module.target_body_part

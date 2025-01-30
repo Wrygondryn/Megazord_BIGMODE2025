@@ -36,6 +36,10 @@ func damage_target(target: Node2D, damage: float, pierces: bool) -> void:
 		var body_part_hp = target.body_parts.get_child(body_part_index).hp
 		target.body_parts.get_child(body_part_index).hp = max(body_part_hp - hp_damage, 0.0)
 
+func gain_shield(shield_gained: float):
+	shield += shield_gained
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(len(modules)):

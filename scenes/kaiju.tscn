@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ccck2r0agp2o0" path="res://assets/dummy_kaiju.png" id="1_hft5c"]
 [ext_resource type="Script" path="res://scripts/module_data.gd" id="2_mlru2"]
 [ext_resource type="PackedScene" uid="uid://dk7mb70mb5rp2" path="res://scenes/body_part.tscn" id="2_nclt7"]
-[ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/test_kaiju_module.tres" id="3_3gsc7"]
+[ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/kaiju_light_attack_module.tres" id="3_3gsc7"]
 
 [node name="Kaiju" type="Node2D"]
 scale = Vector2(1.5, 1.5)
