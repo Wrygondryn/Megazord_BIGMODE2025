@@ -1,5 +1,10 @@
 extends Node
 
+enum ActionKind {
+	ATTACK,
+	REPAIR
+}
+
 enum GigaTarget { 
 	MECHAZORD,
 	KAIJU

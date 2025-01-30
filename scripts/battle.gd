@@ -21,17 +21,23 @@ func _process(delta: float) -> void:
 	if game_over: return
 	
 	#TODO: Wait until animation of currently executed action is complete until processing the next
-	#NOTE: Mechazord and Kaiju actions can happen simultaneously, so make sure to check for that
+	#NOTE: Mechazord and Kaiju actions can happen simultaneously, so make sure to check for that when
+	#animations get integrated
 	for action in action_queue:
-		match action.target:
-			Helpers.GigaTarget.MECHAZORD:
-				kaiju.damage_target(mechazord, action.damage)
-				#TODO: This line is janky af, refactor action/module data to have subclassing
-				#(ideally would be tagged union or some sort of algebraic type but to
-				#my knowldge unfortunately GDScript doesn't have that)
+		print("kind: %d, heal: %d" % [action.kind, action.heal])
+		match action.kind:
+			Helpers.ActionKind.ATTACK:
+				match action.target:
+					Helpers.GigaTarget.MECHAZORD:
+						kaiju.damage_target(mechazord, action.damage)
+					Helpers.GigaTarget.KAIJU:
+						mechazord.damage_target(kaiju, action.damage)
+				
+			Helpers.ActionKind.REPAIR:
+				#TODO: Allow for Kaiju healing if need be
+				assert(action.target == Helpers.GigaTarget.MECHAZORD)
 				mechazord.repair_body_part(action.heal, action.body_part)
-			Helpers.GigaTarget.KAIJU:
-				mechazord.damage_target(kaiju, action.damage)
+	
 	action_queue.clear()
 
 func _on_kaiju_victory():

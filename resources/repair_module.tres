@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_vhh0t")
-charge_capacity = 150.0
+action_kind = 1
 damage = 0.0
 heal = 60.0
 giga_target = 0
 target_body_part = 0
+charge_capacity = 150.0

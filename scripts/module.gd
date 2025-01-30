@@ -17,6 +17,7 @@ func set_proportional_charge_rate(proportion: float):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	initial_charge_bar_transform = charge_bar.transform
+	print(name + ":" + str(module_data.action_kind))
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
