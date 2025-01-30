@@ -28,10 +28,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#TODO: Wait until animation of currently executed action is complete until processing the next
-	#NOTE: Mechazord and Kaiju actions can happen simultaneously, so make sure to check for that
 	if game_over: return
 	
+	#TODO: Wait until animation of currently executed action is complete until processing the next
+	#NOTE: Mechazord and Kaiju actions can happen simultaneously, so make sure to check for that
 	for action in action_queue:
 		match action.target:
 			ModuleData.ActionTarget.MECHAZORD:

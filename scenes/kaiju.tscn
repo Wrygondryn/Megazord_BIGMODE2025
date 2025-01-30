@@ -1,26 +1,106 @@
-[gd_scene load_steps=2 format=3 uid="uid://bimy4xj03log8"]
+[gd_scene load_steps=3 format=3 uid="uid://bimy4xj03log8"]
 
 [ext_resource type="Texture2D" uid="uid://ccck2r0agp2o0" path="res://assets/dummy_kaiju.png" id="1_hft5c"]
+[ext_resource type="PackedScene" uid="uid://dk7mb70mb5rp2" path="res://scenes/body_part.tscn" id="2_nclt7"]
 
 [node name="Kaiju" type="Node2D"]
 scale = Vector2(1.5, 1.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.714868, 0.669018, 1)
-texture = ExtResource("1_hft5c")
-
-[node name="HPDisplay_TEMP" type="Label" parent="."]
-offset_left = -126.0
-offset_top = -44.6667
-offset_right = -63.0
-offset_bottom = -21.6667
-text = "HP - 000"
-horizontal_alignment = 2
-
 [node name="ShieldDisplay_TEMP" type="Label" parent="."]
-offset_left = -150.667
-offset_top = -20.6667
-offset_right = -62.6667
-offset_bottom = 2.33332
+offset_left = -193.334
+offset_top = -26.0
+offset_right = -105.333
+offset_bottom = -3.00003
 text = "Shield - 000"
 horizontal_alignment = 2
+
+[node name="BodyParts" type="Node2D" parent="."]
+
+[node name="Head" parent="BodyParts" instance=ExtResource("2_nclt7")]
+position = Vector2(-2, 110.667)
+
+[node name="Sprite2D" parent="BodyParts/Head" index="0"]
+modulate = Color(1, 0.713726, 0.670588, 1)
+position = Vector2(3.50877, -67.625)
+scale = Vector2(1, 1)
+texture = ExtResource("1_hft5c")
+
+[node name="HPDisplay_TEMP" parent="BodyParts/Head" index="1"]
+offset_top = -140.333
+offset_bottom = -117.333
+
+[node name="LeftArm" parent="BodyParts" instance=ExtResource("2_nclt7")]
+position = Vector2(-146, 99)
+
+[node name="Sprite2D" parent="BodyParts/LeftArm" index="0"]
+position = Vector2(-12.2308, 13.9089)
+rotation = 0.71733
+scale = Vector2(0.328285, 199.781)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/LeftArm" index="1"]
+offset_left = -35.0
+offset_top = -10.0
+offset_right = 28.0
+offset_bottom = 13.0
+
+[node name="RightArm" parent="BodyParts" instance=ExtResource("2_nclt7")]
+position = Vector2(182, 99)
+
+[node name="Sprite2D" parent="BodyParts/RightArm" index="0"]
+position = Vector2(-12.2308, 13.9089)
+rotation = 2.42426
+scale = Vector2(0.328285, 199.781)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/RightArm" index="1"]
+offset_left = -51.0
+offset_top = -10.0
+offset_right = 12.0
+offset_bottom = 13.0
+
+[node name="Torso" parent="BodyParts" instance=ExtResource("2_nclt7")]
+position = Vector2(1, 199)
+
+[node name="Sprite2D" parent="BodyParts/Torso" index="0"]
+scale = Vector2(0.710938, 182)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/Torso" index="1"]
+offset_top = -55.0
+offset_bottom = -32.0
+
+[node name="Pelvis" parent="BodyParts" instance=ExtResource("2_nclt7")]
+position = Vector2(1, 343)
+
+[node name="Sprite2D" parent="BodyParts/Pelvis" index="0"]
+scale = Vector2(0.5625, 92.0001)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/Pelvis" index="1"]
+offset_top = -39.0
+offset_bottom = -16.0
+
+[node name="LeftLeg" parent="BodyParts" instance=ExtResource("2_nclt7")]
+position = Vector2(-122, 451)
+
+[node name="Sprite2D" parent="BodyParts/LeftLeg" index="0"]
+scale = Vector2(0.351562, 182)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/LeftLeg" index="1"]
+offset_top = -79.0
+offset_bottom = -56.0
+
+[node name="RightLeg" parent="BodyParts" instance=ExtResource("2_nclt7")]
+position = Vector2(124, 451)
+
+[node name="Sprite2D" parent="BodyParts/RightLeg" index="0"]
+scale = Vector2(0.351562, 182)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/RightLeg" index="1"]
+offset_top = -79.0
+offset_bottom = -56.0
+
+[editable path="BodyParts/Head"]
+[editable path="BodyParts/LeftArm"]
+[editable path="BodyParts/RightArm"]
+[editable path="BodyParts/Torso"]
+[editable path="BodyParts/Pelvis"]
+[editable path="BodyParts/LeftLeg"]
+[editable path="BodyParts/RightLeg"]

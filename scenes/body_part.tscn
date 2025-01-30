@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk7mb70mb5rp2"]
+
+[sub_resource type="Gradient" id="Gradient_mykmw"]
+offsets = PackedFloat32Array(0.506024)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_daxgh"]
+gradient = SubResource("Gradient_mykmw")
+
+[node name="BodyPart" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 256)
+texture = SubResource("GradientTexture1D_daxgh")
+
+[node name="HPDisplay_TEMP" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -31.0
+offset_top = -111.0
+offset_right = 32.0
+offset_bottom = -88.0
+text = "HP - 000"
+horizontal_alignment = 1

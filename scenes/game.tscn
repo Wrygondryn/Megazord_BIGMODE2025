@@ -21,26 +21,26 @@ script = ExtResource("1_bofyj")
 [node name="JackDispensers" type="Node2D" parent="Dashboard"]
 
 [node name="WeakJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-132, 60)
+position = Vector2(-84, 196)
 
 [node name="MedJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-132, 140)
+position = Vector2(-84, 276)
 power = 3
 colour = Color(1, 1, 0, 1)
 
 [node name="StrongJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-132, 220)
+position = Vector2(-84, 356)
 power = 5
 colour = Color(1, 0, 0, 1)
 
 [node name="Sockets" type="Node2D" parent="Dashboard"]
 
 [node name="Socket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(35, 41)
+position = Vector2(35, 257)
 module = NodePath("../../ChargableModules/ChargableModule")
 
 [node name="Socket2" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(35, 93)
+position = Vector2(35, 309)
 module = NodePath("../../ChargableModules/ChargableModule2")
 
 [node name="Jacks" type="Node2D" parent="Dashboard"]
@@ -48,11 +48,11 @@ module = NodePath("../../ChargableModules/ChargableModule2")
 [node name="ChargableModules" type="Node2D" parent="Dashboard"]
 
 [node name="ChargableModule" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
-position = Vector2(131, 42)
+position = Vector2(131, 258)
 module_data = ExtResource("6_7nf4m")
 
 [node name="ChargableModule2" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
-position = Vector2(131, 95)
+position = Vector2(131, 311)
 module_data = ExtResource("6_7nf4m")
 
 [node name="Battle" type="Node2D" parent="."]
@@ -60,10 +60,12 @@ unique_name_in_owner = true
 script = ExtResource("6_bwiir")
 
 [node name="Mechazord" parent="Battle" instance=ExtResource("7_huf8d")]
-position = Vector2(279, -158)
+position = Vector2(-207, -350)
+scale = Vector2(0.785, 0.785)
 
 [node name="Kaiju" parent="Battle" instance=ExtResource("8_r0r2j")]
-position = Vector2(-271, -162)
+position = Vector2(217, -322)
+scale = Vector2(0.8, 0.8)
 script = ExtResource("9_gbvrl")
 modules = Array[ExtResource("10_4sgxy")]([ExtResource("11_1ysnf"), ExtResource("12_svg5n")])
 

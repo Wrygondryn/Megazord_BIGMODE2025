@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var hp_display_temp: Label = $HPDisplay_TEMP
 @onready var shield_display_temp: Label = $ShieldDisplay_TEMP
 
 var hp: float = 500.0
@@ -15,5 +14,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	shield = max(shield - Helpers.DEFAULT_SHIELD_DRAIN_PER_SEC * delta, 0.0)
 	
-	hp_display_temp.text = "HP - %.0f" % hp
 	shield_display_temp.text = "Shield - %.0f" % shield

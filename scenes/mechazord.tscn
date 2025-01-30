@@ -1,26 +1,106 @@
-[gd_scene load_steps=3 format=3 uid="uid://b72fg5qff5dt2"]
+[gd_scene load_steps=4 format=3 uid="uid://b72fg5qff5dt2"]
 
 [ext_resource type="Script" path="res://scripts/mechazord.gd" id="1_6b4sr"]
 [ext_resource type="Texture2D" uid="uid://dqx24uuscef21" path="res://assets/dummy_mech.png" id="1_f1ark"]
+[ext_resource type="PackedScene" uid="uid://dk7mb70mb5rp2" path="res://scenes/body_part.tscn" id="2_e7bsx"]
 
 [node name="Mechazord" type="Node2D"]
 script = ExtResource("1_6b4sr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.623819, 1, 0.593899, 1)
-texture = ExtResource("1_f1ark")
-
-[node name="HPDisplay_TEMP" type="Label" parent="."]
-offset_left = 88.0
-offset_top = -72.0
-offset_right = 178.0
-offset_bottom = -49.0
-text = "HP - 000"
-horizontal_alignment = 2
-
 [node name="ShieldDisplay_TEMP" type="Label" parent="."]
 offset_left = 88.0
-offset_top = -40.0
+offset_top = -120.0
 offset_right = 178.0
-offset_bottom = -17.0
+offset_bottom = -97.0
 text = "Shield - 000"
+
+[node name="BodyParts" type="Node2D" parent="."]
+
+[node name="Head" parent="BodyParts" instance=ExtResource("2_e7bsx")]
+position = Vector2(-2, 68)
+
+[node name="Sprite2D" parent="BodyParts/Head" index="0"]
+modulate = Color(0.623529, 1, 0.592157, 1)
+position = Vector2(3.50877, -67.625)
+scale = Vector2(1, 1)
+texture = ExtResource("1_f1ark")
+
+[node name="HPDisplay_TEMP" parent="BodyParts/Head" index="1"]
+offset_top = -151.0
+offset_bottom = -128.0
+
+[node name="LeftArm" parent="BodyParts" instance=ExtResource("2_e7bsx")]
+position = Vector2(-146, 147)
+
+[node name="Sprite2D" parent="BodyParts/LeftArm" index="0"]
+position = Vector2(-12.2308, 13.9089)
+rotation = 0.71733
+scale = Vector2(0.328285, 199.781)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/LeftArm" index="1"]
+offset_left = -35.0
+offset_top = -10.0
+offset_right = 28.0
+offset_bottom = 13.0
+
+[node name="RightArm" parent="BodyParts" instance=ExtResource("2_e7bsx")]
+position = Vector2(182, 147)
+
+[node name="Sprite2D" parent="BodyParts/RightArm" index="0"]
+position = Vector2(-12.2308, 13.9089)
+rotation = 2.42426
+scale = Vector2(0.328285, 199.781)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/RightArm" index="1"]
+offset_left = -51.0
+offset_top = -10.0
+offset_right = 12.0
+offset_bottom = 13.0
+
+[node name="Torso" parent="BodyParts" instance=ExtResource("2_e7bsx")]
+position = Vector2(1, 247)
+
+[node name="Sprite2D" parent="BodyParts/Torso" index="0"]
+scale = Vector2(0.710938, 182)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/Torso" index="1"]
+offset_top = -55.0
+offset_bottom = -32.0
+
+[node name="Pelvis" parent="BodyParts" instance=ExtResource("2_e7bsx")]
+position = Vector2(1, 391)
+
+[node name="Sprite2D" parent="BodyParts/Pelvis" index="0"]
+scale = Vector2(0.5625, 92.0001)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/Pelvis" index="1"]
+offset_top = -39.0
+offset_bottom = -16.0
+
+[node name="LeftLeg" parent="BodyParts" instance=ExtResource("2_e7bsx")]
+position = Vector2(-122, 499)
+
+[node name="Sprite2D" parent="BodyParts/LeftLeg" index="0"]
+scale = Vector2(0.351562, 182)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/LeftLeg" index="1"]
+offset_top = -79.0
+offset_bottom = -56.0
+
+[node name="RightLeg" parent="BodyParts" instance=ExtResource("2_e7bsx")]
+position = Vector2(124, 499)
+
+[node name="Sprite2D" parent="BodyParts/RightLeg" index="0"]
+scale = Vector2(0.351562, 182)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/RightLeg" index="1"]
+offset_top = -79.0
+offset_bottom = -56.0
+
+[editable path="BodyParts/Head"]
+[editable path="BodyParts/LeftArm"]
+[editable path="BodyParts/RightArm"]
+[editable path="BodyParts/Torso"]
+[editable path="BodyParts/Pelvis"]
+[editable path="BodyParts/LeftLeg"]
+[editable path="BodyParts/RightLeg"]
