@@ -55,5 +55,5 @@ func _process(delta: float) -> void:
 func apply_damage(target: Node2D, damage: float) -> void:
 	var shield_damage = min(target.shield, damage)
 	var hp_damage = damage - shield_damage
-	target.shield -= shield_damage
-	target.hp -= hp_damage
+	target.shield = max(target.shield - shield_damage, 0.0)
+	target.hp = max(target.hp - hp_damage, 0.0)

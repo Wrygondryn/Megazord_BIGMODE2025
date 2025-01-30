@@ -20,6 +20,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	assert(len(charges) == len(modules))
 	
+	shield = max(shield - Helpers.DEFAULT_SHIELD_DRAIN_PER_SEC * delta, 0.0)
+	
 	for i in range(len(charges)):
 		charges[i] += Helpers.KAIJU_DEFAULT_CHARGE_PER_SEC * delta
 		
@@ -27,5 +29,5 @@ func _process(delta: float) -> void:
 			battle.queue_action_from_module(modules[i])
 			charges[i] = 0.0  
 	
-	hp_display_temp.text = "HP - " + str(hp)
-	shield_display_temp.text = "Shield - " + str(shield)
+	hp_display_temp.text = "HP - %.0f" % hp
+	shield_display_temp.text = "Shield - %.0f" % shield
