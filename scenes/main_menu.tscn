@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct4d7o7xgeoqc"]
+[gd_scene load_steps=7 format=3 uid="uid://ct4d7o7xgeoqc"]
 
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_3dcrd"]
 [ext_resource type="StyleBox" uid="uid://ydqyhnqcyt11" path="res://assets/button_hover_style.tres" id="1_dm6ed"]
 [ext_resource type="StyleBox" uid="uid://dxcj62sqcdqd0" path="res://assets/button_normal_style.tres" id="2_5qyb4"]
 [ext_resource type="StyleBox" uid="uid://bo1n3p3df22lu" path="res://assets/button_pressed_style.tres" id="3_0wak1"]
@@ -20,9 +21,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3dcrd")
 
-[node name="PlayButton" type="Button" parent="."]
-layout_mode = 0
+[node name="Main" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Buttons" type="Control" parent="Main"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayButton" type="Button" parent="Main/Buttons"]
 offset_left = -40.0
 offset_top = 141.0
 offset_right = 362.0
@@ -35,8 +46,7 @@ theme_override_font_sizes/font_size = 40
 text = "Play"
 alignment = 2
 
-[node name="TutorialButton" type="Button" parent="."]
-layout_mode = 0
+[node name="TutorialButton" type="Button" parent="Main/Buttons"]
 offset_left = -40.0
 offset_top = 293.0
 offset_right = 362.0
@@ -50,8 +60,7 @@ text = "Tutorial
 "
 alignment = 2
 
-[node name="CreditsButton" type="Button" parent="."]
-layout_mode = 0
+[node name="CreditsButton" type="Button" parent="Main/Buttons"]
 offset_left = -40.0
 offset_top = 445.0
 offset_right = 362.0
@@ -64,8 +73,7 @@ theme_override_font_sizes/font_size = 40
 text = "Credits"
 alignment = 2
 
-[node name="SettingsButton" type="Button" parent="."]
-layout_mode = 0
+[node name="SettingsButton" type="Button" parent="Main/Buttons"]
 offset_left = -40.0
 offset_top = 605.0
 offset_right = 362.0
@@ -78,8 +86,7 @@ theme_override_font_sizes/font_size = 40
 text = "Settings"
 alignment = 2
 
-[node name="QuitButton" type="Button" parent="."]
-layout_mode = 0
+[node name="QuitButton" type="Button" parent="Main/Buttons"]
 offset_left = -40.0
 offset_top = 757.0
 offset_right = 362.0
@@ -91,3 +98,52 @@ theme_override_fonts/font = ExtResource("4_d0bw6")
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 alignment = 2
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Text" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 96.0
+offset_right = 1530.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 28
+text = "Thomas Cox (MahBestBro)
+        Game Design, Programming, Music, SFX
+
+Wrywygond
+       Game Design, Programming, Art, Modelling"
+
+[node name="BryanBongCreditge" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 216.0
+offset_right = 1530.0
+offset_bottom = 265.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 28
+
+[node name="BackButton" type="Button" parent="Credits"]
+offset_left = -40.0
+offset_top = 757.0
+offset_right = 362.0
+offset_bottom = 859.0
+focus_mode = 0
+theme = SubResource("Theme_pnnr3")
+theme_override_colors/font_color = Color(0.908402, 0.837672, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+alignment = 2
+
+[connection signal="pressed" from="Main/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Main/Buttons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Main/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Credits/BackButton" to="." method="_on_credits_back_button_pressed"]
