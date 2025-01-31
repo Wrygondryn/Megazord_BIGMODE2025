@@ -10,18 +10,41 @@ extends Node2D
 var reinforced_shield: float = 0.0
 
 
-signal victory
+#NOTE: This is just for testing purposes
+func next_vital_index_to_attack(target: Node2D) -> int:
+	for i in range(target.body_parts.get_child_count()):
+		var body_part = target.body_parts.get_child(i)
+		if body_part.hp > 0.0 && Helpers.body_part_is_vital(body_part.kind):
+			return i
+	
+	assert(false)
+	return 0
 
 func next_body_part_index_to_attack(target: Node2D) -> int:
 	var valid_target_indices = []
+	var num_vitals: int = 0
 	for i in range(target.body_parts.get_child_count()):
-		if target.body_parts.get_child(i).hp > 0.0:
+		var body_part = target.body_parts.get_child(i)
+		if body_part.hp > 0.0:
 			valid_target_indices.append(i)
+			num_vitals += int(Helpers.body_part_is_vital(body_part.kind))
 				
-	if len(valid_target_indices) == 0: 
-		return -1
+	assert(len(valid_target_indices) > 0)
 		
-	return valid_target_indices[randi_range(0, len(valid_target_indices) - 1)]
+	var prob_of_vitals := float(num_vitals) / float(len(valid_target_indices))
+	if num_vitals < len(valid_target_indices):
+		prob_of_vitals /= Helpers.AVOID_VITALS_WEIGHT
+		
+	var prob_of_non_vitals := 1.0 - prob_of_vitals 
+	var valid_target_ps: Array[float] = []
+	for body_part_index in valid_target_indices:
+		var is_vital := Helpers.body_part_is_vital(target.body_parts.get_child(body_part_index).kind)
+		var prob_of_like_part = prob_of_vitals if is_vital else prob_of_non_vitals
+		var num_like_parts := num_vitals if is_vital else len(valid_target_indices) - num_vitals		
+		valid_target_ps.append(prob_of_like_part / num_like_parts)
+	
+	assert(len(valid_target_ps) == len(valid_target_indices))
+	return valid_target_indices[Helpers.rand_choice_ps(valid_target_ps)]
 
 func damage_body_part(body_part_index: int, damage: float, pierces: bool) -> void:
 	var shield_damage = min(shield if !pierces else reinforced_shield, damage)
@@ -53,6 +76,8 @@ func reinforce_shield(shield_reinforced: float):
 	reinforced_shield = min(reinforced_shield + shield_reinforced, shield)
 
 func apply_condition(condition: Helpers.Condition, body_part_index: int, time_length_secs: float):
+	assert(time_length_secs > 0.0 && condition != Helpers.Condition.NONE)
+	
 	var body_part = body_parts.get_child(body_part_index)
 	body_part.condition = condition
 	body_part.condition_timer.wait_time = time_length_secs

@@ -33,6 +33,23 @@ enum Condition {
 	NONE
 }
 
+
 const MAX_CHARGE_PER_SEC = 50
 const KAIJU_DEFAULT_CHARGE_PER_SEC = 25
 const SHIELD_DRAIN_FRAC_PER_SEC = 0.1
+const AVOID_VITALS_WEIGHT = 4.0 #NOTE: The higher this is, the less likely vitals are to be hit
+
+
+static func rand_choice_ps(ps: Array[float]) -> int:
+	assert(is_equal_approx(ps.reduce(func (acc: float, x: float) -> float: return acc + x, 0.0), 1.0))
+	
+	var r := randf()
+	var result: int = 0
+	while r > ps[result]:
+		r -= ps[result]
+		result += 1
+		
+	return result
+
+static func body_part_is_vital(body_part: BodyPart) -> bool:
+	return body_part == BodyPart.HEAD || body_part == BodyPart.TORSO

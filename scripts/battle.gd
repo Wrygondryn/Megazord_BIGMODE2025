@@ -41,12 +41,18 @@ func _process(delta: float) -> void:
 						target = kaiju
 						victory_function = mechazord_victory
 						
+						
 				var target_body_part_index = attacker.next_body_part_index_to_attack(target)
-				if target_body_part_index == -1:
-					victory_function.call()
 				# print(name + " dealt " + str(damage) + " damage to " + str(target.name))
 				target.damage_body_part(target_body_part_index, action.amount, action.pierces)
-				target.apply_condition(action.condition_kind, target_body_part_index, action.condition_time_secs)
+				if action.condition_kind != Helpers.Condition.NONE && action.condition_time_secs > 0.0:
+					target.apply_condition(action.condition_kind, target_body_part_index, action.condition_time_secs)
+					
+				var num_vitals_left_on_target := len(target.body_parts.get_children().filter(
+					func(body_part) -> bool: return Helpers.body_part_is_vital(body_part.kind) && body_part.hp > 0
+				))
+				if num_vitals_left_on_target == 0:
+					victory_function.call()
 				
 			Helpers.ActionKind.REPAIR:
 				#TODO: Allow for Kaiju healing if need be
