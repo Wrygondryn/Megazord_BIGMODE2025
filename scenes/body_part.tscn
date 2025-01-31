@@ -24,3 +24,9 @@ offset_right = 32.0
 offset_bottom = -88.0
 text = "HP - 000"
 horizontal_alignment = 1
+
+[node name="Modules" type="Node" parent="."]
+
+[node name="ConditionTimer" type="Timer" parent="."]
+
+[connection signal="action_ready" from="." to="." method="_on_action_ready"]

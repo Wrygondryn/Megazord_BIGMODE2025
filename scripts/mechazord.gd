@@ -6,6 +6,7 @@ extends Node2D
 @onready var shield_display_temp: Label = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label = $ReinforcedShieldDisplay_TEMP
 @onready var one_second_timer: Timer = $OneSecondTimer
+@onready var battle: Node2D = %Battle
 
 var reinforced_shield: float = 0.0
 
@@ -57,7 +58,8 @@ func reinforce_shield(shield_reinforced: float):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for body_part in body_parts.get_children():
+		body_part.action_ready.connect(_on_body_part_action_ready)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -67,3 +69,6 @@ func _process(delta: float) -> void:
 	
 	shield_display_temp.text = "Shield - %.0f" % shield
 	reinforced_shield_display_temp.text = "Reinforced - %.0f" % reinforced_shield
+	
+func _on_body_part_action_ready(action: Action):
+	battle.queue_action(action)

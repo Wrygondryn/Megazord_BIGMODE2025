@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://3y3al18ah6ax"]
 
-[ext_resource type="Script" path="res://scripts/module.gd" id="1_mqmjf"]
+[ext_resource type="Script" path="res://scripts/charge_display.gd" id="1_mqmjf"]
 
 [sub_resource type="Gradient" id="Gradient_wwtmp"]
 offsets = PackedFloat32Array(1)
@@ -16,7 +16,7 @@ colors = PackedColorArray(0.787569, 0.787569, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_pgdbo"]
 gradient = SubResource("Gradient_xa34d")
 
-[node name="ChargableModule" type="Node2D"]
+[node name="ChargeDisplay" type="Node2D"]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_mqmjf")
 

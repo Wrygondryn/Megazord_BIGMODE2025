@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxjoxwwwpo3g0"]
+
+[ext_resource type="Script" path="res://scripts/module.gd" id="1_qilsv"]
+
+[node name="Module" type="Node"]
+script = ExtResource("1_qilsv")

@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b72fg5qff5dt2"]
+[gd_scene load_steps=9 format=3 uid="uid://b72fg5qff5dt2"]
 
 [ext_resource type="Script" path="res://scripts/mechazord.gd" id="1_6b4sr"]
 [ext_resource type="Texture2D" uid="uid://dqx24uuscef21" path="res://assets/dummy_mech.png" id="1_f1ark"]
 [ext_resource type="PackedScene" uid="uid://dk7mb70mb5rp2" path="res://scenes/body_part.tscn" id="2_e7bsx"]
+[ext_resource type="Script" path="res://scripts/module.gd" id="4_54e7a"]
+[ext_resource type="Resource" uid="uid://6xs0ooprjwlw" path="res://resources/repair_module.tres" id="5_5g8jl"]
+[ext_resource type="Resource" uid="uid://08ag4xompugm" path="res://resources/mecha_attack_module.tres" id="6_brh6d"]
+[ext_resource type="Resource" uid="uid://c2gxr8tb4ey15" path="res://resources/shield_gain_module.tres" id="7_1ko7c"]
+[ext_resource type="Resource" uid="uid://dsjwk5kl6d66l" path="res://resources/reinforce_shield_module.tres" id="8_bffj0"]
 
 [node name="Mechazord" type="Node2D"]
 script = ExtResource("1_6b4sr")
@@ -39,6 +44,10 @@ texture = ExtResource("1_f1ark")
 offset_top = -151.0
 offset_bottom = -128.0
 
+[node name="RepairModule" type="Node" parent="BodyParts/Head/Modules" index="0"]
+script = ExtResource("4_54e7a")
+data = ExtResource("5_5g8jl")
+
 [node name="LeftArm" parent="BodyParts" instance=ExtResource("2_e7bsx")]
 position = Vector2(-146, 147)
 kind = 1
@@ -54,6 +63,10 @@ offset_left = -35.0
 offset_top = -10.0
 offset_right = 28.0
 offset_bottom = 13.0
+
+[node name="AttackModule" type="Node" parent="BodyParts/LeftArm/Modules" index="0"]
+script = ExtResource("4_54e7a")
+data = ExtResource("6_brh6d")
 
 [node name="RightArm" parent="BodyParts" instance=ExtResource("2_e7bsx")]
 position = Vector2(182, 147)
@@ -71,6 +84,10 @@ offset_top = -10.0
 offset_right = 12.0
 offset_bottom = 13.0
 
+[node name="AttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0"]
+script = ExtResource("4_54e7a")
+data = ExtResource("6_brh6d")
+
 [node name="Torso" parent="BodyParts" instance=ExtResource("2_e7bsx")]
 position = Vector2(1, 247)
 kind = 3
@@ -83,6 +100,10 @@ scale = Vector2(0.710938, 182)
 offset_top = -55.0
 offset_bottom = -32.0
 
+[node name="ShieldModule" type="Node" parent="BodyParts/Torso/Modules" index="0"]
+script = ExtResource("4_54e7a")
+data = ExtResource("7_1ko7c")
+
 [node name="Pelvis" parent="BodyParts" instance=ExtResource("2_e7bsx")]
 position = Vector2(1, 391)
 kind = 4
@@ -94,6 +115,10 @@ scale = Vector2(0.5625, 92.0001)
 [node name="HPDisplay_TEMP" parent="BodyParts/Pelvis" index="1"]
 offset_top = -39.0
 offset_bottom = -16.0
+
+[node name="ReinforceShieldModule" type="Node" parent="BodyParts/Pelvis/Modules" index="0"]
+script = ExtResource("4_54e7a")
+data = ExtResource("8_bffj0")
 
 [node name="LeftLeg" parent="BodyParts" instance=ExtResource("2_e7bsx")]
 position = Vector2(-122, 499)

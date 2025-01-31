@@ -28,8 +28,10 @@ func _process(delta: float) -> void:
 			Helpers.ActionKind.ATTACK:
 				match action.target:
 					Helpers.GigaTarget.MECHAZORD:
+						print("Attack from kaiju")
 						kaiju.damage_target(mechazord, action.amount, action.pierces)
 					Helpers.GigaTarget.KAIJU:
+						print("Attack from mechazord")
 						mechazord.damage_target(kaiju, action.amount, action.pierces)
 				
 			Helpers.ActionKind.REPAIR:

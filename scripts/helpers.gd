@@ -28,6 +28,11 @@ enum BodyPart {
 	ANY
 }
 
+enum Condition {
+	RESTRAINED,
+	NONE
+}
+
 const MAX_CHARGE_PER_SEC = 50
 const KAIJU_DEFAULT_CHARGE_PER_SEC = 25
 const SHIELD_DRAIN_FRAC_PER_SEC = 0.1

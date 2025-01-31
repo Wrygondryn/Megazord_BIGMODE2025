@@ -179,11 +179,12 @@ func recalculate_module_cooldowns():
 	)
 	
 	for i in range(sockets.get_child_count()):
-		sockets.get_child(i).module.set_proportional_charge_rate(0.0)
+		sockets.get_child(i).module.charge_rate = 0.0
 		
 	for connection in connections:
 		var power = instance_from_id(connection.jack_instance_id).power
 		var socket := instance_from_id(connection.socket_instance_id)
 		#TODO: Figure out a way to not have to mutate state between objects, it seems very
 		#easy to mess up and leak bugs
-		socket.module.set_proportional_charge_rate(power / total_power)
+		
+		socket.module.charge_rate = Helpers.MAX_CHARGE_PER_SEC * power / total_power
