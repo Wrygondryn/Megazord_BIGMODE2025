@@ -5,7 +5,6 @@ extends Node2D
 @onready var body_parts: Node2D = $BodyParts
 @onready var shield_display_temp: Label = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label = $ReinforcedShieldDisplay_TEMP
-@onready var one_second_timer: Timer = $OneSecondTimer
 @onready var battle: Node2D = %Battle
 
 var reinforced_shield: float = 0.0
@@ -13,30 +12,28 @@ var reinforced_shield: float = 0.0
 
 signal victory
 
-func damage_target(target: Node2D, damage: float, pierces: bool) -> void:
-	# print(name + " dealt " + str(damage) + " damage to " + str(target.name))
-	
-	var shield_damage = min(target.shield if !pierces else target.reinforced_shield, damage)
-	target.shield = max(target.shield - shield_damage, 0.0)
+func next_body_part_index_to_attack(target: Node2D) -> int:
+	var valid_target_indices = []
+	for i in range(target.body_parts.get_child_count()):
+		if target.body_parts.get_child(i).hp > 0.0:
+			valid_target_indices.append(i)
+				
+	if len(valid_target_indices) == 0: 
+		return -1
+		
+	return valid_target_indices[randi_range(0, len(valid_target_indices) - 1)]
+
+func damage_body_part(body_part_index: int, damage: float, pierces: bool) -> void:
+	var shield_damage = min(shield if !pierces else reinforced_shield, damage)
+	shield = max(shield - shield_damage, 0.0)
 	if pierces:
-		target.reinforced_shield = max(target.reinforced_shield - shield_damage, 0.0)
+		reinforced_shield = max(reinforced_shield - shield_damage, 0.0)
 	
-	var shield_to_compare = target.shield if !pierces else target.reinforced_shield
+	var shield_to_compare = shield if !pierces else reinforced_shield
 	if shield_to_compare < damage:
-		var valid_target_indices = []
-		for i in range(target.body_parts.get_child_count()):
-			if target.body_parts.get_child(i).hp > 0.0:
-				valid_target_indices.append(i)
-		
-		if len(valid_target_indices) == 0: 
-			victory.emit()
-			return
-			
-		var body_part_index = valid_target_indices[randi_range(0, len(valid_target_indices) - 1)]
-		
 		var hp_damage = damage - shield_damage
-		var body_part_hp = target.body_parts.get_child(body_part_index).hp
-		target.body_parts.get_child(body_part_index).hp = max(body_part_hp - hp_damage, 0.0)
+		var body_part = body_parts.get_child(body_part_index)
+		body_part.hp = max(body_part.hp - hp_damage, 0.0)
 
 func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
 	#TODO: Properly handle BodyPart.ANY
@@ -54,6 +51,12 @@ func gain_shield(shield_gained: float):
 
 func reinforce_shield(shield_reinforced: float):
 	reinforced_shield = min(reinforced_shield + shield_reinforced, shield)
+
+func apply_condition(condition: Helpers.Condition, body_part_index: int, time_length_secs: float):
+	var body_part = body_parts.get_child(body_part_index)
+	body_part.condition = condition
+	body_part.condition_timer.wait_time = time_length_secs
+	body_part.condition_timer.start()
 
 
 # Called when the node enters the scene tree for the first time.

@@ -13,8 +13,7 @@ func queue_action(action: Action):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	mechazord.victory.connect(_on_mechazord_victory)
-	kaiju.victory.connect(_on_kaiju_victory)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,13 +25,28 @@ func _process(delta: float) -> void:
 	for action in action_queue:
 		match action.kind:
 			Helpers.ActionKind.ATTACK:
+				var attacker: Node2D
+				var target: Node2D
+				var victory_function: Callable
 				match action.target:
 					Helpers.GigaTarget.MECHAZORD:
-						print("Attack from kaiju")
-						kaiju.damage_target(mechazord, action.amount, action.pierces)
+						#print("Attack from kaiju")
+						attacker = kaiju
+						target = mechazord
+						victory_function = kaiju_victory
+						
 					Helpers.GigaTarget.KAIJU:
-						print("Attack from mechazord")
-						mechazord.damage_target(kaiju, action.amount, action.pierces)
+						#print("Attack from mechazord")
+						attacker = mechazord
+						target = kaiju
+						victory_function = mechazord_victory
+						
+				var target_body_part_index = attacker.next_body_part_index_to_attack(target)
+				if target_body_part_index == -1:
+					victory_function.call()
+				# print(name + " dealt " + str(damage) + " damage to " + str(target.name))
+				target.damage_body_part(target_body_part_index, action.amount, action.pierces)
+				target.apply_condition(action.condition_kind, target_body_part_index, action.condition_time_secs)
 				
 			Helpers.ActionKind.REPAIR:
 				#TODO: Allow for Kaiju healing if need be
@@ -56,10 +70,10 @@ func _process(delta: float) -> void:
 	#TODO: Remove once animations are a thing
 	action_queue.clear()
 
-func _on_kaiju_victory():
+func kaiju_victory():
 	print("You Lose!")
 	game_over = true
 	
-func _on_mechazord_victory():
+func mechazord_victory():
 	print("You Win!")
 	game_over = true

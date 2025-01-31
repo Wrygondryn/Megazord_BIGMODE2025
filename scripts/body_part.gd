@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var modules: Node = $Modules
 @onready var hp_display_temp: Label = $HPDisplay_TEMP
+@onready var condition_display_temp: Label = $ConditionDisplay_TEMP
 @onready var condition_timer: Timer = $ConditionTimer
 
 var hp: float
@@ -12,6 +13,7 @@ var condition := Helpers.Condition.NONE
 
 
 signal action_ready
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +24,18 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	hp_display_temp.text = "HP - %.0f" % hp
+	if condition != Helpers.Condition.NONE:
+		condition_display_temp.text = Helpers.Condition.keys()[condition]
+	else:
+		condition_display_temp.text = ""
+	
+	if condition_timer.is_stopped():
+		condition = Helpers.Condition.NONE
 
 func _on_module_fully_charged(data: ModuleData) -> void:
-	action_ready.emit(Action.from_module_data(data))
+	match condition:
+		Helpers.Condition.NONE: 
+			action_ready.emit(Action.from_module_data(data))
+		
+		Helpers.Condition.RESTRAINED:
+			return 

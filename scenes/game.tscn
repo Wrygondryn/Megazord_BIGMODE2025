@@ -39,7 +39,7 @@ modulate = Color(1, 0, 0, 1)
 
 [node name="Socket2" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
 position = Vector2(-570, 221)
-module = NodePath("../../../Battle/Mechazord/BodyParts/RightArm/Modules/AttackModule")
+module = NodePath("../../../Battle/Mechazord/BodyParts/RightArm/Modules/RestrainAttackModule")
 
 [node name="Sprite2D" parent="Dashboard/Sockets/Socket2" index="0"]
 modulate = Color(1, 0, 0, 1)
@@ -72,7 +72,7 @@ module = NodePath("../../../Battle/Mechazord/BodyParts/LeftArm/Modules/AttackMod
 
 [node name="RightArmAttackDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
 position = Vector2(-474, 223)
-module = NodePath("../../../Battle/Mechazord/BodyParts/RightArm/Modules/AttackModule")
+module = NodePath("../../../Battle/Mechazord/BodyParts/RightArm/Modules/RestrainAttackModule")
 
 [node name="HeadRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
 position = Vector2(-474, 279)

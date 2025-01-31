@@ -97,6 +97,10 @@ scale = Vector2(0.710938, 182)
 offset_top = -55.0
 offset_bottom = -32.0
 
+[node name="ConditionDisplay_TEMP" parent="BodyParts/Torso" index="2"]
+offset_top = -31.0
+offset_bottom = -7.99997
+
 [node name="ReinforceShieldModule" type="Node" parent="BodyParts/Torso/Modules" index="0"]
 script = ExtResource("6_1hcic")
 data = ExtResource("8_jhhtr")
@@ -112,6 +116,10 @@ scale = Vector2(0.5625, 92.0001)
 [node name="HPDisplay_TEMP" parent="BodyParts/Pelvis" index="1"]
 offset_top = -39.0
 offset_bottom = -16.0
+
+[node name="ConditionDisplay_TEMP" parent="BodyParts/Pelvis" index="2"]
+offset_top = -15.0
+offset_bottom = 8.00003
 
 [node name="ShieldGainModule" type="Node" parent="BodyParts/Pelvis/Modules" index="0"]
 script = ExtResource("6_1hcic")

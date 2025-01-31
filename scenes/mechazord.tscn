@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b72fg5qff5dt2"]
+[gd_scene load_steps=10 format=3 uid="uid://b72fg5qff5dt2"]
 
 [ext_resource type="Script" path="res://scripts/mechazord.gd" id="1_6b4sr"]
 [ext_resource type="Texture2D" uid="uid://dqx24uuscef21" path="res://assets/dummy_mech.png" id="1_f1ark"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://6xs0ooprjwlw" path="res://resources/repair_module.tres" id="5_5g8jl"]
 [ext_resource type="Resource" uid="uid://08ag4xompugm" path="res://resources/mecha_attack_module.tres" id="6_brh6d"]
 [ext_resource type="Resource" uid="uid://c2gxr8tb4ey15" path="res://resources/shield_gain_module.tres" id="7_1ko7c"]
+[ext_resource type="Resource" uid="uid://dbkvet4qvrosd" path="res://resources/mecha_restrain_attack_module.tres" id="7_h27t0"]
 [ext_resource type="Resource" uid="uid://dsjwk5kl6d66l" path="res://resources/reinforce_shield_module.tres" id="8_bffj0"]
 
 [node name="Mechazord" type="Node2D"]
@@ -84,9 +85,9 @@ offset_top = -10.0
 offset_right = 12.0
 offset_bottom = 13.0
 
-[node name="AttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0"]
+[node name="RestrainAttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0"]
 script = ExtResource("4_54e7a")
-data = ExtResource("6_brh6d")
+data = ExtResource("7_h27t0")
 
 [node name="Torso" parent="BodyParts" instance=ExtResource("2_e7bsx")]
 position = Vector2(1, 247)
@@ -99,6 +100,10 @@ scale = Vector2(0.710938, 182)
 [node name="HPDisplay_TEMP" parent="BodyParts/Torso" index="1"]
 offset_top = -55.0
 offset_bottom = -32.0
+
+[node name="ConditionDisplay_TEMP" parent="BodyParts/Torso" index="2"]
+offset_top = -23.0
+offset_bottom = 0.0
 
 [node name="ShieldModule" type="Node" parent="BodyParts/Torso/Modules" index="0"]
 script = ExtResource("4_54e7a")
@@ -115,6 +120,10 @@ scale = Vector2(0.5625, 92.0001)
 [node name="HPDisplay_TEMP" parent="BodyParts/Pelvis" index="1"]
 offset_top = -39.0
 offset_bottom = -16.0
+
+[node name="ConditionDisplay_TEMP" parent="BodyParts/Pelvis" index="2"]
+offset_top = -15.0
+offset_bottom = 8.0
 
 [node name="ReinforceShieldModule" type="Node" parent="BodyParts/Pelvis/Modules" index="0"]
 script = ExtResource("4_54e7a")

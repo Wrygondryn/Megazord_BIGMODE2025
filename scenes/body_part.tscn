@@ -25,8 +25,18 @@ offset_bottom = -88.0
 text = "HP - 000"
 horizontal_alignment = 1
 
+[node name="ConditionDisplay_TEMP" type="Label" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = -47.0
+offset_top = -47.0
+offset_right = 49.0
+offset_bottom = -24.0
+text = "CONDITION"
+horizontal_alignment = 1
+
 [node name="Modules" type="Node" parent="."]
 
 [node name="ConditionTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="action_ready" from="." to="." method="_on_action_ready"]
