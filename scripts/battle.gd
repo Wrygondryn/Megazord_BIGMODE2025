@@ -43,6 +43,13 @@ func _process(delta: float) -> void:
 						mechazord.gain_shield(action.amount)
 					Helpers.GigaTarget.KAIJU:
 						kaiju.gain_shield(action.amount)
+						
+			Helpers.ActionKind.REINFORCE_SHIELD:
+				match action.target:
+					Helpers.GigaTarget.MECHAZORD:
+						mechazord.reinforce_shield(action.amount)
+					Helpers.GigaTarget.KAIJU:
+						kaiju.reinforce_shield(action.amount)
 	
 	#TODO: Remove once animations are a thing
 	action_queue.clear()

@@ -3,7 +3,8 @@ extends Node
 enum ActionKind {
 	ATTACK,
 	REPAIR,
-	SHIELD_GAIN
+	SHIELD_GAIN,
+	REINFORCE_SHIELD
 }
 
 enum GigaTarget { 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=16 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_bofyj"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
@@ -10,6 +10,11 @@
 [ext_resource type="Resource" uid="uid://c2gxr8tb4ey15" path="res://resources/shield_gain_module.tres" id="7_38vb0"]
 [ext_resource type="PackedScene" uid="uid://b72fg5qff5dt2" path="res://scenes/mechazord.tscn" id="7_huf8d"]
 [ext_resource type="PackedScene" uid="uid://bimy4xj03log8" path="res://scenes/kaiju.tscn" id="8_r0r2j"]
+[ext_resource type="Resource" uid="uid://dsjwk5kl6d66l" path="res://resources/reinforce_shield_module.tres" id="8_sf0h7"]
+[ext_resource type="Script" path="res://scripts/module_data.gd" id="12_uulql"]
+[ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/kaiju_light_attack_module.tres" id="13_ns0mg"]
+[ext_resource type="Resource" uid="uid://bni5fgqtb6e62" path="res://resources/kaiju_reinforce_shield_module.tres" id="14_lc2ke"]
+[ext_resource type="Resource" uid="uid://c0q5q66hnem0s" path="res://resources/kaiju_shield_gain_module.tres" id="15_owhwm"]
 
 [node name="Game" type="Node2D"]
 
@@ -19,76 +24,88 @@ script = ExtResource("1_bofyj")
 [node name="JackDispensers" type="Node2D" parent="Dashboard"]
 
 [node name="WeakJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-84, 196)
+position = Vector2(-689, 196)
 
 [node name="MedJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-84, 276)
+position = Vector2(-689, 276)
 power = 3
 colour = Color(1, 1, 0, 1)
 
 [node name="StrongJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-84, 356)
+position = Vector2(-689, 356)
 power = 5
 colour = Color(1, 0, 0, 1)
 
 [node name="Sockets" type="Node2D" parent="Dashboard"]
 
 [node name="Socket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(35, 201)
+position = Vector2(-570, 169)
 module = NodePath("../../ChargableModules/AttackModule")
 
 [node name="Sprite2D" parent="Dashboard/Sockets/Socket" index="0"]
 modulate = Color(1, 0, 0, 1)
 
 [node name="Socket2" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(35, 253)
+position = Vector2(-570, 221)
 module = NodePath("../../ChargableModules/AttackModule2")
 
 [node name="Sprite2D" parent="Dashboard/Sockets/Socket2" index="0"]
 modulate = Color(1, 0, 0, 1)
 
 [node name="Socket3" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(35, 309)
+position = Vector2(-570, 277)
 module = NodePath("../../ChargableModules/HeadRepairModule")
 
 [node name="Socket4" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(35, 365)
+position = Vector2(-570, 333)
 module = NodePath("../../ChargableModules/ShieldGainModule2")
 
 [node name="Sprite2D" parent="Dashboard/Sockets/Socket4" index="0"]
 modulate = Color(0, 0, 1, 1)
+
+[node name="Socket5" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
+position = Vector2(-570, 389)
+module = NodePath("../../ChargableModules/ReinforceShieldModule3")
+
+[node name="Sprite2D" parent="Dashboard/Sockets/Socket5" index="0"]
+modulate = Color(0, 1, 1, 1)
 
 [node name="Jacks" type="Node2D" parent="Dashboard"]
 
 [node name="ChargableModules" type="Node2D" parent="Dashboard"]
 
 [node name="AttackModule" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
-position = Vector2(131, 202)
+position = Vector2(-474, 170)
 module_data = ExtResource("6_7nf4m")
 
 [node name="AttackModule2" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
-position = Vector2(131, 255)
+position = Vector2(-474, 223)
 module_data = ExtResource("6_7nf4m")
 
 [node name="HeadRepairModule" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
-position = Vector2(131, 311)
+position = Vector2(-474, 279)
 module_data = ExtResource("6_mdk4p")
 
 [node name="ShieldGainModule2" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
-position = Vector2(131, 367)
+position = Vector2(-474, 335)
 module_data = ExtResource("7_38vb0")
+
+[node name="ReinforceShieldModule3" parent="Dashboard/ChargableModules" instance=ExtResource("5_llxl5")]
+position = Vector2(-474, 391)
+module_data = ExtResource("8_sf0h7")
 
 [node name="Battle" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("6_bwiir")
 
 [node name="Mechazord" parent="Battle" instance=ExtResource("7_huf8d")]
-position = Vector2(-207, -350)
+position = Vector2(-143, -222)
 scale = Vector2(0.785, 0.785)
 
 [node name="Kaiju" parent="Battle" instance=ExtResource("8_r0r2j")]
-position = Vector2(217, -322)
+position = Vector2(281, -194)
 scale = Vector2(0.8, 0.8)
+modules = Array[ExtResource("12_uulql")]([ExtResource("13_ns0mg"), ExtResource("14_lc2ke"), ExtResource("15_owhwm")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -96,3 +113,4 @@ scale = Vector2(0.8, 0.8)
 [editable path="Dashboard/Sockets/Socket2"]
 [editable path="Dashboard/Sockets/Socket3"]
 [editable path="Dashboard/Sockets/Socket4"]
+[editable path="Dashboard/Sockets/Socket5"]

@@ -6,7 +6,7 @@
 script = ExtResource("1_mbtol")
 action_kind = 0
 amount = 25.0
-pierces = true
+pierces = false
 giga_target = 0
 target_body_part = 7
-charge_capacity = 25.0
+charge_capacity = 50.0

@@ -6,9 +6,9 @@ extends Node2D
 @onready var battle: Node2D = %Battle
 @onready var body_parts: Node2D = $BodyParts
 @onready var shield_display_temp: Label = $ShieldDisplay_TEMP
+@onready var reinforced_shield_display_temp: Label = $ReinforcedShieldDisplay_TEMP
 
-var hp: float = 500.0
-
+var reinforced_shield: float = 0.0
 var charges: Array[float]
 
 
@@ -17,10 +17,13 @@ signal victory
 func damage_target(target: Node2D, damage: float, pierces: bool) -> void:
 	# print(name + " dealt " + str(damage) + " damage to " + str(target.name))
 	
-	var shield_damage = min(target.shield, damage) if !pierces else 0.0
+	var shield_damage = min(target.shield if !pierces else target.reinforced_shield, damage)
 	target.shield = max(target.shield - shield_damage, 0.0)
+	if pierces:
+		target.reinforced_shield = max(target.reinforced_shield - shield_damage, 0.0)
 	
-	if target.shield < damage || pierces:
+	var shield_to_compare = target.shield if !pierces else target.reinforced_shield
+	if shield_to_compare < damage:
 		var valid_target_indices = []
 		for i in range(target.body_parts.get_child_count()):
 			if target.body_parts.get_child(i).hp > 0.0:
@@ -39,6 +42,8 @@ func damage_target(target: Node2D, damage: float, pierces: bool) -> void:
 func gain_shield(shield_gained: float):
 	shield += shield_gained
 
+func reinforce_shield(shield_reinforced: float):
+	reinforced_shield = min(reinforced_shield + shield_reinforced, shield)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -48,8 +53,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	assert(len(charges) == len(modules))
-	
-	shield = max(shield * (1.0 - Helpers.SHIELD_DRAIN_FRAC_PER_SEC * delta), 0.0) 
+	 
+	shield = max(shield * (1.0 - Helpers.SHIELD_DRAIN_FRAC_PER_SEC * delta), 0.0)
+	if shield < reinforced_shield:
+		reinforced_shield = shield 
 	
 	for i in range(len(charges)):
 		charges[i] += Helpers.KAIJU_DEFAULT_CHARGE_PER_SEC * delta
@@ -59,3 +66,4 @@ func _process(delta: float) -> void:
 			charges[i] = 0.0  
 	
 	shield_display_temp.text = "Shield - %.0f" % shield
+	reinforced_shield_display_temp.text = "Reinforced - %.0f" % reinforced_shield

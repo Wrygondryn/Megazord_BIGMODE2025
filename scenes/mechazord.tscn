@@ -13,6 +13,14 @@ offset_top = -120.0
 offset_right = 178.0
 offset_bottom = -97.0
 text = "Shield - 000"
+horizontal_alignment = 2
+
+[node name="ReinforcedShieldDisplay_TEMP" type="Label" parent="."]
+offset_left = 88.0
+offset_top = -144.0
+offset_right = 178.0
+offset_bottom = -121.0
+text = "Reinforced - 000"
 
 [node name="BodyParts" type="Node2D" parent="."]
 
