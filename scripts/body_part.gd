@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 func _on_module_fully_charged(data: ModuleData) -> void:
 	match condition:
 		Helpers.Condition.NONE: 
-			action_ready.emit(Action.from_module_data(data))
+			action_ready.emit(self, Action.from_module_data(data))
 		
 		Helpers.Condition.RESTRAINED:
 			return 

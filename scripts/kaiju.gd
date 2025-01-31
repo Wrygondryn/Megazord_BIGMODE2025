@@ -138,5 +138,5 @@ func _process(delta: float) -> void:
 	shield_display_temp.text = "Shield - %.0f" % shield
 	reinforced_shield_display_temp.text = "Reinforced - %.0f" % reinforced_shield
 
-func _on_body_part_action_ready(action: Action):
-	battle.queue_action(action)
+func _on_body_part_action_ready(body_part: Node2D, action: Action):
+	battle.queue_action(body_part, action)
