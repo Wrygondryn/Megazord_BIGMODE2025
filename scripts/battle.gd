@@ -46,10 +46,10 @@ func _process(delta: float) -> void:
 				# print(name + " dealt " + str(damage) + " damage to " + str(target.name))
 				var old_shield: float = target.shield
 				target.damage_body_part(target_body_part_index, action.amount, action.pierces)
-				var is_valid_condition := action.condition_kind != Helpers.Condition.NONE && action.condition_time_secs > 0.0
+				var is_valid_condition := action.condition_kind != Helpers.Condition.NONE && action.lasting_time_secs > 0.0
 				#TODO: Remove shield clause once more conditions are added that can occur with shield on
 				if is_valid_condition && (action.amount > old_shield || action.pierces):
-					target.apply_condition(action.condition_kind, target_body_part_index, action.condition_time_secs)
+					target.apply_condition(action.condition_kind, target_body_part_index, action.lasting_time_secs)
 					
 				var num_vitals_left_on_target := len(target.body_parts.get_children().filter(
 					func(body_part) -> bool: return Helpers.body_part_is_vital(body_part.kind) && body_part.hp > 0
@@ -75,6 +75,13 @@ func _process(delta: float) -> void:
 						mechazord.reinforce_shield(action.amount)
 					Helpers.GigaTarget.KAIJU:
 						kaiju.reinforce_shield(action.amount)
+						
+			Helpers.ActionKind.BOOST_REPAIR:
+				match action.target:
+					Helpers.GigaTarget.MECHAZORD:
+						mechazord.boost_repair(action.multiplier, action.lasting_time_secs)
+					Helpers.GigaTarget.KAIJU:
+						kaiju.boost_repair(action.multiplier, action.lasting_time_secs)
 	
 	#TODO: Remove once animations are a thing
 	action_queue.clear()

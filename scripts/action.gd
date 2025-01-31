@@ -2,26 +2,29 @@ class_name Action
 
 #TODO: Add on additional properties when need be like condition, animation, etc.
 var kind: Helpers.ActionKind
+var multiplier: float
 var amount: float
 var pierces: bool
 var condition_kind: Helpers.Condition
-var condition_time_secs: float
+var lasting_time_secs: float
 var target: Helpers.GigaTarget
 var body_part: Helpers.BodyPart
 		
 func _init(
 	kind: Helpers.ActionKind, 
 	amount: float, 
+	multiplier: float, 
 	pierces: bool,
 	condition_kind: Helpers.Condition,
-	condition_time_secs: float,
+	lasting_time_secs: float,
 	target: Helpers.GigaTarget, 
 	body_part: Helpers.BodyPart
 ):
 	self.kind = kind
 	self.amount = amount
+	self.multiplier = multiplier
 	self.condition_kind = condition_kind
-	self.condition_time_secs = condition_time_secs
+	self.lasting_time_secs = lasting_time_secs
 	self.pierces = pierces
 	self.target = target
 	self.body_part = body_part
@@ -36,9 +39,10 @@ static func from_module_data(module: ModuleData):
 	return Action.new(
 		module.action_kind, 
 		module.amount, 
+		module.multiplier, 
 		module.pierces, 
 		module.condition_kind, 
-		module.condition_time_secs, 
+		module.lasting_time_secs, 
 		module.giga_target, 
 		module.target_body_part
 	)

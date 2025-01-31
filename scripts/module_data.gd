@@ -7,9 +7,10 @@ class_name ModuleData
 #heal). It's not important rn but might be in the future
 @export var action_kind: Helpers.ActionKind
 @export_range(0.0, 1000.0, 1.0, "or_greater", "hide_slider") var amount: float
+@export_range(0.0, 100.0, 0.1, "or_greater", "hide_slider") var multiplier: float
 @export var pierces: bool
 @export var condition_kind: Helpers.Condition
-@export_range(0.0, 60.0, 1.0, "or_greater", "hide_slider") var condition_time_secs: float
+@export_range(0.0, 60.0, 0.1, "or_greater", "hide_slider") var lasting_time_secs: float
 @export var giga_target: Helpers.GigaTarget
 @export var target_body_part: Helpers.BodyPart
 
@@ -19,17 +20,19 @@ func _init(
 	action_kind := Helpers.ActionKind.ATTACK,
 	charge_capacity = 100.0, 
 	amount := 0.0,
+	multiplier := 1.0,
 	pierces := false, 
 	condition_kind := Helpers.Condition.NONE,
-	condition_time_secs := 0.0,
+	lasting_time_secs := 0.0,
 	giga_target := Helpers.GigaTarget.KAIJU, 
 	target_body_part := Helpers.BodyPart.ANY
 ):
 	self.action_kind = action_kind
 	self.amount = amount
+	self.multiplier = multiplier
 	self.pierces = pierces
 	self.condition_kind = condition_kind
-	self.condition_time_secs = condition_time_secs
+	self.lasting_time_secs = lasting_time_secs
 	self.giga_target = giga_target
 	self.target_body_part = target_body_part
 	

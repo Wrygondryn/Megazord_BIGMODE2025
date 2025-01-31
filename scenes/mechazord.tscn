@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://b72fg5qff5dt2"]
+[gd_scene load_steps=13 format=3 uid="uid://b72fg5qff5dt2"]
 
 [ext_resource type="Script" path="res://scripts/mechazord.gd" id="1_6b4sr"]
 [ext_resource type="Texture2D" uid="uid://dqx24uuscef21" path="res://assets/dummy_mech.png" id="1_f1ark"]
 [ext_resource type="PackedScene" uid="uid://dk7mb70mb5rp2" path="res://scenes/body_part.tscn" id="2_e7bsx"]
 [ext_resource type="Script" path="res://scripts/module.gd" id="4_54e7a"]
-[ext_resource type="Resource" uid="uid://6xs0ooprjwlw" path="res://resources/repair_module.tres" id="5_5g8jl"]
+[ext_resource type="Resource" uid="uid://6xs0ooprjwlw" path="res://resources/head_repair_module.tres" id="5_5g8jl"]
 [ext_resource type="Resource" uid="uid://08ag4xompugm" path="res://resources/mecha_attack_module.tres" id="6_brh6d"]
+[ext_resource type="Resource" uid="uid://c41xodfvniegu" path="res://resources/boost_repair_module.tres" id="6_oqtg6"]
 [ext_resource type="Resource" uid="uid://c2gxr8tb4ey15" path="res://resources/shield_gain_module.tres" id="7_1ko7c"]
 [ext_resource type="Resource" uid="uid://dbkvet4qvrosd" path="res://resources/mecha_restrain_attack_module.tres" id="7_h27t0"]
 [ext_resource type="Resource" uid="uid://dsjwk5kl6d66l" path="res://resources/reinforce_shield_module.tres" id="8_bffj0"]
+[ext_resource type="Resource" uid="uid://b5oy8kf0vhalw" path="res://resources/torso_repair_module.tres" id="9_5hite"]
+[ext_resource type="Resource" uid="uid://dypvd7e1k8hib" path="res://resources/pelvis_repair_module.tres" id="11_na6wo"]
 
 [node name="Mechazord" type="Node2D"]
 script = ExtResource("1_6b4sr")
@@ -48,6 +51,10 @@ offset_bottom = -128.0
 [node name="RepairModule" type="Node" parent="BodyParts/Head/Modules" index="0"]
 script = ExtResource("4_54e7a")
 data = ExtResource("5_5g8jl")
+
+[node name="BoostRepairModule" type="Node" parent="BodyParts/Head/Modules" index="1"]
+script = ExtResource("4_54e7a")
+data = ExtResource("6_oqtg6")
 
 [node name="LeftArm" parent="BodyParts" instance=ExtResource("2_e7bsx")]
 position = Vector2(-146, 147)
@@ -109,6 +116,10 @@ offset_bottom = 0.0
 script = ExtResource("4_54e7a")
 data = ExtResource("7_1ko7c")
 
+[node name="RepairModule" type="Node" parent="BodyParts/Torso/Modules" index="1"]
+script = ExtResource("4_54e7a")
+data = ExtResource("9_5hite")
+
 [node name="Pelvis" parent="BodyParts" instance=ExtResource("2_e7bsx")]
 position = Vector2(1, 391)
 kind = 4
@@ -128,6 +139,10 @@ offset_bottom = 8.0
 [node name="ReinforceShieldModule" type="Node" parent="BodyParts/Pelvis/Modules" index="0"]
 script = ExtResource("4_54e7a")
 data = ExtResource("8_bffj0")
+
+[node name="RepairModule" type="Node" parent="BodyParts/Pelvis/Modules" index="1"]
+script = ExtResource("4_54e7a")
+data = ExtResource("11_na6wo")
 
 [node name="LeftLeg" parent="BodyParts" instance=ExtResource("2_e7bsx")]
 position = Vector2(-122, 499)
@@ -153,10 +168,8 @@ scale = Vector2(0.351562, 182)
 offset_top = -79.0
 offset_bottom = -56.0
 
-[node name="OneSecondTimer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="OneSecondTimer" to="." method="_on_one_second_timer_timeout"]
+[node name="BoostRepairTimer" type="Timer" parent="."]
+one_shot = true
 
 [editable path="BodyParts/Head"]
 [editable path="BodyParts/LeftArm"]

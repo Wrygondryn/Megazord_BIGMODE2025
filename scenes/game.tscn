@@ -16,75 +16,126 @@ script = ExtResource("1_bofyj")
 [node name="JackDispensers" type="Node2D" parent="Dashboard"]
 
 [node name="WeakJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-689, 196)
+position = Vector2(-745, 236)
 
 [node name="MedJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-689, 276)
+position = Vector2(-745, 316)
 power = 3
 colour = Color(1, 1, 0, 1)
 
 [node name="StrongJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-689, 356)
+position = Vector2(-745, 396)
 power = 5
 colour = Color(1, 0, 0, 1)
 
 [node name="Sockets" type="Node2D" parent="Dashboard"]
 
-[node name="Socket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-570, 169)
+[node name="LeftArmAttackSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
+position = Vector2(-690, 305)
 module = NodePath("../../../Battle/Mechazord/BodyParts/LeftArm/Modules/AttackModule")
 
-[node name="Sprite2D" parent="Dashboard/Sockets/Socket" index="0"]
+[node name="Sprite2D" parent="Dashboard/Sockets/LeftArmAttackSocket" index="0"]
 modulate = Color(1, 0, 0, 1)
 
-[node name="Socket2" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-570, 221)
+[node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/LeftArmAttackSocket" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="RightArmAttackSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
+position = Vector2(-690, 357)
 module = NodePath("../../../Battle/Mechazord/BodyParts/RightArm/Modules/RestrainAttackModule")
 
-[node name="Sprite2D" parent="Dashboard/Sockets/Socket2" index="0"]
+[node name="Sprite2D" parent="Dashboard/Sockets/RightArmAttackSocket" index="0"]
 modulate = Color(1, 0, 0, 1)
 
-[node name="Socket3" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-570, 277)
+[node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/RightArmAttackSocket" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="HeadRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
+position = Vector2(-514, 277)
 module = NodePath("../../../Battle/Mechazord/BodyParts/Head/Modules/RepairModule")
 
-[node name="Socket4" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-570, 333)
+[node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/HeadRepairSocket" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TorsoRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
+position = Vector2(-514, 333)
+module = NodePath("../../../Battle/Mechazord/BodyParts/Torso/Modules/RepairModule")
+
+[node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/TorsoRepairSocket" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="PelvisRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
+position = Vector2(-514, 389)
+module = NodePath("../../../Battle/Mechazord/BodyParts/Pelvis/Modules/RepairModule")
+
+[node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/PelvisRepairSocket" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ShieldGainSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
+position = Vector2(-346, 277)
 module = NodePath("../../../Battle/Mechazord/BodyParts/Torso/Modules/ShieldModule")
 
-[node name="Sprite2D" parent="Dashboard/Sockets/Socket4" index="0"]
+[node name="Sprite2D" parent="Dashboard/Sockets/ShieldGainSocket" index="0"]
 modulate = Color(0, 0, 1, 1)
 
-[node name="Socket5" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-570, 389)
+[node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/ShieldGainSocket" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ShieldReinforceSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
+position = Vector2(-346, 333)
 module = NodePath("../../../Battle/Mechazord/BodyParts/Pelvis/Modules/ReinforceShieldModule")
 
-[node name="Sprite2D" parent="Dashboard/Sockets/Socket5" index="0"]
+[node name="Sprite2D" parent="Dashboard/Sockets/ShieldReinforceSocket" index="0"]
 modulate = Color(0, 1, 1, 1)
+
+[node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/ShieldReinforceSocket" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="BoostRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
+position = Vector2(-346, 389)
+module = NodePath("../../../Battle/Mechazord/BodyParts/Head/Modules/BoostRepairModule")
+
+[node name="Sprite2D" parent="Dashboard/Sockets/BoostRepairSocket" index="0"]
+modulate = Color(1, 1, 0, 1)
+
+[node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/BoostRepairSocket" index="1"]
+metadata/_edit_use_anchors_ = true
 
 [node name="Jacks" type="Node2D" parent="Dashboard"]
 
 [node name="ChargeDisplays" type="Node2D" parent="Dashboard"]
 
 [node name="LeftArmAttackDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(-474, 170)
+position = Vector2(-594, 306)
 module = NodePath("../../../Battle/Mechazord/BodyParts/LeftArm/Modules/AttackModule")
 
 [node name="RightArmAttackDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(-474, 223)
+position = Vector2(-594, 359)
 module = NodePath("../../../Battle/Mechazord/BodyParts/RightArm/Modules/RestrainAttackModule")
 
 [node name="HeadRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(-474, 279)
+position = Vector2(-418, 279)
 module = NodePath("../../../Battle/Mechazord/BodyParts/Head/Modules/RepairModule")
 
+[node name="TorsoRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
+position = Vector2(-418, 335)
+module = NodePath("../../../Battle/Mechazord/BodyParts/Torso/Modules/RepairModule")
+
+[node name="PelvisRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
+position = Vector2(-418, 391)
+module = NodePath("../../../Battle/Mechazord/BodyParts/Pelvis/Modules/RepairModule")
+
 [node name="TorsoShieldGainDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(-474, 335)
+position = Vector2(-250, 279)
 module = NodePath("../../../Battle/Mechazord/BodyParts/Torso/Modules/ShieldModule")
 
 [node name="PelvisReinforceShieldDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(-474, 391)
+position = Vector2(-250, 335)
 module = NodePath("../../../Battle/Mechazord/BodyParts/Pelvis/Modules/ReinforceShieldModule")
+
+[node name="BoostRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
+position = Vector2(-250, 391)
+module = NodePath("../../../Battle/Mechazord/BodyParts/Head/Modules/BoostRepairModule")
 
 [node name="Battle" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -100,11 +151,14 @@ scale = Vector2(0.8, 0.8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[editable path="Dashboard/Sockets/Socket"]
-[editable path="Dashboard/Sockets/Socket2"]
-[editable path="Dashboard/Sockets/Socket3"]
-[editable path="Dashboard/Sockets/Socket4"]
-[editable path="Dashboard/Sockets/Socket5"]
+[editable path="Dashboard/Sockets/LeftArmAttackSocket"]
+[editable path="Dashboard/Sockets/RightArmAttackSocket"]
+[editable path="Dashboard/Sockets/HeadRepairSocket"]
+[editable path="Dashboard/Sockets/TorsoRepairSocket"]
+[editable path="Dashboard/Sockets/PelvisRepairSocket"]
+[editable path="Dashboard/Sockets/ShieldGainSocket"]
+[editable path="Dashboard/Sockets/ShieldReinforceSocket"]
+[editable path="Dashboard/Sockets/BoostRepairSocket"]
 [editable path="Battle/Mechazord"]
 [editable path="Battle/Mechazord/BodyParts/Head"]
 [editable path="Battle/Mechazord/BodyParts/LeftArm"]

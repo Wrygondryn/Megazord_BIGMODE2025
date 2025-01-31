@@ -5,10 +5,11 @@ extends Node2D
 @onready var body_parts: Node2D = $BodyParts
 @onready var shield_display_temp: Label = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label = $ReinforcedShieldDisplay_TEMP
+@onready var boost_repair_timer: Timer = $BoostRepairTimer
 @onready var battle: Node2D = %Battle
 
 var reinforced_shield: float = 0.0
-
+var repair_multiplier: float = 1.0
 
 #NOTE: This is just for testing purposes
 func next_vital_index_to_attack(target: Node2D) -> int:
@@ -67,7 +68,7 @@ func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
 	for i in range(body_parts.get_child_count()):
 		var body_part = body_parts.get_child(i)
 		if body_part.kind == body_part_kind:
-			body_part.hp = min(body_part.max_hp, body_part.hp + heal)
+			body_part.hp = min(body_part.max_hp, body_part.hp + heal * repair_multiplier)
 
 func gain_shield(shield_gained: float):
 	shield += shield_gained
@@ -83,6 +84,10 @@ func apply_condition(condition: Helpers.Condition, body_part_index: int, time_le
 	body_part.condition_timer.wait_time = time_length_secs
 	body_part.condition_timer.start()
 
+func boost_repair(multiplier: float, time_length_secs: float):
+	repair_multiplier = multiplier
+	boost_repair_timer.wait_time = time_length_secs
+	boost_repair_timer.start()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -94,6 +99,9 @@ func _process(delta: float) -> void:
 	shield = max(shield * (1.0 - Helpers.SHIELD_DRAIN_FRAC_PER_SEC * delta), 0.0)
 	if shield < reinforced_shield:
 		reinforced_shield = shield 
+	
+	if boost_repair_timer.is_stopped():
+		repair_multiplier = 1.0
 	
 	shield_display_temp.text = "Shield - %.0f" % shield
 	reinforced_shield_display_temp.text = "Reinforced - %.0f" % reinforced_shield

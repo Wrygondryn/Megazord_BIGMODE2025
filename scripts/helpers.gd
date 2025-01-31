@@ -4,7 +4,8 @@ enum ActionKind {
 	ATTACK,
 	REPAIR,
 	SHIELD_GAIN,
-	REINFORCE_SHIELD
+	REINFORCE_SHIELD,
+	BOOST_REPAIR
 }
 
 enum GigaTarget { 
