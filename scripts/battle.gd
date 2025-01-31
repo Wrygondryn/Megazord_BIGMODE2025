@@ -44,8 +44,11 @@ func _process(delta: float) -> void:
 						
 				var target_body_part_index = attacker.next_body_part_index_to_attack(target)
 				# print(name + " dealt " + str(damage) + " damage to " + str(target.name))
+				var old_shield: float = target.shield
 				target.damage_body_part(target_body_part_index, action.amount, action.pierces)
-				if action.condition_kind != Helpers.Condition.NONE && action.condition_time_secs > 0.0:
+				var is_valid_condition := action.condition_kind != Helpers.Condition.NONE && action.condition_time_secs > 0.0
+				#TODO: Remove shield clause once more conditions are added that can occur with shield on
+				if is_valid_condition && (action.amount > old_shield || action.pierces):
 					target.apply_condition(action.condition_kind, target_body_part_index, action.condition_time_secs)
 					
 				var num_vitals_left_on_target := len(target.body_parts.get_children().filter(

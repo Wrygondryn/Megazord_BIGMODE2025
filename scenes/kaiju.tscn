@@ -12,6 +12,7 @@
 [node name="Kaiju" type="Node2D"]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_h5lc8")
+shield = 100.0
 
 [node name="ShieldDisplay_TEMP" type="Label" parent="."]
 offset_left = -200.0
