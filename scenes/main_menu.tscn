@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct4d7o7xgeoqc"]
+
+[ext_resource type="StyleBox" uid="uid://ydqyhnqcyt11" path="res://assets/button_hover_style.tres" id="1_dm6ed"]
+[ext_resource type="StyleBox" uid="uid://dxcj62sqcdqd0" path="res://assets/button_normal_style.tres" id="2_5qyb4"]
+[ext_resource type="StyleBox" uid="uid://bo1n3p3df22lu" path="res://assets/button_pressed_style.tres" id="3_0wak1"]
+[ext_resource type="FontFile" uid="uid://b1o736at0xfi" path="res://assets/StalinistOne-Regular.ttf" id="4_d0bw6"]
+
+[sub_resource type="Theme" id="Theme_pnnr3"]
+Button/colors/font_color = Color(0.909804, 0.839216, 0, 1)
+Button/colors/font_hover_color = Color(1, 0.94902, 0.447059, 1)
+Button/colors/font_pressed_color = Color(0.752941, 0.694118, 0, 1)
+Button/styles/hover = ExtResource("1_dm6ed")
+Button/styles/normal = ExtResource("2_5qyb4")
+Button/styles/pressed = ExtResource("3_0wak1")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 141.0
+offset_right = 362.0
+offset_bottom = 243.0
+focus_mode = 0
+theme = SubResource("Theme_pnnr3")
+theme_override_colors/font_color = Color(0.908402, 0.837672, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 40
+text = "Play"
+alignment = 2
+
+[node name="TutorialButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 293.0
+offset_right = 362.0
+offset_bottom = 395.0
+focus_mode = 0
+theme = SubResource("Theme_pnnr3")
+theme_override_colors/font_color = Color(0.908402, 0.837672, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 40
+text = "Tutorial
+"
+alignment = 2
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 445.0
+offset_right = 362.0
+offset_bottom = 547.0
+focus_mode = 0
+theme = SubResource("Theme_pnnr3")
+theme_override_colors/font_color = Color(0.908402, 0.837672, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+alignment = 2
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 605.0
+offset_right = 362.0
+offset_bottom = 707.0
+focus_mode = 0
+theme = SubResource("Theme_pnnr3")
+theme_override_colors/font_color = Color(0.908402, 0.837672, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+alignment = 2
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 757.0
+offset_right = 362.0
+offset_bottom = 859.0
+focus_mode = 0
+theme = SubResource("Theme_pnnr3")
+theme_override_colors/font_color = Color(0.908402, 0.837672, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+alignment = 2
