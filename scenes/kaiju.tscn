@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bimy4xj03log8"]
+[gd_scene load_steps=11 format=3 uid="uid://bimy4xj03log8"]
 
 [ext_resource type="Script" path="res://scripts/kaiju.gd" id="1_h5lc8"]
 [ext_resource type="Texture2D" uid="uid://ccck2r0agp2o0" path="res://assets/dummy_kaiju.png" id="1_hft5c"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://bni5fgqtb6e62" path="res://resources/kaiju_reinforce_shield_module.tres" id="8_jhhtr"]
 [ext_resource type="Resource" uid="uid://c0q5q66hnem0s" path="res://resources/kaiju_shield_gain_module.tres" id="9_mmk55"]
 [ext_resource type="AudioStream" uid="uid://5npyyj6emr86" path="res://assets/kaiju_impact.wav" id="9_xac02"]
+[ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/shield_impact.wav" id="10_ntelx"]
 
 [node name="Kaiju" type="Node2D"]
 scale = Vector2(1.5, 1.5)
@@ -153,8 +154,11 @@ offset_bottom = -56.0
 
 [node name="BoostRepairTimer" type="Timer" parent="."]
 
-[node name="ImpactSFX" type="AudioStreamPlayer2D" parent="."]
+[node name="BodyImpactSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_xac02")
+
+[node name="ShieldImpactSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_ntelx")
 
 [editable path="BodyParts/Head"]
 [editable path="BodyParts/LeftArm"]

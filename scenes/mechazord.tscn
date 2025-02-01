@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b72fg5qff5dt2"]
+[gd_scene load_steps=15 format=3 uid="uid://b72fg5qff5dt2"]
 
 [ext_resource type="Script" path="res://scripts/mechazord.gd" id="1_6b4sr"]
 [ext_resource type="Texture2D" uid="uid://dqx24uuscef21" path="res://assets/dummy_mech.png" id="1_f1ark"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://b5oy8kf0vhalw" path="res://resources/torso_repair_module.tres" id="9_5hite"]
 [ext_resource type="Resource" uid="uid://dypvd7e1k8hib" path="res://resources/pelvis_repair_module.tres" id="11_na6wo"]
 [ext_resource type="AudioStream" uid="uid://ce401hpkplka" path="res://assets/mech_impact.wav" id="13_ws4rb"]
+[ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/shield_impact.wav" id="14_c7bce"]
 
 [node name="Mechazord" type="Node2D"]
 script = ExtResource("1_6b4sr")
@@ -172,8 +173,11 @@ offset_bottom = -56.0
 [node name="BoostRepairTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="ImpactSFX" type="AudioStreamPlayer2D" parent="."]
+[node name="BodyImpactSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_ws4rb")
+
+[node name="ShieldImpactSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_c7bce")
 
 [editable path="BodyParts/Head"]
 [editable path="BodyParts/LeftArm"]

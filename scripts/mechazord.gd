@@ -1,12 +1,14 @@
 extends Node2D
 
+
 @export_range(0.0, 1000.0, 1.0, "or_greater", "hide_slider") var shield: float = 200.0
 
 @onready var body_parts: Node2D = $BodyParts
 @onready var shield_display_temp: Label = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label = $ReinforcedShieldDisplay_TEMP
 @onready var boost_repair_timer: Timer = $BoostRepairTimer
-@onready var impact_sfx: AudioStreamPlayer2D = $ImpactSFX
+@onready var body_impact_sfx: AudioStreamPlayer2D = $BodyImpactSFX
+@onready var shield_impact_sfx: AudioStreamPlayer2D = $ShieldImpactSFX
 @onready var battle: Node2D = %Battle
 
 var reinforced_shield: float = 0.0
@@ -54,11 +56,15 @@ func damage_body_part(body_part_index: int, damage: float, pierces: bool) -> voi
 	if pierces:
 		reinforced_shield = max(reinforced_shield - shield_damage, 0.0)
 	
+	var impact_sfx = shield_impact_sfx
+	
 	var shield_to_compare = shield if !pierces else reinforced_shield
-	if shield_to_compare < damage:
+	if shield_to_compare == 0.0:
 		var hp_damage = damage - shield_damage
 		var body_part = body_parts.get_child(body_part_index)
 		body_part.hp = max(body_part.hp - hp_damage, 0.0)
+	
+		impact_sfx = body_impact_sfx
 	
 	var pitch_range_max := pow(pow(2, 1.0 / 12.0), Helpers.IMPACT_PITCH_RANGE_SEMITONES)
 	impact_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max) 
