@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dchbk5yutlhiu"]
+[gd_scene load_steps=6 format=3 uid="uid://dchbk5yutlhiu"]
 
 [ext_resource type="Texture2D" uid="uid://ce3p5lt78rvlk" path="res://assets/circle.png" id="1_18u3d"]
 [ext_resource type="Script" path="res://scripts/socket.gd" id="1_k01id"]
+[ext_resource type="AudioStream" uid="uid://bbqtql6jutrds" path="res://assets/jack_in.wav" id="3_ulemf"]
+[ext_resource type="AudioStream" uid="uid://bdygxfbj1au7i" path="res://assets/jack_out.wav" id="4_4hks2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fqu55"]
+radius = 19.0263
 
 [node name="Socket" type="Node2D"]
 script = ExtResource("1_k01id")
@@ -18,3 +23,19 @@ offset_right = 52.0
 offset_bottom = 12.0
 text = "0"
 horizontal_alignment = 1
+
+[node name="JackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JackArea"]
+shape = SubResource("CircleShape2D_fqu55")
+
+[node name="PlugInSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ulemf")
+volume_db = 3.0
+
+[node name="UnplugSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4hks2")
+volume_db = 3.0
+
+[connection signal="area_entered" from="JackArea" to="." method="_on_jack_area_area_entered"]
+[connection signal="area_exited" from="JackArea" to="." method="_on_jack_area_area_exited"]
