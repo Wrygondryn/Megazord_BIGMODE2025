@@ -6,6 +6,7 @@ extends Node2D
 @onready var shield_display_temp: Label = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label = $ReinforcedShieldDisplay_TEMP
 @onready var boost_repair_timer: Timer = $BoostRepairTimer
+@onready var impact_sfx: AudioStreamPlayer2D = $ImpactSFX
 @onready var battle: Node2D = %Battle
 
 var reinforced_shield: float = 0.0
@@ -58,6 +59,10 @@ func damage_body_part(body_part_index: int, damage: float, pierces: bool) -> voi
 		var hp_damage = damage - shield_damage
 		var body_part = body_parts.get_child(body_part_index)
 		body_part.hp = max(body_part.hp - hp_damage, 0.0)
+	
+	var pitch_range_max := pow(pow(2, 1.0 / 12.0), Helpers.IMPACT_PITCH_RANGE_SEMITONES)
+	impact_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max) 
+	impact_sfx.play()
 
 func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
 	#TODO: Properly handle BodyPart.ANY
