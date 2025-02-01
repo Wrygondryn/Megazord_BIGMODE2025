@@ -3,6 +3,7 @@ extends Node2D
 @onready var sockets: Node2D = $Sockets
 @onready var jacks: Node2D = $Jacks
 @onready var jack_dispensers: Node2D = $JackDispensers
+@onready var connection_sfx: AudioStreamPlayer2D = $ConnectionSFX
 
 #NOTE: I think this should work since StringName is meant to be unique? Don't @ me
 class JackSocketConnection:
@@ -149,6 +150,10 @@ func release_held_jack():
 	if should_connect_held_jack:
 		var new_connection := JackSocketConnection.new(held_jack.get_instance_id(), intersecting_socket.get_instance_id())
 		connections.append(new_connection)
+		
+		var pitch_range_max := Helpers.semitones_to_scale(2)
+		connection_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max)
+		connection_sfx.play()
 	else:
 		for jack_dispenser in jack_dispensers.get_children():
 			var dispenser_rect = jack_dispenser.get_node("Area2D/CollisionShape2D").shape.get_rect()

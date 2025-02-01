@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=9 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_bofyj"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
 [ext_resource type="PackedScene" uid="uid://kwregxsookrk" path="res://scenes/jack_dispenser.tscn" id="4_whl4r"]
 [ext_resource type="PackedScene" uid="uid://3y3al18ah6ax" path="res://scenes/charge_display.tscn" id="5_llxl5"]
+[ext_resource type="AudioStream" uid="uid://dr6ui2ftrsj3k" path="res://assets/jack_connected.wav" id="5_nfmvy"]
 [ext_resource type="Script" path="res://scripts/battle.gd" id="6_bwiir"]
 [ext_resource type="PackedScene" uid="uid://b72fg5qff5dt2" path="res://scenes/mechazord.tscn" id="7_huf8d"]
 [ext_resource type="PackedScene" uid="uid://bimy4xj03log8" path="res://scenes/kaiju.tscn" id="8_r0r2j"]
@@ -136,6 +137,10 @@ module = NodePath("../../../Battle/Mechazord/BodyParts/Pelvis/Modules/ReinforceS
 [node name="BoostRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
 position = Vector2(-250, 391)
 module = NodePath("../../../Battle/Mechazord/BodyParts/Head/Modules/BoostRepairModule")
+
+[node name="ConnectionSFX" type="AudioStreamPlayer2D" parent="Dashboard"]
+stream = ExtResource("5_nfmvy")
+volume_db = 6.0
 
 [node name="Battle" type="Node2D" parent="."]
 unique_name_in_owner = true

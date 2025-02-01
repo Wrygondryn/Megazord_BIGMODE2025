@@ -1,5 +1,8 @@
 extends Node2D
 
+
+const JACK_SFX_SEMITONE_RANGE = 2
+
 @export var module: Module
 
 @onready var sprite: Sprite2D = $Sprite2D
@@ -15,8 +18,12 @@ func radius():
 
 
 func _on_jack_area_area_entered(area: Area2D) -> void:
+	var pitch_range_max := Helpers.semitones_to_scale(JACK_SFX_SEMITONE_RANGE)
+	plug_in_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max)
 	plug_in_sfx.play()
 
 
 func _on_jack_area_area_exited(area: Area2D) -> void:
+	var pitch_range_max := Helpers.semitones_to_scale(JACK_SFX_SEMITONE_RANGE)
+	unplug_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max)
 	unplug_sfx.play()

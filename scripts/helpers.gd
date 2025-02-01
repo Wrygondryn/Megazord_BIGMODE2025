@@ -53,5 +53,8 @@ static func rand_choice_ps(ps: Array[float]) -> int:
 		
 	return result
 
+static func semitones_to_scale(num_semitones: int) -> float:
+	return pow(pow(2, 1.0 / 12.0), num_semitones)
+
 static func body_part_is_vital(body_part: BodyPart) -> bool:
 	return body_part == BodyPart.HEAD || body_part == BodyPart.TORSO

@@ -96,7 +96,7 @@ func damage_body_part(body_part_index: int, damage: float, pierces: bool) -> voi
 		
 		impact_sfx = body_impact_sfx
 	
-	var pitch_range_max := pow(pow(2, 1.0 / 12.0), Helpers.IMPACT_PITCH_RANGE_SEMITONES)
+	var pitch_range_max := Helpers.semitones_to_scale(Helpers.IMPACT_PITCH_RANGE_SEMITONES)
 	impact_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max) 
 	impact_sfx.play()
 
