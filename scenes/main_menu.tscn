@@ -301,7 +301,6 @@ offset_bottom = 321.0
 value = 100.0
 
 [node name="BackButton" type="Button" parent="Settings"]
-layout_mode = 0
 offset_left = -40.0
 offset_top = 757.0
 offset_right = 410.0
