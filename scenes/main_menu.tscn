@@ -275,11 +275,52 @@ theme_override_font_sizes/font_size = 40
 text = "Back"
 alignment = 2
 
+[node name="Settings" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VolumeSliderLabel" type="Label" parent="Settings"]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 228.0
+offset_right = 694.0
+offset_bottom = 300.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 48
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="Settings"]
+layout_mode = 0
+offset_left = 727.0
+offset_top = 203.0
+offset_right = 1473.0
+offset_bottom = 321.0
+value = 100.0
+
+[node name="BackButton" type="Button" parent="Settings"]
+offset_left = -40.0
+offset_top = 757.0
+offset_right = 410.0
+offset_bottom = 859.0
+focus_mode = 0
+theme = SubResource("Theme_pnnr3")
+theme_override_colors/font_color = Color(0.908402, 0.837672, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+alignment = 2
+
 [connection signal="pressed" from="Main/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Main/Buttons/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="Main/Buttons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Main/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Main/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="leaving" from="Tutorial" to="." method="_on_tutorial_leaving"]
 [connection signal="pressed" from="Tutorial/BackPrevButton" to="Tutorial" method="_on_back_prev_button_pressed"]
 [connection signal="pressed" from="Tutorial/NextButton" to="Tutorial" method="_on_next_button_pressed"]
 [connection signal="pressed" from="Credits/BackButton" to="." method="_on_credits_back_button_pressed"]
+[connection signal="value_changed" from="Settings/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="Settings/BackButton" to="." method="_on_settings_back_button_pressed"]
