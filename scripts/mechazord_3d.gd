@@ -32,28 +32,33 @@ func next_vital_index_to_attack(target: Node3D) -> int:
 	assert(false)
 	return 0
 
-func next_body_part_index_to_attack(target: Node3D) -> int:
+func next_body_part_index_to_attack(target: Node3D, body_part_kind: Helpers.BodyPart) -> int:
 	var valid_target_indices = []
 	var num_vitals: int = 0
 	for i in range(len(target.body_parts)):
-		var body_part:BodyPart3D = target.body_parts[i]
-		if body_part.hp > 0.0:
+		var body_part = target.body_parts[i]
+		if body_part.hp > 0.0 && (body_part.kind == body_part_kind || body_part_kind == Helpers.BodyPart.ANY):
 			valid_target_indices.append(i)
 			num_vitals += int(Helpers.body_part_is_vital(body_part.kind))
 				
 	assert(len(valid_target_indices) > 0)
 		
-	var prob_of_vitals := float(num_vitals) / float(len(valid_target_indices))
-	if num_vitals < len(valid_target_indices):
-		prob_of_vitals /= Helpers.AVOID_VITALS_WEIGHT
-		
-	var prob_of_non_vitals := 1.0 - prob_of_vitals 
 	var valid_target_ps: Array[float] = []
-	for body_part_index in valid_target_indices:
-		var is_vital := Helpers.body_part_is_vital(target.body_parts[body_part_index].kind)
-		var prob_of_like_part = prob_of_vitals if is_vital else prob_of_non_vitals
-		var num_like_parts := num_vitals if is_vital else len(valid_target_indices) - num_vitals		
-		valid_target_ps.append(prob_of_like_part / num_like_parts)
+		
+	if body_part_kind == Helpers.BodyPart.ANY:
+		var prob_of_vitals := float(num_vitals) / float(len(valid_target_indices))
+		if num_vitals < len(valid_target_indices):
+			prob_of_vitals /= Helpers.AVOID_VITALS_WEIGHT
+	 
+		var prob_of_non_vitals := 1.0 - prob_of_vitals 
+		for body_part_index in valid_target_indices:
+			var is_vital := Helpers.body_part_is_vital(target.body_parts[body_part_index].kind)
+			var prob_of_like_part = prob_of_vitals if is_vital else prob_of_non_vitals
+			var num_like_parts := num_vitals if is_vital else len(valid_target_indices) - num_vitals		
+			valid_target_ps.append(prob_of_like_part / float(num_like_parts))
+	else:
+		for _i in range(len(valid_target_indices)):
+			valid_target_ps.append(1.0 / float(len(valid_target_indices)))
 	
 	assert(len(valid_target_ps) == len(valid_target_indices))
 	return valid_target_indices[Helpers.rand_choice_ps(valid_target_ps)]

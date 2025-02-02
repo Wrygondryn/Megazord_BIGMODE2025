@@ -28,6 +28,7 @@
 
 [node name="Mechazorg3D" type="Node3D" node_paths=PackedStringArray("body_parts")]
 script = ExtResource("1_8t2nw")
+shield = 300.0
 shield_colour = Color(0, 0, 1, 1)
 reinforced_shield_colour = Color(0, 1, 1, 1)
 body_parts = [NodePath("MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"), NodePath("MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso"), NodePath("MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"), NodePath("MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm"), NodePath("MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"), NodePath("MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg"), NodePath("MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg")]

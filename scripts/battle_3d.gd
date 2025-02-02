@@ -108,7 +108,10 @@ func process_action(action_info: ActionInfo) -> void:
 						victory_function = mechazord_victory
 						
 						
-				var target_body_part_index = attacker.next_body_part_index_to_attack(target)
+				var target_body_part_index = attacker.next_body_part_index_to_attack(
+					target, 
+					action_info.action.body_part
+				)
 				# print(name + " dealt " + str(damage) + " damage to " + str(target.name))
 				var old_shield: float = target.shield
 				target.damage_body_part(target_body_part_index, action_info.action.amount, action_info.action.pierces)
