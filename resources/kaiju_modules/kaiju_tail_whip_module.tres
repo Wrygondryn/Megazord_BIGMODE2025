@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://dhtwi5krprojv"]
+
+[ext_resource type="Script" path="res://scripts/module_data.gd" id="1_hg3nc"]
+
+[resource]
+script = ExtResource("1_hg3nc")
+action_kind = 0
+amount = 120.0
+multiplier = 0.0
+pierces = false
+condition_kind = 0
+lasting_time_secs = 5.0
+giga_target = 0
+target_body_part = 5
+charge_capacity = 300.0

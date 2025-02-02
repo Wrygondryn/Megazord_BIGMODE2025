@@ -6,9 +6,10 @@
 script = ExtResource("1_y8nuq")
 action_kind = 0
 amount = 80.0
+multiplier = 0.0
 pierces = false
 condition_kind = 1
-condition_time_secs = 0.0
+lasting_time_secs = 0.0
 giga_target = 0
-target_body_part = 7
+target_body_part = 8
 charge_capacity = 125.0

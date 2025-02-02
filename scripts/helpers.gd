@@ -26,6 +26,7 @@ enum BodyPart {
 	PELVIS,
 	LEFT_LEG,
 	RIGHT_LEG,
+	TAIL,
 	ANY
 }
 

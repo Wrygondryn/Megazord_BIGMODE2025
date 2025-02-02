@@ -317,6 +317,7 @@ position = Vector2(1420, 293)
 texture = ExtResource("11_0ys5y")
 
 [node name="BoostRepairLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+layout_mode = 0
 offset_left = 1304.0
 offset_top = 197.0
 offset_right = 1541.0
@@ -333,6 +334,7 @@ position = Vector2(1132, 357)
 texture = ExtResource("12_rwcoo")
 
 [node name="PierceLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+layout_mode = 0
 offset_left = 1073.0
 offset_top = 261.0
 offset_right = 1196.0
@@ -349,6 +351,7 @@ position = Vector2(1132, 189)
 texture = ExtResource("13_dcd4t")
 
 [node name="AttackLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+layout_mode = 0
 offset_left = 1073.0
 offset_top = 77.0
 offset_right = 1196.0
@@ -364,6 +367,7 @@ position = Vector2(1420, 629)
 texture = ExtResource("14_bsyyc")
 
 [node name="ReinforceLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+layout_mode = 0
 offset_left = 1265.0
 offset_top = 533.0
 offset_right = 1580.0
@@ -380,6 +384,7 @@ position = Vector2(1420, 125)
 texture = ExtResource("15_jdgu2")
 
 [node name="RepairLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+layout_mode = 0
 offset_left = 1361.0
 offset_top = 45.0
 offset_right = 1484.0
@@ -396,6 +401,7 @@ position = Vector2(1132, 533)
 texture = ExtResource("16_h7j0y")
 
 [node name="RestrainLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+layout_mode = 0
 offset_left = 1050.0
 offset_top = 413.0
 offset_right = 1219.0
@@ -413,6 +419,7 @@ position = Vector2(1420, 461)
 texture = ExtResource("17_46vff")
 
 [node name="ShieldLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+layout_mode = 0
 offset_left = 1304.0
 offset_top = 365.0
 offset_right = 1541.0

@@ -11,5 +11,5 @@ pierces = false
 condition_kind = 1
 lasting_time_secs = 0.0
 giga_target = 1
-target_body_part = 7
+target_body_part = 8
 charge_capacity = 150.0

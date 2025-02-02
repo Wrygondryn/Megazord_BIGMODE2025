@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cb2st83ohprx"]
+[gd_scene load_steps=15 format=3 uid="uid://cb2st83ohprx"]
 
 [ext_resource type="Script" path="res://scripts/kaiju_3d.gd" id="1_uoi3y"]
 [ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://prefabs/battle_scene/body_parts/body_part_3d.tscn" id="2_kji60"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://c0q5q66hnem0s" path="res://resources/kaiju_modules/kaiju_shield_gain_module.tres" id="6_d7jla"]
 [ext_resource type="Resource" uid="uid://bujn1bqqbiw68" path="res://resources/kaiju_modules/kaiju_heavy_attack_module.tres" id="7_rmn0k"]
 [ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/kaiju_modules/kaiju_left_arm_attack_module.tres" id="8_ijr1p"]
+[ext_resource type="Resource" uid="uid://dhtwi5krprojv" path="res://resources/kaiju_modules/kaiju_tail_whip_module.tres" id="9_2jshx"]
 [ext_resource type="PackedScene" uid="uid://cyswmaifnol4u" path="res://prefabs/battle_scene/battle_models/gorbjira.tscn" id="9_23rwx"]
 [ext_resource type="AudioStream" uid="uid://5npyyj6emr86" path="res://assets/music_and_sounds/kaiju_impact.wav" id="10_mmb6l"]
 [ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/music_and_sounds/shield_impact.wav" id="11_5jy7c"]
@@ -122,6 +123,19 @@ max_hp = 300.0
 [node name="CSGBox3D" parent="BodyParts/RightLeg" index="0"]
 cast_shadow = 1
 
+[node name="Tail" parent="BodyParts" instance=ExtResource("2_kji60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61607, -2.23194)
+kind = 7
+max_hp = 500.0
+
+[node name="CSGBox3D" parent="BodyParts/Tail" index="0"]
+cast_shadow = 1
+
+[node name="AttackModule" type="Node" parent="BodyParts/Tail/Modules" index="0"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("9_2jshx")
+animation_name = &"test_animation"
+
 [node name="Gorbjira" parent="." instance=ExtResource("9_23rwx")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
@@ -151,3 +165,4 @@ volume_db = -6.0
 [editable path="BodyParts/Pelvis"]
 [editable path="BodyParts/LeftLeg"]
 [editable path="BodyParts/RightLeg"]
+[editable path="BodyParts/Tail"]

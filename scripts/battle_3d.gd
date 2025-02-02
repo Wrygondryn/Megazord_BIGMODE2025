@@ -108,6 +108,8 @@ func process_action(action_info: ActionInfo) -> void:
 						victory_function = mechazord_victory
 						
 						
+				#print(action_info.source_body_part.name)		
+				#print(action_info.action.body_part)		
 				var target_body_part_index = attacker.next_body_part_index_to_attack(
 					target, 
 					action_info.action.body_part

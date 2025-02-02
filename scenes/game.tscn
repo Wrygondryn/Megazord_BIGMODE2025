@@ -291,7 +291,6 @@ bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.0923034, 0.00101145, -0.00669197, 0.995708)
 bones/20/rotation = Quaternion(0.620423, -3.49067e-07, -2.29214e-06, 0.784268)
 bones/21/rotation = Quaternion(0.195377, -0.0625876, 0.822513, 0.530455)
-bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(-0.00372256, -0.597325, 0.801971, -0.0056526)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/rotation = Quaternion(-0.0923034, 0.00101145, -0.00669197, 0.995708)
@@ -299,13 +298,13 @@ bones/24/rotation = Quaternion(0.620423, -3.49067e-07, -2.29214e-06, 0.784268)
 bones/25/rotation = Quaternion(0.823174, -3.87911e-07, -3.23769e-06, 0.567789)
 
 [node name="Head_Face" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, -2.84217e-13, -1.85185e-13, -5.68434e-14, 0.999999, 1.88127e-07, 2.33147e-13, -1.89058e-07, 1, -4.00822e-13, 9.53674e-07, 1.66893e-06)
+transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -8.89057e-12, -2.86102e-06, 9.46224e-07)
 
 [node name="Head_Helmet" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, -2.84217e-13, -1.85185e-13, -5.68434e-14, 0.999999, 1.88127e-07, 2.33147e-13, -1.89058e-07, 1, -4.00822e-13, 9.53674e-07, 1.66893e-06)
+transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -8.89057e-12, -2.86102e-06, 9.46224e-07)
 
 [node name="Head_Mouthguard" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, -2.84217e-13, -1.85185e-13, -5.68434e-14, 0.999999, 1.88127e-07, 2.33147e-13, -1.89058e-07, 1, -4.00822e-13, 9.53674e-07, 1.66893e-06)
+transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -8.89057e-12, -2.86102e-06, 9.46224e-07)
 
 [node name="Kaiju3D_Gorbjira" parent="SubViewport/Battle3D" instance=ExtResource("23_t2umd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.54586, 0, 0)
