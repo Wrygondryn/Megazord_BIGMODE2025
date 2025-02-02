@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d018vpm6pecbb"
-path="res://.godot/imported/MechazorgCableDuty_Music.wav-987c3c3e3abb4817948a2a526ed08e73.sample"
+path="res://.godot/imported/MechazorgCableDuty_Music.wav-d2949257438a0d0179f006c962e4a2ad.sample"
 
 [deps]
 
-source_file="res://assets/MechazorgCableDuty_Music.wav"
-dest_files=["res://.godot/imported/MechazorgCableDuty_Music.wav-987c3c3e3abb4817948a2a526ed08e73.sample"]
+source_file="res://assets/music_and_sounds/MechazorgCableDuty_Music.wav"
+dest_files=["res://.godot/imported/MechazorgCableDuty_Music.wav-d2949257438a0d0179f006c962e4a2ad.sample"]
 
 [params]
 

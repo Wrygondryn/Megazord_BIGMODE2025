@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dr6ui2ftrsj3k"
-path="res://.godot/imported/jack_connected.wav-b8a2c6a76dcecd049feee05fb64ef433.sample"
+path="res://.godot/imported/jack_connected.wav-a86a5fe2d8dc40d671344c86d22aaa05.sample"
 
 [deps]
 
-source_file="res://assets/jack_connected.wav"
-dest_files=["res://.godot/imported/jack_connected.wav-b8a2c6a76dcecd049feee05fb64ef433.sample"]
+source_file="res://assets/music_and_sounds/jack_connected.wav"
+dest_files=["res://.godot/imported/jack_connected.wav-a86a5fe2d8dc40d671344c86d22aaa05.sample"]
 
 [params]
 

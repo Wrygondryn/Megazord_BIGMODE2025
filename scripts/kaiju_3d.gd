@@ -19,6 +19,7 @@ extends Node3D
 @onready var body_impact_sfx: AudioStreamPlayer = $BodyImpactSFX
 @onready var shield_impact_sfx: AudioStreamPlayer = $ShieldImpactSFX
 @onready var shield_gain_sfx: AudioStreamPlayer = $ShieldGainSFX
+@onready var shield_reinforce_sfx: AudioStreamPlayer = $ShieldReinforceSFX
 
 
 var reinforced_shield: float = 0.0
@@ -120,10 +121,17 @@ func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
 
 func gain_shield(shield_gained: float):
 	shield += shield_gained
+	
+	var pitch_range_max := Helpers.semitones_to_scale(Helpers.SHIELD_GAIN_PITCH_RANGE_SEMITONES)
+	shield_gain_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max) 
 	shield_gain_sfx.play()
 
 func reinforce_shield(shield_reinforced: float):
 	reinforced_shield = min(reinforced_shield + shield_reinforced, shield)
+	
+	var pitch_range_max := Helpers.semitones_to_scale(Helpers.REINFORCE_SHIELD_PITCH_RANGE_SEMITONES)
+	shield_reinforce_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max)
+	shield_reinforce_sfx.play()
 
 func apply_condition(condition: Helpers.Condition, body_part_index: int, time_length_secs: float):
 	var body_part = body_parts[body_part_index]

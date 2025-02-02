@@ -16,6 +16,8 @@ extends Node3D
 @onready var shield_impact_sfx: AudioStreamPlayer = $ShieldImpactSFX
 @onready var repair_sfx: AudioStreamPlayer = $RepairSFX
 @onready var shield_gain_sfx: AudioStreamPlayer = $ShieldGainSFX
+@onready var shield_reinforce_sfx: AudioStreamPlayer = $ShieldReinforceSFX
+@onready var boost_repair_sfx: AudioStreamPlayer = $BoostRepairSFX
 
 var reinforced_shield: float = 0.0
 var repair_multiplier: float = 1.0
@@ -87,16 +89,23 @@ func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
 		if body_part.kind == body_part_kind:
 			body_part.hp = min(body_part.max_hp, body_part.hp + heal * repair_multiplier)
 			
-	var pitch_range_max := Helpers.semitones_to_scale(Helpers.IMPACT_PITCH_RANGE_SEMITONES)
+	var pitch_range_max := Helpers.semitones_to_scale(Helpers.REPAIR_PITCH_RANGE_SEMITONES)
 	repair_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max) 
 	repair_sfx.play()
 
 func gain_shield(shield_gained: float):
 	shield += shield_gained
+	
+	var pitch_range_max := Helpers.semitones_to_scale(Helpers.SHIELD_GAIN_PITCH_RANGE_SEMITONES)
+	shield_gain_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max)
 	shield_gain_sfx.play()
 
 func reinforce_shield(shield_reinforced: float):
 	reinforced_shield = min(reinforced_shield + shield_reinforced, shield)
+	
+	var pitch_range_max := Helpers.semitones_to_scale(Helpers.REINFORCE_SHIELD_PITCH_RANGE_SEMITONES)
+	shield_reinforce_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max)
+	shield_reinforce_sfx.play()
 
 func apply_condition(condition: Helpers.Condition, body_part_index: int, time_length_secs: float):
 	assert(time_length_secs > 0.0 && condition != Helpers.Condition.NONE)
@@ -110,6 +119,11 @@ func boost_repair(multiplier: float, time_length_secs: float):
 	repair_multiplier = multiplier
 	boost_repair_timer.wait_time = time_length_secs
 	boost_repair_timer.start()
+	
+	const BOOST_REPAIR_PITCH_RANGE_SEMITONES = 2
+	var pitch_range_max := Helpers.semitones_to_scale(BOOST_REPAIR_PITCH_RANGE_SEMITONES)
+	boost_repair_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max)
+	boost_repair_sfx.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnoohet8jjphy"]
+[gd_scene load_steps=20 format=3 uid="uid://cnoohet8jjphy"]
 
 [ext_resource type="Script" path="res://scripts/mechazord_3d.gd" id="1_8t2nw"]
 [ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://scenes/body_part_3d.tscn" id="1_30pws"]
@@ -13,10 +13,12 @@
 [ext_resource type="Resource" uid="uid://dbkvet4qvrosd" path="res://resources/mecha_restrain_attack_module.tres" id="6_to568"]
 [ext_resource type="Resource" uid="uid://dsjwk5kl6d66l" path="res://resources/reinforce_shield_module.tres" id="9_qxrjr"]
 [ext_resource type="Resource" uid="uid://dypvd7e1k8hib" path="res://resources/pelvis_repair_module.tres" id="10_lusm6"]
-[ext_resource type="AudioStream" uid="uid://ce401hpkplka" path="res://assets/mech_impact.wav" id="11_17at3"]
-[ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/shield_impact.wav" id="12_ln7b7"]
-[ext_resource type="AudioStream" uid="uid://bqfbdw4gqev2f" path="res://assets/repair.wav" id="16_konam"]
-[ext_resource type="AudioStream" uid="uid://d2lrwm0n8sdf8" path="res://assets/shield_gain.wav" id="17_0w6e8"]
+[ext_resource type="AudioStream" uid="uid://ce401hpkplka" path="res://assets/music_and_sounds/mech_impact.wav" id="11_17at3"]
+[ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/music_and_sounds/shield_impact.wav" id="12_ln7b7"]
+[ext_resource type="AudioStream" uid="uid://bqfbdw4gqev2f" path="res://assets/music_and_sounds/repair.wav" id="16_konam"]
+[ext_resource type="AudioStream" uid="uid://d2lrwm0n8sdf8" path="res://assets/music_and_sounds/shield_gain.wav" id="17_0w6e8"]
+[ext_resource type="AudioStream" uid="uid://us303usa1tfi" path="res://assets/music_and_sounds/shield_reinforce.wav" id="18_ksyx3"]
+[ext_resource type="AudioStream" uid="uid://bi2hfo5jmdxyb" path="res://assets/music_and_sounds/echoy_wolf_howl.wav" id="19_oxpmw"]
 
 [node name="Mechazorg3D" type="Node3D" node_paths=PackedStringArray("body_parts")]
 script = ExtResource("1_8t2nw")
@@ -149,6 +151,12 @@ volume_db = -8.0
 
 [node name="ShieldGainSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_0w6e8")
+
+[node name="ShieldReinforceSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_ksyx3")
+
+[node name="BoostRepairSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_oxpmw")
 
 [editable path="MechaZorg"]
 [editable path="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"]
