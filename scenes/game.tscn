@@ -130,7 +130,7 @@ module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/
 metadata/_edit_use_anchors_ = true
 
 [node name="TorsoRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-293, 382)
+position = Vector2(-293, 377)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/RepairModule")
 
 [node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/TorsoRepairSocket" index="2"]
@@ -140,10 +140,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-293, 462)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg/Modules/AttackModule")
 
-[node name="Sprite2D" parent="Dashboard/Sockets/MonkeyAttackSocket" index="0"]
-modulate = Color(1, 0, 0, 1)
-
-[node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/MonkeyAttackSocket" index="1"]
+[node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/MonkeyAttackSocket" index="2"]
 metadata/_edit_use_anchors_ = true
 
 [node name="PelvisRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
@@ -154,7 +151,7 @@ module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/
 metadata/_edit_use_anchors_ = true
 
 [node name="ShieldGainSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-193, 381)
+position = Vector2(-193, 376)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/ShieldModule")
 
 [node name="ActionSymbolSprite" parent="Dashboard/Sockets/ShieldGainSocket" index="1"]
@@ -201,11 +198,11 @@ position = Vector2(286, 163)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/RepairModule")
 
 [node name="TorsoRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(283, 346)
+position = Vector2(283, 343)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/RepairModule")
 
 [node name="MonkeyAttackChargeDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(283, 430)
+position = Vector2(283, 428)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg/Modules/AttackModule")
 
 [node name="PelvisRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
@@ -213,7 +210,7 @@ position = Vector2(-254, 253)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules/RepairModule")
 
 [node name="TorsoShieldGainDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(384, 346)
+position = Vector2(384, 342)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/ShieldModule")
 
 [node name="PelvisReinforceShieldDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
@@ -263,6 +260,15 @@ script = ExtResource("10_h7enr")
 
 [node name="Mechazorg3D" parent="SubViewport/Battle3D" instance=ExtResource("10_q6py5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.57438, 0, 0)
+
+[node name="Head_Face" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
+
+[node name="Head_Helmet" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
+
+[node name="Head_Mouthguard" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
 
 [node name="Kaiju3D" parent="SubViewport/Battle3D" instance=ExtResource("10_aojxm")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.281, 0, 0)
