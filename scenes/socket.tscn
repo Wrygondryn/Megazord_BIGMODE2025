@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dchbk5yutlhiu"]
+[gd_scene load_steps=7 format=3 uid="uid://dchbk5yutlhiu"]
 
 [ext_resource type="Script" path="res://scripts/socket.gd" id="1_k01id"]
 [ext_resource type="Texture2D" uid="uid://dmgflxce03ehq" path="res://assets/sprites/dashboard/socket.png" id="2_nt5v4"]
+[ext_resource type="Texture2D" uid="uid://daixglcg4v2xs" path="res://assets/sprites/dashboard/action_symbols/repair_symbol.png" id="3_ftqky"]
 [ext_resource type="AudioStream" uid="uid://bbqtql6jutrds" path="res://assets/music_and_sounds/jack_in.wav" id="3_ulemf"]
 [ext_resource type="AudioStream" uid="uid://bdygxfbj1au7i" path="res://assets/music_and_sounds/jack_out.wav" id="4_4hks2"]
 
@@ -11,15 +12,19 @@ radius = 19.0263
 [node name="Socket" type="Node2D"]
 script = ExtResource("1_k01id")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 0, 1)
-scale = Vector2(0.192857, 0.192857)
+[node name="SocketSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.157143, 0.157143)
 texture = ExtResource("2_nt5v4")
 
+[node name="ActionSymbolSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -33)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_ftqky")
+
 [node name="PowerDisplay_TEMP" type="Label" parent="."]
-offset_left = 30.0
+offset_left = 26.0
 offset_top = -11.0
-offset_right = 52.0
+offset_right = 48.0
 offset_bottom = 12.0
 text = "0"
 horizontal_alignment = 1

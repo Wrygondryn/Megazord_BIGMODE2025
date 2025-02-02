@@ -21,9 +21,9 @@ scale = Vector2(0.3, 0.3)
 script = ExtResource("1_mqmjf")
 
 [node name="ChargeBarBackground" type="Sprite2D" parent="."]
-scale = Vector2(1, 74)
+scale = Vector2(0.807292, 46.6667)
 texture = SubResource("GradientTexture1D_lk3ne")
 
 [node name="ChargeBar" type="Sprite2D" parent="."]
-scale = Vector2(0.859375, 46.6667)
+scale = Vector2(0.683594, 20)
 texture = SubResource("GradientTexture1D_pgdbo")

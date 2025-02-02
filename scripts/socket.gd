@@ -5,7 +5,7 @@ const JACK_SFX_SEMITONE_RANGE = 2
 
 @export var module: Module
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: Sprite2D = $SocketSprite
 @onready var power_display_temp: Label = $PowerDisplay_TEMP
 @onready var plug_in_sfx: AudioStreamPlayer2D = $PlugInSFX
 @onready var unplug_sfx: AudioStreamPlayer2D = $UnplugSFX
