@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://c1nw85ar4mrwj" path="res://assets/sprites/dashboard/jacks/jack_heads/jack_top_hex.png" id="5_cr513"]
 [ext_resource type="PackedScene" uid="uid://3y3al18ah6ax" path="res://scenes/charge_display.tscn" id="5_llxl5"]
 [ext_resource type="AudioStream" uid="uid://dr6ui2ftrsj3k" path="res://assets/music_and_sounds/jack_connected.wav" id="5_nfmvy"]
+[ext_resource type="Texture2D" uid="uid://b1wfebv4w7jyh" path="res://assets/sprites/dashboard/dashboard_symbols/mech_symbol_power.png" id="5_ygmyn"]
 [ext_resource type="Texture2D" uid="uid://ccyhkoe632ksj" path="res://assets/battle_viewport_texture.tres" id="6_1fs6v"]
 [ext_resource type="Texture2D" uid="uid://b1vfbje030n7w" path="res://assets/sprites/dashboard/jacks/jack_heads/jack_top_ridged.png" id="6_4gmut"]
-[ext_resource type="Texture2D" uid="uid://t4ehcot2afoh" path="res://assets/sprites/dashboard/dashboard_symbols/mech_symbol_power_glow.png" id="6_8aps2"]
 [ext_resource type="PackedScene" uid="uid://c2sx4tsnvgo2t" path="res://scenes/kaiju_3d.tscn" id="10_aojxm"]
 [ext_resource type="Script" path="res://scripts/battle_3d.gd" id="10_h7enr"]
 [ext_resource type="PackedScene" uid="uid://cnoohet8jjphy" path="res://scenes/mechazorg_3d.tscn" id="10_q6py5"]
@@ -77,7 +77,7 @@ texture = ExtResource("4_3mwhc")
 [node name="MechSymbolPower" type="Sprite2D" parent="Dashboard/Dashboard_Graphics"]
 position = Vector2(10, 267)
 scale = Vector2(0.589474, 0.589474)
-texture = ExtResource("6_8aps2")
+texture = ExtResource("5_ygmyn")
 
 [node name="JackDispensers" type="Node2D" parent="Dashboard"]
 position = Vector2(480, -72)
@@ -103,7 +103,7 @@ jack_sprite_override = ExtResource("6_4gmut")
 position = Vector2(576, -72)
 
 [node name="LeftArmAttackSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-293, 287)
+position = Vector2(-293, 278)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules/RestrainAttackModule")
 
 [node name="ActionSymbolSprite" parent="Dashboard/Sockets/LeftArmAttackSocket" index="1"]
@@ -123,21 +123,21 @@ texture = ExtResource("13_hmi1p")
 metadata/_edit_use_anchors_ = true
 
 [node name="HeadRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-291, 199)
+position = Vector2(-291, 180)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/RepairModule")
 
 [node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/HeadRepairSocket" index="2"]
 metadata/_edit_use_anchors_ = true
 
 [node name="TorsoRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-293, 377)
+position = Vector2(-293, 373)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/RepairModule")
 
 [node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/TorsoRepairSocket" index="2"]
 metadata/_edit_use_anchors_ = true
 
 [node name="MonkeyAttackSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-293, 462)
+position = Vector2(-293, 473)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg/Modules/AttackModule")
 
 [node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/MonkeyAttackSocket" index="2"]
@@ -151,7 +151,7 @@ module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/
 metadata/_edit_use_anchors_ = true
 
 [node name="ShieldGainSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-193, 376)
+position = Vector2(-193, 372)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/ShieldModule")
 
 [node name="ActionSymbolSprite" parent="Dashboard/Sockets/ShieldGainSocket" index="1"]
@@ -171,7 +171,7 @@ texture = ExtResource("15_jv1qm")
 metadata/_edit_use_anchors_ = true
 
 [node name="BoostRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
-position = Vector2(-198, 198)
+position = Vector2(-198, 181)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/BoostRepairModule")
 
 [node name="ActionSymbolSprite" parent="Dashboard/Sockets/BoostRepairSocket" index="1"]
@@ -186,7 +186,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(0, -9)
 
 [node name="LeftArmAttackDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(283, 252)
+position = Vector2(283, 242)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules/RestrainAttackModule")
 
 [node name="RightArmAttackDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
@@ -194,15 +194,15 @@ position = Vector2(-253, 146)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules/AttackModule")
 
 [node name="HeadRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(286, 163)
+position = Vector2(286, 145)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/RepairModule")
 
 [node name="TorsoRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(283, 343)
+position = Vector2(283, 338)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/RepairModule")
 
 [node name="MonkeyAttackChargeDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(283, 428)
+position = Vector2(283, 438)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg/Modules/AttackModule")
 
 [node name="PelvisRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
@@ -210,7 +210,7 @@ position = Vector2(-254, 253)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules/RepairModule")
 
 [node name="TorsoShieldGainDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(384, 342)
+position = Vector2(384, 337)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/ShieldModule")
 
 [node name="PelvisReinforceShieldDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
@@ -218,7 +218,7 @@ position = Vector2(-341, 252)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules/ReinforceShieldModule")
 
 [node name="BoostRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
-position = Vector2(378, 163)
+position = Vector2(378, 145)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/BoostRepairModule")
 
 [node name="ConnectionSFX" type="AudioStreamPlayer2D" parent="Dashboard"]
@@ -260,6 +260,15 @@ script = ExtResource("10_h7enr")
 
 [node name="Mechazorg3D" parent="SubViewport/Battle3D" instance=ExtResource("10_q6py5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.57438, 0, 0)
+
+[node name="Head_Face" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
+
+[node name="Head_Helmet" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
+
+[node name="Head_Mouthguard" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
 
 [node name="Kaiju3D" parent="SubViewport/Battle3D" instance=ExtResource("10_aojxm")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.281, 0, 0)

@@ -14,12 +14,12 @@ radius = 19.0263
 script = ExtResource("1_k01id")
 
 [node name="SocketSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.157143, 0.157143)
+scale = Vector2(0.135714, 0.135714)
 texture = ExtResource("2_nt5v4")
 
 [node name="ActionSymbolSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -33)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_ftqky")
 
 [node name="PowerDisplay_TEMP" type="Label" parent="."]
@@ -38,9 +38,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="JackArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JackArea"]
+visible = false
 shape = SubResource("CircleShape2D_fqu55")
 
 [node name="PlugInSFX" type="AudioStreamPlayer2D" parent="."]
