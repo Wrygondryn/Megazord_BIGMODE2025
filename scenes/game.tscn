@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=14 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_bofyj"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
@@ -9,13 +9,31 @@
 [ext_resource type="PackedScene" uid="uid://c2sx4tsnvgo2t" path="res://scenes/kaiju_3d.tscn" id="10_aojxm"]
 [ext_resource type="Script" path="res://scripts/battle_3d.gd" id="10_h7enr"]
 [ext_resource type="PackedScene" uid="uid://cnoohet8jjphy" path="res://scenes/mechazorg_3d.tscn" id="10_q6py5"]
+[ext_resource type="PackedScene" uid="uid://b12hvhwsd8mat" path="res://assets/models/city/proc_city_bake.glb" id="10_y68p1"]
 
-[sub_resource type="Environment" id="Environment_7u6u4"]
-background_mode = 1
-background_color = Color(0.644948, 1, 0.995553, 1)
-background_energy_multiplier = 1.27
-ambient_light_source = 2
-ambient_light_color = Color(0.596227, 0.765424, 0.462513, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dyj7c"]
+sky_top_color = Color(0.657493, 0.881287, 0.990151, 1)
+sky_horizon_color = Color(0.0801875, 0.295683, 0.383551, 1)
+ground_bottom_color = Color(0.113852, 0.189508, 0.200345, 1)
+ground_horizon_color = Color(0.561793, 0.690587, 0.735008, 1)
+
+[sub_resource type="Sky" id="Sky_brywf"]
+sky_material = SubResource("ProceduralSkyMaterial_dyj7c")
+
+[sub_resource type="Environment" id="Environment_8xlvx"]
+background_mode = 2
+sky = SubResource("Sky_brywf")
+ambient_light_sky_contribution = 0.45
+tonemap_mode = 3
+tonemap_exposure = 0.75
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.230087, 0.686252, 0.723267, 1)
+fog_light_energy = 2.04
+fog_density = 2.0955
+fog_height = 2.1
+fog_depth_curve = 1.03527
 
 [node name="Game" type="Node2D"]
 
@@ -164,7 +182,16 @@ gui_disable_input = true
 size = Vector2i(1600, 900)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
-environment = SubResource("Environment_7u6u4")
+environment = SubResource("Environment_8xlvx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(0.48786, -0.643586, 0.589737, 0, 0.67559, 0.737278, -0.872922, -0.359688, 0.329593, 12.0788, 29.8828, 38.6806)
+light_color = Color(0.914512, 0.522609, 1.92523e-07, 1)
+light_energy = 0.729
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.992115, 0.125333, 0, -0.125333, 0.992115, -0.055, 4.949, 9.921)
+fov = 57.6166
 
 [node name="Battle3D" type="Node3D" parent="SubViewport"]
 unique_name_in_owner = true
@@ -176,15 +203,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.281
 [node name="Kaiju3D" parent="SubViewport/Battle3D" instance=ExtResource("10_aojxm")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.281, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 8.034, 8.841)
-fov = 57.6166
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
-transform = Transform3D(0.48786, -0.643586, 0.589738, 0, 0.67559, 0.737277, -0.872922, -0.359688, 0.329593, 12.0788, 29.8828, 38.6806)
-visible = false
-light_color = Color(1, 1, 0, 1)
-light_energy = 0.729
+[node name="proc_city_bake" parent="SubViewport" instance=ExtResource("10_y68p1")]
+transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0, 0, 0)
 
 [editable path="Dashboard/Sockets/LeftArmAttackSocket"]
 [editable path="Dashboard/Sockets/RightArmAttackSocket"]
