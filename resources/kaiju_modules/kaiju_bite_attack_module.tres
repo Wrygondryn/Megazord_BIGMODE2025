@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://brxl7lsxxsvws"]
+
+[ext_resource type="Script" path="res://scripts/module_data.gd" id="1_80tgr"]
+
+[resource]
+script = ExtResource("1_80tgr")
+action_kind = 0
+amount = 80.0
+multiplier = 0.0
+pierces = true
+condition_kind = 1
+lasting_time_secs = 0.0
+giga_target = 0
+target_body_part = 7
+charge_capacity = 200.0

@@ -4,3 +4,4 @@
 
 [node name="Module" type="Node"]
 script = ExtResource("1_qilsv")
+animation_name = &"test_animation"

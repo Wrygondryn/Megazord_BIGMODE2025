@@ -4,4 +4,5 @@
 
 [node name="BackgroundMusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_o23ms")
+volume_db = -6.656
 autoplay = true
