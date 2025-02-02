@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2sx4tsnvgo2t"]
+[gd_scene load_steps=12 format=3 uid="uid://c2sx4tsnvgo2t"]
 
 [ext_resource type="Script" path="res://scripts/kaiju_3d.gd" id="1_vjxjb"]
 [ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://scenes/body_part_3d.tscn" id="2_e6u2v"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://c0q5q66hnem0s" path="res://resources/kaiju_shield_gain_module.tres" id="8_7cf3t"]
 [ext_resource type="AudioStream" uid="uid://5npyyj6emr86" path="res://assets/kaiju_impact.wav" id="9_hs3ub"]
 [ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/shield_impact.wav" id="10_vc0qx"]
+[ext_resource type="AudioStream" uid="uid://d2lrwm0n8sdf8" path="res://assets/shield_gain.wav" id="11_b67o5"]
 
 [node name="Kaiju3D" type="Node3D"]
 script = ExtResource("1_vjxjb")
@@ -193,6 +194,9 @@ volume_db = -8.0
 [node name="ShieldImpactSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_vc0qx")
 volume_db = -8.0
+
+[node name="ShieldGainSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_b67o5")
 
 [editable path="BodyParts/Head"]
 [editable path="BodyParts/Torso"]

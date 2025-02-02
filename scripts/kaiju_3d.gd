@@ -13,10 +13,13 @@ extends Node3D
 @onready var shield_display_temp: Label3D = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label3D = $ReinforcedShieldDisplay_TEMP
 @onready var boost_repair_timer: Timer = $BoostRepairTimer
-@onready var body_impact_sfx: AudioStreamPlayer = $BodyImpactSFX
-@onready var shield_impact_sfx: AudioStreamPlayer = $ShieldImpactSFX
 @onready var shield_bar: Sprite3D = $ShieldBar
 @onready var battle: Node3D = %Battle3D
+
+@onready var body_impact_sfx: AudioStreamPlayer = $BodyImpactSFX
+@onready var shield_impact_sfx: AudioStreamPlayer = $ShieldImpactSFX
+@onready var shield_gain_sfx: AudioStreamPlayer = $ShieldGainSFX
+
 
 var reinforced_shield: float = 0.0
 var repair_multiplier: float = 1.0
@@ -117,6 +120,7 @@ func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
 
 func gain_shield(shield_gained: float):
 	shield += shield_gained
+	shield_gain_sfx.play()
 
 func reinforce_shield(shield_reinforced: float):
 	reinforced_shield = min(reinforced_shield + shield_reinforced, shield)

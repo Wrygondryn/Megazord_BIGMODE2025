@@ -15,6 +15,7 @@ extends Node3D
 @onready var body_impact_sfx: AudioStreamPlayer = $BodyImpactSFX
 @onready var shield_impact_sfx: AudioStreamPlayer = $ShieldImpactSFX
 @onready var repair_sfx: AudioStreamPlayer = $RepairSFX
+@onready var shield_gain_sfx: AudioStreamPlayer = $ShieldGainSFX
 
 var reinforced_shield: float = 0.0
 var repair_multiplier: float = 1.0
@@ -92,6 +93,7 @@ func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
 
 func gain_shield(shield_gained: float):
 	shield += shield_gained
+	shield_gain_sfx.play()
 
 func reinforce_shield(shield_reinforced: float):
 	reinforced_shield = min(reinforced_shield + shield_reinforced, shield)
