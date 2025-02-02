@@ -11,8 +11,8 @@ extends Node2D
 @onready var shield_display_temp: Label = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label = $ReinforcedShieldDisplay_TEMP
 @onready var boost_repair_timer: Timer = $BoostRepairTimer
-@onready var body_impact_sfx: AudioStreamPlayer2D = $BodyImpactSFX
-@onready var shield_impact_sfx: AudioStreamPlayer2D = $ShieldImpactSFX
+@onready var body_impact_sfx: AudioStreamPlayer = $BodyImpactSFX
+@onready var shield_impact_sfx: AudioStreamPlayer = $ShieldImpactSFX
 @onready var battle: Node2D = %Battle
 
 var reinforced_shield: float = 0.0

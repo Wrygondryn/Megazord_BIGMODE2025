@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=11 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_bofyj"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
@@ -6,9 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://3y3al18ah6ax" path="res://scenes/charge_display.tscn" id="5_llxl5"]
 [ext_resource type="AudioStream" uid="uid://dr6ui2ftrsj3k" path="res://assets/jack_connected.wav" id="5_nfmvy"]
 [ext_resource type="Texture2D" uid="uid://ccyhkoe632ksj" path="res://assets/battle_viewport_texture.tres" id="6_1fs6v"]
-[ext_resource type="Script" path="res://scripts/battle.gd" id="6_bwiir"]
-[ext_resource type="PackedScene" uid="uid://b72fg5qff5dt2" path="res://scenes/mechazord.tscn" id="7_huf8d"]
-[ext_resource type="PackedScene" uid="uid://bimy4xj03log8" path="res://scenes/kaiju.tscn" id="8_r0r2j"]
 [ext_resource type="PackedScene" uid="uid://c2sx4tsnvgo2t" path="res://scenes/kaiju_3d.tscn" id="10_aojxm"]
 [ext_resource type="Script" path="res://scripts/battle_3d.gd" id="10_h7enr"]
 [ext_resource type="PackedScene" uid="uid://cnoohet8jjphy" path="res://scenes/mechazorg_3d.tscn" id="10_q6py5"]
@@ -162,20 +159,6 @@ position = Vector2(0, -171)
 scale = Vector2(1.04694, 1.04694)
 texture = ExtResource("6_1fs6v")
 
-[node name="Battle" type="Node2D" parent="."]
-unique_name_in_owner = true
-visible = false
-position = Vector2(1168, 0)
-script = ExtResource("6_bwiir")
-
-[node name="Mechazord" parent="Battle" instance=ExtResource("7_huf8d")]
-position = Vector2(-143, -222)
-scale = Vector2(0.785, 0.785)
-
-[node name="Kaiju" parent="Battle" instance=ExtResource("8_r0r2j")]
-position = Vector2(281, -194)
-scale = Vector2(0.8, 0.8)
-
 [node name="SubViewport" type="SubViewport" parent="."]
 gui_disable_input = true
 size = Vector2i(800, 450)
@@ -211,14 +194,6 @@ light_energy = 0.729
 [editable path="Dashboard/Sockets/ShieldGainSocket"]
 [editable path="Dashboard/Sockets/ShieldReinforceSocket"]
 [editable path="Dashboard/Sockets/BoostRepairSocket"]
-[editable path="Battle/Mechazord"]
-[editable path="Battle/Mechazord/BodyParts/Head"]
-[editable path="Battle/Mechazord/BodyParts/LeftArm"]
-[editable path="Battle/Mechazord/BodyParts/RightArm"]
-[editable path="Battle/Mechazord/BodyParts/Torso"]
-[editable path="Battle/Mechazord/BodyParts/Pelvis"]
-[editable path="Battle/Mechazord/BodyParts/LeftLeg"]
-[editable path="Battle/Mechazord/BodyParts/RightLeg"]
 [editable path="SubViewport/Battle3D/Mechazorg3D"]
 [editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/Head"]
 [editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/Torso"]
