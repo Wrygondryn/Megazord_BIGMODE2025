@@ -128,9 +128,11 @@ volume_db = -8.0
 
 [node name="ShieldGainSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_b67o5")
+volume_db = -6.0
 
 [node name="ShieldReinforceSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_ryg20")
+volume_db = -6.0
 
 [editable path="BodyParts/Head"]
 [editable path="BodyParts/Torso"]

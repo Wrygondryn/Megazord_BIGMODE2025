@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://dew0vp3kswtkb"]
+
+[ext_resource type="Script" path="res://scripts/module_data.gd" id="1_3ejco"]
+
+[resource]
+script = ExtResource("1_3ejco")
+action_kind = 0
+amount = 80.0
+multiplier = 0.0
+pierces = true
+condition_kind = 1
+lasting_time_secs = 0.0
+giga_target = 1
+target_body_part = 7
+charge_capacity = 450.0

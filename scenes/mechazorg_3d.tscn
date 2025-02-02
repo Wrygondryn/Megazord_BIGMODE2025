@@ -1,22 +1,28 @@
-[gd_scene load_steps=20 format=3 uid="uid://cnoohet8jjphy"]
+[gd_scene load_steps=26 format=3 uid="uid://cnoohet8jjphy"]
 
 [ext_resource type="Script" path="res://scripts/mechazord_3d.gd" id="1_8t2nw"]
 [ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://scenes/body_part_3d.tscn" id="1_30pws"]
 [ext_resource type="Material" uid="uid://dh7efkt101xmi" path="res://assets/mech_head_material.tres" id="2_pb2md"]
 [ext_resource type="Script" path="res://scripts/module.gd" id="2_qs1rj"]
 [ext_resource type="PackedScene" uid="uid://cnrolv0gwmoi4" path="res://prefabs/megazorg.tscn" id="2_yg8ix"]
-[ext_resource type="Resource" uid="uid://6xs0ooprjwlw" path="res://resources/head_repair_module.tres" id="3_2bqwm"]
-[ext_resource type="Resource" uid="uid://c41xodfvniegu" path="res://resources/boost_repair_module.tres" id="4_f06yl"]
-[ext_resource type="Resource" uid="uid://c2gxr8tb4ey15" path="res://resources/shield_gain_module.tres" id="5_6jtkx"]
-[ext_resource type="Resource" uid="uid://08ag4xompugm" path="res://resources/mecha_attack_module.tres" id="5_ctcmh"]
-[ext_resource type="Resource" uid="uid://b5oy8kf0vhalw" path="res://resources/torso_repair_module.tres" id="6_0iw3j"]
-[ext_resource type="Resource" uid="uid://dbkvet4qvrosd" path="res://resources/mecha_restrain_attack_module.tres" id="6_to568"]
-[ext_resource type="Resource" uid="uid://dsjwk5kl6d66l" path="res://resources/reinforce_shield_module.tres" id="9_qxrjr"]
-[ext_resource type="Resource" uid="uid://dypvd7e1k8hib" path="res://resources/pelvis_repair_module.tres" id="10_lusm6"]
+[ext_resource type="Resource" uid="uid://6xs0ooprjwlw" path="res://resources/mech_modules/head_repair_module.tres" id="3_2bqwm"]
+[ext_resource type="Resource" uid="uid://c41xodfvniegu" path="res://resources/mech_modules/boost_repair_module.tres" id="4_f06yl"]
+[ext_resource type="Resource" uid="uid://c2gxr8tb4ey15" path="res://resources/mech_modules/shield_gain_module.tres" id="5_6jtkx"]
+[ext_resource type="Resource" uid="uid://08ag4xompugm" path="res://resources/mech_modules/frog_attack_module.tres" id="5_ctcmh"]
+[ext_resource type="Resource" uid="uid://b5oy8kf0vhalw" path="res://resources/mech_modules/torso_repair_module.tres" id="6_0iw3j"]
+[ext_resource type="Resource" uid="uid://dbkvet4qvrosd" path="res://resources/mech_modules/mecha_restrain_attack_module.tres" id="6_to568"]
+[ext_resource type="Resource" uid="uid://bc3a1aip8tavo" path="res://resources/mech_modules/left_arm_repair.tres" id="9_0t3he"]
+[ext_resource type="Resource" uid="uid://dsjwk5kl6d66l" path="res://resources/mech_modules/reinforce_shield_module.tres" id="9_qxrjr"]
+[ext_resource type="Resource" uid="uid://14coogc6mkim" path="res://resources/mech_modules/monkey_attack_module.tres" id="10_7k34i"]
+[ext_resource type="Resource" uid="uid://dypvd7e1k8hib" path="res://resources/mech_modules/pelvis_repair_module.tres" id="10_lusm6"]
+[ext_resource type="Resource" uid="uid://dy6ou1djhvtfg" path="res://resources/mech_modules/monkey_repair_module.tres" id="11_0tq5m"]
 [ext_resource type="AudioStream" uid="uid://ce401hpkplka" path="res://assets/music_and_sounds/mech_impact.wav" id="11_17at3"]
 [ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/music_and_sounds/shield_impact.wav" id="12_ln7b7"]
+[ext_resource type="Resource" uid="uid://c8uecscnln2wf" path="res://resources/mech_modules/frog_arm_repair.tres" id="13_w50so"]
+[ext_resource type="Resource" uid="uid://dew0vp3kswtkb" path="res://resources/mech_modules/hippo_attack_module.tres" id="16_ju55j"]
 [ext_resource type="AudioStream" uid="uid://bqfbdw4gqev2f" path="res://assets/music_and_sounds/repair.wav" id="16_konam"]
 [ext_resource type="AudioStream" uid="uid://d2lrwm0n8sdf8" path="res://assets/music_and_sounds/shield_gain.wav" id="17_0w6e8"]
+[ext_resource type="Resource" uid="uid://c52x75ydramvi" path="res://resources/mech_modules/hippo_repair_module.tres" id="17_8ma2s"]
 [ext_resource type="AudioStream" uid="uid://us303usa1tfi" path="res://assets/music_and_sounds/shield_reinforce.wav" id="18_ksyx3"]
 [ext_resource type="AudioStream" uid="uid://bi2hfo5jmdxyb" path="res://assets/music_and_sounds/echoy_wolf_howl.wav" id="19_oxpmw"]
 
@@ -56,7 +62,7 @@ transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-
 [node name="Head" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 3.51609e-13, 1.17203e-13, 1.17203e-13, 2.06186, -3.28364e-07, -3.48862e-13, 3.30284e-07, 2.06186, 0, 11.016, -0.035)
 kind = 0
-max_hp = 200.0
+max_hp = 500.0
 
 [node name="CSGBox3D" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head" index="0"]
 material_override = ExtResource("2_pb2md")
@@ -77,22 +83,37 @@ transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-
 [node name="LeftArm" parent="MechaZorg/Armature/Skeleton3D/LArm_Forearm" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 4.58988, 9.76538, -0.23652)
 kind = 1
-max_hp = 120.0
+max_hp = 300.0
 
 [node name="RestrainAttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("6_to568")
 animation_name = &"test_animation"
 
+[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules" index="1"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("9_0t3he")
+animation_name = &"test_animation"
+
 [node name="LeftLeg" parent="MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 1.38486, 1.37522, 2.25493)
 kind = 5
-max_hp = 150.0
+max_hp = 350.0
+
+[node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("10_7k34i")
+animation_name = &"test_animation"
+
+[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg/Modules" index="1"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("11_0tq5m")
+animation_name = &"test_animation"
 
 [node name="Pelvis" parent="MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 0, 5.27486, -3.67425)
 kind = 4
-max_hp = 100.0
+max_hp = 500.0
 
 [node name="ReinforceShieldModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules" index="0"]
 script = ExtResource("2_qs1rj")
@@ -107,22 +128,37 @@ animation_name = &"test_animation"
 [node name="RightArm" parent="MechaZorg/Armature/Skeleton3D/RArm_Forearm" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, -4.59, 9.765, -0.237)
 kind = 2
-max_hp = 120.0
+max_hp = 300.0
 
 [node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("5_ctcmh")
 animation_name = &"test_animation"
 
+[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules" index="1"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("13_w50so")
+animation_name = &"test_animation"
+
 [node name="RightLeg" parent="MechaZorg/Armature/Skeleton3D/RLeg_Foot" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, -2.5559, 1.37522, -1.98676)
 kind = 6
-max_hp = 150.0
+max_hp = 450.0
+
+[node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("16_ju55j")
+animation_name = &"test_animation"
+
+[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg/Modules" index="1"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("17_8ma2s")
+animation_name = &"test_animation"
 
 [node name="Torso" parent="MechaZorg/Armature/Skeleton3D/Torso_Chestplate" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 0.542514, 7.11446, 2.67984)
 kind = 3
-max_hp = 200.0
+max_hp = 1000.0
 
 [node name="ShieldModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules" index="0"]
 script = ExtResource("2_qs1rj")
@@ -147,20 +183,25 @@ volume_db = -8.0
 
 [node name="RepairSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_konam")
-volume_db = -8.0
+volume_db = -6.0
 
 [node name="ShieldGainSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_0w6e8")
+volume_db = -6.0
 
 [node name="ShieldReinforceSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_ksyx3")
+volume_db = -6.0
 
 [node name="BoostRepairSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_oxpmw")
+volume_db = -6.0
 
 [editable path="MechaZorg"]
 [editable path="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"]
 [editable path="MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"]
+[editable path="MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg"]
 [editable path="MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"]
 [editable path="MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm"]
+[editable path="MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg"]
 [editable path="MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://c52x75ydramvi"]
+
+[ext_resource type="Script" path="res://scripts/module_data.gd" id="1_3fhdt"]
+
+[resource]
+script = ExtResource("1_3fhdt")
+action_kind = 1
+amount = 80.0
+multiplier = 0.0
+pierces = false
+condition_kind = 1
+lasting_time_secs = 0.0
+giga_target = 0
+target_body_part = 6
+charge_capacity = 300.0
