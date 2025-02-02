@@ -4,11 +4,11 @@ extends Node2D
 class ActionInfo:
 	var actor: Helpers.GigaTarget
 	var source_body_part: Node2D
-	var animation: AnimationPlayer
+	var animation: StringName
 	
 	var action: Action
 	
-	func _init(body_part: Node2D, action: Action, animation: AnimationPlayer):
+	func _init(body_part: Node2D, action: Action, animation: StringName):
 		self.action = action
 		
 		source_body_part = body_part
@@ -24,7 +24,7 @@ var current_mech_action: ActionInfo = null
 var current_kaiju_action: ActionInfo = null
 
 
-func queue_action(body_part: Node2D, action: Action, animation: AnimationPlayer):
+func queue_action(body_part: Node2D, action: Action, animation: StringName):
 	action_queue.append(ActionInfo.new(body_part, action, animation))
 
 
@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 			action_queue.remove_at(next_mech_action_index)
 			#TODO: Process Action at a given keyframe or some shit
 			process_action(current_mech_action)
-			current_mech_action.animation.play()
+			current_mech_action.source_body_part.animation_player.play(current_mech_action.animation)
 	
 	if current_kaiju_action == null:
 		var next_kaiju_action_index: int = -1
@@ -66,12 +66,12 @@ func _process(delta: float) -> void:
 			action_queue.remove_at(next_kaiju_action_index)
 			#TODO: Process Action at a given keyframe or some shit
 			process_action(current_kaiju_action)
-			current_kaiju_action.animation.play()
+			current_mech_action.source_body_part.animation_player.play(current_mech_action.animation)
 			
-	if !current_mech_action.animation.is_playing():
+	if !current_mech_action.source_body_part.animation_player.is_playing():
 		current_mech_action = null 
 		
-	if !current_kaiju_action.animation.is_playing():
+	if !current_kaiju_action.source_body_part.animation_player.is_playing():
 		current_kaiju_action = null
 
 func kaiju_victory():

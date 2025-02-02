@@ -4,16 +4,17 @@ extends Node3D
 class ActionInfo:
 	var actor: Helpers.GigaTarget
 	var source_body_part: Node3D
-	var animation: AnimationPlayer
+	var animation: StringName
 	
 	var action: Action
 	
-	func _init(actor: Helpers.GigaTarget, body_part: Node3D, action: Action, animation: AnimationPlayer):
+	func _init(actor: Helpers.GigaTarget, body_part: Node3D, action: Action, animation: StringName):
 		self.action = action
 		self.actor = actor
 		
 		source_body_part = body_part
 		self.animation = animation
+	
 	
 @onready var mechazord: Node3D = $Mechazorg3D
 @onready var kaiju: Node3D = $Kaiju3D
@@ -24,7 +25,7 @@ var current_mech_action: ActionInfo = null
 var current_kaiju_action: ActionInfo = null
 
 
-func queue_action(actor: Helpers.GigaTarget, body_part: Node3D, action: Action, animation: AnimationPlayer):
+func queue_action(actor: Helpers.GigaTarget, body_part: Node3D, action: Action, animation: StringName):
 	action_queue.append(ActionInfo.new(actor, body_part, action, animation))
 
 
@@ -35,6 +36,22 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if game_over: return
+	
+	if current_mech_action != null:
+		if !current_mech_action.source_body_part.animation_player.is_playing():
+			current_mech_action = null
+		elif current_mech_action.source_body_part.trigger_action_process:
+			#TODO: Find a better way of doing this (like with a signal?) cause this feels janky af
+			process_action(current_mech_action)
+			current_mech_action.source_body_part.trigger_action_process = false
+		
+	if current_kaiju_action != null:
+		if !current_kaiju_action.source_body_part.animation_player.is_playing():
+			current_kaiju_action = null
+		elif current_kaiju_action.source_body_part.trigger_action_process:
+			#TODO: Find a better way of doing this (like with a signal?) cause this feels janky af
+			process_action(current_kaiju_action)
+			current_kaiju_action.source_body_part.trigger_action_process = false
 	
 	#TODO: Wait until animation of currently executed action is complete until processing the next
 	#NOTE: Mechazord and Kaiju actions can happen simultaneously, so make sure to check for that when
@@ -49,9 +66,7 @@ func _process(delta: float) -> void:
 		if next_mech_action_index >= 0:
 			current_mech_action = action_queue[next_mech_action_index]
 			action_queue.remove_at(next_mech_action_index)
-			#TODO: Process Action at a given keyframe or some shit
-			process_action(current_mech_action)
-			current_mech_action.animation.play()
+			current_mech_action.source_body_part.animation_player.play(current_mech_action.animation)
 	
 	if current_kaiju_action == null:
 		var next_kaiju_action_index: int = -1
@@ -63,15 +78,7 @@ func _process(delta: float) -> void:
 		if next_kaiju_action_index >= 0:
 			current_kaiju_action = action_queue[next_kaiju_action_index]
 			action_queue.remove_at(next_kaiju_action_index)
-			#TODO: Process Action at a given keyframe or some shit
-			process_action(current_kaiju_action)
-			current_kaiju_action.animation.play()
-			
-	if current_mech_action != null && !current_mech_action.animation.is_playing():
-		current_mech_action = null 
-		
-	if current_kaiju_action != null && !current_kaiju_action.animation.is_playing():
-		current_kaiju_action = null
+			current_kaiju_action.source_body_part.animation_player.play(current_kaiju_action.animation)
 
 func kaiju_victory():
 	print("You Lose!")

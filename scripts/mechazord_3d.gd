@@ -9,10 +9,12 @@ extends Node3D
 @onready var shield_display_temp: Label3D = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label3D = $ReinforcedShieldDisplay_TEMP
 @onready var boost_repair_timer: Timer = $BoostRepairTimer
-@onready var body_impact_sfx: AudioStreamPlayer = $BodyImpactSFX
-@onready var shield_impact_sfx: AudioStreamPlayer = $ShieldImpactSFX
 @onready var shield_bar: Sprite3D = $ShieldBar
 @onready var battle: Node3D = %Battle3D
+
+@onready var body_impact_sfx: AudioStreamPlayer = $BodyImpactSFX
+@onready var shield_impact_sfx: AudioStreamPlayer = $ShieldImpactSFX
+@onready var repair_sfx: AudioStreamPlayer = $RepairSFX
 
 var reinforced_shield: float = 0.0
 var repair_multiplier: float = 1.0
@@ -83,6 +85,10 @@ func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
 		var body_part = body_parts[i]
 		if body_part.kind == body_part_kind:
 			body_part.hp = min(body_part.max_hp, body_part.hp + heal * repair_multiplier)
+			
+	var pitch_range_max := Helpers.semitones_to_scale(Helpers.IMPACT_PITCH_RANGE_SEMITONES)
+	repair_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max) 
+	repair_sfx.play()
 
 func gain_shield(shield_gained: float):
 	shield += shield_gained
@@ -136,5 +142,5 @@ func _process(delta: float) -> void:
 	
 	shield_bar.texture = shield_texture
 	
-func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: AnimationPlayer):
+func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: StringName):
 	battle.queue_action(Helpers.GigaTarget.MECHAZORD, body_part, action, animation)

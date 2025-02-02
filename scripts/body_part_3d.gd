@@ -4,12 +4,14 @@ class_name BodyPart3D
 @export var kind: Helpers.BodyPart = Helpers.BodyPart.ANY
 @export var hp_colour: Color
 @export_range(10.0, 10000.0, 1.0, "or_greater", "hide_slider") var max_hp: float
+@export var trigger_action_process: bool = false
 
 @onready var modules: Node = $Modules
 @onready var hp_display_temp: Label3D = $HPDisplay_TEMP
 @onready var condition_display_temp: Label3D = $ConditionDisplay_TEMP
 @onready var condition_timer: Timer = $ConditionTimer
 @onready var hp_bar: Sprite3D = $HPBar
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var hp: float
 var condition := Helpers.Condition.NONE 
@@ -47,7 +49,7 @@ func _process(delta: float) -> void:
 	
 	hp_bar.texture = hp_texture
 
-func _on_module_fully_charged(data: ModuleData, animation: AnimationPlayer) -> void:
+func _on_module_fully_charged(data: ModuleData, animation: StringName) -> void:
 	match condition:
 		Helpers.Condition.NONE: 
 			action_ready.emit(self, Action.from_module_data(data), animation)

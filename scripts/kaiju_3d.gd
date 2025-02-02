@@ -170,5 +170,5 @@ func _process(delta: float) -> void:
 	
 	shield_bar.texture = shield_texture
 
-func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: AnimationPlayer):
+func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: StringName):
 	battle.queue_action(Helpers.GigaTarget.KAIJU, body_part, action, animation)
