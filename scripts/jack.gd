@@ -8,6 +8,7 @@ extends Node2D
 var end_point := Vector2(0.0, 0.0) 
 
 var colour: Color = Color.BLACK
+var spritetex_override = null;
 
 func radius() -> float:
 	return sprite.transform.get_scale().x * sprite.texture.get_width() / 2.0
@@ -18,6 +19,8 @@ func set_end_point(global_point: Vector2):
 func _ready():
 	line.default_color = colour
 	line.points[1] = to_local(end_point)
+	if spritetex_override != null:
+		sprite.texture = spritetex_override;
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta: float) -> void:

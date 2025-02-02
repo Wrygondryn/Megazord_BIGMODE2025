@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cm5hedf25enbl"]
 
-[ext_resource type="Texture2D" uid="uid://ce3p5lt78rvlk" path="res://assets/circle.png" id="1_c35kh"]
 [ext_resource type="Script" path="res://scripts/jack.gd" id="1_vsrur"]
+[ext_resource type="Texture2D" uid="uid://b1vfbje030n7w" path="res://assets/sprites/dashboard/jacks/jack_heads/jack_top_ridged.png" id="2_k8nmj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_emkgw"]
 radius = 11.0454
@@ -11,12 +11,15 @@ z_index = 1
 script = ExtResource("1_vsrur")
 
 [node name="Line2D" type="Line2D" parent="."]
+z_index = 1
 points = PackedVector2Array(0, 0, 43, 0)
 default_color = Color(0, 0, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_c35kh")
+scale = Vector2(0.168, 0.168)
+texture = ExtResource("2_k8nmj")
 
 [node name="Area2D" type="Area2D" parent="."]
 
