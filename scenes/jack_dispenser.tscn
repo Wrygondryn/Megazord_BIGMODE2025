@@ -1,24 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://kwregxsookrk"]
+[gd_scene load_steps=4 format=3 uid="uid://kwregxsookrk"]
 
 [ext_resource type="Script" path="res://scripts/jack_dispenser.gd" id="1_020jg"]
-
-[sub_resource type="Gradient" id="Gradient_jy2w2"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nkiax"]
-gradient = SubResource("Gradient_jy2w2")
-fill_from = Vector2(1, 0)
+[ext_resource type="Texture2D" uid="uid://dtsr6e2g0bglv" path="res://assets/sprites/dashboard/dashboard_symbols/wire_symbol.png" id="2_53unl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qabc"]
-size = Vector2(22, 64)
+size = Vector2(36, 36)
 
 [node name="JackDispenser" type="Node2D"]
 script = ExtResource("1_020jg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.345, 1)
-texture = SubResource("GradientTexture2D_nkiax")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_53unl")
 
 [node name="Area2D" type="Area2D" parent="."]
 
