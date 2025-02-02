@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cnoohet8jjphy"]
+[gd_scene load_steps=17 format=3 uid="uid://cnoohet8jjphy"]
 
 [ext_resource type="Script" path="res://scripts/mechazord_3d.gd" id="1_8t2nw"]
 [ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://scenes/body_part_3d.tscn" id="1_30pws"]
@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://dypvd7e1k8hib" path="res://resources/pelvis_repair_module.tres" id="10_lusm6"]
 [ext_resource type="AudioStream" uid="uid://ce401hpkplka" path="res://assets/mech_impact.wav" id="11_17at3"]
 [ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/shield_impact.wav" id="12_ln7b7"]
+[ext_resource type="AudioStream" uid="uid://bqfbdw4gqev2f" path="res://assets/repair.wav" id="16_konam"]
 
 [node name="Mechazorg3D" type="Node3D" node_paths=PackedStringArray("body_parts")]
 script = ExtResource("1_8t2nw")
@@ -139,6 +140,10 @@ volume_db = -8.0
 
 [node name="ShieldImpactSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_ln7b7")
+volume_db = -8.0
+
+[node name="RepairSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_konam")
 volume_db = -8.0
 
 [editable path="MechaZorg"]
