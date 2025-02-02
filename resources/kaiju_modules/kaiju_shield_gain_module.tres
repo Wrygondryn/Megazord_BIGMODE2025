@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://c0q5q66hnem0s"]
 
-[ext_resource type="Script" path="res://scripts/module_data.gd" id="1_j5ok6"]
+[ext_resource type="Script" path="res://scripts/module_data.gd" id="1_70jnd"]
 
 [resource]
-script = ExtResource("1_j5ok6")
+script = ExtResource("1_70jnd")
 action_kind = 2
-amount = 60.0
+amount = 50.0
 multiplier = 0.0
 pierces = false
 condition_kind = 1
 lasting_time_secs = 0.0
 giga_target = 1
-target_body_part = 0
-charge_capacity = 100.0
+target_body_part = 7
+charge_capacity = 150.0
