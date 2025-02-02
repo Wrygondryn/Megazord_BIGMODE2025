@@ -24,6 +24,7 @@ BackgroundMusic="*res://scenes/background_music.tscn"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
+window/stretch/mode="viewport"
 
 [input]
 
