@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccck2r0agp2o0"
-path="res://.godot/imported/dummy_kaiju.png-040b0d9218091deadbb1fa521069a3f0.ctex"
+uid="uid://dqx24uuscef21"
+path="res://.godot/imported/dummy_mech.png-08d848dc09ba7a4edcdeec07f1a34897.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dummy_kaiju.png"
-dest_files=["res://.godot/imported/dummy_kaiju.png-040b0d9218091deadbb1fa521069a3f0.ctex"]
+source_file="res://assets/sprites/dummy/dummy_mech.png"
+dest_files=["res://.godot/imported/dummy_mech.png-08d848dc09ba7a4edcdeec07f1a34897.ctex"]
 
 [params]
 

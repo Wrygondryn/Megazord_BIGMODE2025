@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://c2sx4tsnvgo2t"]
 
 [ext_resource type="Script" path="res://scripts/kaiju_3d.gd" id="1_vjxjb"]
-[ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://scenes/body_part_3d.tscn" id="2_e6u2v"]
-[ext_resource type="Material" uid="uid://rqqp3d4ru3fu" path="res://assets/kaiju_head_material.tres" id="3_5q4mp"]
+[ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://prefabs/battle_scene/body_parts/body_part_3d.tscn" id="2_e6u2v"]
+[ext_resource type="Material" uid="uid://rqqp3d4ru3fu" path="res://assets/misc/kaiju_head_material.tres" id="3_5q4mp"]
 [ext_resource type="Script" path="res://scripts/module.gd" id="4_25tbx"]
 [ext_resource type="Resource" uid="uid://brxl7lsxxsvws" path="res://resources/kaiju_modules/kaiju_bite_attack_module.tres" id="5_hqi31"]
 [ext_resource type="Resource" uid="uid://bujn1bqqbiw68" path="res://resources/kaiju_modules/kaiju_heavy_attack_module.tres" id="5_y1wyk"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=26 format=3 uid="uid://cnoohet8jjphy"]
 
 [ext_resource type="Script" path="res://scripts/mechazord_3d.gd" id="1_8t2nw"]
-[ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://scenes/body_part_3d.tscn" id="1_30pws"]
-[ext_resource type="Material" uid="uid://dh7efkt101xmi" path="res://assets/mech_head_material.tres" id="2_pb2md"]
+[ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://prefabs/battle_scene/body_parts/body_part_3d.tscn" id="1_30pws"]
+[ext_resource type="Material" uid="uid://dh7efkt101xmi" path="res://assets/misc/mech_head_material.tres" id="2_pb2md"]
 [ext_resource type="Script" path="res://scripts/module.gd" id="2_qs1rj"]
-[ext_resource type="PackedScene" uid="uid://cnrolv0gwmoi4" path="res://prefabs/megazorg.tscn" id="2_yg8ix"]
+[ext_resource type="PackedScene" uid="uid://cnrolv0gwmoi4" path="res://prefabs/battle_scene/battle_models/megazorg.tscn" id="2_yg8ix"]
 [ext_resource type="Resource" uid="uid://6xs0ooprjwlw" path="res://resources/mech_modules/head_repair_module.tres" id="3_2bqwm"]
 [ext_resource type="Resource" uid="uid://c41xodfvniegu" path="res://resources/mech_modules/boost_repair_module.tres" id="4_f06yl"]
 [ext_resource type="Resource" uid="uid://c2gxr8tb4ey15" path="res://resources/mech_modules/shield_gain_module.tres" id="5_6jtkx"]

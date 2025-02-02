@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm8byy38tse28"
-path="res://.godot/imported/TEMP_in_game_dashboard_screenshot.png-aa0077f0cbf7dc919e7a79dc717494b6.ctex"
+uid="uid://ccck2r0agp2o0"
+path="res://.godot/imported/dummy_kaiju.png-5f91ff1c6490864c4cac081fb8031620.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/TEMP_in_game_dashboard_screenshot.png"
-dest_files=["res://.godot/imported/TEMP_in_game_dashboard_screenshot.png-aa0077f0cbf7dc919e7a79dc717494b6.ctex"]
+source_file="res://assets/sprites/dummy/dummy_kaiju.png"
+dest_files=["res://.godot/imported/dummy_kaiju.png-5f91ff1c6490864c4cac081fb8031620.ctex"]
 
 [params]
 

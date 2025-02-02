@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b1o736at0xfi"
-path="res://.godot/imported/StalinistOne-Regular.ttf-cfd531b6691584f72b07ddbe57f3e3ec.fontdata"
+path="res://.godot/imported/StalinistOne-Regular.ttf-47fd924152358e50048a96dfce2ff9e5.fontdata"
 
 [deps]
 
-source_file="res://assets/StalinistOne-Regular.ttf"
-dest_files=["res://.godot/imported/StalinistOne-Regular.ttf-cfd531b6691584f72b07ddbe57f3e3ec.fontdata"]
+source_file="res://assets/fonts/StalinistOne-Regular.ttf"
+dest_files=["res://.godot/imported/StalinistOne-Regular.ttf-47fd924152358e50048a96dfce2ff9e5.fontdata"]
 
 [params]
 

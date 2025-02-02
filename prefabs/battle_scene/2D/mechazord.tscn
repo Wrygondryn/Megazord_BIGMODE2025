@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://b72fg5qff5dt2"]
 
 [ext_resource type="Script" path="res://scripts/mechazord.gd" id="1_6b4sr"]
-[ext_resource type="Texture2D" uid="uid://dqx24uuscef21" path="res://assets/dummy_mech.png" id="1_f1ark"]
-[ext_resource type="PackedScene" uid="uid://dk7mb70mb5rp2" path="res://scenes/body_part.tscn" id="2_e7bsx"]
+[ext_resource type="Texture2D" uid="uid://dqx24uuscef21" path="res://assets/sprites/dummy/dummy_mech.png" id="1_f1ark"]
+[ext_resource type="PackedScene" uid="uid://dk7mb70mb5rp2" path="res://prefabs/battle_scene/body_parts/body_part.tscn" id="2_e7bsx"]
 [ext_resource type="Script" path="res://scripts/module.gd" id="4_54e7a"]
 [ext_resource type="Resource" uid="uid://6xs0ooprjwlw" path="res://resources/mech_modules/head_repair_module.tres" id="5_5g8jl"]
 [ext_resource type="Resource" uid="uid://08ag4xompugm" path="res://resources/mech_modules/frog_attack_module.tres" id="6_brh6d"]

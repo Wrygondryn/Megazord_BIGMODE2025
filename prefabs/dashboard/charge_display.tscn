@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://3y3al18ah6ax"]
 
 [ext_resource type="Script" path="res://scripts/charge_display.gd" id="1_mqmjf"]
-[ext_resource type="FontFile" uid="uid://b1o736at0xfi" path="res://assets/StalinistOne-Regular.ttf" id="2_cggmg"]
+[ext_resource type="FontFile" uid="uid://b1o736at0xfi" path="res://assets/fonts/StalinistOne-Regular.ttf" id="2_cggmg"]
 
 [sub_resource type="Gradient" id="Gradient_wwtmp"]
 offsets = PackedFloat32Array(1)
