@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://cnoohet8jjphy"]
+
+[ext_resource type="Script" path="res://scripts/mechazord_3d.gd" id="1_8t2nw"]
+[ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://scenes/body_part_3d.tscn" id="1_30pws"]
+[ext_resource type="Material" uid="uid://dh7efkt101xmi" path="res://assets/mech_head_material.tres" id="2_pb2md"]
+[ext_resource type="Script" path="res://scripts/module.gd" id="2_qs1rj"]
+[ext_resource type="Resource" uid="uid://6xs0ooprjwlw" path="res://resources/head_repair_module.tres" id="3_2bqwm"]
+[ext_resource type="Resource" uid="uid://c41xodfvniegu" path="res://resources/boost_repair_module.tres" id="4_f06yl"]
+[ext_resource type="Resource" uid="uid://c2gxr8tb4ey15" path="res://resources/shield_gain_module.tres" id="5_6jtkx"]
+[ext_resource type="Resource" uid="uid://08ag4xompugm" path="res://resources/mecha_attack_module.tres" id="5_ctcmh"]
+[ext_resource type="Resource" uid="uid://b5oy8kf0vhalw" path="res://resources/torso_repair_module.tres" id="6_0iw3j"]
+[ext_resource type="Resource" uid="uid://dbkvet4qvrosd" path="res://resources/mecha_restrain_attack_module.tres" id="6_to568"]
+[ext_resource type="Resource" uid="uid://dsjwk5kl6d66l" path="res://resources/reinforce_shield_module.tres" id="9_qxrjr"]
+[ext_resource type="Resource" uid="uid://dypvd7e1k8hib" path="res://resources/pelvis_repair_module.tres" id="10_lusm6"]
+[ext_resource type="AudioStream" uid="uid://ce401hpkplka" path="res://assets/mech_impact.wav" id="11_17at3"]
+[ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/shield_impact.wav" id="12_ln7b7"]
+
+[node name="Mechazorg3D" type="Node3D"]
+script = ExtResource("1_8t2nw")
+
+[node name="ShieldDisplay_TEMP" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043108, 6.31339, 0)
+billboard = 1
+text = "Shield - 000"
+
+[node name="ReinforcedShieldDisplay_TEMP" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043108, 6.58987, 0)
+billboard = 1
+text = "Reinforced - 000"
+
+[node name="BodyParts" type="Node3D" parent="."]
+
+[node name="Head" parent="BodyParts" instance=ExtResource("1_30pws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.34276, 0)
+kind = 0
+max_hp = 200.0
+
+[node name="CSGBox3D" parent="BodyParts/Head" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0238237, -0.0107212, -0.00247145)
+material_override = ExtResource("2_pb2md")
+
+[node name="RepairModule" type="Node" parent="BodyParts/Head/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("3_2bqwm")
+
+[node name="BoostRepairModule" type="Node" parent="BodyParts/Head/Modules" index="1"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("4_f06yl")
+
+[node name="Torso" parent="BodyParts" instance=ExtResource("1_30pws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26815, 0)
+kind = 3
+max_hp = 200.0
+
+[node name="ShieldModule" type="Node" parent="BodyParts/Torso/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("5_6jtkx")
+
+[node name="RepairModule" type="Node" parent="BodyParts/Torso/Modules" index="1"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("6_0iw3j")
+
+[node name="LeftArm" parent="BodyParts" instance=ExtResource("1_30pws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02394, 3.22905, 0)
+kind = 1
+max_hp = 120.0
+
+[node name="AttackModule" type="Node" parent="BodyParts/LeftArm/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("5_ctcmh")
+
+[node name="RightArm" parent="BodyParts" instance=ExtResource("1_30pws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11515, 3.1759, 0)
+kind = 2
+max_hp = 120.0
+
+[node name="RestrainAttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("6_to568")
+
+[node name="Pelvis" parent="BodyParts" instance=ExtResource("1_30pws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6141, 0)
+kind = 4
+max_hp = 100.0
+
+[node name="ReinforceShieldModule" type="Node" parent="BodyParts/Pelvis/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("9_qxrjr")
+
+[node name="RepairModule" type="Node" parent="BodyParts/Pelvis/Modules" index="1"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("10_lusm6")
+
+[node name="LeftLeg" parent="BodyParts" instance=ExtResource("1_30pws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7265, 0, 0)
+kind = 5
+max_hp = 150.0
+
+[node name="RightLeg" parent="BodyParts" instance=ExtResource("1_30pws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49399, 0, 0)
+kind = 6
+max_hp = 150.0
+
+[node name="BoostRepairTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BodyImpactSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_17at3")
+volume_db = -8.0
+
+[node name="ShieldImpactSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_ln7b7")
+volume_db = -8.0
+
+[editable path="BodyParts/Head"]
+[editable path="BodyParts/Torso"]
+[editable path="BodyParts/LeftArm"]
+[editable path="BodyParts/RightArm"]
+[editable path="BodyParts/Pelvis"]

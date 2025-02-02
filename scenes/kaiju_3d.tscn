@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2sx4tsnvgo2t"]
+
+[ext_resource type="Script" path="res://scripts/kaiju_3d.gd" id="1_vjxjb"]
+[ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://scenes/body_part_3d.tscn" id="2_e6u2v"]
+[ext_resource type="Material" uid="uid://rqqp3d4ru3fu" path="res://assets/kaiju_head_material.tres" id="3_5q4mp"]
+[ext_resource type="Script" path="res://scripts/module.gd" id="4_25tbx"]
+[ext_resource type="Resource" uid="uid://bujn1bqqbiw68" path="res://resources/kaiju_heavy_attack_module.tres" id="5_y1wyk"]
+[ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/kaiju_light_attack_module.tres" id="6_261qk"]
+[ext_resource type="Resource" uid="uid://bni5fgqtb6e62" path="res://resources/kaiju_reinforce_shield_module.tres" id="7_t6wdf"]
+[ext_resource type="Resource" uid="uid://c0q5q66hnem0s" path="res://resources/kaiju_shield_gain_module.tres" id="8_7cf3t"]
+[ext_resource type="AudioStream" uid="uid://5npyyj6emr86" path="res://assets/kaiju_impact.wav" id="9_hs3ub"]
+[ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/shield_impact.wav" id="10_vc0qx"]
+
+[node name="Kaiju3D" type="Node3D"]
+script = ExtResource("1_vjxjb")
+
+[node name="ShieldDisplay_TEMP" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52032, 5.5043, 0)
+billboard = 1
+text = "Shield - 000"
+
+[node name="ReinforcedShieldDisplay_TEMP" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55728, 5.12945, 0)
+billboard = 1
+text = "Reinforced - 000"
+
+[node name="BodyParts" type="Node3D" parent="."]
+
+[node name="Head" parent="BodyParts" instance=ExtResource("2_e6u2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.34276, 0)
+kind = 0
+max_hp = 200.0
+
+[node name="CSGBox3D" parent="BodyParts/Head" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0238237, -0.0107212, -0.00247145)
+material_override = ExtResource("3_5q4mp")
+
+[node name="Torso" parent="BodyParts" instance=ExtResource("2_e6u2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26815, 0)
+kind = 3
+max_hp = 300.0
+
+[node name="ReinforceShieldModule" type="Node" parent="BodyParts/Torso/Modules" index="0"]
+script = ExtResource("4_25tbx")
+data = ExtResource("7_t6wdf")
+
+[node name="LeftArm" parent="BodyParts" instance=ExtResource("2_e6u2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02394, 3.22905, 0)
+kind = 1
+max_hp = 100.0
+
+[node name="HeavyAttackModule" type="Node" parent="BodyParts/LeftArm/Modules" index="0"]
+script = ExtResource("4_25tbx")
+data = ExtResource("5_y1wyk")
+
+[node name="RightArm" parent="BodyParts" instance=ExtResource("2_e6u2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11515, 3.1759, 0)
+kind = 2
+max_hp = 100.0
+
+[node name="LightAttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0"]
+script = ExtResource("4_25tbx")
+data = ExtResource("6_261qk")
+
+[node name="Pelvis" parent="BodyParts" instance=ExtResource("2_e6u2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6141, 0)
+kind = 4
+max_hp = 200.0
+
+[node name="ShieldGainModule" type="Node" parent="BodyParts/Pelvis/Modules" index="0"]
+script = ExtResource("4_25tbx")
+data = ExtResource("8_7cf3t")
+
+[node name="LeftLeg" parent="BodyParts" instance=ExtResource("2_e6u2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7265, 0, 0)
+kind = 5
+max_hp = 150.0
+
+[node name="RightLeg" parent="BodyParts" instance=ExtResource("2_e6u2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49399, 0, 0)
+kind = 6
+max_hp = 150.0
+
+[node name="BoostRepairTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BodyImpactSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_hs3ub")
+volume_db = -8.0
+
+[node name="ShieldImpactSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_vc0qx")
+volume_db = -8.0
+
+[editable path="BodyParts/Head"]
+[editable path="BodyParts/Torso"]
+[editable path="BodyParts/LeftArm"]
+[editable path="BodyParts/RightArm"]
+[editable path="BodyParts/Pelvis"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnm8nlhjlfgrq"]
+
+[ext_resource type="Script" path="res://scripts/body_part_3d.gd" id="1_6hopr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6465"]
+metallic = 0.74
+
+[node name="BodyPart3D" type="Node3D"]
+script = ExtResource("1_6hopr")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_s6465")
+
+[node name="HPDisplay_TEMP" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284817, 0.529171)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "HP - 000"
+font_size = 24
+
+[node name="ConditionDisplay_TEMP" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.524651)
+modulate = Color(1, 0, 0, 1)
+text = "RESTRAINED"
+font_size = 24
+
+[node name="Modules" type="Node" parent="."]
+
+[node name="ConditionTimer" type="Timer" parent="."]
+one_shot = true
