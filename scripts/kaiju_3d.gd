@@ -49,8 +49,11 @@ func next_body_part_index_to_attack(target: Node3D, body_part_kind: Helpers.Body
 		if body_part.hp > 0.0 && (body_part.kind == body_part_kind || body_part_kind == Helpers.BodyPart.ANY):
 			valid_target_indices.append(i)
 			num_vitals += int(Helpers.body_part_is_vital(body_part.kind))
-				
-	assert(len(valid_target_indices) > 0)
+
+	#NOTE: There are situations where this can happen (e.g.
+	if len(valid_target_indices) == 0:			
+		print("no valid targets")
+		return -1
 		
 	var valid_target_ps: Array[float] = []
 		

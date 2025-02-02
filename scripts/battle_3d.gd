@@ -114,6 +114,8 @@ func process_action(action_info: ActionInfo) -> void:
 					target, 
 					action_info.action.body_part
 				)
+				if target_body_part_index < 0: return
+				
 				# print(name + " dealt " + str(damage) + " damage to " + str(target.name))
 				var old_shield: float = target.shield
 				target.damage_body_part(target_body_part_index, action_info.action.amount, action_info.action.pierces)

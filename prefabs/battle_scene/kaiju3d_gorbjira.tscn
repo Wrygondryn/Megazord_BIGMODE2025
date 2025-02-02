@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cb2st83ohprx"]
+[gd_scene load_steps=17 format=3 uid="uid://cb2st83ohprx"]
 
 [ext_resource type="Script" path="res://scripts/kaiju_3d.gd" id="1_uoi3y"]
 [ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://prefabs/battle_scene/body_parts/body_part_3d.tscn" id="2_kji60"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/module.gd" id="4_g5dxc"]
 [ext_resource type="Resource" uid="uid://brxl7lsxxsvws" path="res://resources/kaiju_modules/kaiju_bite_attack_module.tres" id="5_dtwvg"]
 [ext_resource type="Resource" uid="uid://c0q5q66hnem0s" path="res://resources/kaiju_modules/kaiju_shield_gain_module.tres" id="6_d7jla"]
+[ext_resource type="Resource" uid="uid://bni5fgqtb6e62" path="res://resources/kaiju_modules/kaiju_reinforce_shield_module.tres" id="6_dgdt3"]
+[ext_resource type="Resource" uid="uid://bs08ngdk7hdau" path="res://resources/kaiju_modules/kaiju_laser_beam.tres" id="6_oojfh"]
 [ext_resource type="Resource" uid="uid://bujn1bqqbiw68" path="res://resources/kaiju_modules/kaiju_heavy_attack_module.tres" id="7_rmn0k"]
 [ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/kaiju_modules/kaiju_left_arm_attack_module.tres" id="8_ijr1p"]
 [ext_resource type="Resource" uid="uid://dhtwi5krprojv" path="res://resources/kaiju_modules/kaiju_tail_whip_module.tres" id="9_2jshx"]
@@ -58,6 +60,11 @@ script = ExtResource("4_g5dxc")
 data = ExtResource("5_dtwvg")
 animation_name = &"test_animation"
 
+[node name="LaserBeamModule" type="Node" parent="BodyParts/Head/Modules" index="1"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("6_oojfh")
+animation_name = &"test_animation"
+
 [node name="Torso" parent="BodyParts" instance=ExtResource("2_kji60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.95354, 2.18701)
 kind = 3
@@ -68,7 +75,7 @@ cast_shadow = 1
 
 [node name="ReinforceShieldModule" type="Node" parent="BodyParts/Torso/Modules" index="0"]
 script = ExtResource("4_g5dxc")
-data = ExtResource("6_d7jla")
+data = ExtResource("6_dgdt3")
 animation_name = &"test_animation"
 
 [node name="LeftArm" parent="BodyParts" instance=ExtResource("2_kji60")]

@@ -5,10 +5,11 @@
 [resource]
 script = ExtResource("1_5ffei")
 action_kind = 3
-amount = 50.0
+amount = 25.0
+multiplier = 0.0
 pierces = false
 condition_kind = 1
-condition_time_secs = 0.0
+lasting_time_secs = 0.0
 giga_target = 1
 target_body_part = 0
-charge_capacity = 75.0
+charge_capacity = 225.0
