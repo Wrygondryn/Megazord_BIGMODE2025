@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ct4d7o7xgeoqc"]
+[gd_scene load_steps=23 format=3 uid="uid://ct4d7o7xgeoqc"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3dcrd"]
 [ext_resource type="StyleBox" uid="uid://ydqyhnqcyt11" path="res://assets/button_hover_style.tres" id="1_dm6ed"]
@@ -9,6 +9,17 @@
 [ext_resource type="Script" path="res://scenes/tutorial_menu.gd" id="6_kth6h"]
 [ext_resource type="StyleBox" uid="uid://dh6j3xp25emak" path="res://assets/button_hover_rev_style.tres" id="7_2okxp"]
 [ext_resource type="StyleBox" uid="uid://ypkcmy1xltfg" path="res://assets/button_pressed_rev_style.tres" id="7_2w34n"]
+[ext_resource type="Texture2D" uid="uid://b1wfebv4w7jyh" path="res://assets/sprites/dashboard/dashboard_symbols/mech_symbol_power.png" id="7_2waj4"]
+[ext_resource type="Texture2D" uid="uid://b8v7kake4o20a" path="res://assets/sprites/dashboard/TutorialPage1Ref.png" id="7_os0nm"]
+[ext_resource type="Texture2D" uid="uid://dtsr6e2g0bglv" path="res://assets/sprites/dashboard/dashboard_symbols/wire_symbol.png" id="8_dtot3"]
+[ext_resource type="Texture2D" uid="uid://d4pdrnt6wtvi" path="res://assets/Mech_Ref.png" id="10_v65vb"]
+[ext_resource type="Texture2D" uid="uid://rq1fc7xyp1hu" path="res://assets/sprites/dashboard/action_symbols/boostrepair_symbol.png" id="11_0ys5y"]
+[ext_resource type="Texture2D" uid="uid://dqvwbdmqxpikf" path="res://assets/sprites/dashboard/action_symbols/pierce_symbol.png" id="12_rwcoo"]
+[ext_resource type="Texture2D" uid="uid://dypp5g8j5sx4c" path="res://assets/sprites/dashboard/action_symbols/punch_symbol.png" id="13_dcd4t"]
+[ext_resource type="Texture2D" uid="uid://bkvhu3tuj80hc" path="res://assets/sprites/dashboard/action_symbols/reinforce_symbol.png" id="14_bsyyc"]
+[ext_resource type="Texture2D" uid="uid://daixglcg4v2xs" path="res://assets/sprites/dashboard/action_symbols/repair_symbol.png" id="15_jdgu2"]
+[ext_resource type="Texture2D" uid="uid://c5iaouw8f2kjt" path="res://assets/sprites/dashboard/action_symbols/restrain-arm_claw_symbol.png" id="16_h7j0y"]
+[ext_resource type="Texture2D" uid="uid://cvhd5ayaya2ch" path="res://assets/sprites/dashboard/action_symbols/shield_symbol.png" id="17_46vff"]
 
 [sub_resource type="Theme" id="Theme_pnnr3"]
 Button/colors/font_color = Color(0.909804, 0.839216, 0, 1)
@@ -28,6 +39,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -23.0
+offset_right = -1.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3dcrd")
@@ -44,9 +59,9 @@ offset_bottom = 40.0
 
 [node name="PlayButton" type="Button" parent="Main/Buttons"]
 layout_mode = 0
-offset_left = -40.0
+offset_left = -32.0
 offset_top = 141.0
-offset_right = 362.0
+offset_right = 370.0
 offset_bottom = 243.0
 focus_mode = 0
 theme = SubResource("Theme_pnnr3")
@@ -58,9 +73,9 @@ alignment = 2
 
 [node name="TutorialButton" type="Button" parent="Main/Buttons"]
 layout_mode = 0
-offset_left = -40.0
+offset_left = -32.0
 offset_top = 293.0
-offset_right = 362.0
+offset_right = 370.0
 offset_bottom = 395.0
 focus_mode = 0
 theme = SubResource("Theme_pnnr3")
@@ -73,9 +88,9 @@ alignment = 2
 
 [node name="CreditsButton" type="Button" parent="Main/Buttons"]
 layout_mode = 0
-offset_left = -40.0
+offset_left = -32.0
 offset_top = 445.0
-offset_right = 362.0
+offset_right = 370.0
 offset_bottom = 547.0
 focus_mode = 0
 theme = SubResource("Theme_pnnr3")
@@ -87,9 +102,9 @@ alignment = 2
 
 [node name="SettingsButton" type="Button" parent="Main/Buttons"]
 layout_mode = 0
-offset_left = -40.0
+offset_left = -32.0
 offset_top = 605.0
-offset_right = 362.0
+offset_right = 370.0
 offset_bottom = 707.0
 focus_mode = 0
 theme = SubResource("Theme_pnnr3")
@@ -101,9 +116,9 @@ alignment = 2
 
 [node name="QuitButton" type="Button" parent="Main/Buttons"]
 layout_mode = 0
-offset_left = -40.0
+offset_left = -32.0
 offset_top = 757.0
-offset_right = 362.0
+offset_right = 370.0
 offset_bottom = 859.0
 focus_mode = 0
 theme = SubResource("Theme_pnnr3")
@@ -133,22 +148,86 @@ offset_bottom = 40.0
 [node name="Text" type="Label" parent="Tutorial/Pages/Page1"]
 layout_mode = 0
 offset_left = 41.0
-offset_top = 96.0
+offset_top = 32.0
 offset_right = 1588.0
-offset_bottom = 323.0
+offset_bottom = 397.0
 theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("4_d0bw6")
 theme_override_font_sizes/font_size = 28
-text = "Aim: Defeat the Kaiju before they destroy your mech! The kaiju is defeated once it's head and torso are knocked out.
+text = "Aim: Defeat the Kaiju before they destroy your mech! The kaiju is defeated once it's head and torso are out of health.
 
 Controls:
       Hold left click + Move mouse - Carry and move jack
       Release left click - Release Jack
       Release left click over socket - Connect jack to socket
       Release left click over dispenser - Get rid of jack
-
-[Images of jack, dispenser and socket for reference]"
+"
 autowrap_mode = 2
+
+[node name="TutorialPage1Ref" type="Sprite2D" parent="Tutorial/Pages/Page1"]
+position = Vector2(777, 581)
+scale = Vector2(1.30747, 1.30747)
+texture = ExtResource("7_os0nm")
+
+[node name="DispenserLabel" type="Label" parent="Tutorial/Pages/Page1"]
+layout_mode = 0
+offset_left = 722.0
+offset_top = 684.0
+offset_right = 1004.0
+offset_bottom = 738.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 28
+text = "Dispensers"
+autowrap_mode = 2
+
+[node name="SocketLabel" type="Label" parent="Tutorial/Pages/Page1"]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 603.0
+offset_right = 501.0
+offset_bottom = 657.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 28
+text = "Socket
+"
+autowrap_mode = 2
+
+[node name="JackLabel" type="Label" parent="Tutorial/Pages/Page1"]
+layout_mode = 0
+offset_left = 658.0
+offset_top = 498.0
+offset_right = 793.0
+offset_bottom = 548.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 28
+text = "Jack"
+autowrap_mode = 2
+
+[node name="JackDispenserReferense" type="Node2D" parent="Tutorial/Pages/Page1"]
+visible = false
+position = Vector2(0, -48)
+
+[node name="MechSymbolPower" type="Sprite2D" parent="Tutorial/Pages/Page1/JackDispenserReferense"]
+position = Vector2(334, 724)
+texture = ExtResource("7_2waj4")
+
+[node name="WireSymbol" type="Sprite2D" parent="Tutorial/Pages/Page1/JackDispenserReferense"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(218, 650)
+texture = ExtResource("8_dtot3")
+
+[node name="WireSymbol2" type="Sprite2D" parent="Tutorial/Pages/Page1/JackDispenserReferense"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(319, 663)
+texture = ExtResource("8_dtot3")
+
+[node name="WireSymbol3" type="Sprite2D" parent="Tutorial/Pages/Page1/JackDispenserReferense"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(427, 649)
+texture = ExtResource("8_dtot3")
 
 [node name="Page2" type="Control" parent="Tutorial/Pages"]
 visible = false
@@ -156,24 +235,194 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Text2" type="Label" parent="Tutorial/Pages/Page2"]
+[node name="MechDiagram" type="Control" parent="Tutorial/Pages/Page2"]
+anchors_preset = 0
+offset_left = -33.0
+offset_top = -22.0
+offset_right = 7.0
+offset_bottom = 18.0
+
+[node name="MechRef" type="Sprite2D" parent="Tutorial/Pages/Page2/MechDiagram"]
+position = Vector2(333.5, 413.166)
+scale = Vector2(1.39503, 1.39503)
+texture = ExtResource("10_v65vb")
+
+[node name="ShieldAnnotation" type="Label" parent="Tutorial/Pages/Page2/MechDiagram"]
 layout_mode = 0
-offset_left = 41.0
-offset_top = 96.0
-offset_right = 1530.0
-offset_bottom = 323.0
+offset_left = 598.0
+offset_top = 129.0
+offset_right = 846.0
+offset_bottom = 199.0
 theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("4_d0bw6")
-theme_override_font_sizes/font_size = 28
-text = "[Image of dashboard with follwoing annotations]
+theme_override_font_sizes/font_size = 20
+text = "Shield blocks most attacks"
+autowrap_mode = 2
 
-[Pointing at combat] Here's where all the action happens. 
+[node name="AnnotationLine" type="Line2D" parent="Tutorial/Pages/Page2/MechDiagram"]
+position = Vector2(0, -144)
+points = PackedVector2Array(590, 304, 429, 323)
+width = 6.0
+default_color = Color(0.909804, 0.839216, 0, 1)
 
-[Pointing at attack module] Attack with body part
-[Pointing at repair module] Repair body part
-[Pointing at gain shield module] Gain Shield
-[Pointing at reinforce shield module] Reinforce Shield
-[Pointing at boost repair module] Boost strength of Repairs"
+[node name="HealthAnnotation" type="Label" parent="Tutorial/Pages/Page2/MechDiagram"]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 599.0
+offset_right = 823.0
+offset_bottom = 695.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 20
+text = "Body Part's stop working when they have no health"
+autowrap_mode = 2
+
+[node name="AnnotationLine2" type="Line2D" parent="Tutorial/Pages/Page2/MechDiagram"]
+points = PackedVector2Array(488, 525, 547, 595)
+width = 6.0
+default_color = Color(0.909804, 0.839216, 0, 1)
+
+[node name="Repair Annotation2" type="Label" parent="Tutorial/Pages/Page2/MechDiagram"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 389.0
+offset_right = 887.0
+offset_bottom = 518.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 20
+text = "Make sure to keep your head and torso up and running!"
+autowrap_mode = 2
+
+[node name="AnnotationLine3" type="Line2D" parent="Tutorial/Pages/Page2/MechDiagram"]
+position = Vector2(201, -220)
+points = PackedVector2Array(265, 578, 398, 617)
+width = 6.0
+default_color = Color(0.909804, 0.839216, 0, 1)
+
+[node name="AnnotationLine4" type="Line2D" parent="Tutorial/Pages/Page2/MechDiagram"]
+position = Vector2(201, -220)
+points = PackedVector2Array(277, 491, 413, 597)
+width = 6.0
+default_color = Color(0.909804, 0.839216, 0, 1)
+
+[node name="Symbols" type="Control" parent="Tutorial/Pages/Page2"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BoostrepairSymbol" type="Sprite2D" parent="Tutorial/Pages/Page2/Symbols"]
+position = Vector2(1420, 293)
+texture = ExtResource("11_0ys5y")
+
+[node name="BoostRepairLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+offset_left = 1304.0
+offset_top = 197.0
+offset_right = 1541.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 20
+text = "Boost Repair"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PierceSymbol" type="Sprite2D" parent="Tutorial/Pages/Page2/Symbols"]
+position = Vector2(1132, 357)
+texture = ExtResource("12_rwcoo")
+
+[node name="PierceLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+offset_left = 1073.0
+offset_top = 261.0
+offset_right = 1196.0
+offset_bottom = 300.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 20
+text = "Pierce"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PunchSymbol" type="Sprite2D" parent="Tutorial/Pages/Page2/Symbols"]
+position = Vector2(1132, 189)
+texture = ExtResource("13_dcd4t")
+
+[node name="AttackLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+offset_left = 1073.0
+offset_top = 77.0
+offset_right = 1196.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 20
+text = "Attack"
+autowrap_mode = 2
+
+[node name="ReinforceSymbol" type="Sprite2D" parent="Tutorial/Pages/Page2/Symbols"]
+position = Vector2(1420, 629)
+texture = ExtResource("14_bsyyc")
+
+[node name="ReinforceLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+offset_left = 1265.0
+offset_top = 533.0
+offset_right = 1580.0
+offset_bottom = 572.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 20
+text = "Reinforce Shield"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="RepairSymbol" type="Sprite2D" parent="Tutorial/Pages/Page2/Symbols"]
+position = Vector2(1420, 125)
+texture = ExtResource("15_jdgu2")
+
+[node name="RepairLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+offset_left = 1361.0
+offset_top = 45.0
+offset_right = 1484.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 20
+text = "Repair"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Restrain-armClawSymbol" type="Sprite2D" parent="Tutorial/Pages/Page2/Symbols"]
+position = Vector2(1132, 533)
+texture = ExtResource("16_h7j0y")
+
+[node name="RestrainLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+offset_left = 1050.0
+offset_top = 413.0
+offset_right = 1219.0
+offset_bottom = 452.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 20
+text = "Restrain
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ShieldSymbol" type="Sprite2D" parent="Tutorial/Pages/Page2/Symbols"]
+position = Vector2(1420, 461)
+texture = ExtResource("17_46vff")
+
+[node name="ShieldLabel" type="Label" parent="Tutorial/Pages/Page2/Symbols"]
+offset_left = 1304.0
+offset_top = 365.0
+offset_right = 1541.0
+offset_bottom = 404.0
+theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("4_d0bw6")
+theme_override_font_sizes/font_size = 20
+text = "Gain Shield"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Page3" type="Control" parent="Tutorial/Pages"]
 visible = false
@@ -184,9 +433,9 @@ offset_bottom = 40.0
 [node name="Text3" type="Label" parent="Tutorial/Pages/Page3"]
 layout_mode = 0
 offset_left = 41.0
-offset_top = 96.0
+offset_top = 80.0
 offset_right = 1530.0
-offset_bottom = 323.0
+offset_bottom = 721.0
 theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("4_d0bw6")
 theme_override_font_sizes/font_size = 28
@@ -194,12 +443,16 @@ text = "Tips:
       - The more jacks plugged in, the less power each jack 
          supplies. Use your jacks wisely!
 
-      - [Tip about jack strength?]
+      - Yellow jacks divert more power, and red ones even 
+         more. plug them into sockets you need to charge 
+         quickly!
 
       - Some attacks go through shield. Make sure to have to
-        reinforce some of your shield to stop such attacks!
+         reinforce some of your shield to stop such attacks!
 
-      - [Tip about restrain?]"
+      - Some attacks restrain and prevent body parts from 
+         using their moves. Time them when the kaiju's about to 
+         do a big move!"
 autowrap_mode = 2
 
 [node name="BackPrevButton" type="Button" parent="Tutorial"]

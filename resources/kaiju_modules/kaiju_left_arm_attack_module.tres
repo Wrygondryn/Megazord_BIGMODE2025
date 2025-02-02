@@ -1,14 +1,15 @@
 [gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://coxypd4ourgh7"]
 
-[ext_resource type="Script" path="res://scripts/module_data.gd" id="1_mbtol"]
+[ext_resource type="Script" path="res://scripts/module_data.gd" id="1_aseam"]
 
 [resource]
-script = ExtResource("1_mbtol")
+script = ExtResource("1_aseam")
 action_kind = 0
-amount = 25.0
+amount = 40.0
+multiplier = 0.0
 pierces = false
 condition_kind = 1
-condition_time_secs = 0.0
+lasting_time_secs = 0.0
 giga_target = 0
 target_body_part = 7
-charge_capacity = 50.0
+charge_capacity = 125.0

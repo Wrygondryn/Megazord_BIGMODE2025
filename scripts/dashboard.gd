@@ -54,6 +54,13 @@ func _process(delta: float) -> void:
 			release_held_jack()
 		held_jack = null
 		
+	if Input.is_action_just_pressed("debug_screenshot"):
+		var capture = get_viewport().get_texture().get_image()
+		var _time = Time.get_datetime_string_from_system()
+		var filename = "C:/Programming/Godot/Screenshot-{0}.png".format({"0":_time.replace(":", "_")})
+		var err := capture.save_png(filename)
+		if err != Error.OK: print(error_string(err))
+		
 	display_powers()
 
 
