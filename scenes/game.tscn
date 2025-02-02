@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=23 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_bofyj"]
+[ext_resource type="Script" path="res://scenes/dashboard_camera.gd" id="1_c6xgx"]
 [ext_resource type="Texture2D" uid="uid://dut3tnyyobk3p" path="res://assets/sprites/dashboard/dashboard_overlay/mechazorg_dashboard_overlay.png" id="2_0yuo1"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
 [ext_resource type="Texture2D" uid="uid://by20o576sfiib" path="res://assets/sprites/dashboard/dashboard_symbols/mech_symbol.png" id="3_ym1ev"]
@@ -17,6 +18,7 @@
 [ext_resource type="Script" path="res://scripts/battle_3d.gd" id="10_h7enr"]
 [ext_resource type="PackedScene" uid="uid://cnoohet8jjphy" path="res://scenes/mechazorg_3d.tscn" id="10_q6py5"]
 [ext_resource type="PackedScene" uid="uid://b12hvhwsd8mat" path="res://assets/models/city/proc_city_bake.glb" id="10_y68p1"]
+[ext_resource type="Texture2D" uid="uid://bakrmfikt2uat" path="res://icon.svg" id="15_l8sts"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dyj7c"]
 sky_top_color = Color(0.657493, 0.881287, 0.990151, 1)
@@ -44,7 +46,9 @@ fog_depth_curve = 1.03527
 
 [node name="Game" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("parallax_frame")]
+script = ExtResource("1_c6xgx")
+parallax_frame = NodePath("../BattleView")
 
 [node name="Dashboard" type="Node2D" parent="."]
 script = ExtResource("1_bofyj")
@@ -210,9 +214,15 @@ position = Vector2(0, -203.6)
 scale = Vector2(0.567292, 0.567292)
 texture = ExtResource("6_1fs6v")
 
+[node name="buffer" type="Sprite2D" parent="BattleView"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 492.646)
+scale = Vector2(25, 1)
+texture = ExtResource("15_l8sts")
+
 [node name="SubViewport" type="SubViewport" parent="."]
 gui_disable_input = true
-size = Vector2i(2865, 900)
+size = Vector2i(2945, 900)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
 environment = SubResource("Environment_8xlvx")

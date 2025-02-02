@@ -1,0 +1,18 @@
+extends Camera2D
+
+@export var zoom_init:float = 1.01;
+@export var look_speed:float = 0.005;
+@export var parallax_frame:Sprite2D;
+@export var parallax_look_speed:float = 0.03;
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	self.zoom = Vector2(zoom_init,zoom_init);
+
+func _process(delta: float) -> void:
+	var mouse_pos := get_global_mouse_position();
+	var view_size:Vector2 = get_viewport().size/2;
+	mouse_pos.x = max(min(mouse_pos.x, view_size.x), -view_size.x);
+	mouse_pos.y = max(min(mouse_pos.y, view_size.y), -view_size.y);
+	self.offset = mouse_pos*look_speed;
+	parallax_frame.offset = -mouse_pos*parallax_look_speed;
