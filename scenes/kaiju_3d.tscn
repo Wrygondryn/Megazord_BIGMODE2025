@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2sx4tsnvgo2t"]
+[gd_scene load_steps=13 format=3 uid="uid://c2sx4tsnvgo2t"]
 
 [ext_resource type="Script" path="res://scripts/kaiju_3d.gd" id="1_vjxjb"]
 [ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://scenes/body_part_3d.tscn" id="2_e6u2v"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://5npyyj6emr86" path="res://assets/kaiju_impact.wav" id="9_hs3ub"]
 [ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/shield_impact.wav" id="10_vc0qx"]
 [ext_resource type="AudioStream" uid="uid://d2lrwm0n8sdf8" path="res://assets/shield_gain.wav" id="11_b67o5"]
+[ext_resource type="AudioStream" uid="uid://us303usa1tfi" path="res://assets/shield_reinforce.wav" id="12_ryg20"]
 
 [node name="Kaiju3D" type="Node3D"]
 script = ExtResource("1_vjxjb")
@@ -40,19 +41,39 @@ text = "Reinforced - 000"
 [node name="Head" parent="BodyParts" instance=ExtResource("2_e6u2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.34276, 0)
 kind = 0
+hp_colour = Color(0, 0.577795, 5.77569e-07, 1)
 max_hp = 200.0
 
 [node name="CSGBox3D" parent="BodyParts/Head" index="0"]
 material_override = ExtResource("3_5q4mp")
 cast_shadow = 1
 
+[node name="HPBar" parent="BodyParts/Head" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838903, 0)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/Head" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.972325, 0.284817, 0.529171)
+
+[node name="ConditionDisplay_TEMP" parent="BodyParts/Head" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.982051, 0, 0.524651)
+
 [node name="Torso" parent="BodyParts" instance=ExtResource("2_e6u2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26815, 0)
 kind = 3
+hp_colour = Color(0, 0.577795, 5.77569e-07, 1)
 max_hp = 300.0
 
 [node name="CSGBox3D" parent="BodyParts/Torso" index="0"]
 cast_shadow = 1
+
+[node name="HPBar" parent="BodyParts/Torso" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838903, 0)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/Torso" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.972325, 0.284817, 0.529171)
+
+[node name="ConditionDisplay_TEMP" parent="BodyParts/Torso" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.982051, 0, 0.524651)
 
 [node name="ReinforceShieldModule" type="Node" parent="BodyParts/Torso/Modules" index="0"]
 script = ExtResource("4_25tbx")
@@ -62,10 +83,20 @@ animation_name = &"test_animation"
 [node name="LeftArm" parent="BodyParts" instance=ExtResource("2_e6u2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02394, 3.22905, 0)
 kind = 1
+hp_colour = Color(0, 0.577795, 5.77569e-07, 1)
 max_hp = 100.0
 
 [node name="CSGBox3D" parent="BodyParts/LeftArm" index="0"]
 cast_shadow = 1
+
+[node name="HPBar" parent="BodyParts/LeftArm" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838903, 0)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/LeftArm" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.972325, 0.284817, 0.529171)
+
+[node name="ConditionDisplay_TEMP" parent="BodyParts/LeftArm" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.982051, 0, 0.524651)
 
 [node name="HeavyAttackModule" type="Node" parent="BodyParts/LeftArm/Modules" index="0"]
 script = ExtResource("4_25tbx")
@@ -75,10 +106,20 @@ animation_name = &"test_animation"
 [node name="RightArm" parent="BodyParts" instance=ExtResource("2_e6u2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11515, 3.1759, 0)
 kind = 2
+hp_colour = Color(0, 0.577795, 5.77569e-07, 1)
 max_hp = 100.0
 
 [node name="CSGBox3D" parent="BodyParts/RightArm" index="0"]
 cast_shadow = 1
+
+[node name="HPBar" parent="BodyParts/RightArm" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838903, 0)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/RightArm" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.972325, 0.284817, 0.529171)
+
+[node name="ConditionDisplay_TEMP" parent="BodyParts/RightArm" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.982051, 0, 0.524651)
 
 [node name="LightAttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0"]
 script = ExtResource("4_25tbx")
@@ -88,10 +129,20 @@ animation_name = &"test_animation"
 [node name="Pelvis" parent="BodyParts" instance=ExtResource("2_e6u2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6141, 0)
 kind = 4
+hp_colour = Color(0, 0.577795, 5.77569e-07, 1)
 max_hp = 200.0
 
 [node name="CSGBox3D" parent="BodyParts/Pelvis" index="0"]
 cast_shadow = 1
+
+[node name="HPBar" parent="BodyParts/Pelvis" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838903, 0)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/Pelvis" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.972325, 0.284817, 0.529171)
+
+[node name="ConditionDisplay_TEMP" parent="BodyParts/Pelvis" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.982051, 0, 0.524651)
 
 [node name="ShieldGainModule" type="Node" parent="BodyParts/Pelvis/Modules" index="0"]
 script = ExtResource("4_25tbx")
@@ -101,18 +152,38 @@ animation_name = &"test_animation"
 [node name="LeftLeg" parent="BodyParts" instance=ExtResource("2_e6u2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7265, 0, 0)
 kind = 5
+hp_colour = Color(0, 0.577795, 5.77569e-07, 1)
 max_hp = 150.0
 
 [node name="CSGBox3D" parent="BodyParts/LeftLeg" index="0"]
 cast_shadow = 1
 
+[node name="HPBar" parent="BodyParts/LeftLeg" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838903, 0)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/LeftLeg" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.972325, 0.284817, 0.529171)
+
+[node name="ConditionDisplay_TEMP" parent="BodyParts/LeftLeg" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.982051, 0, 0.524651)
+
 [node name="RightLeg" parent="BodyParts" instance=ExtResource("2_e6u2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49399, 0, 0)
 kind = 6
+hp_colour = Color(0, 0.577795, 5.77569e-07, 1)
 max_hp = 150.0
 
 [node name="CSGBox3D" parent="BodyParts/RightLeg" index="0"]
 cast_shadow = 1
+
+[node name="HPBar" parent="BodyParts/RightLeg" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838903, 0)
+
+[node name="HPDisplay_TEMP" parent="BodyParts/RightLeg" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.972325, 0.284817, 0.529171)
+
+[node name="ConditionDisplay_TEMP" parent="BodyParts/RightLeg" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.982051, 0, 0.524651)
 
 [node name="BoostRepairTimer" type="Timer" parent="."]
 one_shot = true
@@ -127,6 +198,9 @@ volume_db = -8.0
 
 [node name="ShieldGainSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_b67o5")
+
+[node name="ShieldReinforceSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ryg20")
 
 [editable path="BodyParts/Head"]
 [editable path="BodyParts/Torso"]
