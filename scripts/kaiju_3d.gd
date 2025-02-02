@@ -4,6 +4,8 @@ extends Node3D
 # const MAX_FOCUSED_ATTACKS := 6
 
 @export_range(0.0, 1000.0, 1.0, "or_greater", "hide_slider") var shield: float = 200.0
+@export var shield_colour: Color
+@export var reinforced_shield_colour: Color
 #TODO: Reintroduce this if we want modules that are separate from body parts
 #@export var extra_modules: Array[ModuleData]
 
@@ -13,6 +15,7 @@ extends Node3D
 @onready var boost_repair_timer: Timer = $BoostRepairTimer
 @onready var body_impact_sfx: AudioStreamPlayer = $BodyImpactSFX
 @onready var shield_impact_sfx: AudioStreamPlayer = $ShieldImpactSFX
+@onready var shield_bar: Sprite3D = $ShieldBar
 @onready var battle: Node3D = %Battle3D
 
 var reinforced_shield: float = 0.0
@@ -147,6 +150,22 @@ func _process(delta: float) -> void:
 	
 	shield_display_temp.text = "Shield - %.0f" % shield
 	reinforced_shield_display_temp.text = "Reinforced - %.0f" % reinforced_shield
+	
+	#NOTE: By default, Gradient starts with 2 points
+	var shield_gradient := Gradient.new()
+	shield_gradient.interpolation_mode = Gradient.GRADIENT_INTERPOLATE_CONSTANT
+	shield_gradient.add_point(1.0, Helpers.SHIELD_BAR_BACKGROUND_COLOUR)
+	shield_gradient.set_color(0, reinforced_shield_colour)
+	shield_gradient.set_color(1, shield_colour)
+	#TODO: Calculate this max
+	shield_gradient.set_offset(1, reinforced_shield / 300.0)
+	shield_gradient.set_offset(2, shield / 300.0)
+	
+	var shield_texture := GradientTexture1D.new()
+	shield_texture.gradient = shield_gradient
+	shield_texture.width = shield_bar.region_rect.size.x
+	
+	shield_bar.texture = shield_texture
 
 func _on_body_part_action_ready(body_part: Node3D, action: Action):
 	battle.queue_action(body_part, action)
