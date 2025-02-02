@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bbqtql6jutrds"
-path="res://.godot/imported/jack_in.wav-ea01a63e4dd70f52e4b71e70ccd0dc2b.sample"
+path="res://.godot/imported/jack_in.wav-4290b6ccfcb126c78272f4cedc35ee19.sample"
 
 [deps]
 
-source_file="res://assets/jack_in.wav"
-dest_files=["res://.godot/imported/jack_in.wav-ea01a63e4dd70f52e4b71e70ccd0dc2b.sample"]
+source_file="res://assets/music_and_sounds/jack_in.wav"
+dest_files=["res://.godot/imported/jack_in.wav-4290b6ccfcb126c78272f4cedc35ee19.sample"]
 
 [params]
 

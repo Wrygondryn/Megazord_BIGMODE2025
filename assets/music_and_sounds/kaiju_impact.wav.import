@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://5npyyj6emr86"
-path="res://.godot/imported/kaiju_impact.wav-e3759d9e0f8e86bca12412f5ebf883c9.sample"
+path="res://.godot/imported/kaiju_impact.wav-b353f7f96ce762b3a8c9c1129c0fdd28.sample"
 
 [deps]
 
-source_file="res://assets/kaiju_impact.wav"
-dest_files=["res://.godot/imported/kaiju_impact.wav-e3759d9e0f8e86bca12412f5ebf883c9.sample"]
+source_file="res://assets/music_and_sounds/kaiju_impact.wav"
+dest_files=["res://.godot/imported/kaiju_impact.wav-b353f7f96ce762b3a8c9c1129c0fdd28.sample"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cj6yynhv2rglg"]
 
-[ext_resource type="AudioStream" uid="uid://4le6fifuns13" path="res://assets/MechazorgCableDuty_Music(FINAL).wav" id="1_o23ms"]
+[ext_resource type="AudioStream" uid="uid://4le6fifuns13" path="res://assets/music_and_sounds/MechazorgCableDuty_Music(FINAL).wav" id="1_o23ms"]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_o23ms")

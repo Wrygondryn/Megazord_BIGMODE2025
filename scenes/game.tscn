@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
 [ext_resource type="PackedScene" uid="uid://kwregxsookrk" path="res://scenes/jack_dispenser.tscn" id="4_whl4r"]
 [ext_resource type="PackedScene" uid="uid://3y3al18ah6ax" path="res://scenes/charge_display.tscn" id="5_llxl5"]
-[ext_resource type="AudioStream" uid="uid://dr6ui2ftrsj3k" path="res://assets/jack_connected.wav" id="5_nfmvy"]
+[ext_resource type="AudioStream" uid="uid://dr6ui2ftrsj3k" path="res://assets/music_and_sounds/jack_connected.wav" id="5_nfmvy"]
 [ext_resource type="Texture2D" uid="uid://ccyhkoe632ksj" path="res://assets/battle_viewport_texture.tres" id="6_1fs6v"]
 [ext_resource type="PackedScene" uid="uid://c2sx4tsnvgo2t" path="res://scenes/kaiju_3d.tscn" id="10_aojxm"]
 [ext_resource type="Script" path="res://scripts/battle_3d.gd" id="10_h7enr"]
@@ -205,15 +205,6 @@ script = ExtResource("10_h7enr")
 
 [node name="Mechazorg3D" parent="SubViewport/Battle3D" instance=ExtResource("10_q6py5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.57438, 0, 0)
-
-[node name="Head_Face" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
-
-[node name="Head_Helmet" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
-
-[node name="Head_Mouthguard" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
 
 [node name="Kaiju3D" parent="SubViewport/Battle3D" instance=ExtResource("10_aojxm")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.281, 0, 0)

@@ -8,8 +8,8 @@
 [ext_resource type="Resource" uid="uid://bujn1bqqbiw68" path="res://resources/kaiju_heavy_attack_module.tres" id="7_tmxo7"]
 [ext_resource type="Resource" uid="uid://bni5fgqtb6e62" path="res://resources/kaiju_reinforce_shield_module.tres" id="8_jhhtr"]
 [ext_resource type="Resource" uid="uid://c0q5q66hnem0s" path="res://resources/kaiju_shield_gain_module.tres" id="9_mmk55"]
-[ext_resource type="AudioStream" uid="uid://5npyyj6emr86" path="res://assets/kaiju_impact.wav" id="9_xac02"]
-[ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/shield_impact.wav" id="10_ntelx"]
+[ext_resource type="AudioStream" uid="uid://5npyyj6emr86" path="res://assets/music_and_sounds/kaiju_impact.wav" id="9_xac02"]
+[ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/music_and_sounds/shield_impact.wav" id="10_ntelx"]
 
 [node name="Kaiju" type="Node2D"]
 scale = Vector2(1.5, 1.5)

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bdygxfbj1au7i"
-path="res://.godot/imported/jack_out.wav-eb4372559deae8b6ac171a56e70d0394.sample"
+path="res://.godot/imported/jack_out.wav-6a4922fb519e2e5573ba53f41fe53720.sample"
 
 [deps]
 
-source_file="res://assets/jack_out.wav"
-dest_files=["res://.godot/imported/jack_out.wav-eb4372559deae8b6ac171a56e70d0394.sample"]
+source_file="res://assets/music_and_sounds/jack_out.wav"
+dest_files=["res://.godot/imported/jack_out.wav-6a4922fb519e2e5573ba53f41fe53720.sample"]
 
 [params]
 

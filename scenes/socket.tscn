@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/socket.gd" id="1_k01id"]
 [ext_resource type="Texture2D" uid="uid://dmgflxce03ehq" path="res://assets/sprites/dashboard/socket.png" id="2_nt5v4"]
-[ext_resource type="AudioStream" uid="uid://bbqtql6jutrds" path="res://assets/jack_in.wav" id="3_ulemf"]
-[ext_resource type="AudioStream" uid="uid://bdygxfbj1au7i" path="res://assets/jack_out.wav" id="4_4hks2"]
+[ext_resource type="AudioStream" uid="uid://bbqtql6jutrds" path="res://assets/music_and_sounds/jack_in.wav" id="3_ulemf"]
+[ext_resource type="AudioStream" uid="uid://bdygxfbj1au7i" path="res://assets/music_and_sounds/jack_out.wav" id="4_4hks2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fqu55"]
 radius = 19.0263
