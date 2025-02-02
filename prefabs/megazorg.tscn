@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnrolv0gwmoi4"]
+
+[ext_resource type="PackedScene" uid="uid://cudbx3le8hx5q" path="res://assets/models/megazorg/megazorg_import.blend" id="1_tvmck"]
+
+[node name="megazorg" instance=ExtResource("1_tvmck")]
+
+[node name="Head_Face" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
+
+[node name="Head_Helmet" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
+
+[node name="Head_Mouthguard" parent="Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://scenes/body_part_3d.tscn" id="1_30pws"]
 [ext_resource type="Material" uid="uid://dh7efkt101xmi" path="res://assets/mech_head_material.tres" id="2_pb2md"]
 [ext_resource type="Script" path="res://scripts/module.gd" id="2_qs1rj"]
+[ext_resource type="PackedScene" uid="uid://cnrolv0gwmoi4" path="res://prefabs/megazorg.tscn" id="2_yg8ix"]
 [ext_resource type="Resource" uid="uid://6xs0ooprjwlw" path="res://resources/head_repair_module.tres" id="3_2bqwm"]
 [ext_resource type="Resource" uid="uid://c41xodfvniegu" path="res://resources/boost_repair_module.tres" id="4_f06yl"]
 [ext_resource type="Resource" uid="uid://c2gxr8tb4ey15" path="res://resources/shield_gain_module.tres" id="5_6jtkx"]
@@ -14,12 +15,12 @@
 [ext_resource type="Resource" uid="uid://dypvd7e1k8hib" path="res://resources/pelvis_repair_module.tres" id="10_lusm6"]
 [ext_resource type="AudioStream" uid="uid://ce401hpkplka" path="res://assets/mech_impact.wav" id="11_17at3"]
 [ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/shield_impact.wav" id="12_ln7b7"]
-[ext_resource type="PackedScene" uid="uid://cudbx3le8hx5q" path="res://assets/models/megazorg/megazorg_import.blend" id="15_xl0ip"]
 
-[node name="Mechazorg3D" type="Node3D"]
+[node name="Mechazorg3D" type="Node3D" node_paths=PackedStringArray("body_parts")]
 script = ExtResource("1_8t2nw")
 shield_colour = Color(0, 0, 1, 1)
 reinforced_shield_colour = Color(0, 1, 1, 1)
+body_parts = [NodePath("BodyParts/megazorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"), NodePath("BodyParts/megazorg/Armature/Skeleton3D/Torso_Chestplate/Torso"), NodePath("BodyParts/megazorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"), NodePath("BodyParts/megazorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"), NodePath("BodyParts/megazorg/Armature/Skeleton3D/RArm_Forearm/RightArm"), NodePath("BodyParts/megazorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg"), NodePath("BodyParts/megazorg/Armature/Skeleton3D/RLeg_Foot/RightLeg")]
 
 [node name="ShieldBar" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.63223, 0)
@@ -40,84 +41,83 @@ billboard = 1
 text = "Reinforced - 000"
 
 [node name="BodyParts" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.809885)
 
-[node name="Head" parent="BodyParts" instance=ExtResource("1_30pws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.96746, 0)
+[node name="megazorg" parent="BodyParts" instance=ExtResource("2_yg8ix")]
+transform = Transform3D(0.485, 0, 0, 0, 0.485, 0, 0, 0, 0.485, -0.153278, 0, 0.962662)
+
+[node name="Head" parent="BodyParts/megazorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet" index="0" instance=ExtResource("1_30pws")]
+transform = Transform3D(2.06186, 3.51609e-13, 1.17203e-13, 1.17203e-13, 2.06186, -3.28364e-07, -3.48862e-13, 3.30284e-07, 2.06186, 0, 11.016, -0.035)
 kind = 0
 max_hp = 200.0
 
-[node name="CSGBox3D" parent="BodyParts/Head" index="0"]
+[node name="CSGBox3D" parent="BodyParts/megazorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head" index="0"]
 material_override = ExtResource("2_pb2md")
 
-[node name="RepairModule" type="Node" parent="BodyParts/Head/Modules" index="0" node_paths=PackedStringArray("animation")]
+[node name="RepairModule" type="Node" parent="BodyParts/megazorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("3_2bqwm")
 animation = NodePath("../../TestAnimationPlayer")
 
-[node name="BoostRepairModule" type="Node" parent="BodyParts/Head/Modules" index="1" node_paths=PackedStringArray("animation")]
+[node name="BoostRepairModule" type="Node" parent="BodyParts/megazorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules" index="1"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("4_f06yl")
 animation = NodePath("../../TestAnimationPlayer")
 
-[node name="Torso" parent="BodyParts" instance=ExtResource("1_30pws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36553, 0)
-kind = 3
-max_hp = 200.0
-
-[node name="ShieldModule" type="Node" parent="BodyParts/Torso/Modules" index="0" node_paths=PackedStringArray("animation")]
-script = ExtResource("2_qs1rj")
-data = ExtResource("5_6jtkx")
-animation = NodePath("../../TestAnimationPlayer")
-
-[node name="RepairModule" type="Node" parent="BodyParts/Torso/Modules" index="1" node_paths=PackedStringArray("animation")]
-script = ExtResource("2_qs1rj")
-data = ExtResource("6_0iw3j")
-animation = NodePath("../../TestAnimationPlayer")
-
-[node name="LeftArm" parent="BodyParts" instance=ExtResource("1_30pws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10635, 3.30824, 0)
+[node name="LeftArm" parent="BodyParts/megazorg/Armature/Skeleton3D/LArm_Forearm" index="0" instance=ExtResource("1_30pws")]
+transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 4.58988, 9.76538, -0.23652)
 kind = 1
 max_hp = 120.0
 
-[node name="AttackModule" type="Node" parent="BodyParts/LeftArm/Modules" index="0" node_paths=PackedStringArray("animation")]
-script = ExtResource("2_qs1rj")
-data = ExtResource("5_ctcmh")
-animation = NodePath("../../TestAnimationPlayer")
-
-[node name="RightArm" parent="BodyParts" instance=ExtResource("1_30pws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90132, 3.36161, 0)
-kind = 2
-max_hp = 120.0
-
-[node name="RestrainAttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0" node_paths=PackedStringArray("animation")]
+[node name="RestrainAttackModule" type="Node" parent="BodyParts/megazorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("6_to568")
 animation = NodePath("../../TestAnimationPlayer")
 
-[node name="Pelvis" parent="BodyParts" instance=ExtResource("1_30pws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6141, 0)
-kind = 4
-max_hp = 100.0
-
-[node name="ReinforceShieldModule" type="Node" parent="BodyParts/Pelvis/Modules" index="0" node_paths=PackedStringArray("animation")]
-script = ExtResource("2_qs1rj")
-data = ExtResource("9_qxrjr")
-animation = NodePath("../../TestAnimationPlayer")
-
-[node name="RepairModule" type="Node" parent="BodyParts/Pelvis/Modules" index="1" node_paths=PackedStringArray("animation")]
-script = ExtResource("2_qs1rj")
-data = ExtResource("10_lusm6")
-animation = NodePath("../../TestAnimationPlayer")
-
-[node name="LeftLeg" parent="BodyParts" instance=ExtResource("1_30pws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7265, 0, 0)
+[node name="LeftLeg" parent="BodyParts/megazorg/Armature/Skeleton3D/LLeg_MonkeyHead" index="0" instance=ExtResource("1_30pws")]
+transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 1.38486, 1.37522, 2.25493)
 kind = 5
 max_hp = 150.0
 
-[node name="RightLeg" parent="BodyParts" instance=ExtResource("1_30pws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49399, 0, 0)
+[node name="Pelvis" parent="BodyParts/megazorg/Armature/Skeleton3D/Pelvis_DonkeyHead" index="0" instance=ExtResource("1_30pws")]
+transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 0, 5.27486, -3.67425)
+kind = 4
+max_hp = 100.0
+
+[node name="ReinforceShieldModule" type="Node" parent="BodyParts/megazorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("9_qxrjr")
+
+[node name="RepairModule" type="Node" parent="BodyParts/megazorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules" index="1"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("10_lusm6")
+
+[node name="RightArm" parent="BodyParts/megazorg/Armature/Skeleton3D/RArm_Forearm" index="0" instance=ExtResource("1_30pws")]
+transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, -4.59, 9.765, -0.237)
+kind = 2
+max_hp = 120.0
+
+[node name="AttackModule" type="Node" parent="BodyParts/megazorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("5_ctcmh")
+
+[node name="RightLeg" parent="BodyParts/megazorg/Armature/Skeleton3D/RLeg_Foot" index="0" instance=ExtResource("1_30pws")]
+transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, -2.5559, 1.37522, -1.98676)
 kind = 6
 max_hp = 150.0
+
+[node name="Torso" parent="BodyParts/megazorg/Armature/Skeleton3D/Torso_Chestplate" index="0" instance=ExtResource("1_30pws")]
+transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 0.542514, 7.11446, 2.67984)
+kind = 3
+max_hp = 200.0
+
+[node name="ShieldModule" type="Node" parent="BodyParts/megazorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("5_6jtkx")
+
+[node name="RepairModule" type="Node" parent="BodyParts/megazorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules" index="1"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("6_0iw3j")
 
 [node name="BoostRepairTimer" type="Timer" parent="."]
 one_shot = true
@@ -130,13 +130,9 @@ volume_db = -8.0
 stream = ExtResource("12_ln7b7")
 volume_db = -8.0
 
-[node name="megazorg_import" parent="." instance=ExtResource("15_xl0ip")]
-transform = Transform3D(0.485, 0, 0, 0, 0.485, 0, 0, 0, 0.485, -0.153278, 0, 0.962662)
-
-[editable path="BodyParts/Head"]
-[editable path="BodyParts/Torso"]
-[editable path="BodyParts/LeftArm"]
-[editable path="BodyParts/RightArm"]
-[editable path="BodyParts/Pelvis"]
-[editable path="BodyParts/LeftLeg"]
-[editable path="BodyParts/RightLeg"]
+[editable path="BodyParts/megazorg"]
+[editable path="BodyParts/megazorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"]
+[editable path="BodyParts/megazorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"]
+[editable path="BodyParts/megazorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"]
+[editable path="BodyParts/megazorg/Armature/Skeleton3D/RArm_Forearm/RightArm"]
+[editable path="BodyParts/megazorg/Armature/Skeleton3D/Torso_Chestplate/Torso"]

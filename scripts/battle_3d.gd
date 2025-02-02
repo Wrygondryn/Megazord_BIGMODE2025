@@ -129,7 +129,7 @@ func process_action(action_info: ActionInfo) -> void:
 							action_info.action.lasting_time_secs
 						)
 					
-				var num_vitals_left_on_target := len(target.body_parts.get_children().filter(
+				var num_vitals_left_on_target := len(target.body_parts.filter(
 					func(body_part) -> bool: return Helpers.body_part_is_vital(body_part.kind) && body_part.hp > 0
 				))
 				if num_vitals_left_on_target == 0:

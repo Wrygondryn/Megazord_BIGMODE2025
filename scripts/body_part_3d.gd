@@ -1,4 +1,5 @@
 extends Node3D
+class_name BodyPart3D
 
 @export var kind: Helpers.BodyPart = Helpers.BodyPart.ANY
 @export var hp_colour: Color
