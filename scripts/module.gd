@@ -2,6 +2,7 @@ extends Node
 class_name Module
 
 @export var data: ModuleData
+@export var animation: AnimationPlayer
 
 var charge: float = 0.0
 var charge_rate: float = 0.0
@@ -16,7 +17,7 @@ func _process(delta: float) -> void:
 	
 	#TODO: Charge decay
 	if charge >= data.charge_capacity:
-		fully_charged.emit(data)
+		fully_charged.emit(data, animation)
 		charge = 0.0
 		
 	if charge <= 0.0:

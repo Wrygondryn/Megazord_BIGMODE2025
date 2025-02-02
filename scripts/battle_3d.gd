@@ -2,23 +2,30 @@ extends Node3D
 	
 
 class ActionInfo:
+	var actor: Helpers.GigaTarget
 	var source_body_part: Node3D
+	var animation: AnimationPlayer
+	
 	var action: Action
 	
-	func _init(body_part: Node3D, action: Action):
+	func _init(actor: Helpers.GigaTarget, body_part: Node3D, action: Action, animation: AnimationPlayer):
 		self.action = action
+		self.actor = actor
+		
 		source_body_part = body_part
-	
+		self.animation = animation
 	
 @onready var mechazord: Node3D = $Mechazorg3D
 @onready var kaiju: Node3D = $Kaiju3D
 
 var game_over := false
 var action_queue: Array[ActionInfo]
+var current_mech_action: ActionInfo = null
+var current_kaiju_action: ActionInfo = null
 
 
-func queue_action(body_part: Node3D, action: Action):
-	action_queue.append(ActionInfo.new(body_part, action))
+func queue_action(actor: Helpers.GigaTarget, body_part: Node3D, action: Action, animation: AnimationPlayer):
+	action_queue.append(ActionInfo.new(actor, body_part, action, animation))
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,8 +39,50 @@ func _process(delta: float) -> void:
 	#TODO: Wait until animation of currently executed action is complete until processing the next
 	#NOTE: Mechazord and Kaiju actions can happen simultaneously, so make sure to check for that when
 	#animations get integrated
-	for action_info in action_queue:
-		match action_info.action.kind:
+	if current_mech_action == null:
+		var next_mech_action_index: int = -1
+		for i in range(0, len(action_queue)):
+			if action_queue[i].actor == Helpers.GigaTarget.MECHAZORD:
+				next_mech_action_index = i
+				break
+		
+		if next_mech_action_index >= 0:
+			current_mech_action = action_queue[next_mech_action_index]
+			action_queue.remove_at(next_mech_action_index)
+			#TODO: Process Action at a given keyframe or some shit
+			process_action(current_mech_action)
+			current_mech_action.animation.play()
+	
+	if current_kaiju_action == null:
+		var next_kaiju_action_index: int = -1
+		for i in range(0, len(action_queue)):
+			if action_queue[i].actor == Helpers.GigaTarget.KAIJU:
+				next_kaiju_action_index = i
+				break
+		
+		if next_kaiju_action_index >= 0:
+			current_kaiju_action = action_queue[next_kaiju_action_index]
+			action_queue.remove_at(next_kaiju_action_index)
+			#TODO: Process Action at a given keyframe or some shit
+			process_action(current_kaiju_action)
+			current_kaiju_action.animation.play()
+			
+	if current_mech_action != null && !current_mech_action.animation.is_playing():
+		current_mech_action = null 
+		
+	if current_kaiju_action != null && !current_kaiju_action.animation.is_playing():
+		current_kaiju_action = null
+
+func kaiju_victory():
+	print("You Lose!")
+	game_over = true
+	
+func mechazord_victory():
+	print("You Win!")
+	game_over = true
+
+func process_action(action_info: ActionInfo) -> void:
+	match action_info.action.kind:
 			Helpers.ActionKind.ATTACK:
 				var attacker: Node3D
 				var target: Node3D
@@ -111,14 +160,3 @@ func _process(delta: float) -> void:
 						mechazord.boost_repair(action_info.action.multiplier, action_info.action.lasting_time_secs)
 					Helpers.GigaTarget.KAIJU:
 						kaiju.boost_repair(action_info.action.multiplier, action_info.action.lasting_time_secs)
-	
-	#TODO: Remove once animations are a thing
-	action_queue.clear()
-
-func kaiju_victory():
-	print("You Lose!")
-	game_over = true
-	
-func mechazord_victory():
-	print("You Win!")
-	game_over = true

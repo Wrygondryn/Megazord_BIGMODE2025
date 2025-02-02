@@ -46,10 +46,10 @@ func _process(delta: float) -> void:
 	
 	hp_bar.texture = hp_texture
 
-func _on_module_fully_charged(data: ModuleData) -> void:
+func _on_module_fully_charged(data: ModuleData, animation: AnimationPlayer) -> void:
 	match condition:
 		Helpers.Condition.NONE: 
-			action_ready.emit(self, Action.from_module_data(data))
+			action_ready.emit(self, Action.from_module_data(data), animation)
 		
 		Helpers.Condition.RESTRAINED:
 			return 

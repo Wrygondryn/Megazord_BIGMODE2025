@@ -42,7 +42,6 @@ kind = 0
 max_hp = 200.0
 
 [node name="CSGBox3D" parent="BodyParts/Head" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0238237, -0.0107212, -0.00247145)
 material_override = ExtResource("3_5q4mp")
 
 [node name="Torso" parent="BodyParts" instance=ExtResource("2_e6u2v")]
@@ -50,36 +49,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26815, 0)
 kind = 3
 max_hp = 300.0
 
-[node name="ReinforceShieldModule" type="Node" parent="BodyParts/Torso/Modules" index="0"]
+[node name="ReinforceShieldModule" type="Node" parent="BodyParts/Torso/Modules" index="0" node_paths=PackedStringArray("animation")]
 script = ExtResource("4_25tbx")
 data = ExtResource("7_t6wdf")
+animation = NodePath("../../TestAnimationPlayer")
 
 [node name="LeftArm" parent="BodyParts" instance=ExtResource("2_e6u2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02394, 3.22905, 0)
 kind = 1
 max_hp = 100.0
 
-[node name="HeavyAttackModule" type="Node" parent="BodyParts/LeftArm/Modules" index="0"]
+[node name="HeavyAttackModule" type="Node" parent="BodyParts/LeftArm/Modules" index="0" node_paths=PackedStringArray("animation")]
 script = ExtResource("4_25tbx")
 data = ExtResource("5_y1wyk")
+animation = NodePath("../../TestAnimationPlayer")
 
 [node name="RightArm" parent="BodyParts" instance=ExtResource("2_e6u2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11515, 3.1759, 0)
 kind = 2
 max_hp = 100.0
 
-[node name="LightAttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0"]
+[node name="LightAttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0" node_paths=PackedStringArray("animation")]
 script = ExtResource("4_25tbx")
 data = ExtResource("6_261qk")
+animation = NodePath("../../TestAnimationPlayer")
 
 [node name="Pelvis" parent="BodyParts" instance=ExtResource("2_e6u2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6141, 0)
 kind = 4
 max_hp = 200.0
 
-[node name="ShieldGainModule" type="Node" parent="BodyParts/Pelvis/Modules" index="0"]
+[node name="ShieldGainModule" type="Node" parent="BodyParts/Pelvis/Modules" index="0" node_paths=PackedStringArray("animation")]
 script = ExtResource("4_25tbx")
 data = ExtResource("8_7cf3t")
+animation = NodePath("../../TestAnimationPlayer")
 
 [node name="LeftLeg" parent="BodyParts" instance=ExtResource("2_e6u2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7265, 0, 0)
@@ -107,3 +110,5 @@ volume_db = -8.0
 [editable path="BodyParts/LeftArm"]
 [editable path="BodyParts/RightArm"]
 [editable path="BodyParts/Pelvis"]
+[editable path="BodyParts/LeftLeg"]
+[editable path="BodyParts/RightLeg"]

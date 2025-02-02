@@ -1,15 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0pllu3mhsxem"]
+[gd_scene load_steps=6 format=3 uid="uid://b0pllu3mhsxem"]
 
 [ext_resource type="Script" path="res://scripts/body_part_3d.gd" id="1_ap2fx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6465"]
 albedo_color = Color(0.666569, 0.666569, 0.666569, 1)
 
+[sub_resource type="Animation" id="Animation_52sk7"]
+resource_name = "test_animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 4), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jb8mh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xq63m"]
+_data = {
+"RESET": SubResource("Animation_jb8mh"),
+"test_animation": SubResource("Animation_52sk7")
+}
+
 [node name="BodyPart3D" type="Node3D"]
 script = ExtResource("1_ap2fx")
 hp_colour = Color(0, 0.577795, 5.77569e-07, 1)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 material_override = SubResource("StandardMaterial3D_s6465")
 
 [node name="HPBar" type="Sprite3D" parent="."]
@@ -38,3 +76,8 @@ font_size = 24
 
 [node name="ConditionTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="TestAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xq63m")
+}

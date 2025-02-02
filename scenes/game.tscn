@@ -200,3 +200,5 @@ light_energy = 0.729
 [editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/LeftArm"]
 [editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/RightArm"]
 [editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/Pelvis"]
+[editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/LeftLeg"]
+[editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/RightLeg"]
