@@ -63,7 +63,7 @@ position = Vector2(576, -72)
 
 [node name="LeftArmAttackSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
 position = Vector2(-690, 305)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules/RestrainAttackModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules/RestrainAttackModule")
 
 [node name="Sprite2D" parent="Dashboard/Sockets/LeftArmAttackSocket" index="0"]
 modulate = Color(1, 0, 0, 1)
@@ -73,7 +73,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="RightArmAttackSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
 position = Vector2(-690, 357)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules/AttackModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules/AttackModule")
 
 [node name="Sprite2D" parent="Dashboard/Sockets/RightArmAttackSocket" index="0"]
 modulate = Color(1, 0, 0, 1)
@@ -83,28 +83,28 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HeadRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
 position = Vector2(-514, 277)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/RepairModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/RepairModule")
 
 [node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/HeadRepairSocket" index="1"]
 metadata/_edit_use_anchors_ = true
 
 [node name="TorsoRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
 position = Vector2(-514, 333)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/RepairModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/RepairModule")
 
 [node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/TorsoRepairSocket" index="1"]
 metadata/_edit_use_anchors_ = true
 
 [node name="PelvisRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
 position = Vector2(-514, 389)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules/RepairModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules/RepairModule")
 
 [node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/PelvisRepairSocket" index="1"]
 metadata/_edit_use_anchors_ = true
 
 [node name="ShieldGainSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
 position = Vector2(-346, 277)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/ShieldModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/ShieldModule")
 
 [node name="Sprite2D" parent="Dashboard/Sockets/ShieldGainSocket" index="0"]
 modulate = Color(0, 0, 1, 1)
@@ -114,7 +114,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ShieldReinforceSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
 position = Vector2(-346, 333)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules/ReinforceShieldModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules/ReinforceShieldModule")
 
 [node name="Sprite2D" parent="Dashboard/Sockets/ShieldReinforceSocket" index="0"]
 modulate = Color(0, 1, 1, 1)
@@ -124,7 +124,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BoostRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("3_y3a8c")]
 position = Vector2(-346, 389)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/BoostRepairModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/BoostRepairModule")
 
 [node name="Sprite2D" parent="Dashboard/Sockets/BoostRepairSocket" index="0"]
 modulate = Color(1, 1, 0, 1)
@@ -138,35 +138,35 @@ metadata/_edit_use_anchors_ = true
 
 [node name="LeftArmAttackDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
 position = Vector2(-18, 234)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules/RestrainAttackModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules/RestrainAttackModule")
 
 [node name="RightArmAttackDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
 position = Vector2(-18, 287)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules/AttackModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules/AttackModule")
 
 [node name="HeadRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
 position = Vector2(158, 207)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/RepairModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/RepairModule")
 
 [node name="TorsoRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
 position = Vector2(158, 263)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/RepairModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/RepairModule")
 
 [node name="PelvisRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
 position = Vector2(158, 319)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules/RepairModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules/RepairModule")
 
 [node name="TorsoShieldGainDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
 position = Vector2(326, 207)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/ShieldModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules/ShieldModule")
 
 [node name="PelvisReinforceShieldDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
 position = Vector2(326, 263)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules/ReinforceShieldModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules/ReinforceShieldModule")
 
 [node name="BoostRepairDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("5_llxl5")]
 position = Vector2(326, 319)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/BoostRepairModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules/BoostRepairModule")
 
 [node name="ConnectionSFX" type="AudioStreamPlayer2D" parent="Dashboard"]
 stream = ExtResource("5_nfmvy")
@@ -200,6 +200,15 @@ script = ExtResource("10_h7enr")
 [node name="Mechazorg3D" parent="SubViewport/Battle3D" instance=ExtResource("10_q6py5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.57438, 0, 0)
 
+[node name="Head_Face" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
+
+[node name="Head_Helmet" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
+
+[node name="Head_Mouthguard" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
+
 [node name="Kaiju3D" parent="SubViewport/Battle3D" instance=ExtResource("10_aojxm")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.281, 0, 0)
 
@@ -215,9 +224,9 @@ transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0, 0, 0)
 [editable path="Dashboard/Sockets/ShieldReinforceSocket"]
 [editable path="Dashboard/Sockets/BoostRepairSocket"]
 [editable path="SubViewport/Battle3D/Mechazorg3D"]
-[editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg"]
-[editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"]
-[editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"]
-[editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"]
-[editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/RArm_Forearm/RightArm"]
-[editable path="SubViewport/Battle3D/Mechazorg3D/BodyParts/megazorg/Armature/Skeleton3D/Torso_Chestplate/Torso"]
+[editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg"]
+[editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"]
+[editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"]
+[editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"]
+[editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm"]
+[editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso"]
