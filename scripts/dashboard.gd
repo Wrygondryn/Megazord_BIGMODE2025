@@ -184,7 +184,7 @@ func recalculate_module_cooldowns():
 	)
 	
 	for i in range(sockets.get_child_count()):
-		sockets.get_child(i).module.charge_rate = 0.0
+		sockets.get_child(i).module.charge_rate = -Helpers.CHARGE_DRAIN_PER_SEC
 		
 	for connection in connections:
 		var power = instance_from_id(connection.jack_instance_id).power
@@ -193,3 +193,5 @@ func recalculate_module_cooldowns():
 		#easy to mess up and leak bugs
 		
 		socket.module.charge_rate = Helpers.MAX_CHARGE_PER_SEC * power / total_power
+		
+	
