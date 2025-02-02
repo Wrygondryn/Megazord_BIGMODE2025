@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dchbk5yutlhiu"]
 
-[ext_resource type="Texture2D" uid="uid://ce3p5lt78rvlk" path="res://assets/circle.png" id="1_18u3d"]
 [ext_resource type="Script" path="res://scripts/socket.gd" id="1_k01id"]
+[ext_resource type="Texture2D" uid="uid://dmgflxce03ehq" path="res://assets/sprites/dashboard/socket.png" id="2_nt5v4"]
 [ext_resource type="AudioStream" uid="uid://bbqtql6jutrds" path="res://assets/jack_in.wav" id="3_ulemf"]
 [ext_resource type="AudioStream" uid="uid://bdygxfbj1au7i" path="res://assets/jack_out.wav" id="4_4hks2"]
 
@@ -13,8 +13,8 @@ script = ExtResource("1_k01id")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 0, 1)
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("1_18u3d")
+scale = Vector2(0.192857, 0.192857)
+texture = ExtResource("2_nt5v4")
 
 [node name="PowerDisplay_TEMP" type="Label" parent="."]
 offset_left = 30.0
