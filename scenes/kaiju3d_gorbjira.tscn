@@ -21,7 +21,7 @@ shield_colour = Color(0, 0, 1, 1)
 reinforced_shield_colour = Color(0, 0.988235, 1, 1)
 
 [node name="ShieldBar" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.63223, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.67121, 0)
 billboard = 1
 region_enabled = true
 region_rect = Rect2(0, 0, 192, 16)
@@ -41,7 +41,7 @@ text = "Reinforced - 000"
 [node name="BodyParts" type="Node3D" parent="."]
 
 [node name="Head" parent="BodyParts" instance=ExtResource("2_kji60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.26836, 1.82907)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00621891, 6.61602, 1.34865)
 kind = 0
 max_hp = 600.0
 
