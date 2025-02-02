@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cnoohet8jjphy"]
+[gd_scene load_steps=16 format=3 uid="uid://cnoohet8jjphy"]
 
 [ext_resource type="Script" path="res://scripts/mechazord_3d.gd" id="1_8t2nw"]
 [ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://scenes/body_part_3d.tscn" id="1_30pws"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://dypvd7e1k8hib" path="res://resources/pelvis_repair_module.tres" id="10_lusm6"]
 [ext_resource type="AudioStream" uid="uid://ce401hpkplka" path="res://assets/mech_impact.wav" id="11_17at3"]
 [ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/shield_impact.wav" id="12_ln7b7"]
+[ext_resource type="PackedScene" uid="uid://cudbx3le8hx5q" path="res://assets/models/megazorg/megazorg_import.blend" id="15_xl0ip"]
 
 [node name="Mechazorg3D" type="Node3D"]
 script = ExtResource("1_8t2nw")
@@ -111,6 +112,9 @@ volume_db = -8.0
 [node name="ShieldImpactSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_ln7b7")
 volume_db = -8.0
+
+[node name="megazorg_import" parent="." instance=ExtResource("15_xl0ip")]
+transform = Transform3D(0.485, 0, 0, 0, 0.485, 0, 0, 0, 0.485, -0.153278, 0, 0.962662)
 
 [editable path="BodyParts/Head"]
 [editable path="BodyParts/Torso"]
