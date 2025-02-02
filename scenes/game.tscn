@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_bofyj"]
-[ext_resource type="Texture2D" uid="uid://dut3tnyyobk3p" path="res://assets/sprites/dashboard/mechazorg_dashboard_overlay.png" id="2_0yuo1"]
+[ext_resource type="Texture2D" uid="uid://dut3tnyyobk3p" path="res://assets/sprites/dashboard/dashboard_overlay/mechazorg_dashboard_overlay.png" id="2_0yuo1"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
 [ext_resource type="PackedScene" uid="uid://kwregxsookrk" path="res://scenes/jack_dispenser.tscn" id="4_whl4r"]
 [ext_resource type="PackedScene" uid="uid://3y3al18ah6ax" path="res://scenes/charge_display.tscn" id="5_llxl5"]

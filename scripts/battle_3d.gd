@@ -123,10 +123,10 @@ func process_action(action_info: ActionInfo) -> void:
 						action_info.action.lasting_time_secs
 					)
 					if action_info.action.condition_kind == Helpers.Condition.RESTRAINED:
-						var attacker_body_parts = attacker.get_node("BodyParts")
+						var attacker_body_parts = attacker.body_parts
 						var attacking_body_part_index: int = 0
-						for i in range(1, attacker_body_parts.get_child_count()):
-							if attacker_body_parts.get_child(i).name == action_info.source_body_part.name:
+						for i in range(1, len(attacker_body_parts)):
+							if attacker_body_parts[i].name == action_info.source_body_part.name:
 								attacking_body_part_index = i
 								break
 						
