@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_bofyj"]
-[ext_resource type="Texture2D" uid="uid://dut3tnyyobk3p" path="res://assets/sprites/dashboard/dashboard_overlay/mechazorg_dashboard_overlay.png" id="2_0yuo1"]
+[ext_resource type="Texture2D" uid="uid://bbt315ykdgmt4" path="res://assets/sprites/dashboard/dashboard_overlay/mechazorg_dashboard_overlay_d.png" id="2_jjcn7"]
 [ext_resource type="PackedScene" uid="uid://dchbk5yutlhiu" path="res://scenes/socket.tscn" id="3_y3a8c"]
 [ext_resource type="Texture2D" uid="uid://by20o576sfiib" path="res://assets/sprites/dashboard/dashboard_symbols/mech_symbol.png" id="3_ym1ev"]
 [ext_resource type="Texture2D" uid="uid://c66swqlwhj4rc" path="res://assets/sprites/dashboard/dashboard_symbols/mech_part_lines_symbol.png" id="4_3mwhc"]
@@ -53,20 +53,20 @@ script = ExtResource("1_bofyj")
 
 [node name="MechazorgDashboardOverlay" type="Sprite2D" parent="Dashboard/Dashboard_Graphics"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_0yuo1")
+texture = ExtResource("2_jjcn7")
 
 [node name="MechSymbol" type="Sprite2D" parent="Dashboard/Dashboard_Graphics"]
-position = Vector2(10, 249)
-scale = Vector2(0.5, 0.5)
+position = Vector2(10, 226)
+scale = Vector2(0.46, 0.46)
 texture = ExtResource("3_ym1ev")
 
 [node name="MechPartLinesSymbol" type="Sprite2D" parent="Dashboard/Dashboard_Graphics"]
-position = Vector2(10, 249)
-scale = Vector2(0.5, 0.5)
+position = Vector2(10, 226)
+scale = Vector2(0.46, 0.46)
 texture = ExtResource("4_3mwhc")
 
 [node name="MechSymbolPower" type="Sprite2D" parent="Dashboard/Dashboard_Graphics"]
-position = Vector2(10, 267)
+position = Vector2(10, 250)
 scale = Vector2(0.589474, 0.589474)
 texture = ExtResource("5_ygmyn")
 
@@ -74,18 +74,18 @@ texture = ExtResource("5_ygmyn")
 position = Vector2(480, -72)
 
 [node name="WeakJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-538, 295)
+position = Vector2(-538, 278)
 colour = Color(0.10748, 0.10748, 0.10748, 1)
 jack_sprite_override = ExtResource("4_r6pmf")
 
 [node name="MedJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-479, 304)
+position = Vector2(-479, 287)
 power = 3
 colour = Color(0.898039, 0.694118, 0, 1)
 jack_sprite_override = ExtResource("5_cr513")
 
 [node name="StrongJackDispenser" parent="Dashboard/JackDispensers" instance=ExtResource("4_whl4r")]
-position = Vector2(-416, 294)
+position = Vector2(-416, 277)
 power = 5
 colour = Color(0.59436, 0.126979, 0.12103, 1)
 jack_sprite_override = ExtResource("6_4gmut")
