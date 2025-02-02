@@ -4,6 +4,7 @@ class_name BodyPart3D
 @export var kind: Helpers.BodyPart = Helpers.BodyPart.ANY
 @export var hp_colour: Color
 @export_range(10.0, 10000.0, 1.0, "or_greater", "hide_slider") var max_hp: float
+@export var trigger_action_process: bool = false
 
 @onready var modules: Node = $Modules
 @onready var hp_display_temp: Label3D = $HPDisplay_TEMP

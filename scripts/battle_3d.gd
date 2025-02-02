@@ -37,11 +37,21 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if game_over: return
 	
-	if current_mech_action != null && !current_mech_action.source_body_part.animation_player.is_playing():
-		current_mech_action = null 
+	if current_mech_action != null:
+		if !current_mech_action.source_body_part.animation_player.is_playing():
+			current_mech_action = null
+		elif current_mech_action.source_body_part.trigger_action_process:
+			#TODO: Find a better way of doing this (like with a signal?) cause this feels janky af
+			process_action(current_mech_action)
+			current_mech_action.source_body_part.trigger_action_process = false
 		
-	if current_kaiju_action != null && !current_kaiju_action.source_body_part.animation_player.is_playing():
-		current_kaiju_action = null
+	if current_kaiju_action != null:
+		if !current_kaiju_action.source_body_part.animation_player.is_playing():
+			current_kaiju_action = null
+		elif current_kaiju_action.source_body_part.trigger_action_process:
+			#TODO: Find a better way of doing this (like with a signal?) cause this feels janky af
+			process_action(current_kaiju_action)
+			current_kaiju_action.source_body_part.trigger_action_process = false
 	
 	#TODO: Wait until animation of currently executed action is complete until processing the next
 	#NOTE: Mechazord and Kaiju actions can happen simultaneously, so make sure to check for that when
@@ -56,8 +66,6 @@ func _process(delta: float) -> void:
 		if next_mech_action_index >= 0:
 			current_mech_action = action_queue[next_mech_action_index]
 			action_queue.remove_at(next_mech_action_index)
-			#TODO: Process Action at a given keyframe or some shit
-			process_action(current_mech_action)
 			current_mech_action.source_body_part.animation_player.play(current_mech_action.animation)
 	
 	if current_kaiju_action == null:
@@ -70,8 +78,6 @@ func _process(delta: float) -> void:
 		if next_kaiju_action_index >= 0:
 			current_kaiju_action = action_queue[next_kaiju_action_index]
 			action_queue.remove_at(next_kaiju_action_index)
-			#TODO: Process Action at a given keyframe or some shit
-			process_action(current_kaiju_action)
 			current_kaiju_action.source_body_part.animation_player.play(current_kaiju_action.animation)
 
 func kaiju_victory():
