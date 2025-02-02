@@ -35,9 +35,14 @@ enum Condition {
 	NONE
 }
 
+#NOTE: This is just here to combine buffs and condtions pretty much
+enum Modifier {
+	BOOSTED_REPAIR,
+	RESTRAINED
+}
 
 const MAX_CHARGE_PER_SEC = 50
-const CHARGE_DRAIN_PER_SEC = 2
+const CHARGE_DRAIN_PER_SEC = 2.0
 const KAIJU_DEFAULT_CHARGE_PER_SEC = 25
 const SHIELD_DRAIN_FRAC_PER_SEC = 0.1
 const AVOID_VITALS_WEIGHT = 4.0 #NOTE: The higher this is, the less likely vitals are to be hit
@@ -47,6 +52,8 @@ const IMPACT_PITCH_RANGE_SEMITONES = 3
 const SHIELD_GAIN_PITCH_RANGE_SEMITONES = 2
 const REPAIR_PITCH_RANGE_SEMITONES = 2
 const REINFORCE_SHIELD_PITCH_RANGE_SEMITONES = 1
+
+const MODIFIER_DISPLAY_X_DELTA = 1.0
 
 
 static func rand_choice_ps(ps: Array[float]) -> int:

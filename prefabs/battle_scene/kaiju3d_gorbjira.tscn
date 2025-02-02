@@ -22,10 +22,13 @@ shield_colour = Color(0, 0, 1, 1)
 reinforced_shield_colour = Color(0, 0.988235, 1, 1)
 
 [node name="ShieldBar" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.67121, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8, 0)
 billboard = 1
 region_enabled = true
 region_rect = Rect2(0, 0, 192, 16)
+
+[node name="Modifiers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2, 1.1)
 
 [node name="ShieldDisplay_TEMP" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52032, 5.5043, 0)

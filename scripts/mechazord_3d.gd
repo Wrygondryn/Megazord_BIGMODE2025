@@ -1,11 +1,14 @@
 extends Node3D
 
 
+const MODIFIER_COOLDOWN_DISPLAY_SCENE = preload("res://prefabs/battle_scene/modifier_cooldown_display.tscn")
+
 @export_range(0.0, 1000.0, 1.0, "or_greater", "hide_slider") var shield: float = 200.0
 @export var shield_colour: Color
 @export var reinforced_shield_colour: Color
 
 @export var body_parts: Array[BodyPart3D];
+@onready var modifiers: Node3D = $Modifiers
 @onready var shield_display_temp: Label3D = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label3D = $ReinforcedShieldDisplay_TEMP
 @onready var boost_repair_timer: Timer = $BoostRepairTimer
@@ -119,6 +122,10 @@ func apply_condition(condition: Helpers.Condition, body_part_index: int, time_le
 	body_part.condition = condition
 	body_part.condition_timer.wait_time = time_length_secs
 	body_part.condition_timer.start()
+	
+	#NOTE: Ideally this would be more generalised but for now this works
+	if condition == Helpers.Condition.RESTRAINED:
+		display_modifier_cooldown(Helpers.Modifier.RESTRAINED, time_length_secs)
 
 func boost_repair(multiplier: float, time_length_secs: float):
 	repair_multiplier = multiplier
@@ -129,6 +136,8 @@ func boost_repair(multiplier: float, time_length_secs: float):
 	var pitch_range_max := Helpers.semitones_to_scale(BOOST_REPAIR_PITCH_RANGE_SEMITONES)
 	boost_repair_sfx.pitch_scale = randf_range(1 / pitch_range_max, pitch_range_max)
 	boost_repair_sfx.play()
+	
+	display_modifier_cooldown(Helpers.Modifier.BOOSTED_REPAIR, time_length_secs)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -165,3 +174,17 @@ func _process(delta: float) -> void:
 	
 func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: StringName):
 	battle.queue_action(Helpers.GigaTarget.MECHAZORD, body_part, action, animation)
+
+
+func display_modifier_cooldown(modifier: Helpers.Modifier, cooldown_secs: float):	
+	for cooldown_display in modifiers.get_children():
+		if cooldown_display.current_modifier == modifier:
+			cooldown_display.start_timed_event(modifier, cooldown_secs)
+			return
+	
+	var new_modifier_cooldown_display = MODIFIER_COOLDOWN_DISPLAY_SCENE.instantiate()
+	modifiers.add_child(new_modifier_cooldown_display)
+	new_modifier_cooldown_display.global_position = modifiers.global_position
+	
+	new_modifier_cooldown_display.position.z -= Helpers.MODIFIER_DISPLAY_X_DELTA * (modifiers.get_child_count() - 1)
+	new_modifier_cooldown_display.start_timed_event(modifier, cooldown_secs)

@@ -26,18 +26,20 @@
 [ext_resource type="AudioStream" uid="uid://us303usa1tfi" path="res://assets/music_and_sounds/shield_reinforce.wav" id="18_ksyx3"]
 [ext_resource type="AudioStream" uid="uid://bi2hfo5jmdxyb" path="res://assets/music_and_sounds/echoy_wolf_howl.wav" id="19_oxpmw"]
 
-[node name="Mechazorg3D" type="Node3D" node_paths=PackedStringArray("body_parts")]
+[node name="Mechazorg3D" type="Node3D"]
 script = ExtResource("1_8t2nw")
 shield = 300.0
 shield_colour = Color(0, 0, 1, 1)
 reinforced_shield_colour = Color(0, 1, 1, 1)
-body_parts = [NodePath("MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"), NodePath("MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso"), NodePath("MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"), NodePath("MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm"), NodePath("MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"), NodePath("MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg"), NodePath("MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg")]
 
 [node name="ShieldBar" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.63223, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8, 0)
 billboard = 1
 region_enabled = true
 region_rect = Rect2(0, 0, 192, 16)
+
+[node name="Modifiers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2, 1)
 
 [node name="ShieldDisplay_TEMP" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043108, 6.31339, 0)
@@ -53,12 +55,6 @@ text = "Reinforced - 000"
 
 [node name="MechaZorg" parent="." instance=ExtResource("2_yg8ix")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.153278, 0, 0.152777)
-
-[node name="Head_Face" parent="MechaZorg/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
-
-[node name="Head_Helmet" parent="MechaZorg/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
 
 [node name="Head" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 3.51609e-13, 1.17203e-13, 1.17203e-13, 2.06186, -3.28364e-07, -3.48862e-13, 3.30284e-07, 2.06186, 0, 11.016, -0.035)
@@ -77,9 +73,6 @@ animation_name = &"test_animation"
 script = ExtResource("2_qs1rj")
 data = ExtResource("4_f06yl")
 animation_name = &"test_animation"
-
-[node name="Head_Mouthguard" parent="MechaZorg/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
 
 [node name="LeftArm" parent="MechaZorg/Armature/Skeleton3D/LArm_Forearm" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 4.58988, 9.76538, -0.23652)

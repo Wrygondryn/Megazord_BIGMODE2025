@@ -259,8 +259,9 @@ unique_name_in_owner = true
 script = ExtResource("21_p4tn3")
 kaiju = NodePath("Kaiju3D_Gorbjira")
 
-[node name="Mechazorg3D" parent="SubViewport/Battle3D" instance=ExtResource("22_epli8")]
+[node name="Mechazorg3D" parent="SubViewport/Battle3D" node_paths=PackedStringArray("body_parts") instance=ExtResource("22_epli8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.36102, 0, 0)
+body_parts = [NodePath("MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"), NodePath("MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso"), NodePath("MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"), NodePath("MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm"), NodePath("MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"), NodePath("MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg"), NodePath("MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg")]
 
 [node name="Skeleton3D" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature" index="0"]
 bones/2/rotation = Quaternion(0.08685, 2.37518e-07, -1.78309e-15, 0.996221)

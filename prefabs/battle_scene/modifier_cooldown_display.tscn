@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://ch6v4ei1p6dxv"]
+
+[ext_resource type="Script" path="res://scripts/timed_event_display.gd" id="1_n22ik"]
+[ext_resource type="Texture2D" uid="uid://c5iaouw8f2kjt" path="res://assets/sprites/dashboard/action_symbols/restrain-arm_claw_symbol.png" id="2_cmocy"]
+[ext_resource type="FontFile" uid="uid://b1o736at0xfi" path="res://assets/fonts/StalinistOne-Regular.ttf" id="3_04be8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n7276"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Gradient" id="Gradient_iss2s"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vu02s"]
+gradient = SubResource("Gradient_iss2s")
+width = 124
+height = 124
+fill_to = Vector2(1, 1)
+
+[node name="ModifierCooldownDisplay" type="Node3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+script = ExtResource("1_n22ik")
+boon_colour = Color(0.60361, 1, 0.573066, 1)
+bane_colour = Color(1, 0.648568, 0.594259, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = SubResource("ViewportTexture_n7276")
+region_enabled = true
+region_rect = Rect2(0, 0, 150, 150)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(150, 150)
+
+[node name="Background" type="TextureRect" parent="SubViewport"]
+modulate = Color(1, 0.668803, 0.616929, 1)
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 137.0
+offset_bottom = 137.0
+texture = SubResource("GradientTexture2D_vu02s")
+
+[node name="Symbol" type="TextureRect" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_cmocy")
+
+[node name="RemainingTimeText" type="Label" parent="SubViewport"]
+offset_left = 65.0
+offset_top = 112.0
+offset_right = 105.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_04be8")
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
