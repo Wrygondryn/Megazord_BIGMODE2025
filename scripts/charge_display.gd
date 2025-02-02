@@ -3,6 +3,7 @@ extends Node2D
 @export var module: Node
 
 @onready var charge_bar: Sprite2D = $ChargeBar
+@onready var label:Label = $Label
 
 var initial_charge_bar_transform: Transform2D
 
@@ -17,3 +18,4 @@ func _process(delta: float) -> void:
 	var initial_width = charge_bar.texture.get_width() * initial_charge_bar_transform.get_scale().x * transform.get_scale().x
 	var new_width = initial_width * frac_charged
 	charge_bar.global_position.x = transform.origin.x - (initial_width - new_width) / 2.0
+	label.text = str(floor(module.data.charge_capacity - module.charge))
