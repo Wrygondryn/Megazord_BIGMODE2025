@@ -16,3 +16,11 @@ func _process(delta: float) -> void:
 	mouse_pos.y = max(min(mouse_pos.y, view_size.y), -view_size.y);
 	self.offset = mouse_pos*look_speed;
 	parallax_frame.offset = -mouse_pos*parallax_look_speed;
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_F11:
+			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			else:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
