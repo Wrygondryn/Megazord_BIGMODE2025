@@ -1,6 +1,6 @@
 extends Node2D
 
-const JACK_SCENE = preload("res://scenes/jack.tscn")
+const JACK_SCENE = preload("res://prefabs/dashboard/jack.tscn")
 
 @export_range(1, 10) var power: int = 1
 @export var colour: Color = Color.BLACK
