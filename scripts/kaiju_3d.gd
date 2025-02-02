@@ -9,7 +9,7 @@ extends Node3D
 #TODO: Reintroduce this if we want modules that are separate from body parts
 #@export var extra_modules: Array[ModuleData]
 
-@onready var body_parts: Node3D = $BodyParts
+@onready var body_parts: Array[BodyPart3D];
 @onready var shield_display_temp: Label3D = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label3D = $ReinforcedShieldDisplay_TEMP
 @onready var boost_repair_timer: Timer = $BoostRepairTimer
@@ -23,10 +23,11 @@ var repair_multiplier: float = 1.0
 #var num_focused_attacks := 0
 #var focused_body_part_index := 0
 
+
 #NOTE: This is just for testing purposes
 func next_vital_index_to_attack(target: Node3D) -> int:
-	for i in range(target.body_parts.get_child_count()):
-		var body_part = target.body_parts.get_child(i)
+	for i in range(len(target.body_parts)):
+		var body_part = target.body_parts[i]
 		if body_part.hp > 0.0 && Helpers.body_part_is_vital(body_part.kind):
 			return i
 	
@@ -36,8 +37,8 @@ func next_vital_index_to_attack(target: Node3D) -> int:
 func next_body_part_index_to_attack(target: Node3D) -> int:
 	var valid_target_indices = []
 	var num_vitals: int = 0
-	for i in range(target.body_parts.get_child_count()):
-		var body_part = target.body_parts.get_child(i)
+	for i in range(len(target.body_parts)):
+		var body_part = target.body_parts[i]
 		if body_part.hp > 0.0:
 			valid_target_indices.append(i)
 			num_vitals += int(Helpers.body_part_is_vital(body_part.kind))
@@ -51,7 +52,7 @@ func next_body_part_index_to_attack(target: Node3D) -> int:
 	var prob_of_non_vitals := 1.0 - prob_of_vitals 
 	var valid_target_ps: Array[float] = []
 	for body_part_index in valid_target_indices:
-		var is_vital := Helpers.body_part_is_vital(target.body_parts.get_child(body_part_index).kind)
+		var is_vital := Helpers.body_part_is_vital(target.body_parts[body_part_index].kind)
 		var prob_of_like_part = prob_of_vitals if is_vital else prob_of_non_vitals
 		var num_like_parts := num_vitals if is_vital else len(valid_target_indices) - num_vitals		
 		valid_target_ps.append(prob_of_like_part / float(num_like_parts))
@@ -64,17 +65,17 @@ func next_body_part_index_to_attack(target: Node3D) -> int:
 	# - Pick the body part with the least HP and focus it
 	# - When either the body part is down, or after 6 attacks, focus on the next weakest body part
 	#
-	#var focused_body_part_hp = target.body_parts.get_child(focused_body_part_index).hp
+	#var focused_body_part_hp = target.body_parts[focused_body_part_index].hp
 	#
 	#var result := focused_body_part_index
 	#if num_focused_attacks == 0 || focused_body_part_hp == 0.0:
-	#	for i in range(1, target.body_parts.get_child_count()):
-	#		var current_hp = target.body_parts.get_child(i).hp
+	#	for i in range(1, len(target.body_parts)):
+	#		var current_hp = target.body_parts[i].hp
 	#		if current_hp != 0.0:
 	#			if result == -1:
 	#				result = i
 	#			else: 
-	#				var min_hp = target.body_parts.get_child(result).hp
+	#				var min_hp = target.body_parts[result].hp
 	#				if current_hp > min_hp:
 	#					result = i
 	#					
@@ -94,7 +95,7 @@ func damage_body_part(body_part_index: int, damage: float, pierces: bool) -> voi
 	var shield_to_compare = shield if !pierces else reinforced_shield
 	if shield_to_compare == 0.0:
 		var hp_damage = damage - shield_damage
-		var body_part = body_parts.get_child(body_part_index)
+		var body_part = body_parts[body_part_index]
 		body_part.hp = max(body_part.hp - hp_damage, 0.0)
 		
 		impact_sfx = body_impact_sfx
@@ -109,8 +110,8 @@ func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
 	#assert(body_part != Helpers.BodyPart.ANY)
 	#print("Healed %.0f of %d's HP" % [heal, body_part])
 	
-	for i in range(body_parts.get_child_count()):
-		var body_part = body_parts.get_child(i)
+	for i in range(len(body_parts)):
+		var body_part = body_parts[i]
 		if body_part.kind == body_part_kind:
 			body_part.hp = min(body_part.max_hp, body_part.hp + heal * repair_multiplier)
 
@@ -121,7 +122,7 @@ func reinforce_shield(shield_reinforced: float):
 	reinforced_shield = min(reinforced_shield + shield_reinforced, shield)
 
 func apply_condition(condition: Helpers.Condition, body_part_index: int, time_length_secs: float):
-	var body_part = body_parts.get_child(body_part_index)
+	var body_part = body_parts[body_part_index]
 	body_part.condition = condition
 	body_part.condition_timer.wait_time = time_length_secs
 	body_part.condition_timer.start()
@@ -133,7 +134,9 @@ func boost_repair(multiplier: float, time_length_secs: float):
 
 
 func _ready():
-	for body_part in body_parts.get_children():
+	for body_part in $BodyParts.get_children():
+		if body_part is BodyPart3D:
+			body_parts.append(body_part);
 		for module in body_part.modules.get_children(): 
 			module.charge_rate = Helpers.KAIJU_DEFAULT_CHARGE_PER_SEC
 		

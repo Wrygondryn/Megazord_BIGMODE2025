@@ -5,7 +5,7 @@ extends Node3D
 @export var shield_colour: Color
 @export var reinforced_shield_colour: Color
 
-@onready var body_parts: Node3D = $BodyParts
+@export var body_parts: Array[BodyPart3D];
 @onready var shield_display_temp: Label3D = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label3D = $ReinforcedShieldDisplay_TEMP
 @onready var boost_repair_timer: Timer = $BoostRepairTimer
@@ -19,8 +19,8 @@ var repair_multiplier: float = 1.0
 
 #NOTE: This is just for testing purposes
 func next_vital_index_to_attack(target: Node3D) -> int:
-	for i in range(target.body_parts.get_child_count()):
-		var body_part = target.body_parts.get_child(i)
+	for i in range(len(target.body_parts)):
+		var body_part:BodyPart3D = target.body_parts[i]
 		if body_part.hp > 0.0 && Helpers.body_part_is_vital(body_part.kind):
 			return i
 	
@@ -30,8 +30,8 @@ func next_vital_index_to_attack(target: Node3D) -> int:
 func next_body_part_index_to_attack(target: Node3D) -> int:
 	var valid_target_indices = []
 	var num_vitals: int = 0
-	for i in range(target.body_parts.get_child_count()):
-		var body_part = target.body_parts.get_child(i)
+	for i in range(len(target.body_parts)):
+		var body_part:BodyPart3D = target.body_parts[i]
 		if body_part.hp > 0.0:
 			valid_target_indices.append(i)
 			num_vitals += int(Helpers.body_part_is_vital(body_part.kind))
@@ -45,7 +45,7 @@ func next_body_part_index_to_attack(target: Node3D) -> int:
 	var prob_of_non_vitals := 1.0 - prob_of_vitals 
 	var valid_target_ps: Array[float] = []
 	for body_part_index in valid_target_indices:
-		var is_vital := Helpers.body_part_is_vital(target.body_parts.get_child(body_part_index).kind)
+		var is_vital := Helpers.body_part_is_vital(target.body_parts[body_part_index].kind)
 		var prob_of_like_part = prob_of_vitals if is_vital else prob_of_non_vitals
 		var num_like_parts := num_vitals if is_vital else len(valid_target_indices) - num_vitals		
 		valid_target_ps.append(prob_of_like_part / num_like_parts)
@@ -64,7 +64,7 @@ func damage_body_part(body_part_index: int, damage: float, pierces: bool) -> voi
 	var shield_to_compare = shield if !pierces else reinforced_shield
 	if shield_to_compare == 0.0:
 		var hp_damage = damage - shield_damage
-		var body_part = body_parts.get_child(body_part_index)
+		var body_part = body_parts[body_part_index]
 		body_part.hp = max(body_part.hp - hp_damage, 0.0)
 	
 		impact_sfx = body_impact_sfx
@@ -79,8 +79,8 @@ func repair_body_part(heal: float, body_part_kind: Helpers.BodyPart):
 	#assert(body_part != Helpers.BodyPart.ANY)
 	#print("Healed %.0f of %d's HP" % [heal, body_part])
 	
-	for i in range(body_parts.get_child_count()):
-		var body_part = body_parts.get_child(i)
+	for i in range(len(body_parts)):
+		var body_part = body_parts[i]
 		if body_part.kind == body_part_kind:
 			body_part.hp = min(body_part.max_hp, body_part.hp + heal * repair_multiplier)
 
@@ -93,7 +93,7 @@ func reinforce_shield(shield_reinforced: float):
 func apply_condition(condition: Helpers.Condition, body_part_index: int, time_length_secs: float):
 	assert(time_length_secs > 0.0 && condition != Helpers.Condition.NONE)
 	
-	var body_part = body_parts.get_child(body_part_index)
+	var body_part = body_parts[body_part_index]
 	body_part.condition = condition
 	body_part.condition_timer.wait_time = time_length_secs
 	body_part.condition_timer.start()
@@ -105,7 +105,7 @@ func boost_repair(multiplier: float, time_length_secs: float):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for body_part in body_parts.get_children():
+	for body_part in body_parts:
 		body_part.action_ready.connect(_on_body_part_action_ready)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
