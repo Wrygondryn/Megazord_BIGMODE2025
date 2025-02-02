@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dut3tnyyobk3p"
-path="res://.godot/imported/mechazorg_dashboard_overlay.png-54c25ada25bcc0076367a4e44f18e2f1.ctex"
+uid="uid://bqqxinjnsa0xg"
+path="res://.godot/imported/mechazorg_dashboard_overlay_c.png-7d1b155d4ce9104190ba8ec615e56fef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/dashboard/mechazorg_dashboard_overlay.png"
-dest_files=["res://.godot/imported/mechazorg_dashboard_overlay.png-54c25ada25bcc0076367a4e44f18e2f1.ctex"]
+source_file="res://assets/sprites/dashboard/dashboard_overlay/mechazorg_dashboard_overlay_c.png"
+dest_files=["res://.godot/imported/mechazorg_dashboard_overlay_c.png-7d1b155d4ce9104190ba8ec615e56fef.ctex"]
 
 [params]
 
