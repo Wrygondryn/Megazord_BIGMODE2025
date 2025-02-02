@@ -1,4 +1,5 @@
 extends Node3D
+class_name Kaiju3D
 		
 
 # const MAX_FOCUSED_ATTACKS := 6

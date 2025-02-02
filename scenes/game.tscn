@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://b1wfebv4w7jyh" path="res://assets/sprites/dashboard/dashboard_symbols/mech_symbol_power.png" id="5_ygmyn"]
 [ext_resource type="Texture2D" uid="uid://ccyhkoe632ksj" path="res://assets/battle_viewport_texture.tres" id="6_1fs6v"]
 [ext_resource type="Texture2D" uid="uid://b1vfbje030n7w" path="res://assets/sprites/dashboard/jacks/jack_heads/jack_top_ridged.png" id="6_4gmut"]
-[ext_resource type="PackedScene" uid="uid://c2sx4tsnvgo2t" path="res://scenes/kaiju_3d.tscn" id="10_aojxm"]
 [ext_resource type="Script" path="res://scripts/battle_3d.gd" id="10_h7enr"]
 [ext_resource type="PackedScene" uid="uid://cnoohet8jjphy" path="res://scenes/mechazorg_3d.tscn" id="10_q6py5"]
 [ext_resource type="PackedScene" uid="uid://b12hvhwsd8mat" path="res://assets/models/city/proc_city_bake.glb" id="10_y68p1"]
@@ -24,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bkvhu3tuj80hc" path="res://assets/sprites/dashboard/action_symbols/reinforce_symbol.png" id="15_jv1qm"]
 [ext_resource type="Texture2D" uid="uid://bakrmfikt2uat" path="res://icon.svg" id="15_l8sts"]
 [ext_resource type="Texture2D" uid="uid://rq1fc7xyp1hu" path="res://assets/sprites/dashboard/action_symbols/boostrepair_symbol.png" id="16_r4g5g"]
+[ext_resource type="PackedScene" uid="uid://cb2st83ohprx" path="res://scenes/kaiju3d_gorbjira.tscn" id="23_p2mg6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dyj7c"]
 sky_top_color = Color(0.657493, 0.881287, 0.990151, 1)
@@ -254,9 +254,10 @@ light_energy = 0.729
 transform = Transform3D(1, 0, 0, 0, 0.992115, 0.125333, 0, -0.125333, 0.992115, -0.055, 4.949, 9.921)
 fov = 57.6166
 
-[node name="Battle3D" type="Node3D" parent="SubViewport"]
+[node name="Battle3D" type="Node3D" parent="SubViewport" node_paths=PackedStringArray("kaiju")]
 unique_name_in_owner = true
 script = ExtResource("10_h7enr")
+kaiju = NodePath("Kaiju3D_Gorbjira")
 
 [node name="Mechazorg3D" parent="SubViewport/Battle3D" instance=ExtResource("10_q6py5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.57438, 0, 0)
@@ -270,7 +271,7 @@ transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-
 [node name="Head_Mouthguard" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="2"]
 transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
 
-[node name="Kaiju3D" parent="SubViewport/Battle3D" instance=ExtResource("10_aojxm")]
+[node name="Kaiju3D_Gorbjira" parent="SubViewport/Battle3D" instance=ExtResource("23_p2mg6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.281, 0, 0)
 
 [node name="proc_city_bake" parent="SubViewport" instance=ExtResource("10_y68p1")]
@@ -294,11 +295,3 @@ transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0, 0, 0)
 [editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm"]
 [editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg"]
 [editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso"]
-[editable path="SubViewport/Battle3D/Kaiju3D"]
-[editable path="SubViewport/Battle3D/Kaiju3D/BodyParts/Head"]
-[editable path="SubViewport/Battle3D/Kaiju3D/BodyParts/Torso"]
-[editable path="SubViewport/Battle3D/Kaiju3D/BodyParts/LeftArm"]
-[editable path="SubViewport/Battle3D/Kaiju3D/BodyParts/RightArm"]
-[editable path="SubViewport/Battle3D/Kaiju3D/BodyParts/Pelvis"]
-[editable path="SubViewport/Battle3D/Kaiju3D/BodyParts/LeftLeg"]
-[editable path="SubViewport/Battle3D/Kaiju3D/BodyParts/RightLeg"]

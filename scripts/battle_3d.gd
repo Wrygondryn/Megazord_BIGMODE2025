@@ -17,7 +17,7 @@ class ActionInfo:
 	
 	
 @onready var mechazord: Node3D = $Mechazorg3D
-@onready var kaiju: Node3D = $Kaiju3D
+@export var kaiju: Kaiju3D;
 
 var game_over := false
 var action_queue: Array[ActionInfo]

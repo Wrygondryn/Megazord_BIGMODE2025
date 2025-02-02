@@ -52,7 +52,7 @@ billboard = 1
 text = "Reinforced - 000"
 
 [node name="MechaZorg" parent="." instance=ExtResource("2_yg8ix")]
-transform = Transform3D(0.485, 0, 0, 0, 0.485, 0, 0, 0, 0.485, -0.153278, 0, 0.152777)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.153278, 0, 0.152777)
 
 [node name="Head_Face" parent="MechaZorg/Armature/Skeleton3D" index="0"]
 transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)

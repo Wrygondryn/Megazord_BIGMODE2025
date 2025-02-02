@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cudbx3le8hx5q"
-path="res://.godot/imported/megazorg_import.blend-2607f97b253d6ebdebcb35e5bf74d3b6.scn"
+uid="uid://8o4t6238xjjw"
+path="res://.godot/imported/gorbjira.blend-e8afd3bc3331baf2bb53a4be9b19da01.scn"
 
 [deps]
 
-source_file="res://assets/models/megazorg/megazorg_import.blend"
-dest_files=["res://.godot/imported/megazorg_import.blend-2607f97b253d6ebdebcb35e5bf74d3b6.scn"]
+source_file="res://assets/models/kaiju/gorbjira/gorbjira.blend"
+dest_files=["res://.godot/imported/gorbjira.blend-e8afd3bc3331baf2bb53a4be9b19da01.scn"]
 
 [params]
 

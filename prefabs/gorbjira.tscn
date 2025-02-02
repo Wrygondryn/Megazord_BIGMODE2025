@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyswmaifnol4u"]
+
+[ext_resource type="PackedScene" uid="uid://8o4t6238xjjw" path="res://assets/models/kaiju/gorbjira/gorbjira.blend" id="1_qja4l"]
+[ext_resource type="Material" uid="uid://cc0khrdvhtwkf" path="res://assets/models/kaiju/kaiju_base.material" id="2_pu1wv"]
+[ext_resource type="Material" uid="uid://d1is8um3djaf6" path="res://assets/models/kaiju/kaiju_glow.material" id="3_kotii"]
+
+[node name="Gorbjira" instance=ExtResource("1_qja4l")]
+
+[node name="gorbjira" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_pu1wv")
+surface_material_override/1 = ExtResource("3_kotii")

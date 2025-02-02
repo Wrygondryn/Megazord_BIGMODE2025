@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cnrolv0gwmoi4"]
 
-[ext_resource type="PackedScene" uid="uid://cudbx3le8hx5q" path="res://assets/models/megazorg/megazorg_import.blend" id="1_tvmck"]
+[ext_resource type="PackedScene" uid="uid://cudbx3le8hx5q" path="res://assets/models/mechazorg/megazorg_import.blend" id="1_tvmck"]
 
 [node name="megazorg" instance=ExtResource("1_tvmck")]
 
