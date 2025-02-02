@@ -20,7 +20,7 @@
 script = ExtResource("1_8t2nw")
 shield_colour = Color(0, 0, 1, 1)
 reinforced_shield_colour = Color(0, 1, 1, 1)
-body_parts = [NodePath("MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"), NodePath("MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso"), NodePath("MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"), NodePath("MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"), NodePath("MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm"), NodePath("MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg"), NodePath("MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg")]
+body_parts = [NodePath("MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"), NodePath("MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso"), NodePath("MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"), NodePath("MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm"), NodePath("MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"), NodePath("MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg"), NodePath("MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg")]
 
 [node name="ShieldBar" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.63223, 0)
@@ -60,12 +60,12 @@ material_override = ExtResource("2_pb2md")
 [node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("3_2bqwm")
-animation = NodePath("../../TestAnimationPlayer")
+animation_name = &"test_animation"
 
 [node name="BoostRepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules" index="1"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("4_f06yl")
-animation = NodePath("../../TestAnimationPlayer")
+animation_name = &"test_animation"
 
 [node name="Head_Mouthguard" parent="MechaZorg/Armature/Skeleton3D" index="2"]
 transform = Transform3D(1, -1.7053e-13, -5.68434e-14, -5.68434e-14, 1, 1.59256e-07, 1.69198e-13, -1.60187e-07, 1, -8.55569e-13, 0, 1.43051e-06)
@@ -78,7 +78,7 @@ max_hp = 120.0
 [node name="RestrainAttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("6_to568")
-animation = NodePath("../../TestAnimationPlayer")
+animation_name = &"test_animation"
 
 [node name="LeftLeg" parent="MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 1.38486, 1.37522, 2.25493)
@@ -93,10 +93,12 @@ max_hp = 100.0
 [node name="ReinforceShieldModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("9_qxrjr")
+animation_name = &"test_animation"
 
 [node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules" index="1"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("10_lusm6")
+animation_name = &"test_animation"
 
 [node name="RightArm" parent="MechaZorg/Armature/Skeleton3D/RArm_Forearm" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, -4.59, 9.765, -0.237)
@@ -106,6 +108,7 @@ max_hp = 120.0
 [node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("5_ctcmh")
+animation_name = &"test_animation"
 
 [node name="RightLeg" parent="MechaZorg/Armature/Skeleton3D/RLeg_Foot" index="0" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, -2.5559, 1.37522, -1.98676)
@@ -120,10 +123,12 @@ max_hp = 200.0
 [node name="ShieldModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("5_6jtkx")
+animation_name = &"test_animation"
 
 [node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules" index="1"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("6_0iw3j")
+animation_name = &"test_animation"
 
 [node name="BoostRepairTimer" type="Timer" parent="."]
 one_shot = true

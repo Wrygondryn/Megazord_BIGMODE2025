@@ -10,6 +10,7 @@ class_name BodyPart3D
 @onready var condition_display_temp: Label3D = $ConditionDisplay_TEMP
 @onready var condition_timer: Timer = $ConditionTimer
 @onready var hp_bar: Sprite3D = $HPBar
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var hp: float
 var condition := Helpers.Condition.NONE 
@@ -47,7 +48,7 @@ func _process(delta: float) -> void:
 	
 	hp_bar.texture = hp_texture
 
-func _on_module_fully_charged(data: ModuleData, animation: AnimationPlayer) -> void:
+func _on_module_fully_charged(data: ModuleData, animation: StringName) -> void:
 	match condition:
 		Helpers.Condition.NONE: 
 			action_ready.emit(self, Action.from_module_data(data), animation)
