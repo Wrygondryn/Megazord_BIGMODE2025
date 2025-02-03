@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=40 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://prefabs/dashboard/dashboard_camera.gd" id="1_xmdqw"]
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="2_6o6iw"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bakrmfikt2uat" path="res://icon.svg" id="20_a7mnx"]
 [ext_resource type="Script" path="res://scripts/battle_3d.gd" id="21_p4tn3"]
 [ext_resource type="Script" path="res://scripts/orbiting_camera3d.gd" id="22_1onqw"]
+[ext_resource type="Texture2D" uid="uid://fd0otq3b42e1" path="res://assets/sprites/Screenshot 2025-02-03 130444.png" id="22_bfndb"]
 [ext_resource type="PackedScene" uid="uid://cnoohet8jjphy" path="res://prefabs/battle_scene/mechazorg_3d.tscn" id="22_epli8"]
 [ext_resource type="PackedScene" uid="uid://cb2st83ohprx" path="res://prefabs/battle_scene/kaiju3d_gorbjira.tscn" id="23_t2umd"]
 [ext_resource type="PackedScene" uid="uid://b12hvhwsd8mat" path="res://assets/models/city/proc_city_bake.glb" id="24_srtqa"]
@@ -318,12 +319,17 @@ position = Vector2(0, -203.6)
 scale = Vector2(0.567292, 0.567292)
 texture = ExtResource("19_wxshx")
 
-[node name="buffer" type="Sprite2D" parent="BattleView"]
-visible = false
+[node name="buffer_bottom" type="Sprite2D" parent="BattleView"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(0, 492.646)
 scale = Vector2(25, 1)
 texture = ExtResource("20_a7mnx")
+
+[node name="buffer_back" type="Sprite2D" parent="BattleView"]
+z_index = -5
+position = Vector2(10.5766, 119.163)
+scale = Vector2(1.76276, 1.76276)
+texture = ExtResource("22_bfndb")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 gui_disable_input = true
