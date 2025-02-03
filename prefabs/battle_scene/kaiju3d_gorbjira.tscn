@@ -9,13 +9,13 @@
 [ext_resource type="Resource" uid="uid://bni5fgqtb6e62" path="res://resources/kaiju_modules/kaiju_reinforce_shield_module.tres" id="6_dgdt3"]
 [ext_resource type="Resource" uid="uid://dty47rxq1lsdx" path="res://resources/kaiju_modules/kaiju_laser_beam.tres" id="6_oojfh"]
 [ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/kaiju_modules/kaiju_left_arm_attack_module.tres" id="8_ijr1p"]
-[ext_resource type="Resource" path="res://resources/kaiju_modules/kaiju_torso_scratch_attack.tres" id="8_kac7x"]
+[ext_resource type="Resource" uid="uid://cuk8ahbpqwivu" path="res://resources/kaiju_modules/kaiju_torso_scratch_attack.tres" id="8_kac7x"]
 [ext_resource type="Resource" uid="uid://oy6hvmui7fxc" path="res://resources/kaiju_modules/kaiju_tail_whip_module.tres" id="9_2jshx"]
 [ext_resource type="PackedScene" uid="uid://cyswmaifnol4u" path="res://prefabs/battle_scene/battle_models/gorbjira.tscn" id="9_23rwx"]
 [ext_resource type="AudioStream" uid="uid://5npyyj6emr86" path="res://assets/music_and_sounds/kaiju_impact.wav" id="10_mmb6l"]
-[ext_resource type="Resource" path="res://resources/kaiju_modules/kaiju_right_leg_attack_module.tres" id="11_0k068"]
+[ext_resource type="Resource" uid="uid://cto3f2o83rfpb" path="res://resources/kaiju_modules/kaiju_right_leg_attack_module.tres" id="11_0k068"]
 [ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/music_and_sounds/shield_impact.wav" id="11_5jy7c"]
-[ext_resource type="Resource" path="res://resources/kaiju_modules/kaiju_left_leg_attack_module.tres" id="12_74d4w"]
+[ext_resource type="Resource" uid="uid://m013i57ak45e" path="res://resources/kaiju_modules/kaiju_left_leg_attack_module.tres" id="12_74d4w"]
 [ext_resource type="AudioStream" uid="uid://d2lrwm0n8sdf8" path="res://assets/music_and_sounds/shield_gain.wav" id="12_lv1u3"]
 [ext_resource type="AudioStream" uid="uid://us303usa1tfi" path="res://assets/music_and_sounds/shield_reinforce.wav" id="13_qk6kw"]
 
@@ -62,7 +62,6 @@ bones/5/scale = Vector3(1.01638, 1.01638, 1.01638)
 bones/8/rotation = Quaternion(-0.0212807, -0.0670334, -0.00408993, 0.997515)
 bones/14/position = Vector3(-1.34113, 0.630745, -0.359759)
 bones/16/rotation = Quaternion(0.0215589, -0.0774121, 0.00219365, 0.996764)
-bones/16/scale = Vector3(1, 1, 1)
 bones/22/position = Vector3(-3.91935e-11, 1.65576, -1.67844)
 bones/24/rotation = Quaternion(0.124248, -2.36571e-07, 6.44482e-14, 0.992251)
 bones/26/position = Vector3(0.979848, 5.47626, -0.179639)
@@ -71,7 +70,7 @@ bones/30/position = Vector3(-0.990943, 5.47626, -0.179639)
 bones/32/rotation = Quaternion(-0.660193, -0.354403, -0.00217573, 0.662223)
 
 [node name="HeadBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.999997, 0.0018994, 0.00173597, -0.000526157, 0.811317, -0.584606, -0.00251883, 0.584603, 0.811316, 0.00939831, 11.042, 2.22243)
+transform = Transform3D(0.999997, 0.0018994, 0.00173598, -0.000526157, 0.811317, -0.584606, -0.00251883, 0.584603, 0.811316, 0.0093983, 11.042, 2.22243)
 bone_name = "Head_Neck"
 bone_idx = 3
 
@@ -95,7 +94,7 @@ data = ExtResource("6_oojfh")
 animation_name = &"test_animation"
 
 [node name="LArmBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.887423, 0.161406, -0.431775, -0.190388, -0.72472, -0.662218, -0.419802, 0.669872, -0.612403, 2.85077, 6.97107, 3.12329)
+transform = Transform3D(0.887422, 0.161406, -0.431775, -0.190389, -0.72472, -0.662218, -0.419802, 0.669872, -0.612403, 2.85077, 6.97107, 3.12329)
 bone_name = "ArmLeft_Forearm"
 bone_idx = 8
 
@@ -116,7 +115,7 @@ data = ExtResource("8_kac7x")
 animation_name = &"test_animation"
 
 [node name="RArmBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="3"]
-transform = Transform3D(-0.192207, -0.212592, -0.958051, -0.937089, -0.250138, 0.243507, -0.291413, 0.944583, -0.151139, -2.74294, 8.07466, 4.0594)
+transform = Transform3D(-0.192207, -0.212592, -0.958051, -0.937089, -0.250138, 0.243507, -0.291413, 0.944583, -0.151139, -2.74294, 8.07467, 4.0594)
 bone_name = "ArmRight_Forearm"
 bone_idx = 16
 
@@ -155,7 +154,7 @@ data = ExtResource("11_0k068")
 animation_name = &"test_animation"
 
 [node name="RLegBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="5"]
-transform = Transform3D(-0.959515, -0.238569, 0.149721, 0.116798, -0.820731, -0.559248, 0.2563, -0.519119, 0.815368, -2.88415, 4.19377, 3.2252)
+transform = Transform3D(-0.959515, -0.238569, 0.149721, 0.116799, -0.820731, -0.559248, 0.2563, -0.519119, 0.815369, -2.88415, 4.19377, 3.2252)
 bone_name = "LegRight_Calf"
 bone_idx = 32
 
@@ -197,7 +196,7 @@ data = ExtResource("6_dgdt3")
 animation_name = &"test_animation"
 
 [node name="TailBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="7"]
-transform = Transform3D(1, -1.81188e-13, -2.38418e-07, 1.84137e-07, -0.635228, 0.772325, -1.51452e-07, -0.772326, -0.635231, -3.95491e-11, 2.67799, -3.99197)
+transform = Transform3D(1, -1.10134e-13, -2.38418e-07, 1.84137e-07, -0.635227, 0.772326, -1.51452e-07, -0.772326, -0.63523, -3.95491e-11, 2.67799, -3.99197)
 bone_name = "Tail_02"
 bone_idx = 24
 
@@ -218,7 +217,7 @@ data = ExtResource("9_2jshx")
 animation_name = &"test_animation"
 
 [node name="PelvisBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78973, 4.77404, -0.12155)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.66978e-17, 4.77404, -0.40827)
 bone_name = "Pelvis"
 bone_idx = 0
 

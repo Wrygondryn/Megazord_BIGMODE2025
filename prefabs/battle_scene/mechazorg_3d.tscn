@@ -61,10 +61,10 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.153278, 0, 0.152777)
 bones/11/rotation = Quaternion(-0.0613377, 0.33037, 0.924454, 0.180216)
 
 [node name="Head_Face" parent="MechaZorg/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.968005, -1.15717e-07, 0.250931, -7.06157e-08, 1, 8.47504e-07, -0.250931, -8.33534e-07, 0.968005, -0.0585039, -0.929615, -0.363049)
+transform = Transform3D(0.968005, -1.39419e-06, 0.250931, 1.16618e-06, 1, 9.67644e-07, -0.250931, -6.25849e-07, 0.968005, -0.0584904, -0.929617, -0.363051)
 
 [node name="Head_Helmet" parent="MechaZorg/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.968005, -1.15717e-07, 0.250931, -7.06157e-08, 1, 8.47504e-07, -0.250931, -8.33534e-07, 0.968005, -0.0585039, -0.929615, -0.363049)
+transform = Transform3D(0.968005, -1.39419e-06, 0.250931, 1.16618e-06, 1, 9.67644e-07, -0.250931, -6.25849e-07, 0.968005, -0.0584904, -0.929617, -0.363051)
 
 [node name="Head" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet" index="1" instance=ExtResource("1_30pws")]
 transform = Transform3D(2.06186, 3.12639e-13, 5.96046e-08, 8.52651e-14, 2.06186, -3.28364e-07, -5.96046e-08, 3.30284e-07, 2.06186, 2.98023e-08, 11.016, -0.035)
@@ -85,7 +85,7 @@ data = ExtResource("4_f06yl")
 animation_name = &"test_animation"
 
 [node name="LArmBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="2"]
-transform = Transform3D(-0.527052, -0.276292, -0.803667, -0.649865, 0.740414, 0.171641, 0.547623, 0.612739, -0.56979, 2.88283, 6.88615, 0.399587)
+transform = Transform3D(-0.527051, -0.276292, -0.803667, -0.649866, 0.740414, 0.171641, 0.547623, 0.612739, -0.569789, 2.88283, 6.88615, 0.399587)
 bone_name = "ArmL_Forearm"
 bone_idx = 8
 
@@ -108,7 +108,7 @@ data = ExtResource("9_0t3he")
 animation_name = &"test_animation"
 
 [node name="RArmBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.268414, 0.275865, 0.922958, 0.795884, 0.47627, -0.373811, -0.542699, 0.834905, -0.0917195, -3.10983, 7.24936, -0.396166)
+transform = Transform3D(0.268413, 0.275865, 0.922959, 0.795885, 0.47627, -0.373811, -0.542699, 0.834904, -0.09172, -3.10983, 7.24936, -0.396167)
 bone_name = "ArmR_Forearm"
 bone_idx = 12
 
@@ -128,7 +128,7 @@ data = ExtResource("13_w50so")
 animation_name = &"test_animation"
 
 [node name="LLegBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="4"]
-transform = Transform3D(-0.996382, 0.0843304, -0.0105203, -0.0462864, -0.434686, 0.899393, 0.071273, 0.896626, 0.437017, 2.39322, 1.01897, 1.77689)
+transform = Transform3D(-0.996382, 0.0843315, -0.0105219, -0.0462882, -0.434683, 0.899393, 0.0712736, 0.896626, 0.437014, 2.39323, 1.01898, 1.7769)
 bone_name = "LegL_Foot"
 bone_idx = 31
 
@@ -148,7 +148,7 @@ data = ExtResource("11_0tq5m")
 animation_name = &"test_animation"
 
 [node name="RLegBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="5"]
-transform = Transform3D(-0.329356, -0.862177, -0.384936, 0.270474, -0.476747, 0.836394, -0.904637, 0.171356, 0.390216, -0.930582, 0.779147, -3.1072)
+transform = Transform3D(-0.329354, -0.862179, -0.384934, 0.270475, -0.476744, 0.836396, -0.904638, 0.171355, 0.390215, -0.930587, 0.779143, -3.1072)
 bone_name = "LegR_Foot"
 bone_idx = 35
 
@@ -168,7 +168,7 @@ data = ExtResource("17_8ma2s")
 animation_name = &"test_animation"
 
 [node name="PelvisBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="6"]
-transform = Transform3D(1, 2.84217e-14, -2.38419e-07, 2.25828e-07, 0.32067, 0.947191, 7.64538e-08, -0.947191, 0.32067, 7.07375e-14, 5.3155, 0.273947)
+transform = Transform3D(1, 9.23705e-14, -2.38419e-07, 2.25828e-07, 0.32067, 0.947191, 7.64537e-08, -0.947191, 0.32067, 7.07375e-14, 5.3155, 0.273947)
 bone_name = "Pelvis"
 bone_idx = 0
 
@@ -188,7 +188,7 @@ data = ExtResource("10_lusm6")
 animation_name = &"test_animation"
 
 [node name="TorsoBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.982427, -0.0290103, -0.184376, 4.61005e-08, 0.987847, -0.15543, 0.186645, 0.152699, 0.970488, 2.36672e-13, 7.59335, -0.670992)
+transform = Transform3D(0.982427, -0.0290103, -0.184376, -2.56114e-09, 0.987847, -0.15543, 0.186645, 0.152699, 0.970488, 1.0211e-13, 7.59335, -0.670992)
 bone_name = "Torso_Chest"
 bone_idx = 2
 
@@ -211,7 +211,7 @@ data = ExtResource("6_0iw3j")
 animation_name = &"test_animation"
 
 [node name="Head_Mouthguard" parent="MechaZorg/Armature/Skeleton3D" index="8"]
-transform = Transform3D(0.968005, -1.15717e-07, 0.250931, -7.06157e-08, 1, 8.47504e-07, -0.250931, -8.33534e-07, 0.968005, -0.0585039, -0.929615, -0.363049)
+transform = Transform3D(0.968005, -1.39419e-06, 0.250931, 1.16618e-06, 1, 9.67644e-07, -0.250931, -6.25849e-07, 0.968005, -0.0584904, -0.929617, -0.363051)
 
 [node name="BoostRepairTimer" type="Timer" parent="."]
 one_shot = true

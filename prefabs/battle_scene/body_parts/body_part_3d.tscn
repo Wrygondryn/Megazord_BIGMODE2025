@@ -33,6 +33,9 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_heu2c"]
+resource_name = "pummel"
+
 [sub_resource type="Animation" id="Animation_52sk7"]
 resource_name = "test_animation"
 length = 0.5
@@ -60,9 +63,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true, false]
 }
-
-[sub_resource type="Animation" id="Animation_heu2c"]
-resource_name = "pummel"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xq63m"]
 _data = {
