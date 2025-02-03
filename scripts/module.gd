@@ -13,7 +13,6 @@ signal fully_charged
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (charge_rate < 0.0): print("hey")
 	charge += charge_rate * delta
 	
 	#TODO: Charge decay

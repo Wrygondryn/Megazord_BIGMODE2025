@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_k058o")
 action_kind = 0
-amount = 30.0
+amount = 50.0
 multiplier = 0.0
 pierces = false
 condition_kind = 1

@@ -51,7 +51,7 @@ text = "Reinforced - 000"
 [node name="Head" parent="BodyParts" instance=ExtResource("2_kji60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00621891, 6.61602, 1.34865)
 kind = 0
-max_hp = 600.0
+max_hp = 500.0
 
 [node name="CSGBox3D" parent="BodyParts/Head" index="0"]
 material_override = ExtResource("3_rflpb")
@@ -70,7 +70,7 @@ animation_name = &"test_animation"
 [node name="Torso" parent="BodyParts" instance=ExtResource("2_kji60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.95354, 2.18701)
 kind = 3
-max_hp = 1200.0
+max_hp = 1000.0
 
 [node name="CSGBox3D" parent="BodyParts/Torso" index="0"]
 cast_shadow = 1
@@ -109,7 +109,7 @@ animation_name = &"test_animation"
 [node name="Pelvis" parent="BodyParts" instance=ExtResource("2_kji60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61607, -2.23194)
 kind = 4
-max_hp = 500.0
+max_hp = 400.0
 
 [node name="CSGBox3D" parent="BodyParts/Pelvis" index="0"]
 cast_shadow = 1

@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_80tgr")
 action_kind = 0
-amount = 80.0
+amount = 60.0
 multiplier = 0.0
 pierces = true
 condition_kind = 1

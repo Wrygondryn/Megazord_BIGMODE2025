@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_dibci")
 action_kind = 0
-amount = 20.0
+amount = 40.0
 multiplier = 0.0
 pierces = false
 condition_kind = 1

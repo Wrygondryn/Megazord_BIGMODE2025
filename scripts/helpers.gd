@@ -41,9 +41,9 @@ enum Modifier {
 	RESTRAINED
 }
 
-const MAX_CHARGE_PER_SEC = 50
+const MAX_CHARGE_PER_SEC = 100
 const CHARGE_DRAIN_PER_SEC = 2.0
-const KAIJU_DEFAULT_CHARGE_PER_SEC = 25
+const KAIJU_DEFAULT_CHARGE_PER_SEC = 15
 const SHIELD_DRAIN_FRAC_PER_SEC = 0.1
 const AVOID_VITALS_WEIGHT = 4.0 #NOTE: The higher this is, the less likely vitals are to be hit
 const SHIELD_BAR_BACKGROUND_COLOUR = Color.WEB_GRAY
