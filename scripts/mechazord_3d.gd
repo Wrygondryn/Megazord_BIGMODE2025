@@ -183,9 +183,9 @@ func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: St
 		Helpers.BodyPart.RIGHT_ARM:
 			animarion_3d = "Pummel"
 		Helpers.BodyPart.LEFT_LEG:
-			animarion_3d = "CrescentKick"
+			animarion_3d = "CresentKick"
 		Helpers.BodyPart.RIGHT_LEG:
-			animarion_3d = "CrescentKick"
+			animarion_3d = "CresentKick"
 		Helpers.BodyPart.TORSO:
 			animarion_3d = "Shield"
 		Helpers.BodyPart.PELVIS:
