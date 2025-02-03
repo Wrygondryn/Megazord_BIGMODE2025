@@ -6,6 +6,36 @@
 
 [node name="Gorbjira" instance=ExtResource("1_qja4l")]
 
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-9.66978e-17, 4.75935, -0.40827)
+bones/1/rotation = Quaternion(0.188285, 1.17077e-07, 2.24453e-08, 0.982114)
+bones/2/rotation = Quaternion(0.0540076, 8.01824e-15, 1.28764e-08, 0.998541)
+bones/4/rotation = Quaternion(0.331601, -9.15333e-15, 7.90598e-08, 0.94342)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.727392, -2.00887e-14, 1.73424e-07, 0.686222)
+bones/6/position = Vector3(1.33003, 0.630744, -0.359758)
+bones/6/rotation = Quaternion(0.55738, 0.173258, -0.444673, 0.679393)
+bones/7/rotation = Quaternion(0.267004, 0.135655, 0.299933, 0.90573)
+bones/8/rotation = Quaternion(-0.398415, -0.0528111, 0.235388, 0.884912)
+bones/14/position = Vector3(-1.34113, 0.630744, -0.359759)
+bones/14/rotation = Quaternion(-0.694359, 0.349175, -0.152731, -0.610423)
+bones/15/rotation = Quaternion(-0.292538, -0.537192, -0.0629663, 0.788595)
+bones/16/rotation = Quaternion(0.0570535, -0.36992, 0.33935, 0.862987)
+bones/16/scale = Vector3(1, 1, 1)
+bones/22/position = Vector3(1.14326e-13, 1.65576, -1.67844)
+bones/22/rotation = Quaternion(0.986937, -1.92057e-08, 1.17652e-07, -0.161109)
+bones/26/position = Vector3(0.979848, 5.46992, -0.179639)
+bones/27/rotation = Quaternion(0.256178, -0.0737415, -0.386705, 0.882833)
+bones/28/rotation = Quaternion(-0.391956, -0.0171014, -0.531254, 0.750898)
+bones/30/position = Vector3(-0.990943, 5.46992, -0.179639)
+bones/30/rotation = Quaternion(0.523346, 0.0128341, 0.396753, 0.75401)
+bones/31/rotation = Quaternion(-0.0251057, 0.881367, 0.359072, 0.305989)
+bones/32/rotation = Quaternion(-0.56682, -0.346163, 0.0491084, 0.745973)
+bones/33/rotation = Quaternion(0.774471, 0.0993582, 0.00351751, 0.624748)
+
 [node name="gorbjira" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_pu1wv")
 surface_material_override/1 = ExtResource("3_kotii")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Idle"
