@@ -365,13 +365,13 @@ bones/24/rotation = Quaternion(0.620423, -3.49067e-07, -2.29214e-06, 0.784268)
 bones/25/rotation = Quaternion(0.823174, -3.87911e-07, -3.23769e-06, 0.567789)
 
 [node name="Head_Face" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -5.30943e-09, -1.90735e-06, 9.46224e-07)
+transform = Transform3D(0.968005, -1.39046e-06, 0.250931, 9.6854e-07, 1, 1.7276e-06, -0.250931, -1.43051e-06, 0.968005, -0.101724, -0.962325, -0.364549)
 
 [node name="Head_Helmet" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -5.30943e-09, -1.90735e-06, 9.46224e-07)
+transform = Transform3D(0.968005, -1.39046e-06, 0.250931, 9.6854e-07, 1, 1.7276e-06, -0.250931, -1.43051e-06, 0.968005, -0.101724, -0.962325, -0.364549)
 
 [node name="Head_Mouthguard" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -5.30943e-09, -1.90735e-06, 9.46224e-07)
+transform = Transform3D(0.968005, -1.39046e-06, 0.250931, 9.6854e-07, 1, 1.7276e-06, -0.250931, -1.43051e-06, 0.968005, -0.101724, -0.962325, -0.364549)
 
 [node name="Kaiju3D_Gorbjira" parent="SubViewport/Battle3D" instance=ExtResource("23_t2umd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.54586, 0, 0)
@@ -462,6 +462,20 @@ offset_right = 1462.0
 offset_bottom = 387.0
 value = 100.0
 
+[node name="WinLoseLabel" type="Label" parent="."]
+offset_left = -801.0
+offset_top = -218.0
+offset_right = 801.0
+offset_bottom = -117.0
+pivot_offset = Vector2(228, 59)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.943774, 0, 0.152784, 1)
+theme_override_constants/outline_size = 90
+theme_override_fonts/font = ExtResource("26_ouoy4")
+theme_override_font_sizes/font_size = 56
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="PauseScreen/ResumeButton" to="PauseScreen" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseScreen/QuitButton" to="PauseScreen" method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="PauseScreen/VolumeSlider" to="PauseScreen" method="_on_volume_slider_value_changed"]
@@ -498,3 +512,4 @@ value = 100.0
 [editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/BodyParts/LeftLeg"]
 [editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/BodyParts/RightLeg"]
 [editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/BodyParts/Tail"]
+[editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/Gorbjira"]

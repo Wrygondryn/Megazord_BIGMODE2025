@@ -19,6 +19,8 @@ class ActionInfo:
 @onready var mechazord: Node3D = $Mechazorg3D
 @export var kaiju: Kaiju3D;
 
+@export var winlose_label:Label;
+
 var game_over := false
 var action_queue: Array[ActionInfo]
 var current_mech_action: ActionInfo = null
@@ -83,10 +85,12 @@ func _process(delta: float) -> void:
 
 func kaiju_victory():
 	print("You Lose!")
+	winlose_label.text = "DEFEAT";
 	game_over = true
 	
 func mechazord_victory():
 	print("You Win!")
+	winlose_label.text = "VICTORY";
 	game_over = true
 
 func process_action(action_info: ActionInfo) -> void:

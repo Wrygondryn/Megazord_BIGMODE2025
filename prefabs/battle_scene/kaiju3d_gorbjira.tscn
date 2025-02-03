@@ -19,11 +19,12 @@
 [ext_resource type="AudioStream" uid="uid://d2lrwm0n8sdf8" path="res://assets/music_and_sounds/shield_gain.wav" id="12_lv1u3"]
 [ext_resource type="AudioStream" uid="uid://us303usa1tfi" path="res://assets/music_and_sounds/shield_reinforce.wav" id="13_qk6kw"]
 
-[node name="Kaiju3D_Gorbjira" type="Node3D"]
+[node name="Kaiju3D_Gorbjira" type="Node3D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_uoi3y")
 shield = 150.0
 shield_colour = Color(0, 0, 1, 1)
 reinforced_shield_colour = Color(0, 0.988235, 1, 1)
+animation_player = NodePath("Gorbjira/AnimationPlayer")
 
 [node name="ShieldBar" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8, 0)
@@ -167,6 +168,35 @@ animation_name = &"test_animation"
 [node name="Gorbjira" parent="." instance=ExtResource("9_23rwx")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
+[node name="Skeleton3D" parent="Gorbjira/Armature" index="0"]
+bones/0/position = Vector3(-0.00540817, 4.82325, -0.355186)
+bones/1/rotation = Quaternion(0.203753, 0.0011794, -0.000514194, 0.979022)
+bones/2/rotation = Quaternion(0.0556653, 4.39854e-05, 3.72038e-05, 0.99845)
+bones/3/scale = Vector3(1.00001, 1.00651, 1.00387)
+bones/4/rotation = Quaternion(0.313085, -1.49997e-05, 4.27494e-05, 0.949725)
+bones/4/scale = Vector3(1.01042, 1.01042, 1.01042)
+bones/5/rotation = Quaternion(0.727392, 2.3578e-12, 1.73343e-07, 0.686222)
+bones/5/scale = Vector3(1.01638, 1.01638, 1.01638)
+bones/6/position = Vector3(1.33003, 0.630744, -0.359758)
+bones/6/rotation = Quaternion(0.55738, 0.173258, -0.444673, 0.679393)
+bones/7/rotation = Quaternion(0.267004, 0.135655, 0.299933, 0.90573)
+bones/8/rotation = Quaternion(-0.398415, -0.0528111, 0.235388, 0.884912)
+bones/14/position = Vector3(-1.34113, 0.630745, -0.359759)
+bones/14/rotation = Quaternion(-0.694359, 0.349175, -0.152731, -0.610423)
+bones/15/rotation = Quaternion(-0.292538, -0.537192, -0.0629663, 0.788595)
+bones/16/rotation = Quaternion(0.0570534, -0.36992, 0.33935, 0.862987)
+bones/16/scale = Vector3(1, 1, 1)
+bones/22/position = Vector3(-3.91935e-11, 1.65576, -1.67844)
+bones/22/rotation = Quaternion(0.986937, -1.92057e-08, 1.17652e-07, -0.161109)
+bones/26/position = Vector3(0.979848, 5.47626, -0.179639)
+bones/27/rotation = Quaternion(0.256178, -0.0737415, -0.386705, 0.882833)
+bones/28/rotation = Quaternion(-0.391956, -0.0171014, -0.531254, 0.750898)
+bones/30/position = Vector3(-0.990943, 5.47626, -0.179639)
+bones/30/rotation = Quaternion(0.523346, 0.0128341, 0.396753, 0.75401)
+bones/31/rotation = Quaternion(-0.0251057, 0.881367, 0.359072, 0.305989)
+bones/32/rotation = Quaternion(-0.56682, -0.346163, 0.0491084, 0.745973)
+bones/33/rotation = Quaternion(0.774471, 0.0993582, 0.00351751, 0.624748)
+
 [node name="BoostRepairTimer" type="Timer" parent="."]
 one_shot = true
 
@@ -194,3 +224,4 @@ volume_db = -6.0
 [editable path="BodyParts/LeftLeg"]
 [editable path="BodyParts/RightLeg"]
 [editable path="BodyParts/Tail"]
+[editable path="Gorbjira"]
