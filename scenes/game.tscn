@@ -460,6 +460,7 @@ text = "Quit"
 alignment = 2
 
 [node name="VolumeSliderLabel" type="Label" parent="PauseScreen"]
+layout_mode = 0
 offset_left = 382.0
 offset_top = 294.0
 offset_right = 683.0
@@ -472,6 +473,7 @@ theme_override_font_sizes/font_size = 48
 text = "Volume"
 
 [node name="VolumeSlider" type="HSlider" parent="PauseScreen"]
+layout_mode = 0
 offset_left = 716.0
 offset_top = 269.0
 offset_right = 1462.0

@@ -140,6 +140,9 @@ max_hp = 300.0
 [node name="CSGBox3D" parent="BodyParts/RightLeg" index="0"]
 cast_shadow = 1
 
+[node name="HPBar" parent="BodyParts/RightLeg" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838903, 3.57294)
+
 [node name="AttackModule" type="Node" parent="BodyParts/RightLeg/Modules" index="0"]
 script = ExtResource("4_g5dxc")
 data = ExtResource("12_74d4w")
@@ -152,6 +155,9 @@ max_hp = 500.0
 
 [node name="CSGBox3D" parent="BodyParts/Tail" index="0"]
 cast_shadow = 1
+
+[node name="HPBar" parent="BodyParts/Tail" index="1"]
+transform = Transform3D(0.922673, 0, 0.385584, 0, 1, 0, -0.385584, 0, 0.922673, 0, -0.217973, -1.74631)
 
 [node name="AttackModule" type="Node" parent="BodyParts/Tail/Modules" index="0"]
 script = ExtResource("4_g5dxc")

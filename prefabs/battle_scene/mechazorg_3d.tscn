@@ -89,6 +89,9 @@ transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 4.58988, 9.
 kind = 1
 max_hp = 300.0
 
+[node name="HPBar" parent="MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838903, 1.41168)
+
 [node name="RestrainAttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("6_to568")
@@ -163,6 +166,9 @@ animation_name = &"test_animation"
 transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 0.542514, 7.11446, 2.67984)
 kind = 3
 max_hp = 1000.0
+
+[node name="HPBar" parent="MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.714132, 0.0335114)
 
 [node name="ShieldModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules" index="0"]
 script = ExtResource("2_qs1rj")
