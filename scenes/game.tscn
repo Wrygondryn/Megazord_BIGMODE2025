@@ -179,7 +179,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FrogArmRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("11_1aw0m")]
 position = Vector2(-831, 180)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules/AttackModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules/RepairModule")
 
 [node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/FrogArmRepairSocket" index="2"]
 metadata/_edit_use_anchors_ = true
