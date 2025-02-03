@@ -47,6 +47,8 @@ func _process(delta: float) -> void:
 			current_mech_action = null
 		elif current_mech_action.source_body_part.trigger_action_process:
 			current_mech_action.source_body_part.trigger_action_process = false
+	else:
+		mechazord.animation_player.play("Idle",)
 		
 	if current_kaiju_action != null:
 		if !kaiju.animation_player.is_playing():
@@ -55,6 +57,8 @@ func _process(delta: float) -> void:
 			current_kaiju_action = null
 		elif current_kaiju_action.source_body_part.trigger_action_process:
 			current_kaiju_action.source_body_part.trigger_action_process = false
+	else:
+		kaiju.animation_player.play("Idle",)
 	
 	#TODO: Wait until animation of currently executed action is complete until processing the next
 	#NOTE: Mechazord and Kaiju actions can happen simultaneously, so make sure to check for that when
@@ -71,8 +75,9 @@ func _process(delta: float) -> void:
 			action_queue.remove_at(next_mech_action_index)
 			mechazord.animation_player.play(current_mech_action.animation)
 			
-		if !mechazord.animation_player.is_playing():
-			mechazord.animation_player.play("Idle")
+		#if !mechazord.animation_player.is_playing():
+			#mechazord.animation_player.play("Idle")
+			#current_mech_action = null;
 	
 	if current_kaiju_action == null:
 		var next_kaiju_action_index: int = -1
@@ -86,8 +91,9 @@ func _process(delta: float) -> void:
 			action_queue.remove_at(next_kaiju_action_index)
 			kaiju.animation_player.play(current_kaiju_action.animation)
 		
-		if !kaiju.animation_player.is_playing():
-			kaiju.animation_player.play("Idle")
+		#if !kaiju.animation_player.is_playing():
+			#kaiju.animation_player.play("Idle")
+			#current_kaiju_action
 
 func kaiju_victory():
 	print("You Lose!")

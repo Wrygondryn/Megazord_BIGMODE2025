@@ -411,14 +411,8 @@ transform = Transform3D(0.887422, 0.161406, -0.431775, -0.190389, -0.72472, -0.6
 [node name="RArmBone" parent="SubViewport/Battle3D/Kaiju3D_Gorbjira/Gorbjira/Armature/Skeleton3D" index="3"]
 transform = Transform3D(-0.192207, -0.212592, -0.958051, -0.937089, -0.250138, 0.243507, -0.291413, 0.944583, -0.151139, -2.74294, 8.07467, 4.0594)
 
-[node name="LLegBone" parent="SubViewport/Battle3D/Kaiju3D_Gorbjira/Gorbjira/Armature/Skeleton3D" index="4"]
-transform = Transform3D(-0.913449, 0.377389, -0.152277, -0.212416, -0.122986, 0.969409, 0.347116, 0.917852, 0.192504, 3.85271, 0.516382, -0.766238)
-
 [node name="RLegBone" parent="SubViewport/Battle3D/Kaiju3D_Gorbjira/Gorbjira/Armature/Skeleton3D" index="5"]
 transform = Transform3D(-0.959515, -0.238569, 0.149721, 0.116799, -0.820731, -0.559248, 0.2563, -0.519119, 0.815369, -2.88415, 4.19377, 3.2252)
-
-[node name="TorsoBone" parent="SubViewport/Battle3D/Kaiju3D_Gorbjira/Gorbjira/Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.999997, 0.0017052, 0.0019271, -0.000526178, 0.868589, -0.495533, -0.00251884, 0.49553, 0.868587, 0.00448815, 8.5409, 0.795537)
 
 [node name="TailBone" parent="SubViewport/Battle3D/Kaiju3D_Gorbjira/Gorbjira/Armature/Skeleton3D" index="7"]
 transform = Transform3D(1, -1.10134e-13, -2.38418e-07, 1.84137e-07, -0.635227, 0.772326, -1.51452e-07, -0.772326, -0.63523, -3.95491e-11, 2.67799, -3.99197)

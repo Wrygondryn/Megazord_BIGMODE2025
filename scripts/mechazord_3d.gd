@@ -176,7 +176,7 @@ func _process(delta: float) -> void:
 	shield_bar.texture = shield_texture
 	
 func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: StringName):
-	var animation_3d: StringName
+	var animation_3d: StringName = "Idle"
 	match body_part.kind:
 		Helpers.BodyPart.LEFT_ARM:
 			animation_3d = "ClawGrab"
@@ -190,11 +190,6 @@ func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: St
 			animation_3d = "Shield"
 		Helpers.BodyPart.PELVIS:
 			animation_3d = "Reinforce"
-	
-	
-
-			
-	
 
 	battle.queue_action(Helpers.GigaTarget.MECHAZORD, body_part, action, animation_3d)
 
