@@ -12,4 +12,4 @@ condition_kind = 0
 lasting_time_secs = 6.0
 giga_target = 1
 target_body_part = 8
-charge_capacity = 200.0
+charge_capacity = 400.0
