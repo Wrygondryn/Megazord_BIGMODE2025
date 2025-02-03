@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ct4d7o7xgeoqc"]
+[gd_scene load_steps=27 format=3 uid="uid://ct4d7o7xgeoqc"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3dcrd"]
 [ext_resource type="StyleBox" uid="uid://ydqyhnqcyt11" path="res://assets/styles/button_hover_style.tres" id="1_dm6ed"]
@@ -12,6 +12,7 @@
 [ext_resource type="StyleBox" uid="uid://ypkcmy1xltfg" path="res://assets/styles/button_pressed_rev_style.tres" id="7_2w34n"]
 [ext_resource type="Texture2D" uid="uid://b1wfebv4w7jyh" path="res://assets/sprites/dashboard/dashboard_symbols/mech_symbol_power.png" id="7_2waj4"]
 [ext_resource type="Texture2D" uid="uid://cuqctemsjgk62" path="res://assets/sprites/dashboard/TutorialPage1Ref.png" id="7_os0nm"]
+[ext_resource type="Texture2D" uid="uid://dm36uapqhnlol" path="res://assets/logo.png" id="7_s5ewt"]
 [ext_resource type="Texture2D" uid="uid://dtsr6e2g0bglv" path="res://assets/sprites/dashboard/dashboard_symbols/wire_symbol.png" id="8_dtot3"]
 [ext_resource type="Texture2D" uid="uid://d4pdrnt6wtvi" path="res://assets/misc/Mech_Ref.png" id="10_v65vb"]
 [ext_resource type="Texture2D" uid="uid://rq1fc7xyp1hu" path="res://assets/sprites/dashboard/action_symbols/boostrepair_symbol.png" id="11_0ys5y"]
@@ -86,6 +87,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Title" type="Label" parent="Main"]
+visible = false
 layout_mode = 0
 offset_left = 441.0
 offset_top = 237.0
@@ -184,6 +186,11 @@ theme_override_fonts/font = ExtResource("4_d0bw6")
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 alignment = 2
+
+[node name="Logo" type="Sprite2D" parent="Main"]
+position = Vector2(1002, 356)
+scale = Vector2(0.495919, 0.495919)
+texture = ExtResource("7_s5ewt")
 
 [node name="Tutorial" type="Control" parent="."]
 visible = false
