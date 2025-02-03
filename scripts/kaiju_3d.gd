@@ -207,7 +207,8 @@ func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: St
 	
 func display_modifier_cooldown(modifier: Helpers.Modifier, cooldown_secs: float):	
 	for cooldown_display in modifiers.get_children():
-		if cooldown_display.current_modifier == modifier:
+		#TODO: Generalise, (this should work for now though)
+		if modifier == Helpers.Modifier.BOOSTED_REPAIR && cooldown_display.current_modifier == modifier:
 			cooldown_display.start_timed_event(modifier, cooldown_secs)
 			return
 	

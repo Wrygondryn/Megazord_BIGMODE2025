@@ -143,6 +143,8 @@ func boost_repair(multiplier: float, time_length_secs: float):
 func _ready() -> void:
 	for body_part in body_parts:
 		body_part.action_ready.connect(_on_body_part_action_ready)
+	
+	#display_modifier_cooldown(Helpers.Modifier.RESTRAINED, 1000)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -178,12 +180,14 @@ func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: St
 
 func display_modifier_cooldown(modifier: Helpers.Modifier, cooldown_secs: float):	
 	for cooldown_display in modifiers.get_children():
-		if cooldown_display.current_modifier == modifier:
+		#TODO: Generalise, (this should work for now though)
+		if modifier == Helpers.Modifier.BOOSTED_REPAIR && cooldown_display.current_modifier == modifier:
 			cooldown_display.start_timed_event(modifier, cooldown_secs)
 			return
 	
 	var new_modifier_cooldown_display = MODIFIER_COOLDOWN_DISPLAY_SCENE.instantiate()
 	modifiers.add_child(new_modifier_cooldown_display)
+	
 	new_modifier_cooldown_display.global_position = modifiers.global_position
 	
 	new_modifier_cooldown_display.position.z -= Helpers.MODIFIER_DISPLAY_X_DELTA * (modifiers.get_child_count() - 1)

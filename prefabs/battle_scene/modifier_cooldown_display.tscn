@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ch6v4ei1p6dxv"]
 
-[ext_resource type="Script" path="res://scripts/timed_event_display.gd" id="1_n22ik"]
+[ext_resource type="Script" path="res://scripts/modifier_cooldown_display.gd" id="1_n22ik"]
 [ext_resource type="Texture2D" uid="uid://c5iaouw8f2kjt" path="res://assets/sprites/dashboard/action_symbols/restrain-arm_claw_symbol.png" id="2_cmocy"]
 [ext_resource type="FontFile" uid="uid://b1o736at0xfi" path="res://assets/fonts/StalinistOne-Regular.ttf" id="3_04be8"]
 
@@ -58,3 +58,5 @@ text = "0"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

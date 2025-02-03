@@ -17,6 +17,7 @@ var current_modifier: Helpers.Modifier
 var current_time_length_secs: float = 0.0
 var should_start_cooldown = false
 
+
 func start_timed_event(modifier: Helpers.Modifier, time_length_secs: float):
 	current_modifier = modifier
 	current_time_length_secs = time_length_secs
@@ -41,6 +42,8 @@ func _process(delta: float) -> void:
 	
 	remaining_time_text.text = "%.1f" % timer.time_left
 
+func _on_timer_timeout() -> void:
+	queue_free()
 
 #NOTE: This is really only to get around instantiated scenes not calling _ready() by the time we call
 #start_timed_event
