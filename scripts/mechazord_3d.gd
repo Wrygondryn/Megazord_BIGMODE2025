@@ -7,6 +7,7 @@ const MODIFIER_COOLDOWN_DISPLAY_SCENE = preload("res://prefabs/battle_scene/modi
 @export var shield_colour: Color
 @export var reinforced_shield_colour: Color
 
+@onready var animation_player: AnimationPlayer = $MechaZorg/AnimationPlayer
 @export var body_parts: Array[BodyPart3D];
 @onready var modifiers: Node3D = $Modifiers
 @onready var shield_display_temp: Label3D = $ShieldDisplay_TEMP
@@ -176,7 +177,6 @@ func _process(delta: float) -> void:
 	
 func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: StringName):
 	var animarion_3d: StringName
-	
 	match body_part.kind:
 		Helpers.BodyPart.LEFT_ARM:
 			animarion_3d = "Pummel"
@@ -190,8 +190,13 @@ func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: St
 			animarion_3d = "Shield"
 		Helpers.BodyPart.PELVIS:
 			animarion_3d = "Reinforce"
+	
+	
 
-	battle.queue_action(Helpers.GigaTarget.KAIJU, body_part, action, animarion_3d)
+			
+	
+
+	battle.queue_action(Helpers.GigaTarget.MECHAZORD, body_part, action, animarion_3d)
 
 
 func display_modifier_cooldown(modifier: Helpers.Modifier, cooldown_secs: float):	
