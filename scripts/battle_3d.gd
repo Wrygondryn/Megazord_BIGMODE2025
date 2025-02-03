@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	if game_over: return
 	
 	if current_mech_action != null:
-		if !current_mech_action.source_body_part.animation_player.is_playing():
+		if !mechazord.animation_player.is_playing():
 			current_mech_action = null
 		elif current_mech_action.source_body_part.trigger_action_process:
 			#TODO: Find a better way of doing this (like with a signal?) cause this feels janky af
@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 			current_mech_action.source_body_part.trigger_action_process = false
 		
 	if current_kaiju_action != null:
-		if !current_kaiju_action.source_body_part.animation_player.is_playing():
+		if !kaiju.animation_player.is_playing():
 			current_kaiju_action = null
 		elif current_kaiju_action.source_body_part.trigger_action_process:
 			#TODO: Find a better way of doing this (like with a signal?) cause this feels janky af
@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 		if next_mech_action_index >= 0:
 			current_mech_action = action_queue[next_mech_action_index]
 			action_queue.remove_at(next_mech_action_index)
-			current_mech_action.source_body_part.animation_player.play(current_mech_action.animation)
+			mechazord.animation_player.play(current_mech_action.animation)
 	
 	if current_kaiju_action == null:
 		var next_kaiju_action_index: int = -1
@@ -79,7 +79,7 @@ func _process(delta: float) -> void:
 		if next_kaiju_action_index >= 0:
 			current_kaiju_action = action_queue[next_kaiju_action_index]
 			action_queue.remove_at(next_kaiju_action_index)
-			current_kaiju_action.source_body_part.animation_player.play(current_kaiju_action.animation)
+			kaiju.animation_player.play(current_kaiju_action.animation)
 
 func kaiju_victory():
 	print("You Lose!")

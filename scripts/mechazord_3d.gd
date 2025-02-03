@@ -175,7 +175,23 @@ func _process(delta: float) -> void:
 	shield_bar.texture = shield_texture
 	
 func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: StringName):
-	battle.queue_action(Helpers.GigaTarget.MECHAZORD, body_part, action, animation)
+	var animarion_3d: StringName
+	
+	match body_part.kind:
+		Helpers.BodyPart.LEFT_ARM:
+			animarion_3d = "Pummel"
+		Helpers.BodyPart.RIGHT_ARM:
+			animarion_3d = "Pummel"
+		Helpers.BodyPart.LEFT_LEG:
+			animarion_3d = "CrescentKick"
+		Helpers.BodyPart.RIGHT_LEG:
+			animarion_3d = "CrescentKick"
+		Helpers.BodyPart.TORSO:
+			animarion_3d = "Shield"
+		Helpers.BodyPart.PELVIS:
+			animarion_3d = "Reinforce"
+
+	battle.queue_action(Helpers.GigaTarget.KAIJU, body_part, action, animarion_3d)
 
 
 func display_modifier_cooldown(modifier: Helpers.Modifier, cooldown_secs: float):	

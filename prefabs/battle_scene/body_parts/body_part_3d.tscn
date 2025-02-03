@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0pllu3mhsxem"]
+[gd_scene load_steps=7 format=3 uid="uid://b0pllu3mhsxem"]
 
 [ext_resource type="Script" path="res://scripts/body_part_3d.gd" id="1_ap2fx"]
 
@@ -61,9 +61,13 @@ tracks/1/keys = {
 "values": [false, true, false]
 }
 
+[sub_resource type="Animation" id="Animation_heu2c"]
+resource_name = "pummel"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xq63m"]
 _data = {
 "RESET": SubResource("Animation_jb8mh"),
+"pummel": SubResource("Animation_heu2c"),
 "test_animation": SubResource("Animation_52sk7")
 }
 
