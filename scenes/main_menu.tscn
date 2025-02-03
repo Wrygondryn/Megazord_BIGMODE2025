@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://ct4d7o7xgeoqc"]
+[gd_scene load_steps=26 format=3 uid="uid://ct4d7o7xgeoqc"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3dcrd"]
 [ext_resource type="StyleBox" uid="uid://ydqyhnqcyt11" path="res://assets/styles/button_hover_style.tres" id="1_dm6ed"]
 [ext_resource type="StyleBox" uid="uid://dxcj62sqcdqd0" path="res://assets/styles/button_normal_style.tres" id="2_5qyb4"]
+[ext_resource type="Texture2D" uid="uid://fd0otq3b42e1" path="res://assets/sprites/Screenshot 2025-02-03 130444.png" id="2_jfcpe"]
 [ext_resource type="StyleBox" uid="uid://bo1n3p3df22lu" path="res://assets/styles/button_pressed_style.tres" id="3_0wak1"]
 [ext_resource type="FontFile" uid="uid://b1o736at0xfi" path="res://assets/fonts/StalinistOne-Regular.ttf" id="4_d0bw6"]
 [ext_resource type="StyleBox" uid="uid://cvve1md0am30y" path="res://assets/styles/button_normal_rev_style.tres" id="6_8jgst"]
@@ -54,7 +55,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3dcrd")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background_grad" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 923.0
@@ -62,6 +64,14 @@ offset_right = 901.0
 offset_bottom = 2523.0
 rotation = 4.71239
 texture = SubResource("GradientTexture1D_y7taf")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -535.0
+offset_top = 24.0
+offset_right = 3609.0
+offset_bottom = 1659.0
+texture = ExtResource("2_jfcpe")
 
 [node name="Main" type="Control" parent="."]
 anchors_preset = 0
