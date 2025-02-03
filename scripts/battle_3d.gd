@@ -35,6 +35,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if game_over: return
 	
 	if current_mech_action != null:
@@ -108,8 +109,7 @@ func process_action(action_info: ActionInfo) -> void:
 						victory_function = mechazord_victory
 						
 						
-				#print(action_info.source_body_part.name)		
-				#print(action_info.action.body_part)		
+				print(action_info.source_body_part.name + ": " + str(action_info.action.body_part))		
 				var target_body_part_index = attacker.next_body_part_index_to_attack(
 					target, 
 					action_info.action.body_part

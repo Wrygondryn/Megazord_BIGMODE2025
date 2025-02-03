@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cb2st83ohprx"]
+[gd_scene load_steps=19 format=3 uid="uid://cb2st83ohprx"]
 
 [ext_resource type="Script" path="res://scripts/kaiju_3d.gd" id="1_uoi3y"]
 [ext_resource type="PackedScene" uid="uid://b0pllu3mhsxem" path="res://prefabs/battle_scene/body_parts/body_part_3d.tscn" id="2_kji60"]
@@ -8,12 +8,14 @@
 [ext_resource type="Resource" uid="uid://c0q5q66hnem0s" path="res://resources/kaiju_modules/kaiju_shield_gain_module.tres" id="6_d7jla"]
 [ext_resource type="Resource" uid="uid://bni5fgqtb6e62" path="res://resources/kaiju_modules/kaiju_reinforce_shield_module.tres" id="6_dgdt3"]
 [ext_resource type="Resource" uid="uid://bs08ngdk7hdau" path="res://resources/kaiju_modules/kaiju_laser_beam.tres" id="6_oojfh"]
-[ext_resource type="Resource" uid="uid://bujn1bqqbiw68" path="res://resources/kaiju_modules/kaiju_heavy_attack_module.tres" id="7_rmn0k"]
 [ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/kaiju_modules/kaiju_left_arm_attack_module.tres" id="8_ijr1p"]
+[ext_resource type="Resource" uid="uid://cuk8ahbpqwivu" path="res://resources/kaiju_modules/kaiju_torso_scratch_attack.tres" id="8_kac7x"]
 [ext_resource type="Resource" uid="uid://dhtwi5krprojv" path="res://resources/kaiju_modules/kaiju_tail_whip_module.tres" id="9_2jshx"]
 [ext_resource type="PackedScene" uid="uid://cyswmaifnol4u" path="res://prefabs/battle_scene/battle_models/gorbjira.tscn" id="9_23rwx"]
 [ext_resource type="AudioStream" uid="uid://5npyyj6emr86" path="res://assets/music_and_sounds/kaiju_impact.wav" id="10_mmb6l"]
+[ext_resource type="Resource" uid="uid://cto3f2o83rfpb" path="res://resources/kaiju_modules/kaiju_right_leg_attack_module.tres" id="11_0k068"]
 [ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/music_and_sounds/shield_impact.wav" id="11_5jy7c"]
+[ext_resource type="Resource" uid="uid://m013i57ak45e" path="res://resources/kaiju_modules/kaiju_left_leg_attack_module.tres" id="12_74d4w"]
 [ext_resource type="AudioStream" uid="uid://d2lrwm0n8sdf8" path="res://assets/music_and_sounds/shield_gain.wav" id="12_lv1u3"]
 [ext_resource type="AudioStream" uid="uid://us303usa1tfi" path="res://assets/music_and_sounds/shield_reinforce.wav" id="13_qk6kw"]
 
@@ -88,7 +90,7 @@ cast_shadow = 1
 
 [node name="AttackModule" type="Node" parent="BodyParts/LeftArm/Modules" index="0"]
 script = ExtResource("4_g5dxc")
-data = ExtResource("7_rmn0k")
+data = ExtResource("8_kac7x")
 animation_name = &"test_animation"
 
 [node name="RightArm" parent="BodyParts" instance=ExtResource("2_kji60")]
@@ -99,7 +101,7 @@ max_hp = 200.0
 [node name="CSGBox3D" parent="BodyParts/RightArm" index="0"]
 cast_shadow = 1
 
-[node name="LightAttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0"]
+[node name="AttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0"]
 script = ExtResource("4_g5dxc")
 data = ExtResource("8_ijr1p")
 animation_name = &"test_animation"
@@ -125,6 +127,11 @@ max_hp = 300.0
 [node name="CSGBox3D" parent="BodyParts/LeftLeg" index="0"]
 cast_shadow = 1
 
+[node name="AttackModule" type="Node" parent="BodyParts/LeftLeg/Modules" index="0"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("11_0k068")
+animation_name = &"test_animation"
+
 [node name="RightLeg" parent="BodyParts" instance=ExtResource("2_kji60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49399, 0.500414, -1.59851)
 kind = 6
@@ -132,6 +139,11 @@ max_hp = 300.0
 
 [node name="CSGBox3D" parent="BodyParts/RightLeg" index="0"]
 cast_shadow = 1
+
+[node name="AttackModule" type="Node" parent="BodyParts/RightLeg/Modules" index="0"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("12_74d4w")
+animation_name = &"test_animation"
 
 [node name="Tail" parent="BodyParts" instance=ExtResource("2_kji60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61607, -2.23194)
