@@ -179,13 +179,13 @@ func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: St
 	var animarion_3d: StringName
 	match body_part.kind:
 		Helpers.BodyPart.LEFT_ARM:
-			animarion_3d = "Pummel"
+			animarion_3d = "ClawGrab"
 		Helpers.BodyPart.RIGHT_ARM:
 			animarion_3d = "Pummel"
 		Helpers.BodyPart.LEFT_LEG:
-			animarion_3d = "CrescentKick"
+			animarion_3d = "CresentKick"
 		Helpers.BodyPart.RIGHT_LEG:
-			animarion_3d = "CrescentKick"
+			animarion_3d = "CresentKick"
 		Helpers.BodyPart.TORSO:
 			animarion_3d = "Shield"
 		Helpers.BodyPart.PELVIS:
