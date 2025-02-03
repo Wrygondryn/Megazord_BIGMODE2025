@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=33 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://prefabs/dashboard/dashboard_camera.gd" id="1_xmdqw"]
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="2_6o6iw"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://cnoohet8jjphy" path="res://prefabs/battle_scene/mechazorg_3d.tscn" id="22_epli8"]
 [ext_resource type="PackedScene" uid="uid://cb2st83ohprx" path="res://prefabs/battle_scene/kaiju3d_gorbjira.tscn" id="23_t2umd"]
 [ext_resource type="PackedScene" uid="uid://b12hvhwsd8mat" path="res://assets/models/city/proc_city_bake.glb" id="24_srtqa"]
+[ext_resource type="Script" path="res://scripts/pause_screen.gd" id="26_gqkgj"]
+[ext_resource type="FontFile" uid="uid://b1o736at0xfi" path="res://assets/fonts/StalinistOne-Regular.ttf" id="26_ouoy4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dyj7c"]
 sky_top_color = Color(0.657493, 0.881287, 0.990151, 1)
@@ -49,6 +51,14 @@ fog_light_energy = 2.04
 fog_density = 2.0955
 fog_height = 2.1
 fog_depth_curve = 1.03527
+
+[sub_resource type="Gradient" id="Gradient_yltex"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.388235)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pkb08"]
+gradient = SubResource("Gradient_yltex")
+width = 1600
 
 [node name="Game" type="Node2D"]
 
@@ -373,6 +383,38 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.5458
 
 [node name="proc_city_bake" parent="SubViewport" instance=ExtResource("24_srtqa")]
 transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0, 0, 0)
+
+[node name="PauseScreen" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -800.0
+offset_top = -450.0
+offset_right = -760.0
+offset_bottom = -410.0
+script = ExtResource("26_gqkgj")
+
+[node name="Background" type="TextureRect" parent="PauseScreen"]
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+texture = SubResource("GradientTexture1D_pkb08")
+
+[node name="Label" type="Label" parent="PauseScreen"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 118.0
+offset_right = 1190.0
+offset_bottom = 340.0
+theme_override_colors/font_color = Color(0.780392, 0.933333, 0.905882, 1)
+theme_override_colors/font_outline_color = Color(0.215686, 0.258824, 0.254902, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("26_ouoy4")
+theme_override_font_sizes/font_size = 36
+text = "PAUSED
+
+Press escape to unpause"
 
 [editable path="Dashboard/Sockets/LeftArmAttackSocket"]
 [editable path="Dashboard/Sockets/RightArmAttackSocket"]

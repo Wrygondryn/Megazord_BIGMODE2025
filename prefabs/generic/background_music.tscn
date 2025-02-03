@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://4le6fifuns13" path="res://assets/music_and_sounds/MechazorgCableDuty_Music(FINAL).wav" id="1_o23ms"]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("1_o23ms")
 volume_db = -6.656
 autoplay = true

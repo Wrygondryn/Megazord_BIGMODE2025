@@ -205,34 +205,36 @@ offset_bottom = 40.0
 [node name="Text" type="Label" parent="Tutorial/Pages/Page1"]
 layout_mode = 0
 offset_left = 41.0
-offset_top = 32.0
+offset_top = 48.0
 offset_right = 1588.0
-offset_bottom = 397.0
+offset_bottom = 435.0
 theme_override_colors/font_color = Color(0.780392, 0.933333, 0.905882, 1)
 theme_override_colors/font_outline_color = Color(0.215686, 0.258824, 0.254902, 1)
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("4_d0bw6")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 24
 text = "Aim: Defeat the Kaiju before they destroy your mech! The kaiju is defeated once it's head and torso are out of health.
 
 Controls:
+      Left click over dispenser - Grab Jack
       Hold left click + Move mouse - Carry and move jack
       Release left click - Release Jack
       Release left click over socket - Connect jack to socket
       Release left click over dispenser - Get rid of jack
+      Escape - Pause game
 "
 autowrap_mode = 2
 
 [node name="TutorialPage1Ref" type="Sprite2D" parent="Tutorial/Pages/Page1"]
-position = Vector2(777, 581)
-scale = Vector2(1.30747, 1.30747)
+position = Vector2(803.3, 593.006)
+scale = Vector2(1.20352, 1.20352)
 texture = ExtResource("7_os0nm")
 
 [node name="DispenserLabel" type="Label" parent="Tutorial/Pages/Page1"]
 layout_mode = 0
-offset_left = 814.0
+offset_left = 842.0
 offset_top = 695.0
-offset_right = 1096.0
+offset_right = 1124.0
 offset_bottom = 749.0
 theme_override_colors/font_color = Color(0.780392, 0.933333, 0.905882, 1)
 theme_override_colors/font_outline_color = Color(0.215686, 0.258824, 0.254902, 1)
@@ -244,10 +246,10 @@ autowrap_mode = 2
 
 [node name="SocketLabel" type="Label" parent="Tutorial/Pages/Page1"]
 layout_mode = 0
-offset_left = 299.0
-offset_top = 629.0
-offset_right = 490.0
-offset_bottom = 683.0
+offset_left = 339.0
+offset_top = 633.0
+offset_right = 530.0
+offset_bottom = 687.0
 theme_override_colors/font_color = Color(0.780392, 0.933333, 0.905882, 1)
 theme_override_colors/font_outline_color = Color(0.215686, 0.258824, 0.254902, 1)
 theme_override_constants/outline_size = 16
@@ -259,10 +261,10 @@ autowrap_mode = 2
 
 [node name="JackLabel" type="Label" parent="Tutorial/Pages/Page1"]
 layout_mode = 0
-offset_left = 747.0
-offset_top = 519.0
-offset_right = 882.0
-offset_bottom = 569.0
+offset_left = 757.0
+offset_top = 539.0
+offset_right = 892.0
+offset_bottom = 589.0
 theme_override_colors/font_color = Color(0.780392, 0.933333, 0.905882, 1)
 theme_override_colors/font_outline_color = Color(0.215686, 0.258824, 0.254902, 1)
 theme_override_constants/outline_size = 16
