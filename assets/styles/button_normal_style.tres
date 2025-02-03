@@ -2,9 +2,9 @@
 
 [resource]
 content_margin_right = 60.0
-bg_color = Color(0.699251, 0, 0, 1)
+bg_color = Color(0.1113, 0.299715, 0.53, 1)
 skew = Vector2(0.65, 0)
 border_width_top = 10
 border_width_right = 24
 border_width_bottom = 10
-border_color = Color(0.909804, 0.839216, 0, 1)
+border_color = Color(0.6696, 0.8866, 0.93, 1)
