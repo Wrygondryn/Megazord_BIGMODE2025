@@ -74,7 +74,8 @@ func disconnect_jack(jack_instance_id: int) -> bool:
 	for i in range(len(connections)):
 		if jack_instance_id == connections[i].jack_instance_id:
 			var socket := instance_from_id(connections[i].socket_instance_id)
-			assert(arr_swap_remove(connections, i))
+			var remove_success:bool = arr_swap_remove(connections, i);
+			assert(remove_success)
 			
 			return true
 	
