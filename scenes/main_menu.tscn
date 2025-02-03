@@ -221,7 +221,7 @@ Controls:
       Release left click - Release Jack
       Release left click over socket - Connect jack to socket
       Release left click over dispenser - Get rid of jack
-      Escape - Pause game
+      Escape - Pause/resume game
 "
 autowrap_mode = 2
 
