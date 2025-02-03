@@ -9,13 +9,13 @@
 [ext_resource type="Resource" uid="uid://bni5fgqtb6e62" path="res://resources/kaiju_modules/kaiju_reinforce_shield_module.tres" id="6_dgdt3"]
 [ext_resource type="Resource" uid="uid://dty47rxq1lsdx" path="res://resources/kaiju_modules/kaiju_laser_beam.tres" id="6_oojfh"]
 [ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/kaiju_modules/kaiju_left_arm_attack_module.tres" id="8_ijr1p"]
-[ext_resource type="Resource" uid="uid://cuk8ahbpqwivu" path="res://resources/kaiju_modules/kaiju_torso_scratch_attack.tres" id="8_kac7x"]
+[ext_resource type="Resource" path="res://resources/kaiju_modules/kaiju_torso_scratch_attack.tres" id="8_kac7x"]
 [ext_resource type="Resource" uid="uid://oy6hvmui7fxc" path="res://resources/kaiju_modules/kaiju_tail_whip_module.tres" id="9_2jshx"]
 [ext_resource type="PackedScene" uid="uid://cyswmaifnol4u" path="res://prefabs/battle_scene/battle_models/gorbjira.tscn" id="9_23rwx"]
 [ext_resource type="AudioStream" uid="uid://5npyyj6emr86" path="res://assets/music_and_sounds/kaiju_impact.wav" id="10_mmb6l"]
-[ext_resource type="Resource" uid="uid://cto3f2o83rfpb" path="res://resources/kaiju_modules/kaiju_right_leg_attack_module.tres" id="11_0k068"]
+[ext_resource type="Resource" path="res://resources/kaiju_modules/kaiju_right_leg_attack_module.tres" id="11_0k068"]
 [ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/music_and_sounds/shield_impact.wav" id="11_5jy7c"]
-[ext_resource type="Resource" uid="uid://m013i57ak45e" path="res://resources/kaiju_modules/kaiju_left_leg_attack_module.tres" id="12_74d4w"]
+[ext_resource type="Resource" path="res://resources/kaiju_modules/kaiju_left_leg_attack_module.tres" id="12_74d4w"]
 [ext_resource type="AudioStream" uid="uid://d2lrwm0n8sdf8" path="res://assets/music_and_sounds/shield_gain.wav" id="12_lv1u3"]
 [ext_resource type="AudioStream" uid="uid://us303usa1tfi" path="res://assets/music_and_sounds/shield_reinforce.wav" id="13_qk6kw"]
 
@@ -169,6 +169,12 @@ cast_shadow = 1
 [node name="HPBar" parent="Gorbjira/Armature/Skeleton3D/RLegBone/RightLeg" index="1"]
 transform = Transform3D(1, -1.11022e-15, 0, 0, 1, 0, 0, 0, 1, 1.69374, 0.838903, 1.76361)
 
+[node name="HPDisplay_TEMP" parent="Gorbjira/Armature/Skeleton3D/RLegBone/RightLeg" index="2"]
+transform = Transform3D(1, -7.77395e-15, 0, -6.66183e-15, 1, 0, 0, 0, 1, -0.691572, -0.158918, 1.31171)
+
+[node name="ConditionDisplay_TEMP" parent="Gorbjira/Armature/Skeleton3D/RLegBone/RightLeg" index="3"]
+transform = Transform3D(1, -7.77395e-15, 0, -1.11027e-14, 1, 0, 0, 0, 1, 0.0266305, 0.0616318, 1.68509)
+
 [node name="AttackModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/RLegBone/RightLeg/Modules" index="0"]
 script = ExtResource("4_g5dxc")
 data = ExtResource("12_74d4w")
@@ -201,7 +207,7 @@ bone_name = "Tail_02"
 bone_idx = 24
 
 [node name="Tail" parent="Gorbjira/Armature/Skeleton3D/TailBone" instance=ExtResource("2_kji60")]
-transform = Transform3D(2, 3.68272e-07, -3.02899e-07, -2.08515e-12, -1.27046, -1.54465, -4.7684e-07, 1.54465, -1.27045, 0.00540881, 0.68947, 2.69689)
+transform = Transform3D(2, 3.68272e-07, -3.02899e-07, -2.09879e-12, -1.27046, -1.54465, -4.7684e-07, 1.54465, -1.27045, 6.06697, 0.946773, 3.70669)
 kind = 7
 max_hp = 500.0
 
@@ -209,7 +215,13 @@ max_hp = 500.0
 cast_shadow = 1
 
 [node name="HPBar" parent="Gorbjira/Armature/Skeleton3D/TailBone/Tail" index="1"]
-transform = Transform3D(0.922673, 0, 0.385584, 0, 1, 0, -0.385584, 0, 0.922673, 0, -0.217973, -0.672686)
+transform = Transform3D(0.922673, -1.80946e-25, 0.385584, 0, 1, 4.54747e-13, -0.385584, 0, 0.922673, -3.16949, -1.13513, -0.672685)
+
+[node name="HPDisplay_TEMP" parent="Gorbjira/Armature/Skeleton3D/TailBone/Tail" index="2"]
+transform = Transform3D(1, -1.80946e-25, 0, 1.8637e-20, 1, 0, 0, 0, 1, -1.57334, 0.0436983, 0.537905)
+
+[node name="ConditionDisplay_TEMP" parent="Gorbjira/Armature/Skeleton3D/TailBone/Tail" index="3"]
+transform = Transform3D(1, -1.80946e-25, 0, 1.8637e-20, 1, 0, 0, 0, 1, -1.58307, -0.241119, 0.533385)
 
 [node name="AttackModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/TailBone/Tail/Modules" index="0"]
 script = ExtResource("4_g5dxc")
@@ -230,7 +242,7 @@ max_hp = 400.0
 cast_shadow = 1
 
 [node name="HPBar" parent="Gorbjira/Armature/Skeleton3D/PelvisBone/Pelvis" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.970607, 0.838903, 0.151936)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.970607, 0.794388, 0.134664)
 
 [node name="ShieldGainModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/PelvisBone/Pelvis/Modules" index="0"]
 script = ExtResource("4_g5dxc")

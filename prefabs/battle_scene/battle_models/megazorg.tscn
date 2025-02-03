@@ -46,7 +46,6 @@ bones/25/rotation = Quaternion(-0.476902, 0.0485938, -0.111869, 0.870453)
 bones/25/scale = Vector3(1, 1, 1)
 bones/26/position = Vector3(-0.306099, 1.56921, 0.313601)
 bones/26/rotation = Quaternion(0.195377, -0.0625876, 0.822513, 0.530455)
-bones/26/scale = Vector3(1, 1, 1)
 bones/27/position = Vector3(0.0816384, 0.765245, 0.123155)
 bones/27/rotation = Quaternion(-0.273916, -0.352004, -0.134454, 0.884865)
 bones/28/rotation = Quaternion(0.598785, 0.203897, -0.65784, 0.408814)
@@ -77,13 +76,13 @@ bones/40/rotation = Quaternion(0.0956505, -0.00223109, 0.864255, -0.493871)
 bones/40/scale = Vector3(1, 1, 1)
 
 [node name="Head_Face" parent="Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.968005, 3.56231e-08, 0.250931, -6.31657e-08, 0.999999, 2.47732e-07, -0.250931, -2.69152e-07, 0.968005, -0.0585039, -0.929611, -0.363049)
+transform = Transform3D(0.968005, -1.39419e-06, 0.250931, 1.16618e-06, 1, 9.67644e-07, -0.250931, -6.25849e-07, 0.968005, -0.0584904, -0.929617, -0.363051)
 
 [node name="Head_Helmet" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.968005, 3.56231e-08, 0.250931, -6.31657e-08, 0.999999, 2.47732e-07, -0.250931, -2.69152e-07, 0.968005, -0.0585039, -0.929611, -0.363049)
+transform = Transform3D(0.968005, -1.39419e-06, 0.250931, 1.16618e-06, 1, 9.67644e-07, -0.250931, -6.25849e-07, 0.968005, -0.0584904, -0.929617, -0.363051)
 
 [node name="Head_Mouthguard" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.968005, 3.56231e-08, 0.250931, -6.31657e-08, 0.999999, 2.47732e-07, -0.250931, -2.69152e-07, 0.968005, -0.0585039, -0.929611, -0.363049)
+transform = Transform3D(0.968005, -1.39419e-06, 0.250931, 1.16618e-06, 1, 9.67644e-07, -0.250931, -6.25849e-07, 0.968005, -0.0584904, -0.929617, -0.363051)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "Idle"

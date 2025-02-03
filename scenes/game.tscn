@@ -423,9 +423,6 @@ transform = Transform3D(0.999997, 0.0017052, 0.0019271, -0.000526178, 0.868589, 
 [node name="TailBone" parent="SubViewport/Battle3D/Kaiju3D_Gorbjira/Gorbjira/Armature/Skeleton3D" index="7"]
 transform = Transform3D(1, -1.10134e-13, -2.38418e-07, 1.84137e-07, -0.635227, 0.772326, -1.51452e-07, -0.772326, -0.63523, -3.95491e-11, 2.67799, -3.99197)
 
-[node name="PelvisBone" parent="SubViewport/Battle3D/Kaiju3D_Gorbjira/Gorbjira/Armature/Skeleton3D" index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.66978e-17, 4.77404, -0.40827)
-
 [node name="proc_city_bake" parent="SubViewport" instance=ExtResource("24_srtqa")]
 transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0, 0, 0)
 script = ExtResource("27_nuysg")

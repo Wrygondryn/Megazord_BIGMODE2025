@@ -74,6 +74,9 @@ max_hp = 500.0
 [node name="CSGBox3D" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head" index="0"]
 material_override = ExtResource("2_pb2md")
 
+[node name="ConditionDisplay_TEMP" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head" index="3"]
+transform = Transform3D(1, 1.42109e-14, 1.49012e-08, 3.41061e-13, 1, 1.42109e-13, 1.49012e-08, 0, 1, -0.893809, 0.441649, 0.184245)
+
 [node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("3_2bqwm")
@@ -97,6 +100,12 @@ max_hp = 300.0
 [node name="HPBar" parent="MechaZorg/Armature/Skeleton3D/LArmBone/LeftArm" index="1"]
 transform = Transform3D(1, 2.23517e-08, 3.72529e-09, -7.45058e-09, 1, 0, -1.86265e-08, 0, 1, -0.321268, 0.0409663, 0.972086)
 
+[node name="HPDisplay_TEMP" parent="MechaZorg/Armature/Skeleton3D/LArmBone/LeftArm" index="2"]
+transform = Transform3D(1, 3.72529e-08, 1.86265e-08, 0, 1, -8.9407e-08, -4.09782e-08, -5.96046e-08, 1, 0.0785208, 0.00927114, 0.932328)
+
+[node name="ConditionDisplay_TEMP" parent="MechaZorg/Armature/Skeleton3D/LArmBone/LeftArm" index="3"]
+transform = Transform3D(1, 3.72529e-08, 1.86265e-08, 0, 1, -8.9407e-08, -4.09782e-08, -5.96046e-08, 1, 0.0687947, -0.275546, 0.927809)
+
 [node name="RestrainAttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LArmBone/LeftArm/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("6_to568")
@@ -116,6 +125,12 @@ bone_idx = 12
 transform = Transform3D(-1.9313, 0.628702, -0.355082, -0.721951, -1.665, 0.978694, 0.0116874, 1.04105, 1.7797, 0.562977, -0.506872, -1.90498)
 kind = 2
 max_hp = 300.0
+
+[node name="HPDisplay_TEMP" parent="MechaZorg/Armature/Skeleton3D/RArmBone/RightArm" index="2"]
+transform = Transform3D(0.999983, 0.00333719, -0.00465894, -0.00327674, 0.99991, 0.0129497, 0.00470141, -0.012934, 0.999905, 0.178537, 1.24204, 0.245093)
+
+[node name="ConditionDisplay_TEMP" parent="MechaZorg/Armature/Skeleton3D/RArmBone/RightArm" index="3"]
+transform = Transform3D(0.999983, 0.00333719, -0.00465894, -0.00327674, 0.99991, 0.0129497, 0.00470141, -0.012934, 0.999905, 0.167882, 0.957226, 0.244211)
 
 [node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RArmBone/RightArm/Modules" index="0"]
 script = ExtResource("2_qs1rj")
@@ -137,6 +152,12 @@ transform = Transform3D(-2.0544, -0.0954362, 0.146955, 0.173877, -0.89626, 1.848
 kind = 5
 max_hp = 350.0
 
+[node name="HPDisplay_TEMP" parent="MechaZorg/Armature/Skeleton3D/LLegBone/LeftLeg" index="2"]
+transform = Transform3D(1, 9.27798e-14, -1.7053e-13, 4.12663e-14, 1, 0, 0, 6.82121e-13, 1, -0.478824, 0.810777, 0.529172)
+
+[node name="ConditionDisplay_TEMP" parent="MechaZorg/Armature/Skeleton3D/LLegBone/LeftLeg" index="3"]
+transform = Transform3D(1, 9.27798e-14, -1.7053e-13, 4.12663e-14, 1, 0, 0, 6.82121e-13, 1, -0.48855, 0.52596, 0.524653)
+
 [node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LLegBone/LeftLeg/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("10_7k34i")
@@ -157,6 +178,9 @@ transform = Transform3D(-0.679087, 0.557681, -1.86524, -1.43192, -1.48147, 0.078
 kind = 6
 max_hp = 450.0
 
+[node name="ConditionDisplay_TEMP" parent="MechaZorg/Armature/Skeleton3D/RLegBone/RightLeg" index="3"]
+transform = Transform3D(1, -2.6077e-08, -5.21541e-08, 2.0396e-07, 1, -1.49012e-08, -7.45058e-09, 7.45058e-09, 1, -0.232155, 0.51484, 0.314876)
+
 [node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RLegBone/RightLeg/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("16_ju55j")
@@ -176,6 +200,12 @@ bone_idx = 0
 transform = Transform3D(2.06186, 4.65626e-07, 1.57637e-07, 1.46504e-14, 0.661177, -1.95298, -4.91586e-07, 1.95298, 0.661177, -5.36442e-07, 3.76723, -2.29974)
 kind = 4
 max_hp = 500.0
+
+[node name="HPDisplay_TEMP" parent="MechaZorg/Armature/Skeleton3D/PelvisBone/Pelvis" index="2"]
+transform = Transform3D(1, 8.96592e-21, 0, -2.95021e-20, 1, -1.13687e-13, 2.03288e-20, 1.13687e-13, 1, -0.972325, 1.0128, 0.672164)
+
+[node name="ConditionDisplay_TEMP" parent="MechaZorg/Armature/Skeleton3D/PelvisBone/Pelvis" index="3"]
+transform = Transform3D(1, 8.96592e-21, 0, -2.95021e-20, 1, -1.13687e-13, 2.03288e-20, 1.13687e-13, 1, -0.982051, 0.727984, 0.667645)
 
 [node name="ReinforceShieldModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/PelvisBone/Pelvis/Modules" index="0"]
 script = ExtResource("2_qs1rj")
@@ -199,6 +229,9 @@ max_hp = 1000.0
 
 [node name="HPBar" parent="MechaZorg/Armature/Skeleton3D/TorsoBone/Torso" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.714132, 0.0335114)
+
+[node name="ConditionDisplay_TEMP" parent="MechaZorg/Armature/Skeleton3D/TorsoBone/Torso" index="3"]
+transform = Transform3D(1, -3.55271e-15, 2.98023e-08, -3.55271e-15, 1, 5.68434e-14, 5.96046e-08, 0, 1, -0.401084, 0.54887, 0.414277)
 
 [node name="ShieldModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/TorsoBone/Torso/Modules" index="0"]
 script = ExtResource("2_qs1rj")

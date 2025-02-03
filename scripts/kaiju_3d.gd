@@ -209,6 +209,8 @@ func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: St
 			animation_3d = "ClawAttack"
 		Helpers.BodyPart.HEAD:
 			animation_3d = "Bite"
+		Helpers.BodyPart.TAIL:
+			animation_3d = "TailWhip"
 	
 
 	battle.queue_action(Helpers.GigaTarget.KAIJU, body_part, action, animation_3d)
