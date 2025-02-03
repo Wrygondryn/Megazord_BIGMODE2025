@@ -72,6 +72,7 @@ script = ExtResource("1_ap2fx")
 hp_colour = Color(0, 0.577795, 5.77569e-07, 1)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_s6465")
 cast_shadow = 0
 
