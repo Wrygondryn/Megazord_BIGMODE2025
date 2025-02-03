@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://he3fi3w1rn4e"]
+[gd_scene load_steps=37 format=3 uid="uid://he3fi3w1rn4e"]
 
 [ext_resource type="Script" path="res://prefabs/dashboard/dashboard_camera.gd" id="1_xmdqw"]
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="2_6o6iw"]
@@ -27,6 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://b12hvhwsd8mat" path="res://assets/models/city/proc_city_bake.glb" id="24_srtqa"]
 [ext_resource type="Script" path="res://scripts/pause_screen.gd" id="26_gqkgj"]
 [ext_resource type="FontFile" uid="uid://b1o736at0xfi" path="res://assets/fonts/StalinistOne-Regular.ttf" id="26_ouoy4"]
+[ext_resource type="StyleBox" uid="uid://ydqyhnqcyt11" path="res://assets/styles/button_hover_style.tres" id="28_ig07w"]
+[ext_resource type="StyleBox" uid="uid://dxcj62sqcdqd0" path="res://assets/styles/button_normal_style.tres" id="29_s6dhv"]
+[ext_resource type="StyleBox" uid="uid://bo1n3p3df22lu" path="res://assets/styles/button_pressed_style.tres" id="30_2nqcn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dyj7c"]
 sky_top_color = Color(0.657493, 0.881287, 0.990151, 1)
@@ -59,6 +62,16 @@ colors = PackedColorArray(0, 0, 0, 0.388235)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_pkb08"]
 gradient = SubResource("Gradient_yltex")
 width = 1600
+
+[sub_resource type="Theme" id="Theme_6l1d8"]
+Button/colors/font_color = Color(0.780392, 0.933333, 0.905882, 1)
+Button/colors/font_hover_color = Color(0.780392, 0.933333, 0.905882, 1)
+Button/colors/font_outline_color = Color(0.215686, 0.258824, 0.254902, 1)
+Button/colors/font_pressed_color = Color(0.780392, 0.933333, 0.905882, 1)
+Button/constants/outline_size = 24
+Button/styles/hover = ExtResource("28_ig07w")
+Button/styles/normal = ExtResource("29_s6dhv")
+Button/styles/pressed = ExtResource("30_2nqcn")
 
 [node name="Game" type="Node2D"]
 
@@ -415,6 +428,41 @@ theme_override_font_sizes/font_size = 36
 text = "PAUSED
 
 Press escape to unpause"
+
+[node name="ResumeButton" type="Button" parent="PauseScreen"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 581.0
+offset_right = 370.0
+offset_bottom = 683.0
+focus_mode = 0
+theme = SubResource("Theme_6l1d8")
+theme_override_colors/font_color = Color(0.780392, 0.933333, 0.905882, 1)
+theme_override_colors/font_outline_color = Color(0.215686, 0.258824, 0.254902, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = ExtResource("26_ouoy4")
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+alignment = 2
+
+[node name="QuitButton" type="Button" parent="PauseScreen"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 733.0
+offset_right = 370.0
+offset_bottom = 835.0
+focus_mode = 0
+theme = SubResource("Theme_6l1d8")
+theme_override_colors/font_color = Color(0.780392, 0.933333, 0.905882, 1)
+theme_override_colors/font_outline_color = Color(0.215686, 0.258824, 0.254902, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = ExtResource("26_ouoy4")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+alignment = 2
+
+[connection signal="pressed" from="PauseScreen/ResumeButton" to="PauseScreen" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseScreen/QuitButton" to="PauseScreen" method="_on_quit_button_pressed"]
 
 [editable path="Dashboard/Sockets/LeftArmAttackSocket"]
 [editable path="Dashboard/Sockets/RightArmAttackSocket"]
