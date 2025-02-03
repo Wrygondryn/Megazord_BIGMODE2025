@@ -425,9 +425,7 @@ theme_override_colors/font_outline_color = Color(0.215686, 0.258824, 0.254902, 1
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("26_ouoy4")
 theme_override_font_sizes/font_size = 36
-text = "PAUSED
-
-Press escape to unpause"
+text = "PAUSED"
 
 [node name="ResumeButton" type="Button" parent="PauseScreen"]
 layout_mode = 0
@@ -461,8 +459,28 @@ theme_override_font_sizes/font_size = 40
 text = "Quit"
 alignment = 2
 
+[node name="VolumeSliderLabel" type="Label" parent="PauseScreen"]
+offset_left = 382.0
+offset_top = 294.0
+offset_right = 683.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0.780392, 0.933333, 0.905882, 1)
+theme_override_colors/font_outline_color = Color(0.215686, 0.258824, 0.254902, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = ExtResource("26_ouoy4")
+theme_override_font_sizes/font_size = 48
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="PauseScreen"]
+offset_left = 716.0
+offset_top = 269.0
+offset_right = 1462.0
+offset_bottom = 387.0
+value = 100.0
+
 [connection signal="pressed" from="PauseScreen/ResumeButton" to="PauseScreen" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseScreen/QuitButton" to="PauseScreen" method="_on_quit_button_pressed"]
+[connection signal="value_changed" from="PauseScreen/VolumeSlider" to="PauseScreen" method="_on_volume_slider_value_changed"]
 
 [editable path="Dashboard/Sockets/LeftArmAttackSocket"]
 [editable path="Dashboard/Sockets/RightArmAttackSocket"]

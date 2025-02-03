@@ -7,13 +7,10 @@ extends Control
 @onready var settings: Control = $Settings
 @onready var volume_slider: HSlider = $Settings/VolumeSlider
 
-const MIN_VOLUME_DB = -24.0
-const MAX_VOLUME_DB = 6.0
-
 
 func _ready():
 	var starting_volume := AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
-	var starting_volume_frac = (starting_volume - MIN_VOLUME_DB) / (MAX_VOLUME_DB - MIN_VOLUME_DB)
+	var starting_volume_frac = (starting_volume - Helpers.MIN_VOLUME_DB) / (Helpers.MAX_VOLUME_DB - Helpers.MIN_VOLUME_DB)
 	volume_slider.value = (volume_slider.max_value - volume_slider.min_value) * starting_volume_frac
 
 func _on_play_button_pressed() -> void:
@@ -43,7 +40,7 @@ func _on_settings_button_pressed() -> void:
 	settings.show()
 
 func _on_volume_slider_value_changed(value: float) -> void:
-	var new_volume := MIN_VOLUME_DB + (MAX_VOLUME_DB - MIN_VOLUME_DB) * value / volume_slider.max_value
+	var new_volume := Helpers.MIN_VOLUME_DB + (Helpers.MAX_VOLUME_DB - Helpers.MIN_VOLUME_DB) * value / volume_slider.max_value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), new_volume)
 
 func _on_settings_back_button_pressed() -> void:
