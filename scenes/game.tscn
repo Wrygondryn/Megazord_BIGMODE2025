@@ -365,13 +365,13 @@ bones/24/rotation = Quaternion(0.620423, -3.49067e-07, -2.29214e-06, 0.784268)
 bones/25/rotation = Quaternion(0.823174, -3.87911e-07, -3.23769e-06, 0.567789)
 
 [node name="Head_Face" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.968005, -1.39046e-06, 0.250931, 9.6854e-07, 1, 1.7276e-06, -0.250931, -1.43051e-06, 0.968005, -0.101724, -0.962325, -0.364549)
+transform = Transform3D(0.968005, -1.11992e-07, 0.250931, -6.70912e-08, 1, 8.028e-07, -0.250931, -7.7486e-07, 0.968005, -0.101738, -0.962324, -0.364553)
 
 [node name="Head_Helmet" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.968005, -1.39046e-06, 0.250931, 9.6854e-07, 1, 1.7276e-06, -0.250931, -1.43051e-06, 0.968005, -0.101724, -0.962325, -0.364549)
+transform = Transform3D(0.968005, -1.11992e-07, 0.250931, -6.70912e-08, 1, 8.028e-07, -0.250931, -7.7486e-07, 0.968005, -0.101738, -0.962324, -0.364553)
 
 [node name="Head_Mouthguard" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.968005, -1.39046e-06, 0.250931, 9.6854e-07, 1, 1.7276e-06, -0.250931, -1.43051e-06, 0.968005, -0.101724, -0.962325, -0.364549)
+transform = Transform3D(0.968005, -1.11992e-07, 0.250931, -6.70912e-08, 1, 8.028e-07, -0.250931, -7.7486e-07, 0.968005, -0.101738, -0.962324, -0.364553)
 
 [node name="Kaiju3D_Gorbjira" parent="SubViewport/Battle3D" instance=ExtResource("23_t2umd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.54586, 0, 0)

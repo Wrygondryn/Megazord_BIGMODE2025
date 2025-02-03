@@ -11,7 +11,7 @@ const MODIFIER_COOLDOWN_DISPLAY_SCENE = preload("res://prefabs/battle_scene/modi
 #TODO: Reintroduce this if we want modules that are separate from body parts
 #@export var extra_modules: Array[ModuleData]
 
-@onready var animation_player: AnimationPlayer = $BodyParts/Tail/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $Gorbjira/AnimationPlayer
 @onready var body_parts: Array[BodyPart3D];
 @onready var modifiers: Node3D = $Modifiers
 @onready var shield_display_temp: Label3D = $ShieldDisplay_TEMP
@@ -203,7 +203,6 @@ func _process(delta: float) -> void:
 	shield_bar.texture = shield_texture
 
 func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: StringName):
-	
 	var animarion_3d: StringName
 	match body_part.kind:
 		Helpers.BodyPart.LEFT_ARM:
@@ -212,6 +211,7 @@ func _on_body_part_action_ready(body_part: Node3D, action: Action, animation: St
 			animarion_3d = "ClawAttack"
 		Helpers.BodyPart.HEAD:
 			animarion_3d = "Bite"
+	
 
 	battle.queue_action(Helpers.GigaTarget.KAIJU, body_part, action, animarion_3d)
 		
