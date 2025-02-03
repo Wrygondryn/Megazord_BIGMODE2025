@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ct4d7o7xgeoqc"]
+[gd_scene load_steps=25 format=3 uid="uid://ct4d7o7xgeoqc"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3dcrd"]
 [ext_resource type="StyleBox" uid="uid://ydqyhnqcyt11" path="res://assets/styles/button_hover_style.tres" id="1_dm6ed"]
@@ -10,7 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://dh6j3xp25emak" path="res://assets/styles/button_hover_rev_style.tres" id="7_2okxp"]
 [ext_resource type="StyleBox" uid="uid://ypkcmy1xltfg" path="res://assets/styles/button_pressed_rev_style.tres" id="7_2w34n"]
 [ext_resource type="Texture2D" uid="uid://b1wfebv4w7jyh" path="res://assets/sprites/dashboard/dashboard_symbols/mech_symbol_power.png" id="7_2waj4"]
-[ext_resource type="Texture2D" uid="uid://b8v7kake4o20a" path="res://assets/sprites/dashboard/TutorialPage1Ref.png" id="7_os0nm"]
+[ext_resource type="Texture2D" uid="uid://cuqctemsjgk62" path="res://assets/sprites/dashboard/TutorialPage1Ref.png" id="7_os0nm"]
 [ext_resource type="Texture2D" uid="uid://dtsr6e2g0bglv" path="res://assets/sprites/dashboard/dashboard_symbols/wire_symbol.png" id="8_dtot3"]
 [ext_resource type="Texture2D" uid="uid://d4pdrnt6wtvi" path="res://assets/misc/Mech_Ref.png" id="10_v65vb"]
 [ext_resource type="Texture2D" uid="uid://rq1fc7xyp1hu" path="res://assets/sprites/dashboard/action_symbols/boostrepair_symbol.png" id="11_0ys5y"]
@@ -20,6 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://daixglcg4v2xs" path="res://assets/sprites/dashboard/action_symbols/repair_symbol.png" id="15_jdgu2"]
 [ext_resource type="Texture2D" uid="uid://c5iaouw8f2kjt" path="res://assets/sprites/dashboard/action_symbols/restrain-arm_claw_symbol.png" id="16_h7j0y"]
 [ext_resource type="Texture2D" uid="uid://cvhd5ayaya2ch" path="res://assets/sprites/dashboard/action_symbols/shield_symbol.png" id="17_46vff"]
+
+[sub_resource type="Gradient" id="Gradient_yapcb"]
+offsets = PackedFloat32Array(0, 0.192308, 0.461538, 0.71978, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.4, 0.435294, 1, 0.0392157, 0.592157, 0.647059, 1, 0.894118, 1, 1, 1, 0.356863, 0.631373, 0.647059, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y7taf"]
+gradient = SubResource("Gradient_yapcb")
 
 [sub_resource type="Theme" id="Theme_pnnr3"]
 Button/colors/font_color = Color(0.909804, 0.839216, 0, 1)
@@ -46,6 +53,15 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3dcrd")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 923.0
+offset_right = 901.0
+offset_bottom = 2523.0
+rotation = 4.71239
+texture = SubResource("GradientTexture1D_y7taf")
 
 [node name="Main" type="Control" parent="."]
 anchors_preset = 0
@@ -171,10 +187,10 @@ texture = ExtResource("7_os0nm")
 
 [node name="DispenserLabel" type="Label" parent="Tutorial/Pages/Page1"]
 layout_mode = 0
-offset_left = 722.0
-offset_top = 684.0
-offset_right = 1004.0
-offset_bottom = 738.0
+offset_left = 814.0
+offset_top = 695.0
+offset_right = 1096.0
+offset_bottom = 749.0
 theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("4_d0bw6")
 theme_override_font_sizes/font_size = 28
@@ -183,10 +199,10 @@ autowrap_mode = 2
 
 [node name="SocketLabel" type="Label" parent="Tutorial/Pages/Page1"]
 layout_mode = 0
-offset_left = 310.0
-offset_top = 603.0
-offset_right = 501.0
-offset_bottom = 657.0
+offset_left = 299.0
+offset_top = 629.0
+offset_right = 490.0
+offset_bottom = 683.0
 theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("4_d0bw6")
 theme_override_font_sizes/font_size = 28
@@ -196,10 +212,10 @@ autowrap_mode = 2
 
 [node name="JackLabel" type="Label" parent="Tutorial/Pages/Page1"]
 layout_mode = 0
-offset_left = 658.0
-offset_top = 498.0
-offset_right = 793.0
-offset_bottom = 548.0
+offset_left = 747.0
+offset_top = 519.0
+offset_right = 882.0
+offset_bottom = 569.0
 theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("4_d0bw6")
 theme_override_font_sizes/font_size = 28
@@ -447,19 +463,15 @@ theme_override_colors/font_color = Color(0.909804, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("4_d0bw6")
 theme_override_font_sizes/font_size = 28
 text = "Tips:
-      - The more jacks plugged in, the less power each jack 
-         supplies. Use your jacks wisely!
+      - Plugging in more jacks reduces the effeiciency of 
+         already connected jacks. Use your jacks wisely!
 
-      - Yellow jacks divert more power, and red ones even 
-         more. plug them into sockets you need to charge 
-         quickly!
-
-      - Some attacks go through shield. Make sure to have to
+      - Pierce attacks go through shield. Make sure to have to
          reinforce some of your shield to stop such attacks!
 
-      - Some attacks restrain and prevent body parts from 
-         using their moves. Time them when the kaiju's about to 
-         do a big move!"
+      - Some attacks can restrain body parts, preventing 
+         them from using their moves. Time them when the 
+         kaiju's about to do a big move!"
 autowrap_mode = 2
 
 [node name="BackPrevButton" type="Button" parent="Tutorial"]
