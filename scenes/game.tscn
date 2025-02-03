@@ -179,7 +179,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FrogArmRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("11_1aw0m")]
 position = Vector2(-831, 180)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules/RepairModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules/AttackModule")
 
 [node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/FrogArmRepairSocket" index="2"]
 metadata/_edit_use_anchors_ = true
@@ -284,7 +284,7 @@ module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/
 
 [node name="MonkeyRepairChargeDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("17_pgmjt")]
 position = Vector2(384, 441)
-module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg/Modules/RepairModule")
+module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules/RepairModule")
 
 [node name="PelvisReinforceShieldDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("17_pgmjt")]
 position = Vector2(-341, 252)
@@ -347,6 +347,9 @@ kaiju = NodePath("Kaiju3D_Gorbjira")
 [node name="Mechazorg3D" parent="SubViewport/Battle3D" instance=ExtResource("22_epli8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.36102, 0, 0)
 
+[node name="MechaZorg" parent="SubViewport/Battle3D/Mechazorg3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="Skeleton3D" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature" index="0"]
 bones/2/rotation = Quaternion(0.08685, 2.37518e-07, -1.78309e-15, 0.996221)
 bones/2/scale = Vector3(1, 1, 1)
@@ -383,13 +386,13 @@ bones/24/rotation = Quaternion(0.620423, -3.49067e-07, -2.29214e-06, 0.784268)
 bones/25/rotation = Quaternion(0.823174, -3.87911e-07, -3.23769e-06, 0.567789)
 
 [node name="Head_Face" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -8.89057e-12, -2.86102e-06, 9.46224e-07)
+transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -5.30943e-09, -1.90735e-06, 9.46224e-07)
 
 [node name="Head_Helmet" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -8.89057e-12, -2.86102e-06, 9.46224e-07)
+transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -5.30943e-09, -1.90735e-06, 9.46224e-07)
 
 [node name="Head_Mouthguard" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -8.89057e-12, -2.86102e-06, 9.46224e-07)
+transform = Transform3D(1, 6.82121e-13, 2.43805e-12, -5.68434e-13, 1, 7.13393e-07, -2.32925e-12, -7.13393e-07, 1, -5.30943e-09, -1.90735e-06, 9.46224e-07)
 
 [node name="Kaiju3D_Gorbjira" parent="SubViewport/Battle3D" instance=ExtResource("23_t2umd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.54586, 0, 0)
@@ -507,3 +510,12 @@ value = 100.0
 [editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm"]
 [editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg"]
 [editable path="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso"]
+[editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira"]
+[editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/BodyParts/Head"]
+[editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/BodyParts/Torso"]
+[editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/BodyParts/LeftArm"]
+[editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/BodyParts/RightArm"]
+[editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/BodyParts/Pelvis"]
+[editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/BodyParts/LeftLeg"]
+[editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/BodyParts/RightLeg"]
+[editable path="SubViewport/Battle3D/Kaiju3D_Gorbjira/BodyParts/Tail"]
