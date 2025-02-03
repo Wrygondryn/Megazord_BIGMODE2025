@@ -197,7 +197,7 @@ texture = ExtResource("14_8j4ug")
 metadata/_edit_use_anchors_ = true
 
 [node name="MonkeyRepairSocket" parent="Dashboard/Sockets" node_paths=PackedStringArray("module") instance=ExtResource("11_1aw0m")]
-position = Vector2(-193, 476)
+position = Vector2(-193, 473)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LLegBone/LeftLeg/Modules/RepairModule")
 
 [node name="PowerDisplay_TEMP" parent="Dashboard/Sockets/MonkeyRepairSocket" index="2"]
@@ -285,7 +285,7 @@ position = Vector2(283, 337)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/TorsoBone/Torso/Modules/ShieldModule")
 
 [node name="MonkeyRepairChargeDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("17_pgmjt")]
-position = Vector2(384, 441)
+position = Vector2(384, 438)
 module = NodePath("../../../SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D/LArmBone/LeftArm/Modules/RepairModule")
 
 [node name="PelvisReinforceShieldDisplay" parent="Dashboard/ChargeDisplays" node_paths=PackedStringArray("module") instance=ExtResource("17_pgmjt")]
