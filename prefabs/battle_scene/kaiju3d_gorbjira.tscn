@@ -19,11 +19,12 @@
 [ext_resource type="AudioStream" uid="uid://d2lrwm0n8sdf8" path="res://assets/music_and_sounds/shield_gain.wav" id="12_lv1u3"]
 [ext_resource type="AudioStream" uid="uid://us303usa1tfi" path="res://assets/music_and_sounds/shield_reinforce.wav" id="13_qk6kw"]
 
-[node name="Kaiju3D_Gorbjira" type="Node3D"]
+[node name="Kaiju3D_Gorbjira" type="Node3D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_uoi3y")
 shield = 150.0
 shield_colour = Color(0, 0, 1, 1)
 reinforced_shield_colour = Color(0, 0.988235, 1, 1)
+animation_player = NodePath("Gorbjira/AnimationPlayer")
 
 [node name="ShieldBar" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8, 0)

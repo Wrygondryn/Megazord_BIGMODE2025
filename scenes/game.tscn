@@ -339,10 +339,11 @@ light_energy = 0.729
 transform = Transform3D(1, 0, 0, 0, 0.992115, 0.125333, 0, -0.125333, 0.992115, -0.055, 4.949, 9.921)
 fov = 57.6166
 
-[node name="Battle3D" type="Node3D" parent="SubViewport" node_paths=PackedStringArray("kaiju")]
+[node name="Battle3D" type="Node3D" parent="SubViewport" node_paths=PackedStringArray("kaiju", "winlose_label")]
 unique_name_in_owner = true
 script = ExtResource("21_p4tn3")
 kaiju = NodePath("Kaiju3D_Gorbjira")
+winlose_label = NodePath("../../WinLoseLabel")
 
 [node name="Mechazorg3D" parent="SubViewport/Battle3D" instance=ExtResource("22_epli8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.36102, 0, 0)
@@ -365,13 +366,13 @@ bones/24/rotation = Quaternion(0.620423, -3.49067e-07, -2.29214e-06, 0.784268)
 bones/25/rotation = Quaternion(0.823174, -3.87911e-07, -3.23769e-06, 0.567789)
 
 [node name="Head_Face" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.968005, -1.11992e-07, 0.250931, -6.70912e-08, 1, 8.028e-07, -0.250931, -7.7486e-07, 0.968005, -0.101738, -0.962324, -0.364553)
+transform = Transform3D(0.968005, -1.39046e-06, 0.250931, 1.16225e-06, 1, 9.67644e-07, -0.250931, -6.2678e-07, 0.968005, -0.0584904, -0.929617, -0.363051)
 
 [node name="Head_Helmet" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.968005, -1.11992e-07, 0.250931, -6.70912e-08, 1, 8.028e-07, -0.250931, -7.7486e-07, 0.968005, -0.101738, -0.962324, -0.364553)
+transform = Transform3D(0.968005, -1.39046e-06, 0.250931, 1.16225e-06, 1, 9.67644e-07, -0.250931, -6.2678e-07, 0.968005, -0.0584904, -0.929617, -0.363051)
 
 [node name="Head_Mouthguard" parent="SubViewport/Battle3D/Mechazorg3D/MechaZorg/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.968005, -1.11992e-07, 0.250931, -6.70912e-08, 1, 8.028e-07, -0.250931, -7.7486e-07, 0.968005, -0.101738, -0.962324, -0.364553)
+transform = Transform3D(0.968005, -1.39046e-06, 0.250931, 1.16225e-06, 1, 9.67644e-07, -0.250931, -6.2678e-07, 0.968005, -0.0584904, -0.929617, -0.363051)
 
 [node name="Kaiju3D_Gorbjira" parent="SubViewport/Battle3D" instance=ExtResource("23_t2umd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.54586, 0, 0)
@@ -461,6 +462,20 @@ offset_top = 269.0
 offset_right = 1462.0
 offset_bottom = 387.0
 value = 100.0
+
+[node name="WinLoseLabel" type="Label" parent="."]
+offset_left = -801.0
+offset_top = -218.0
+offset_right = 801.0
+offset_bottom = -117.0
+pivot_offset = Vector2(228, 59)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.943774, 0, 0.152784, 1)
+theme_override_constants/outline_size = 90
+theme_override_fonts/font = ExtResource("26_ouoy4")
+theme_override_font_sizes/font_size = 56
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="PauseScreen/ResumeButton" to="PauseScreen" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseScreen/QuitButton" to="PauseScreen" method="_on_quit_button_pressed"]
