@@ -12,7 +12,7 @@ const MODIFIER_COOLDOWN_DISPLAY_SCENE = preload("res://prefabs/battle_scene/modi
 #@export var extra_modules: Array[ModuleData]
 
 @onready var animation_player: AnimationPlayer = $Gorbjira/AnimationPlayer
-@onready var body_parts: Array[BodyPart3D];
+@export var body_parts: Array[BodyPart3D];
 @onready var modifiers: Node3D = $Modifiers
 @onready var shield_display_temp: Label3D = $ShieldDisplay_TEMP
 @onready var reinforced_shield_display_temp: Label3D = $ReinforcedShieldDisplay_TEMP
@@ -166,9 +166,7 @@ func boost_repair(multiplier: float, time_length_secs: float):
 
 
 func _ready():
-	for body_part in $BodyParts.get_children():
-		if body_part is BodyPart3D:
-			body_parts.append(body_part);
+	for body_part in body_parts:
 		for module in body_part.modules.get_children(): 
 			module.charge_rate = Helpers.KAIJU_DEFAULT_CHARGE_PER_SEC
 		

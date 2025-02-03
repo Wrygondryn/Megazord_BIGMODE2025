@@ -9,22 +9,22 @@
 [ext_resource type="Resource" uid="uid://bni5fgqtb6e62" path="res://resources/kaiju_modules/kaiju_reinforce_shield_module.tres" id="6_dgdt3"]
 [ext_resource type="Resource" uid="uid://dty47rxq1lsdx" path="res://resources/kaiju_modules/kaiju_laser_beam.tres" id="6_oojfh"]
 [ext_resource type="Resource" uid="uid://coxypd4ourgh7" path="res://resources/kaiju_modules/kaiju_left_arm_attack_module.tres" id="8_ijr1p"]
-[ext_resource type="Resource" uid="uid://cuk8ahbpqwivu" path="res://resources/kaiju_modules/kaiju_torso_scratch_attack.tres" id="8_kac7x"]
+[ext_resource type="Resource" path="res://resources/kaiju_modules/kaiju_torso_scratch_attack.tres" id="8_kac7x"]
 [ext_resource type="Resource" uid="uid://oy6hvmui7fxc" path="res://resources/kaiju_modules/kaiju_tail_whip_module.tres" id="9_2jshx"]
 [ext_resource type="PackedScene" uid="uid://cyswmaifnol4u" path="res://prefabs/battle_scene/battle_models/gorbjira.tscn" id="9_23rwx"]
 [ext_resource type="AudioStream" uid="uid://5npyyj6emr86" path="res://assets/music_and_sounds/kaiju_impact.wav" id="10_mmb6l"]
-[ext_resource type="Resource" uid="uid://cto3f2o83rfpb" path="res://resources/kaiju_modules/kaiju_right_leg_attack_module.tres" id="11_0k068"]
+[ext_resource type="Resource" path="res://resources/kaiju_modules/kaiju_right_leg_attack_module.tres" id="11_0k068"]
 [ext_resource type="AudioStream" uid="uid://bu6p6m5vi7vmn" path="res://assets/music_and_sounds/shield_impact.wav" id="11_5jy7c"]
-[ext_resource type="Resource" uid="uid://m013i57ak45e" path="res://resources/kaiju_modules/kaiju_left_leg_attack_module.tres" id="12_74d4w"]
+[ext_resource type="Resource" path="res://resources/kaiju_modules/kaiju_left_leg_attack_module.tres" id="12_74d4w"]
 [ext_resource type="AudioStream" uid="uid://d2lrwm0n8sdf8" path="res://assets/music_and_sounds/shield_gain.wav" id="12_lv1u3"]
 [ext_resource type="AudioStream" uid="uid://us303usa1tfi" path="res://assets/music_and_sounds/shield_reinforce.wav" id="13_qk6kw"]
 
-[node name="Kaiju3D_Gorbjira" type="Node3D" node_paths=PackedStringArray("animation_player")]
+[node name="Kaiju3D_Gorbjira" type="Node3D" node_paths=PackedStringArray("body_parts")]
 script = ExtResource("1_uoi3y")
 shield = 150.0
 shield_colour = Color(0, 0, 1, 1)
 reinforced_shield_colour = Color(0, 0.988235, 1, 1)
-animation_player = NodePath("Gorbjira/AnimationPlayer")
+body_parts = [NodePath("Gorbjira/Armature/Skeleton3D/HeadBone/Head"), NodePath("Gorbjira/Armature/Skeleton3D/LArmBone/LeftArm"), NodePath("Gorbjira/Armature/Skeleton3D/RArmBone/RightArm"), NodePath("Gorbjira/Armature/Skeleton3D/LLegBone/LeftLeg"), NodePath("Gorbjira/Armature/Skeleton3D/RLegBone/RightLeg"), NodePath("Gorbjira/Armature/Skeleton3D/TorsoBone/Torso"), NodePath("Gorbjira/Armature/Skeleton3D/TailBone/Tail"), NodePath("Gorbjira/Armature/Skeleton3D/PelvisBone/Pelvis")]
 
 [node name="ShieldBar" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8, 0)
@@ -47,155 +47,196 @@ visible = false
 billboard = 1
 text = "Reinforced - 000"
 
-[node name="BodyParts" type="Node3D" parent="."]
-
-[node name="Head" parent="BodyParts" instance=ExtResource("2_kji60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00621891, 6.61602, 1.34865)
-kind = 0
-max_hp = 500.0
-
-[node name="CSGBox3D" parent="BodyParts/Head" index="0"]
-material_override = ExtResource("3_rflpb")
-cast_shadow = 1
-
-[node name="AttackModule" type="Node" parent="BodyParts/Head/Modules" index="0"]
-script = ExtResource("4_g5dxc")
-data = ExtResource("5_dtwvg")
-animation_name = &"test_animation"
-
-[node name="LaserBeamModule" type="Node" parent="BodyParts/Head/Modules" index="1"]
-script = ExtResource("4_g5dxc")
-data = ExtResource("6_oojfh")
-animation_name = &"test_animation"
-
-[node name="Torso" parent="BodyParts" instance=ExtResource("2_kji60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.95354, 2.18701)
-kind = 3
-max_hp = 1000.0
-
-[node name="CSGBox3D" parent="BodyParts/Torso" index="0"]
-cast_shadow = 1
-
-[node name="ReinforceShieldModule" type="Node" parent="BodyParts/Torso/Modules" index="0"]
-script = ExtResource("4_g5dxc")
-data = ExtResource("6_dgdt3")
-animation_name = &"test_animation"
-
-[node name="LeftArm" parent="BodyParts" instance=ExtResource("2_kji60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67523, 4.30142, 0.178016)
-kind = 1
-max_hp = 200.0
-
-[node name="CSGBox3D" parent="BodyParts/LeftArm" index="0"]
-cast_shadow = 1
-
-[node name="AttackModule" type="Node" parent="BodyParts/LeftArm/Modules" index="0"]
-script = ExtResource("4_g5dxc")
-data = ExtResource("8_kac7x")
-animation_name = &"test_animation"
-
-[node name="RightArm" parent="BodyParts" instance=ExtResource("2_kji60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.675, 4.301, 0.178)
-kind = 2
-max_hp = 200.0
-
-[node name="CSGBox3D" parent="BodyParts/RightArm" index="0"]
-cast_shadow = 1
-
-[node name="AttackModule" type="Node" parent="BodyParts/RightArm/Modules" index="0"]
-script = ExtResource("4_g5dxc")
-data = ExtResource("8_ijr1p")
-animation_name = &"test_animation"
-
-[node name="Pelvis" parent="BodyParts" instance=ExtResource("2_kji60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61607, -2.23194)
-kind = 4
-max_hp = 400.0
-
-[node name="CSGBox3D" parent="BodyParts/Pelvis" index="0"]
-cast_shadow = 1
-
-[node name="ShieldGainModule" type="Node" parent="BodyParts/Pelvis/Modules" index="0"]
-script = ExtResource("4_g5dxc")
-data = ExtResource("6_d7jla")
-animation_name = &"test_animation"
-
-[node name="LeftLeg" parent="BodyParts" instance=ExtResource("2_kji60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47515, 0.35283, 1.78364)
-kind = 5
-max_hp = 300.0
-
-[node name="CSGBox3D" parent="BodyParts/LeftLeg" index="0"]
-cast_shadow = 1
-
-[node name="AttackModule" type="Node" parent="BodyParts/LeftLeg/Modules" index="0"]
-script = ExtResource("4_g5dxc")
-data = ExtResource("11_0k068")
-animation_name = &"test_animation"
-
-[node name="RightLeg" parent="BodyParts" instance=ExtResource("2_kji60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49399, 0.500414, -1.59851)
-kind = 6
-max_hp = 300.0
-
-[node name="CSGBox3D" parent="BodyParts/RightLeg" index="0"]
-cast_shadow = 1
-
-[node name="HPBar" parent="BodyParts/RightLeg" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838903, 3.57294)
-
-[node name="AttackModule" type="Node" parent="BodyParts/RightLeg/Modules" index="0"]
-script = ExtResource("4_g5dxc")
-data = ExtResource("12_74d4w")
-animation_name = &"test_animation"
-
-[node name="Tail" parent="BodyParts" instance=ExtResource("2_kji60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61607, -2.23194)
-kind = 7
-max_hp = 500.0
-
-[node name="CSGBox3D" parent="BodyParts/Tail" index="0"]
-cast_shadow = 1
-
-[node name="HPBar" parent="BodyParts/Tail" index="1"]
-transform = Transform3D(0.922673, 0, 0.385584, 0, 1, 0, -0.385584, 0, 0.922673, 0, -0.217973, -1.74631)
-
-[node name="AttackModule" type="Node" parent="BodyParts/Tail/Modules" index="0"]
-script = ExtResource("4_g5dxc")
-data = ExtResource("9_2jshx")
-animation_name = &"test_animation"
-
 [node name="Gorbjira" parent="." instance=ExtResource("9_23rwx")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Gorbjira/Armature" index="0"]
-bones/0/position = Vector3(-0.00540817, 4.82325, -0.355186)
+bones/0/position = Vector3(-9.66978e-17, 4.77404, -0.40827)
 bones/1/rotation = Quaternion(0.203753, 0.0011794, -0.000514194, 0.979022)
-bones/2/rotation = Quaternion(0.0556653, 4.39854e-05, 3.72038e-05, 0.99845)
-bones/3/scale = Vector3(1.00001, 1.00651, 1.00387)
+bones/2/rotation = Quaternion(0.0540076, 1.07015e-14, 1.28764e-08, 0.998541)
+bones/3/rotation = Quaternion(0.0529482, -1.42586e-14, 1.26238e-08, 0.998597)
 bones/4/rotation = Quaternion(0.313085, -1.49997e-05, 4.27494e-05, 0.949725)
 bones/4/scale = Vector3(1.01042, 1.01042, 1.01042)
 bones/5/rotation = Quaternion(0.727392, 2.3578e-12, 1.73343e-07, 0.686222)
 bones/5/scale = Vector3(1.01638, 1.01638, 1.01638)
-bones/6/position = Vector3(1.33003, 0.630744, -0.359758)
-bones/6/rotation = Quaternion(0.55738, 0.173258, -0.444673, 0.679393)
-bones/7/rotation = Quaternion(0.267004, 0.135655, 0.299933, 0.90573)
-bones/8/rotation = Quaternion(-0.398415, -0.0528111, 0.235388, 0.884912)
+bones/8/rotation = Quaternion(-0.0212807, -0.0670334, -0.00408993, 0.997515)
 bones/14/position = Vector3(-1.34113, 0.630745, -0.359759)
-bones/14/rotation = Quaternion(-0.694359, 0.349175, -0.152731, -0.610423)
-bones/15/rotation = Quaternion(-0.292538, -0.537192, -0.0629663, 0.788595)
-bones/16/rotation = Quaternion(0.0570534, -0.36992, 0.33935, 0.862987)
+bones/16/rotation = Quaternion(0.0215589, -0.0774121, 0.00219365, 0.996764)
 bones/16/scale = Vector3(1, 1, 1)
 bones/22/position = Vector3(-3.91935e-11, 1.65576, -1.67844)
-bones/22/rotation = Quaternion(0.986937, -1.92057e-08, 1.17652e-07, -0.161109)
+bones/24/rotation = Quaternion(0.124248, -2.36571e-07, 6.44482e-14, 0.992251)
 bones/26/position = Vector3(0.979848, 5.47626, -0.179639)
-bones/27/rotation = Quaternion(0.256178, -0.0737415, -0.386705, 0.882833)
-bones/28/rotation = Quaternion(-0.391956, -0.0171014, -0.531254, 0.750898)
+bones/29/scale = Vector3(1, 1, 1)
 bones/30/position = Vector3(-0.990943, 5.47626, -0.179639)
-bones/30/rotation = Quaternion(0.523346, 0.0128341, 0.396753, 0.75401)
-bones/31/rotation = Quaternion(-0.0251057, 0.881367, 0.359072, 0.305989)
-bones/32/rotation = Quaternion(-0.56682, -0.346163, 0.0491084, 0.745973)
-bones/33/rotation = Quaternion(0.774471, 0.0993582, 0.00351751, 0.624748)
+bones/32/rotation = Quaternion(-0.660193, -0.354403, -0.00217573, 0.662223)
+
+[node name="HeadBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.999997, 0.0018994, 0.00173597, -0.000526157, 0.811317, -0.584606, -0.00251883, 0.584603, 0.811316, 0.00939831, 11.042, 2.22243)
+bone_name = "Head_Neck"
+bone_idx = 3
+
+[node name="Head" parent="Gorbjira/Armature/Skeleton3D/HeadBone" instance=ExtResource("2_kji60")]
+transform = Transform3D(1.99999, -0.000840353, -0.00512798, 0.0036918, 1.61874, 1.17459, 0.00365691, -1.17459, 1.61874, -0.00502335, 2.59095, 0.131638)
+kind = 0
+max_hp = 500.0
+
+[node name="CSGBox3D" parent="Gorbjira/Armature/Skeleton3D/HeadBone/Head" index="0"]
+material_override = ExtResource("3_rflpb")
+cast_shadow = 1
+
+[node name="AttackModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/HeadBone/Head/Modules" index="0"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("5_dtwvg")
+animation_name = &"test_animation"
+
+[node name="LaserBeamModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/HeadBone/Head/Modules" index="1"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("6_oojfh")
+animation_name = &"test_animation"
+
+[node name="LArmBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.887423, 0.161406, -0.431775, -0.190388, -0.72472, -0.662218, -0.419802, 0.669872, -0.612403, 2.85077, 6.97107, 3.12329)
+bone_name = "ArmLeft_Forearm"
+bone_idx = 8
+
+[node name="LeftArm" parent="Gorbjira/Armature/Skeleton3D/LArmBone" instance=ExtResource("2_kji60")]
+transform = Transform3D(1.77485, -0.380777, -0.839604, 0.322812, -1.44944, 1.33974, -0.86355, -1.32444, -1.22481, 2.01396, 0.243611, -2.42132)
+kind = 1
+max_hp = 200.0
+
+[node name="CSGBox3D" parent="Gorbjira/Armature/Skeleton3D/LArmBone/LeftArm" index="0"]
+cast_shadow = 1
+
+[node name="HPBar" parent="Gorbjira/Armature/Skeleton3D/LArmBone/LeftArm" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03873, 0.380826, 0.0374168)
+
+[node name="AttackModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/LArmBone/LeftArm/Modules" index="0"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("8_kac7x")
+animation_name = &"test_animation"
+
+[node name="RArmBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="3"]
+transform = Transform3D(-0.192207, -0.212592, -0.958051, -0.937089, -0.250138, 0.243507, -0.291413, 0.944583, -0.151139, -2.74294, 8.07466, 4.0594)
+bone_name = "ArmRight_Forearm"
+bone_idx = 16
+
+[node name="RightArm" parent="Gorbjira/Armature/Skeleton3D/RArmBone" instance=ExtResource("2_kji60")]
+transform = Transform3D(-0.384414, -1.87418, -0.582825, -0.425183, -0.500276, 1.88916, -1.9161, 0.487014, -0.302278, -2.24142, 2.01886, -1.13533)
+kind = 2
+max_hp = 200.0
+
+[node name="CSGBox3D" parent="Gorbjira/Armature/Skeleton3D/RArmBone/RightArm" index="0"]
+cast_shadow = 1
+
+[node name="HPBar" parent="Gorbjira/Armature/Skeleton3D/RArmBone/RightArm" index="1"]
+transform = Transform3D(1, -4.44089e-16, 0, -4.4409e-16, 1, 0, 0, 0, 1, -0.696981, -0.297109, 1.12751)
+
+[node name="AttackModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/RArmBone/RightArm/Modules" index="0"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("8_ijr1p")
+animation_name = &"test_animation"
+
+[node name="LLegBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="4"]
+transform = Transform3D(-0.913449, 0.377389, -0.152277, -0.212416, -0.122986, 0.969409, 0.347116, 0.917852, 0.192504, 3.85271, 0.516382, -0.766238)
+bone_name = "LegLeft_Foot"
+bone_idx = 29
+
+[node name="LeftLeg" parent="Gorbjira/Armature/Skeleton3D/LLegBone" instance=ExtResource("2_kji60")]
+transform = Transform3D(-1.8269, -0.424833, 0.694232, 0.754777, -0.24597, 1.8357, -0.304553, 1.93882, 0.385009, 0.178347, 3.61993, 0.693578)
+kind = 5
+max_hp = 300.0
+
+[node name="CSGBox3D" parent="Gorbjira/Armature/Skeleton3D/LLegBone/LeftLeg" index="0"]
+cast_shadow = 1
+
+[node name="AttackModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/LLegBone/LeftLeg/Modules" index="0"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("11_0k068")
+animation_name = &"test_animation"
+
+[node name="RLegBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="5"]
+transform = Transform3D(-0.959515, -0.238569, 0.149721, 0.116798, -0.820731, -0.559248, 0.2563, -0.519119, 0.815368, -2.88415, 4.19377, 3.2252)
+bone_name = "LegRight_Calf"
+bone_idx = 32
+
+[node name="RightLeg" parent="Gorbjira/Armature/Skeleton3D/RLegBone" instance=ExtResource("2_kji60")]
+transform = Transform3D(-1.91903, 0.233597, 0.5126, -0.477139, -1.64146, -1.03824, 0.299443, -1.1185, 1.63074, -0.379491, 2.86039, 1.4323)
+kind = 6
+max_hp = 300.0
+
+[node name="CSGBox3D" parent="Gorbjira/Armature/Skeleton3D/RLegBone/RightLeg" index="0"]
+cast_shadow = 1
+
+[node name="HPBar" parent="Gorbjira/Armature/Skeleton3D/RLegBone/RightLeg" index="1"]
+transform = Transform3D(1, -1.11022e-15, 0, 0, 1, 0, 0, 0, 1, 1.69374, 0.838903, 1.76361)
+
+[node name="AttackModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/RLegBone/RightLeg/Modules" index="0"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("12_74d4w")
+animation_name = &"test_animation"
+
+[node name="TorsoBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="6"]
+transform = Transform3D(0.999997, 0.0017052, 0.0019271, -0.000526178, 0.868589, -0.495533, -0.00251884, 0.49553, 0.868587, 0.00448815, 8.5409, 0.795537)
+bone_name = "Torso_Chest"
+bone_idx = 2
+
+[node name="Torso" parent="Gorbjira/Armature/Skeleton3D/TorsoBone" instance=ExtResource("2_kji60")]
+transform = Transform3D(1.99999, -0.00105236, -0.00503768, 0.0034104, 1.73718, 0.991061, 0.0038542, -0.991067, 1.73718, 6.62991, -0.269658, -1.0055)
+kind = 3
+max_hp = 1000.0
+
+[node name="CSGBox3D" parent="Gorbjira/Armature/Skeleton3D/TorsoBone/Torso" index="0"]
+cast_shadow = 1
+
+[node name="HPBar" parent="Gorbjira/Armature/Skeleton3D/TorsoBone/Torso" index="1"]
+transform = Transform3D(1, -1.38779e-17, 0, 4.41761e-29, 1, 0, -5.55112e-17, 2.84217e-14, 1, -1.56216, 0.838903, 0)
+
+[node name="ReinforceShieldModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/TorsoBone/Torso/Modules" index="0"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("6_dgdt3")
+animation_name = &"test_animation"
+
+[node name="TailBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, -1.81188e-13, -2.38418e-07, 1.84137e-07, -0.635228, 0.772325, -1.51452e-07, -0.772326, -0.635231, -3.95491e-11, 2.67799, -3.99197)
+bone_name = "Tail_02"
+bone_idx = 24
+
+[node name="Tail" parent="Gorbjira/Armature/Skeleton3D/TailBone" instance=ExtResource("2_kji60")]
+transform = Transform3D(2, 3.68272e-07, -3.02899e-07, -2.08515e-12, -1.27046, -1.54465, -4.7684e-07, 1.54465, -1.27045, 0.00540881, 0.68947, 2.69689)
+kind = 7
+max_hp = 500.0
+
+[node name="CSGBox3D" parent="Gorbjira/Armature/Skeleton3D/TailBone/Tail" index="0"]
+cast_shadow = 1
+
+[node name="HPBar" parent="Gorbjira/Armature/Skeleton3D/TailBone/Tail" index="1"]
+transform = Transform3D(0.922673, 0, 0.385584, 0, 1, 0, -0.385584, 0, 0.922673, 0, -0.217973, -0.672686)
+
+[node name="AttackModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/TailBone/Tail/Modules" index="0"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("9_2jshx")
+animation_name = &"test_animation"
+
+[node name="PelvisBone" type="BoneAttachment3D" parent="Gorbjira/Armature/Skeleton3D" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78973, 4.77404, -0.12155)
+bone_name = "Pelvis"
+bone_idx = 0
+
+[node name="Pelvis" parent="Gorbjira/Armature/Skeleton3D/PelvisBone" instance=ExtResource("2_kji60")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.66978e-17, 0.458103, -4.05561)
+kind = 4
+max_hp = 400.0
+
+[node name="CSGBox3D" parent="Gorbjira/Armature/Skeleton3D/PelvisBone/Pelvis" index="0"]
+cast_shadow = 1
+
+[node name="HPBar" parent="Gorbjira/Armature/Skeleton3D/PelvisBone/Pelvis" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.970607, 0.838903, 0.151936)
+
+[node name="ShieldGainModule" type="Node" parent="Gorbjira/Armature/Skeleton3D/PelvisBone/Pelvis/Modules" index="0"]
+script = ExtResource("4_g5dxc")
+data = ExtResource("6_d7jla")
+animation_name = &"test_animation"
 
 [node name="BoostRepairTimer" type="Timer" parent="."]
 one_shot = true
@@ -216,12 +257,12 @@ volume_db = -6.0
 stream = ExtResource("13_qk6kw")
 volume_db = -6.0
 
-[editable path="BodyParts/Head"]
-[editable path="BodyParts/Torso"]
-[editable path="BodyParts/LeftArm"]
-[editable path="BodyParts/RightArm"]
-[editable path="BodyParts/Pelvis"]
-[editable path="BodyParts/LeftLeg"]
-[editable path="BodyParts/RightLeg"]
-[editable path="BodyParts/Tail"]
 [editable path="Gorbjira"]
+[editable path="Gorbjira/Armature/Skeleton3D/HeadBone/Head"]
+[editable path="Gorbjira/Armature/Skeleton3D/LArmBone/LeftArm"]
+[editable path="Gorbjira/Armature/Skeleton3D/RArmBone/RightArm"]
+[editable path="Gorbjira/Armature/Skeleton3D/LLegBone/LeftLeg"]
+[editable path="Gorbjira/Armature/Skeleton3D/RLegBone/RightLeg"]
+[editable path="Gorbjira/Armature/Skeleton3D/TorsoBone/Torso"]
+[editable path="Gorbjira/Armature/Skeleton3D/TailBone/Tail"]
+[editable path="Gorbjira/Armature/Skeleton3D/PelvisBone/Pelvis"]

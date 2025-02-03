@@ -31,7 +31,7 @@ script = ExtResource("1_8t2nw")
 shield = 300.0
 shield_colour = Color(0, 0, 1, 1)
 reinforced_shield_colour = Color(0, 1, 1, 1)
-body_parts = [NodePath("MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"), NodePath("MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso"), NodePath("MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"), NodePath("MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm"), NodePath("MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"), NodePath("MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg"), NodePath("MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg")]
+body_parts = [NodePath("MechaZorg/Armature/Skeleton3D/Head_Helmet/Head"), NodePath("MechaZorg/Armature/Skeleton3D/TorsoBone/Torso"), NodePath("MechaZorg/Armature/Skeleton3D/LArmBone/LeftArm"), NodePath("MechaZorg/Armature/Skeleton3D/RArmBone/RightArm"), NodePath("MechaZorg/Armature/Skeleton3D/PelvisBone/Pelvis"), NodePath("MechaZorg/Armature/Skeleton3D/LLegBone/LeftLeg"), NodePath("MechaZorg/Armature/Skeleton3D/RLegBone/RightLeg")]
 
 [node name="ShieldBar" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8, 0)
@@ -130,127 +130,157 @@ bones/40/rotation = Quaternion(0.0956505, -0.00223109, 0.864255, -0.493871)
 bones/40/scale = Vector3(1, 1, 1)
 
 [node name="Head_Face" parent="MechaZorg/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.968005, 3.56231e-08, 0.250931, -6.31657e-08, 0.999999, 2.47732e-07, -0.250931, -2.69152e-07, 0.968005, -0.0585039, -0.929611, -0.363049)
+transform = Transform3D(0.968005, -1.1432e-07, 0.250931, -6.31652e-08, 1, 8.31671e-07, -0.250931, -8.31671e-07, 0.968005, -0.0585039, -0.929614, -0.363049)
 
 [node name="Head_Helmet" parent="MechaZorg/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.968005, 3.56231e-08, 0.250931, -6.31657e-08, 0.999999, 2.47732e-07, -0.250931, -2.69152e-07, 0.968005, -0.0585039, -0.929611, -0.363049)
+transform = Transform3D(0.968005, -1.1432e-07, 0.250931, -6.31652e-08, 1, 8.31671e-07, -0.250931, -8.31671e-07, 0.968005, -0.0585039, -0.929614, -0.363049)
 
-[node name="Head" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet" index="0" instance=ExtResource("1_30pws")]
-transform = Transform3D(2.06186, 3.51609e-13, 1.17203e-13, 1.17203e-13, 2.06186, -3.28364e-07, -3.48862e-13, 3.30284e-07, 2.06186, 0, 11.016, -0.035)
+[node name="Head" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet" index="1" instance=ExtResource("1_30pws")]
+transform = Transform3D(2.06186, 3.12639e-13, 5.96046e-08, 8.52651e-14, 2.06186, -3.28364e-07, -5.96046e-08, 3.30284e-07, 2.06186, 2.98023e-08, 11.016, -0.035)
 kind = 0
 max_hp = 500.0
 
-[node name="CSGBox3D" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head" index="0"]
+[node name="CSGBox3D" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head" index="0"]
 material_override = ExtResource("2_pb2md")
 
-[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules" index="0"]
+[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("3_2bqwm")
 animation_name = &"test_animation"
 
-[node name="BoostRepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head/Modules" index="1"]
+[node name="BoostRepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head/Modules" index="1"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("4_f06yl")
 animation_name = &"test_animation"
 
-[node name="Head_Mouthguard" parent="MechaZorg/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.968005, 3.56231e-08, 0.250931, -6.31657e-08, 0.999999, 2.47732e-07, -0.250931, -2.69152e-07, 0.968005, -0.0585039, -0.929611, -0.363049)
+[node name="LArmBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="2"]
+transform = Transform3D(-0.527052, -0.276292, -0.803667, -0.649865, 0.740414, 0.171641, 0.547623, 0.612739, -0.56979, 2.88283, 6.88615, 0.399587)
+bone_name = "ArmL_Forearm"
+bone_idx = 8
 
-[node name="LeftArm" parent="MechaZorg/Armature/Skeleton3D/LArm_Forearm" index="0" instance=ExtResource("1_30pws")]
-transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 4.58988, 9.76538, -0.23652)
+[node name="LeftArm" parent="MechaZorg/Armature/Skeleton3D/LArmBone" instance=ExtResource("1_30pws")]
+transform = Transform3D(-1.77036, -1.05611, 0.0414238, 1.02823, -1.70228, 0.544304, -0.2446, 0.48801, 1.98829, 1.72702, 1.87311, -3.78491)
 kind = 1
 max_hp = 300.0
 
-[node name="HPBar" parent="MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838903, 1.41168)
+[node name="HPBar" parent="MechaZorg/Armature/Skeleton3D/LArmBone/LeftArm" index="1"]
+transform = Transform3D(1, 2.23517e-08, 3.72529e-09, -7.45058e-09, 1, 0, -1.86265e-08, 0, 1, -0.321268, 0.0409663, 0.972086)
 
-[node name="RestrainAttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules" index="0"]
+[node name="RestrainAttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LArmBone/LeftArm/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("6_to568")
 animation_name = &"test_animation"
 
-[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm/Modules" index="1"]
+[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LArmBone/LeftArm/Modules" index="1"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("9_0t3he")
 animation_name = &"test_animation"
 
-[node name="LeftLeg" parent="MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead" index="0" instance=ExtResource("1_30pws")]
-transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 1.38486, 1.37522, 2.25493)
-kind = 5
-max_hp = 350.0
+[node name="RArmBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.268414, 0.275865, 0.922958, 0.795884, 0.47627, -0.373811, -0.542699, 0.834905, -0.0917194, -3.10983, 7.24936, -0.396166)
+bone_name = "ArmR_Forearm"
+bone_idx = 12
 
-[node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg/Modules" index="0"]
-script = ExtResource("2_qs1rj")
-data = ExtResource("10_7k34i")
-animation_name = &"test_animation"
-
-[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg/Modules" index="1"]
-script = ExtResource("2_qs1rj")
-data = ExtResource("11_0tq5m")
-animation_name = &"test_animation"
-
-[node name="Pelvis" parent="MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead" index="0" instance=ExtResource("1_30pws")]
-transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 0, 5.27486, -3.67425)
-kind = 4
-max_hp = 500.0
-
-[node name="ReinforceShieldModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules" index="0"]
-script = ExtResource("2_qs1rj")
-data = ExtResource("9_qxrjr")
-animation_name = &"test_animation"
-
-[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis/Modules" index="1"]
-script = ExtResource("2_qs1rj")
-data = ExtResource("10_lusm6")
-animation_name = &"test_animation"
-
-[node name="RightArm" parent="MechaZorg/Armature/Skeleton3D/RArm_Forearm" index="0" instance=ExtResource("1_30pws")]
-transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, -4.59, 9.765, -0.237)
+[node name="RightArm" parent="MechaZorg/Armature/Skeleton3D/RArmBone" instance=ExtResource("1_30pws")]
+transform = Transform3D(-1.9313, 0.628702, -0.355082, -0.721951, -1.665, 0.978694, 0.0116874, 1.04105, 1.7797, 0.562977, -0.506872, -1.90498)
 kind = 2
 max_hp = 300.0
 
-[node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules" index="0"]
+[node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RArmBone/RightArm/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("5_ctcmh")
 animation_name = &"test_animation"
 
-[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm/Modules" index="1"]
+[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RArmBone/RightArm/Modules" index="1"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("13_w50so")
 animation_name = &"test_animation"
 
-[node name="RightLeg" parent="MechaZorg/Armature/Skeleton3D/RLeg_Foot" index="0" instance=ExtResource("1_30pws")]
-transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, -2.5559, 1.37522, -1.98676)
+[node name="LLegBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="4"]
+transform = Transform3D(-0.996382, 0.0843303, -0.0105203, -0.0462864, -0.434686, 0.899393, 0.071273, 0.896625, 0.437017, 2.39322, 1.01897, 1.77689)
+bone_name = "LegL_Foot"
+bone_idx = 31
+
+[node name="LeftLeg" parent="MechaZorg/Armature/Skeleton3D/LLegBone" instance=ExtResource("1_30pws")]
+transform = Transform3D(-2.0544, -0.0954362, 0.146955, 0.173877, -0.89626, 1.84872, -0.0216909, 1.85442, 0.901066, 1.03984, 0.27224, -0.452409)
+kind = 5
+max_hp = 350.0
+
+[node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LLegBone/LeftLeg/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("10_7k34i")
+animation_name = &"test_animation"
+
+[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/LLegBone/LeftLeg/Modules" index="1"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("11_0tq5m")
+animation_name = &"test_animation"
+
+[node name="RLegBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="5"]
+transform = Transform3D(-0.329356, -0.862177, -0.384936, 0.270474, -0.476747, 0.836394, -0.904637, 0.171356, 0.390216, -0.930582, 0.779147, -3.1072)
+bone_name = "LegR_Foot"
+bone_idx = 35
+
+[node name="RightLeg" parent="MechaZorg/Armature/Skeleton3D/RLegBone" instance=ExtResource("1_30pws")]
+transform = Transform3D(-0.679087, 0.557681, -1.86524, -1.43192, -1.48147, 0.0783872, -1.31899, 1.32118, 0.875227, 0.0797124, 2.24756, 1.52941)
 kind = 6
 max_hp = 450.0
 
-[node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg/Modules" index="0"]
+[node name="AttackModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RLegBone/RightLeg/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("16_ju55j")
 animation_name = &"test_animation"
 
-[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg/Modules" index="1"]
+[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/RLegBone/RightLeg/Modules" index="1"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("17_8ma2s")
 animation_name = &"test_animation"
 
-[node name="Torso" parent="MechaZorg/Armature/Skeleton3D/Torso_Chestplate" index="0" instance=ExtResource("1_30pws")]
-transform = Transform3D(2.06186, 0, 0, 0, 2.06186, 0, 0, 0, 2.06186, 0.542514, 7.11446, 2.67984)
+[node name="PelvisBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="6"]
+transform = Transform3D(1, 2.84217e-14, -2.38419e-07, 2.25828e-07, 0.32067, 0.947191, 7.64538e-08, -0.947191, 0.32067, 7.07375e-14, 5.3155, 0.273947)
+bone_name = "Pelvis"
+bone_idx = 0
+
+[node name="Pelvis" parent="MechaZorg/Armature/Skeleton3D/PelvisBone" instance=ExtResource("1_30pws")]
+transform = Transform3D(2.06186, 4.65626e-07, 1.57637e-07, 1.46504e-14, 0.661177, -1.95298, -4.91586e-07, 1.95298, 0.661177, -5.36442e-07, 3.76723, -2.29974)
+kind = 4
+max_hp = 500.0
+
+[node name="ReinforceShieldModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/PelvisBone/Pelvis/Modules" index="0"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("9_qxrjr")
+animation_name = &"test_animation"
+
+[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/PelvisBone/Pelvis/Modules" index="1"]
+script = ExtResource("2_qs1rj")
+data = ExtResource("10_lusm6")
+animation_name = &"test_animation"
+
+[node name="TorsoBone" type="BoneAttachment3D" parent="MechaZorg/Armature/Skeleton3D" index="7"]
+transform = Transform3D(0.982427, -0.0290103, -0.184376, 4.61005e-08, 0.987847, -0.15543, 0.186645, 0.152699, 0.970488, 2.36672e-13, 7.59335, -0.670992)
+bone_name = "Torso_Chest"
+bone_idx = 2
+
+[node name="Torso" parent="MechaZorg/Armature/Skeleton3D/TorsoBone" instance=ExtResource("1_30pws")]
+transform = Transform3D(2.06186, 6.28232e-08, -4.76837e-07, -4.09782e-08, 2.0368, 0.320475, 1.49012e-07, -0.320475, 2.0368, -2.01798, -1.05943, -3.08779)
 kind = 3
 max_hp = 1000.0
 
-[node name="HPBar" parent="MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso" index="1"]
+[node name="HPBar" parent="MechaZorg/Armature/Skeleton3D/TorsoBone/Torso" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.714132, 0.0335114)
 
-[node name="ShieldModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules" index="0"]
+[node name="ShieldModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/TorsoBone/Torso/Modules" index="0"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("5_6jtkx")
 animation_name = &"test_animation"
 
-[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso/Modules" index="1"]
+[node name="RepairModule" type="Node" parent="MechaZorg/Armature/Skeleton3D/TorsoBone/Torso/Modules" index="1"]
 script = ExtResource("2_qs1rj")
 data = ExtResource("6_0iw3j")
 animation_name = &"test_animation"
+
+[node name="Head_Mouthguard" parent="MechaZorg/Armature/Skeleton3D" index="8"]
+transform = Transform3D(0.968005, -1.1432e-07, 0.250931, -6.31652e-08, 1, 8.31671e-07, -0.250931, -8.31671e-07, 0.968005, -0.0585039, -0.929614, -0.363049)
 
 [node name="BoostRepairTimer" type="Timer" parent="."]
 one_shot = true
@@ -280,10 +310,10 @@ stream = ExtResource("19_oxpmw")
 volume_db = -6.0
 
 [editable path="MechaZorg"]
-[editable path="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head_Helmet/Head"]
-[editable path="MechaZorg/Armature/Skeleton3D/LArm_Forearm/LeftArm"]
-[editable path="MechaZorg/Armature/Skeleton3D/LLeg_MonkeyHead/LeftLeg"]
-[editable path="MechaZorg/Armature/Skeleton3D/Pelvis_DonkeyHead/Pelvis"]
-[editable path="MechaZorg/Armature/Skeleton3D/RArm_Forearm/RightArm"]
-[editable path="MechaZorg/Armature/Skeleton3D/RLeg_Foot/RightLeg"]
-[editable path="MechaZorg/Armature/Skeleton3D/Torso_Chestplate/Torso"]
+[editable path="MechaZorg/Armature/Skeleton3D/Head_Helmet/Head"]
+[editable path="MechaZorg/Armature/Skeleton3D/LArmBone/LeftArm"]
+[editable path="MechaZorg/Armature/Skeleton3D/RArmBone/RightArm"]
+[editable path="MechaZorg/Armature/Skeleton3D/LLegBone/LeftLeg"]
+[editable path="MechaZorg/Armature/Skeleton3D/RLegBone/RightLeg"]
+[editable path="MechaZorg/Armature/Skeleton3D/PelvisBone/Pelvis"]
+[editable path="MechaZorg/Armature/Skeleton3D/TorsoBone/Torso"]
